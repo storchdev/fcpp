@@ -3895,10 +3895,40 @@
       "https://en.cppreference.com/w/cpp/container/vector/push_back"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/092-std-vector-reallocation-invalidation",
+      "readme": "examples/092-std-vector-reallocation-invalidation/README.md",
+      "cases": [
+        {
+          "name": "dangling-reference",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/092-std-vector-reallocation-invalidation/01-dangling-reference",
+          "files": {
+            "bad_cpp": "examples/092-std-vector-reallocation-invalidation/01-dangling-reference/bad.cpp",
+            "good_cpp": "examples/092-std-vector-reallocation-invalidation/01-dangling-reference/good.cpp",
+            "good_rust": "examples/092-std-vector-reallocation-invalidation/01-dangling-reference/good.rs",
+            "explanation": "examples/092-std-vector-reallocation-invalidation/01-dangling-reference/explanation.md",
+            "compilers": "examples/092-std-vector-reallocation-invalidation/01-dangling-reference/compilers.md"
+          }
+        },
+        {
+          "name": "insert-shifts",
+          "classification": "UB",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/092-std-vector-reallocation-invalidation/02-insert-shifts",
+          "files": {
+            "bad_cpp": "examples/092-std-vector-reallocation-invalidation/02-insert-shifts/bad.cpp",
+            "good_cpp": "examples/092-std-vector-reallocation-invalidation/02-insert-shifts/good.cpp",
+            "explanation": "examples/092-std-vector-reallocation-invalidation/02-insert-shifts/explanation.md",
+            "compilers": "examples/092-std-vector-reallocation-invalidation/02-insert-shifts/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3915,10 +3945,40 @@
       "https://en.cppreference.com/w/cpp/container/vector/resize"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/093-reserve-vs-resize",
+      "readme": "examples/093-reserve-vs-resize/README.md",
+      "cases": [
+        {
+          "name": "reserve-then-index",
+          "classification": "UB",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/093-reserve-vs-resize/01-reserve-then-index",
+          "files": {
+            "bad_cpp": "examples/093-reserve-vs-resize/01-reserve-then-index/bad.cpp",
+            "good_cpp": "examples/093-reserve-vs-resize/01-reserve-then-index/good.cpp",
+            "good_rust": "examples/093-reserve-vs-resize/01-reserve-then-index/good.rs",
+            "explanation": "examples/093-reserve-vs-resize/01-reserve-then-index/explanation.md",
+            "compilers": "examples/093-reserve-vs-resize/01-reserve-then-index/compilers.md"
+          }
+        },
+        {
+          "name": "resize-then-push-back",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/093-reserve-vs-resize/02-resize-then-push-back",
+          "files": {
+            "bad_cpp": "examples/093-reserve-vs-resize/02-resize-then-push-back/bad.cpp",
+            "good_cpp": "examples/093-reserve-vs-resize/02-resize-then-push-back/good.cpp",
+            "explanation": "examples/093-reserve-vs-resize/02-resize-then-push-back/explanation.md",
+            "compilers": "examples/093-reserve-vs-resize/02-resize-then-push-back/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3934,10 +3994,39 @@
       "https://en.cppreference.com/w/cpp/container/deque"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/094-std-deque-invalidation-rules",
+      "readme": "examples/094-std-deque-invalidation-rules/README.md",
+      "cases": [
+        {
+          "name": "reference-across-middle-insert",
+          "classification": "UB",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/094-std-deque-invalidation-rules/01-reference-across-middle-insert",
+          "files": {
+            "bad_cpp": "examples/094-std-deque-invalidation-rules/01-reference-across-middle-insert/bad.cpp",
+            "good_cpp": "examples/094-std-deque-invalidation-rules/01-reference-across-middle-insert/good.cpp",
+            "explanation": "examples/094-std-deque-invalidation-rules/01-reference-across-middle-insert/explanation.md",
+            "compilers": "examples/094-std-deque-invalidation-rules/01-reference-across-middle-insert/compilers.md"
+          }
+        },
+        {
+          "name": "iterator-across-push-back",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/094-std-deque-invalidation-rules/02-iterator-across-push-back",
+          "files": {
+            "bad_cpp": "examples/094-std-deque-invalidation-rules/02-iterator-across-push-back/bad.cpp",
+            "good_cpp": "examples/094-std-deque-invalidation-rules/02-iterator-across-push-back/good.cpp",
+            "explanation": "examples/094-std-deque-invalidation-rules/02-iterator-across-push-back/explanation.md",
+            "compilers": "examples/094-std-deque-invalidation-rules/02-iterator-across-push-back/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3954,10 +4043,25 @@
       "https://en.cppreference.com/w/cpp/container/unordered_map/rehash"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/095-std-unordered-map-rehashing",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UB",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/095-std-unordered-map-rehashing/01-main",
+          "files": {
+            "bad_cpp": "examples/095-std-unordered-map-rehashing/01-main/bad.cpp",
+            "good_cpp": "examples/095-std-unordered-map-rehashing/01-main/good.cpp",
+            "explanation": "examples/095-std-unordered-map-rehashing/01-main/explanation.md",
+            "compilers": "examples/095-std-unordered-map-rehashing/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3974,10 +4078,39 @@
       "https://en.cppreference.com/w/cpp/container/vector/erase"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/096-past-the-end-iterator-invalidation",
+      "readme": "examples/096-past-the-end-iterator-invalidation/README.md",
+      "cases": [
+        {
+          "name": "push-back",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/096-past-the-end-iterator-invalidation/01-push-back",
+          "files": {
+            "bad_cpp": "examples/096-past-the-end-iterator-invalidation/01-push-back/bad.cpp",
+            "good_cpp": "examples/096-past-the-end-iterator-invalidation/01-push-back/good.cpp",
+            "explanation": "examples/096-past-the-end-iterator-invalidation/01-push-back/explanation.md",
+            "compilers": "examples/096-past-the-end-iterator-invalidation/01-push-back/compilers.md"
+          }
+        },
+        {
+          "name": "erase",
+          "classification": "UB",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/096-past-the-end-iterator-invalidation/02-erase",
+          "files": {
+            "bad_cpp": "examples/096-past-the-end-iterator-invalidation/02-erase/bad.cpp",
+            "good_cpp": "examples/096-past-the-end-iterator-invalidation/02-erase/good.cpp",
+            "explanation": "examples/096-past-the-end-iterator-invalidation/02-erase/explanation.md",
+            "compilers": "examples/096-past-the-end-iterator-invalidation/02-erase/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3995,10 +4128,40 @@
       "https://en.cppreference.com/w/cpp/container/vector/erase2"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/097-erasing-while-iterating",
+      "readme": "examples/097-erasing-while-iterating/README.md",
+      "cases": [
+        {
+          "name": "unordered-map",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/097-erasing-while-iterating/01-unordered-map",
+          "files": {
+            "bad_cpp": "examples/097-erasing-while-iterating/01-unordered-map/bad.cpp",
+            "good_cpp": "examples/097-erasing-while-iterating/01-unordered-map/good.cpp",
+            "explanation": "examples/097-erasing-while-iterating/01-unordered-map/explanation.md",
+            "compilers": "examples/097-erasing-while-iterating/01-unordered-map/compilers.md"
+          }
+        },
+        {
+          "name": "vector",
+          "classification": "UB",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/097-erasing-while-iterating/02-vector",
+          "files": {
+            "bad_cpp": "examples/097-erasing-while-iterating/02-vector/bad.cpp",
+            "good_cpp": "examples/097-erasing-while-iterating/02-vector/good.cpp",
+            "good_rust": "examples/097-erasing-while-iterating/02-vector/good.rs",
+            "explanation": "examples/097-erasing-while-iterating/02-vector/explanation.md",
+            "compilers": "examples/097-erasing-while-iterating/02-vector/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -4015,10 +4178,26 @@
       "https://en.cppreference.com/w/cpp/container/map/at"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/098-std-map-operator-implicit-insertion",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/098-std-map-operator-implicit-insertion/01-main",
+          "files": {
+            "bad_cpp": "examples/098-std-map-operator-implicit-insertion/01-main/bad.cpp",
+            "good_cpp": "examples/098-std-map-operator-implicit-insertion/01-main/good.cpp",
+            "good_rust": "examples/098-std-map-operator-implicit-insertion/01-main/good.rs",
+            "explanation": "examples/098-std-map-operator-implicit-insertion/01-main/explanation.md",
+            "compilers": "examples/098-std-map-operator-implicit-insertion/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -4036,10 +4215,40 @@
       "https://en.cppreference.com/w/cpp/container/map/try_emplace"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/099-insert-emplace-and-try-emplace-semantics",
+      "readme": "examples/099-insert-emplace-and-try-emplace-semantics/README.md",
+      "cases": [
+        {
+          "name": "insert-keeps-old",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/099-insert-emplace-and-try-emplace-semantics/01-insert-keeps-old",
+          "files": {
+            "bad_cpp": "examples/099-insert-emplace-and-try-emplace-semantics/01-insert-keeps-old/bad.cpp",
+            "good_cpp": "examples/099-insert-emplace-and-try-emplace-semantics/01-insert-keeps-old/good.cpp",
+            "good_rust": "examples/099-insert-emplace-and-try-emplace-semantics/01-insert-keeps-old/good.rs",
+            "explanation": "examples/099-insert-emplace-and-try-emplace-semantics/01-insert-keeps-old/explanation.md",
+            "compilers": "examples/099-insert-emplace-and-try-emplace-semantics/01-insert-keeps-old/compilers.md"
+          }
+        },
+        {
+          "name": "insert-consumes-argument",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/099-insert-emplace-and-try-emplace-semantics/02-insert-consumes-argument",
+          "files": {
+            "bad_cpp": "examples/099-insert-emplace-and-try-emplace-semantics/02-insert-consumes-argument/bad.cpp",
+            "good_cpp": "examples/099-insert-emplace-and-try-emplace-semantics/02-insert-consumes-argument/good.cpp",
+            "explanation": "examples/099-insert-emplace-and-try-emplace-semantics/02-insert-consumes-argument/explanation.md",
+            "compilers": "examples/099-insert-emplace-and-try-emplace-semantics/02-insert-consumes-argument/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -4057,10 +4266,39 @@
       "https://en.cppreference.com/w/cpp/container/map"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/100-strict-weak-ordering-requirements",
+      "readme": "examples/100-strict-weak-ordering-requirements/README.md",
+      "cases": [
+        {
+          "name": "sort-less-equal",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/100-strict-weak-ordering-requirements/01-sort-less-equal",
+          "files": {
+            "bad_cpp": "examples/100-strict-weak-ordering-requirements/01-sort-less-equal/bad.cpp",
+            "good_cpp": "examples/100-strict-weak-ordering-requirements/01-sort-less-equal/good.cpp",
+            "explanation": "examples/100-strict-weak-ordering-requirements/01-sort-less-equal/explanation.md",
+            "compilers": "examples/100-strict-weak-ordering-requirements/01-sort-less-equal/compilers.md"
+          }
+        },
+        {
+          "name": "map-less-equal",
+          "classification": "UB",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/100-strict-weak-ordering-requirements/02-map-less-equal",
+          "files": {
+            "bad_cpp": "examples/100-strict-weak-ordering-requirements/02-map-less-equal/bad.cpp",
+            "good_cpp": "examples/100-strict-weak-ordering-requirements/02-map-less-equal/good.cpp",
+            "explanation": "examples/100-strict-weak-ordering-requirements/02-map-less-equal/explanation.md",
+            "compilers": "examples/100-strict-weak-ordering-requirements/02-map-less-equal/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -4078,10 +4316,25 @@
       "https://en.cppreference.com/w/cpp/container/unordered_map"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/101-hash-equality-consistency",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UB",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/101-hash-equality-consistency/01-main",
+          "files": {
+            "bad_cpp": "examples/101-hash-equality-consistency/01-main/bad.cpp",
+            "good_cpp": "examples/101-hash-equality-consistency/01-main/good.cpp",
+            "explanation": "examples/101-hash-equality-consistency/01-main/explanation.md",
+            "compilers": "examples/101-hash-equality-consistency/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -4098,10 +4351,53 @@
       "https://en.cppreference.com/w/cpp/container/vector_bool/reference"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/102-std-vector-bool-specialization",
+      "readme": "examples/102-std-vector-bool-specialization/README.md",
+      "cases": [
+        {
+          "name": "auto-proxy",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/102-std-vector-bool-specialization/01-auto-proxy",
+          "files": {
+            "bad_cpp": "examples/102-std-vector-bool-specialization/01-auto-proxy/bad.cpp",
+            "good_cpp": "examples/102-std-vector-bool-specialization/01-auto-proxy/good.cpp",
+            "explanation": "examples/102-std-vector-bool-specialization/01-auto-proxy/explanation.md",
+            "compilers": "examples/102-std-vector-bool-specialization/01-auto-proxy/compilers.md"
+          }
+        },
+        {
+          "name": "reference-binding",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/102-std-vector-bool-specialization/02-reference-binding",
+          "files": {
+            "bad_cpp": "examples/102-std-vector-bool-specialization/02-reference-binding/bad.cpp",
+            "good_cpp": "examples/102-std-vector-bool-specialization/02-reference-binding/good.cpp",
+            "explanation": "examples/102-std-vector-bool-specialization/02-reference-binding/explanation.md",
+            "compilers": "examples/102-std-vector-bool-specialization/02-reference-binding/compilers.md"
+          }
+        },
+        {
+          "name": "adjacent-race",
+          "classification": "CONC",
+          "detection": [
+            "sanitizer:thread"
+          ],
+          "dir": "examples/102-std-vector-bool-specialization/03-adjacent-race",
+          "files": {
+            "bad_cpp": "examples/102-std-vector-bool-specialization/03-adjacent-race/bad.cpp",
+            "good_cpp": "examples/102-std-vector-bool-specialization/03-adjacent-race/good.cpp",
+            "explanation": "examples/102-std-vector-bool-specialization/03-adjacent-race/explanation.md",
+            "compilers": "examples/102-std-vector-bool-specialization/03-adjacent-race/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -4118,10 +4414,28 @@
       "https://en.cppreference.com/w/cpp/container/vector/erase2"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/103-std-remove-vs-container-erasure",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "warning:g++:-Wunused-result",
+            "warning:clang++:-Wunused-result",
+            "tool:clang-tidy:bugprone-unused-return-value"
+          ],
+          "dir": "examples/103-std-remove-vs-container-erasure/01-main",
+          "files": {
+            "bad_cpp": "examples/103-std-remove-vs-container-erasure/01-main/bad.cpp",
+            "good_cpp": "examples/103-std-remove-vs-container-erasure/01-main/good.cpp",
+            "good_rust": "examples/103-std-remove-vs-container-erasure/01-main/good.rs",
+            "explanation": "examples/103-std-remove-vs-container-erasure/01-main/explanation.md",
+            "compilers": "examples/103-std-remove-vs-container-erasure/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -4138,10 +4452,54 @@
       "https://en.cppreference.com/w/cpp/iterator"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/104-algorithms-with-invalid-ranges-or-iterators",
+      "readme": "examples/104-algorithms-with-invalid-ranges-or-iterators/README.md",
+      "cases": [
+        {
+          "name": "copy-too-small",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/104-algorithms-with-invalid-ranges-or-iterators/01-copy-too-small",
+          "files": {
+            "bad_cpp": "examples/104-algorithms-with-invalid-ranges-or-iterators/01-copy-too-small/bad.cpp",
+            "good_cpp": "examples/104-algorithms-with-invalid-ranges-or-iterators/01-copy-too-small/good.cpp",
+            "good_rust": "examples/104-algorithms-with-invalid-ranges-or-iterators/01-copy-too-small/good.rs",
+            "explanation": "examples/104-algorithms-with-invalid-ranges-or-iterators/01-copy-too-small/explanation.md",
+            "compilers": "examples/104-algorithms-with-invalid-ranges-or-iterators/01-copy-too-small/compilers.md"
+          }
+        },
+        {
+          "name": "mismatched-containers",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/104-algorithms-with-invalid-ranges-or-iterators/02-mismatched-containers",
+          "files": {
+            "bad_cpp": "examples/104-algorithms-with-invalid-ranges-or-iterators/02-mismatched-containers/bad.cpp",
+            "good_cpp": "examples/104-algorithms-with-invalid-ranges-or-iterators/02-mismatched-containers/good.cpp",
+            "explanation": "examples/104-algorithms-with-invalid-ranges-or-iterators/02-mismatched-containers/explanation.md",
+            "compilers": "examples/104-algorithms-with-invalid-ranges-or-iterators/02-mismatched-containers/compilers.md"
+          }
+        },
+        {
+          "name": "unsorted-binary-search",
+          "classification": "UB",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/104-algorithms-with-invalid-ranges-or-iterators/03-unsorted-binary-search",
+          "files": {
+            "bad_cpp": "examples/104-algorithms-with-invalid-ranges-or-iterators/03-unsorted-binary-search/bad.cpp",
+            "good_cpp": "examples/104-algorithms-with-invalid-ranges-or-iterators/03-unsorted-binary-search/good.cpp",
+            "explanation": "examples/104-algorithms-with-invalid-ranges-or-iterators/03-unsorted-binary-search/explanation.md",
+            "compilers": "examples/104-algorithms-with-invalid-ranges-or-iterators/03-unsorted-binary-search/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -4158,10 +4516,27 @@
       "https://en.cppreference.com/w/cpp/algorithm/max"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/105-returning-references-from-std-min-and-max",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address",
+            "warning:g++:-Wdangling-reference"
+          ],
+          "dir": "examples/105-returning-references-from-std-min-and-max/01-main",
+          "files": {
+            "bad_cpp": "examples/105-returning-references-from-std-min-and-max/01-main/bad.cpp",
+            "good_cpp": "examples/105-returning-references-from-std-min-and-max/01-main/good.cpp",
+            "good_rust": "examples/105-returning-references-from-std-min-and-max/01-main/good.rs",
+            "explanation": "examples/105-returning-references-from-std-min-and-max/01-main/explanation.md",
+            "compilers": "examples/105-returning-references-from-std-min-and-max/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -4177,10 +4552,41 @@
       "https://en.cppreference.com/w/cpp/algorithm/accumulate"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/106-std-accumulate-initial-value-type",
+      "readme": "examples/106-std-accumulate-initial-value-type/README.md",
+      "cases": [
+        {
+          "name": "double-sum",
+          "classification": "LOGIC",
+          "detection": [
+            "tool:clang-tidy:bugprone-fold-init-type"
+          ],
+          "dir": "examples/106-std-accumulate-initial-value-type/01-double-sum",
+          "files": {
+            "bad_cpp": "examples/106-std-accumulate-initial-value-type/01-double-sum/bad.cpp",
+            "good_cpp": "examples/106-std-accumulate-initial-value-type/01-double-sum/good.cpp",
+            "good_rust": "examples/106-std-accumulate-initial-value-type/01-double-sum/good.rs",
+            "explanation": "examples/106-std-accumulate-initial-value-type/01-double-sum/explanation.md",
+            "compilers": "examples/106-std-accumulate-initial-value-type/01-double-sum/compilers.md"
+          }
+        },
+        {
+          "name": "int-overflow",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:undefined"
+          ],
+          "dir": "examples/106-std-accumulate-initial-value-type/02-int-overflow",
+          "files": {
+            "bad_cpp": "examples/106-std-accumulate-initial-value-type/02-int-overflow/bad.cpp",
+            "good_cpp": "examples/106-std-accumulate-initial-value-type/02-int-overflow/good.cpp",
+            "good_rust": "examples/106-std-accumulate-initial-value-type/02-int-overflow/good.rs",
+            "explanation": "examples/106-std-accumulate-initial-value-type/02-int-overflow/explanation.md",
+            "compilers": "examples/106-std-accumulate-initial-value-type/02-int-overflow/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -4197,10 +4603,25 @@
       "https://en.cppreference.com/w/cpp/algorithm/accumulate"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/107-std-reduce-ordering-assumptions",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/107-std-reduce-ordering-assumptions/01-main",
+          "files": {
+            "bad_cpp": "examples/107-std-reduce-ordering-assumptions/01-main/bad.cpp",
+            "good_cpp": "examples/107-std-reduce-ordering-assumptions/01-main/good.cpp",
+            "explanation": "examples/107-std-reduce-ordering-assumptions/01-main/explanation.md",
+            "compilers": "examples/107-std-reduce-ordering-assumptions/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -4218,10 +4639,25 @@
       "https://en.cppreference.com/w/cpp/named_req/RandomAccessIterator"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/108-iterator-category-vs-algorithmic-complexity",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "PERF",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/108-iterator-category-vs-algorithmic-complexity/01-main",
+          "files": {
+            "bad_cpp": "examples/108-iterator-category-vs-algorithmic-complexity/01-main/bad.cpp",
+            "good_cpp": "examples/108-iterator-category-vs-algorithmic-complexity/01-main/good.cpp",
+            "explanation": "examples/108-iterator-category-vs-algorithmic-complexity/01-main/explanation.md",
+            "compilers": "examples/108-iterator-category-vs-algorithmic-complexity/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
