@@ -66,7 +66,7 @@ export default async function EntryPage({ params }: { params: Promise<{ id: stri
       </Link>
 
       <header className="mb-9 animate-rise">
-        <div className="mb-3 flex flex-wrap items-center gap-3">
+        <div className="mb-3 flex flex-wrap items-baseline gap-3">
           <span className="font-mono text-[13px] text-muted">{String(e.id).padStart(3, "0")}</span>
           <ClassBadge value={e.classification} />
           <Difficulty value={e.difficulty} />
