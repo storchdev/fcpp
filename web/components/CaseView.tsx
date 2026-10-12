@@ -51,13 +51,13 @@ export function CaseView({ cases, overview }: { cases: CaseData[]; overview?: Re
       )}
 
       {showOverview ? (
-        <div key="overview" className="animate-rise">{overview}</div>
+        <div key="overview" className="max-w-3xl animate-rise">{overview}</div>
       ) : (
         <div key={c.name} className="animate-rise">
           <div className="mb-5 flex flex-wrap items-center gap-2 text-[13px]">
             {c.classification}
             {c.chips.map((chip) => (
-              <span key={chip} className="rounded border border-line px-1.5 py-0.5 font-mono text-[12px] text-muted">{chip}</span>
+              <span key={chip} className="font-mono text-[12px] text-muted before:mr-2 before:text-zinc-700 before:content-['·']">{chip}</span>
             ))}
           </div>
 
@@ -76,20 +76,20 @@ export function CaseView({ cases, overview }: { cases: CaseData[]; overview?: Re
 
           <div key={tab} className="animate-rise">
             {tab === "Explanation" && (
-              <div className="space-y-9">
+              <div className="max-w-3xl space-y-9">
                 <Section icon={<ShieldAlert className="h-4 w-4 text-red-300" />} title="Why the bad code is wrong">{c.explanation.why}</Section>
                 <Section icon={<Check className="h-4 w-4 text-emerald-300" />} title="The fix">{c.explanation.fix}</Section>
                 <Section icon={<FileCode2 className="h-4 w-4 text-orange-300" />} title="Rust">{c.explanation.rust}</Section>
               </div>
             )}
             {tab === "Code" && (
-              <div className="grid gap-4 lg:grid-cols-2">
+              <div className="relative left-1/2 grid w-[min(1480px,100vw-40px)] -translate-x-1/2 gap-4 xl:grid-cols-2">
                 {c.code.bad && <Panel file="bad.cpp" tone="bad">{c.code.bad}</Panel>}
                 {c.code.good && <Panel file="good.cpp" tone="good">{c.code.good}</Panel>}
-                {c.code.rust && <Panel file="good.rs" tone="rust" className="lg:col-span-2">{c.code.rust}</Panel>}
+                {c.code.rust && <Panel file="good.rs" tone="rust" className="xl:col-span-2">{c.code.rust}</Panel>}
               </div>
             )}
-            {tab === "Compilers" && c.compilers}
+            {tab === "Compilers" && <div className="max-w-3xl">{c.compilers}</div>}
           </div>
         </div>
       )}
