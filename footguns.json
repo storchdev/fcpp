@@ -3410,10 +3410,26 @@
       "https://en.cppreference.com/w/cpp/language/move_constructor"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/080-use-after-move-assumptions",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "tool:clang-tidy:bugprone-use-after-move"
+          ],
+          "dir": "examples/080-use-after-move-assumptions/01-main",
+          "files": {
+            "bad_cpp": "examples/080-use-after-move-assumptions/01-main/bad.cpp",
+            "good_cpp": "examples/080-use-after-move-assumptions/01-main/good.cpp",
+            "good_rust": "examples/080-use-after-move-assumptions/01-main/good.rs",
+            "explanation": "examples/080-use-after-move-assumptions/01-main/explanation.md",
+            "compilers": "examples/080-use-after-move-assumptions/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3430,10 +3446,25 @@
       "https://en.cppreference.com/w/cpp/language/move_constructor"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/081-moving-from-const-objects",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "PERF",
+          "detection": [
+            "tool:clang-tidy:performance-move-const-arg"
+          ],
+          "dir": "examples/081-moving-from-const-objects/01-main",
+          "files": {
+            "bad_cpp": "examples/081-moving-from-const-objects/01-main/bad.cpp",
+            "good_cpp": "examples/081-moving-from-const-objects/01-main/good.cpp",
+            "explanation": "examples/081-moving-from-const-objects/01-main/explanation.md",
+            "compilers": "examples/081-moving-from-const-objects/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3450,10 +3481,26 @@
       "https://en.cppreference.com/w/cpp/language/return"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/082-pessimizing-moves-on-return",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "PERF",
+          "detection": [
+            "warning:g++:-Wpessimizing-move",
+            "warning:clang++:-Wpessimizing-move"
+          ],
+          "dir": "examples/082-pessimizing-moves-on-return/01-main",
+          "files": {
+            "bad_cpp": "examples/082-pessimizing-moves-on-return/01-main/bad.cpp",
+            "good_cpp": "examples/082-pessimizing-moves-on-return/01-main/good.cpp",
+            "explanation": "examples/082-pessimizing-moves-on-return/01-main/explanation.md",
+            "compilers": "examples/082-pessimizing-moves-on-return/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3469,10 +3516,39 @@
       "https://en.cppreference.com/w/cpp/language/copy_elision"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/083-copy-elision-vs-actual-moves",
+      "readme": "examples/083-copy-elision-vs-actual-moves/README.md",
+      "cases": [
+        {
+          "name": "named-local",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/083-copy-elision-vs-actual-moves/01-named-local",
+          "files": {
+            "bad_cpp": "examples/083-copy-elision-vs-actual-moves/01-named-local/bad.cpp",
+            "good_cpp": "examples/083-copy-elision-vs-actual-moves/01-named-local/good.cpp",
+            "explanation": "examples/083-copy-elision-vs-actual-moves/01-named-local/explanation.md",
+            "compilers": "examples/083-copy-elision-vs-actual-moves/01-named-local/compilers.md"
+          }
+        },
+        {
+          "name": "two-locals",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/083-copy-elision-vs-actual-moves/02-two-locals",
+          "files": {
+            "bad_cpp": "examples/083-copy-elision-vs-actual-moves/02-two-locals/bad.cpp",
+            "good_cpp": "examples/083-copy-elision-vs-actual-moves/02-two-locals/good.cpp",
+            "explanation": "examples/083-copy-elision-vs-actual-moves/02-two-locals/explanation.md",
+            "compilers": "examples/083-copy-elision-vs-actual-moves/02-two-locals/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3490,10 +3566,40 @@
       "https://en.cppreference.com/w/cpp/language/move_constructor"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/084-implicitly-deleted-or-suppressed-special-members",
+      "readme": "examples/084-implicitly-deleted-or-suppressed-special-members/README.md",
+      "cases": [
+        {
+          "name": "dtor-suppresses-move",
+          "classification": "PERF",
+          "detection": [
+            "warning:g++:-Wdeprecated-copy-dtor",
+            "warning:clang++:-Wdeprecated-copy-with-user-provided-dtor"
+          ],
+          "dir": "examples/084-implicitly-deleted-or-suppressed-special-members/01-dtor-suppresses-move",
+          "files": {
+            "bad_cpp": "examples/084-implicitly-deleted-or-suppressed-special-members/01-dtor-suppresses-move/bad.cpp",
+            "good_cpp": "examples/084-implicitly-deleted-or-suppressed-special-members/01-dtor-suppresses-move/good.cpp",
+            "explanation": "examples/084-implicitly-deleted-or-suppressed-special-members/01-dtor-suppresses-move/explanation.md",
+            "compilers": "examples/084-implicitly-deleted-or-suppressed-special-members/01-dtor-suppresses-move/compilers.md"
+          }
+        },
+        {
+          "name": "move-deletes-copy",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/084-implicitly-deleted-or-suppressed-special-members/02-move-deletes-copy",
+          "files": {
+            "bad_cpp": "examples/084-implicitly-deleted-or-suppressed-special-members/02-move-deletes-copy/bad.cpp",
+            "good_cpp": "examples/084-implicitly-deleted-or-suppressed-special-members/02-move-deletes-copy/good.cpp",
+            "explanation": "examples/084-implicitly-deleted-or-suppressed-special-members/02-move-deletes-copy/explanation.md",
+            "compilers": "examples/084-implicitly-deleted-or-suppressed-special-members/02-move-deletes-copy/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3511,10 +3617,25 @@
       "https://en.cppreference.com/w/cpp/container/vector/push_back"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/085-exception-safety-of-move-constructors",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "PERF",
+          "detection": [
+            "tool:clang-tidy:performance-noexcept-move-constructor"
+          ],
+          "dir": "examples/085-exception-safety-of-move-constructors/01-main",
+          "files": {
+            "bad_cpp": "examples/085-exception-safety-of-move-constructors/01-main/bad.cpp",
+            "good_cpp": "examples/085-exception-safety-of-move-constructors/01-main/good.cpp",
+            "explanation": "examples/085-exception-safety-of-move-constructors/01-main/explanation.md",
+            "compilers": "examples/085-exception-safety-of-move-constructors/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3530,10 +3651,27 @@
       "https://en.cppreference.com/w/cpp/memory/shared_ptr"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/086-double-ownership-with-shared-ptr",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address",
+            "tool:clang-tidy:cppcoreguidelines-owning-memory"
+          ],
+          "dir": "examples/086-double-ownership-with-shared-ptr/01-main",
+          "files": {
+            "bad_cpp": "examples/086-double-ownership-with-shared-ptr/01-main/bad.cpp",
+            "good_cpp": "examples/086-double-ownership-with-shared-ptr/01-main/good.cpp",
+            "good_rust": "examples/086-double-ownership-with-shared-ptr/01-main/good.rs",
+            "explanation": "examples/086-double-ownership-with-shared-ptr/01-main/explanation.md",
+            "compilers": "examples/086-double-ownership-with-shared-ptr/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3550,10 +3688,26 @@
       "https://en.cppreference.com/w/cpp/memory/weak_ptr"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/087-shared-ptr-ownership-cycles",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/087-shared-ptr-ownership-cycles/01-main",
+          "files": {
+            "bad_cpp": "examples/087-shared-ptr-ownership-cycles/01-main/bad.cpp",
+            "good_cpp": "examples/087-shared-ptr-ownership-cycles/01-main/good.cpp",
+            "good_rust": "examples/087-shared-ptr-ownership-cycles/01-main/good.rs",
+            "explanation": "examples/087-shared-ptr-ownership-cycles/01-main/explanation.md",
+            "compilers": "examples/087-shared-ptr-ownership-cycles/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3570,10 +3724,39 @@
       "https://en.cppreference.com/w/cpp/memory/enable_shared_from_this/shared_from_this"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/088-enable-shared-from-this-misuse",
+      "readme": "examples/088-enable-shared-from-this-misuse/README.md",
+      "cases": [
+        {
+          "name": "not-owned",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/088-enable-shared-from-this-misuse/01-not-owned",
+          "files": {
+            "bad_cpp": "examples/088-enable-shared-from-this-misuse/01-not-owned/bad.cpp",
+            "good_cpp": "examples/088-enable-shared-from-this-misuse/01-not-owned/good.cpp",
+            "explanation": "examples/088-enable-shared-from-this-misuse/01-not-owned/explanation.md",
+            "compilers": "examples/088-enable-shared-from-this-misuse/01-not-owned/compilers.md"
+          }
+        },
+        {
+          "name": "in-constructor",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/088-enable-shared-from-this-misuse/02-in-constructor",
+          "files": {
+            "bad_cpp": "examples/088-enable-shared-from-this-misuse/02-in-constructor/bad.cpp",
+            "good_cpp": "examples/088-enable-shared-from-this-misuse/02-in-constructor/good.cpp",
+            "explanation": "examples/088-enable-shared-from-this-misuse/02-in-constructor/explanation.md",
+            "compilers": "examples/088-enable-shared-from-this-misuse/02-in-constructor/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3590,10 +3773,26 @@
       "https://en.cppreference.com/w/cpp/memory/weak_ptr/lock"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/089-weak-ptr-check-then-use-races",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:undefined"
+          ],
+          "dir": "examples/089-weak-ptr-check-then-use-races/01-main",
+          "files": {
+            "bad_cpp": "examples/089-weak-ptr-check-then-use-races/01-main/bad.cpp",
+            "good_cpp": "examples/089-weak-ptr-check-then-use-races/01-main/good.cpp",
+            "good_rust": "examples/089-weak-ptr-check-then-use-races/01-main/good.rs",
+            "explanation": "examples/089-weak-ptr-check-then-use-races/01-main/explanation.md",
+            "compilers": "examples/089-weak-ptr-check-then-use-races/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3610,10 +3809,40 @@
       "https://en.cppreference.com/w/cpp/memory/unique_ptr/reset"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/090-unique-ptr-release-vs-reset",
+      "readme": "examples/090-unique-ptr-release-vs-reset/README.md",
+      "cases": [
+        {
+          "name": "release-leaks",
+          "classification": "LOGIC",
+          "detection": [
+            "sanitizer:address",
+            "tool:clang-tidy:bugprone-unused-return-value"
+          ],
+          "dir": "examples/090-unique-ptr-release-vs-reset/01-release-leaks",
+          "files": {
+            "bad_cpp": "examples/090-unique-ptr-release-vs-reset/01-release-leaks/bad.cpp",
+            "good_cpp": "examples/090-unique-ptr-release-vs-reset/01-release-leaks/good.cpp",
+            "explanation": "examples/090-unique-ptr-release-vs-reset/01-release-leaks/explanation.md",
+            "compilers": "examples/090-unique-ptr-release-vs-reset/01-release-leaks/compilers.md"
+          }
+        },
+        {
+          "name": "reset-dangles",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/090-unique-ptr-release-vs-reset/02-reset-dangles",
+          "files": {
+            "bad_cpp": "examples/090-unique-ptr-release-vs-reset/02-reset-dangles/bad.cpp",
+            "good_cpp": "examples/090-unique-ptr-release-vs-reset/02-reset-dangles/good.cpp",
+            "explanation": "examples/090-unique-ptr-release-vs-reset/02-reset-dangles/explanation.md",
+            "compilers": "examples/090-unique-ptr-release-vs-reset/02-reset-dangles/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3630,10 +3859,26 @@
       "https://en.cppreference.com/w/cpp/utility/move"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/091-self-move-and-aliasing-in-assignment",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/091-self-move-and-aliasing-in-assignment/01-main",
+          "files": {
+            "bad_cpp": "examples/091-self-move-and-aliasing-in-assignment/01-main/bad.cpp",
+            "good_cpp": "examples/091-self-move-and-aliasing-in-assignment/01-main/good.cpp",
+            "good_rust": "examples/091-self-move-and-aliasing-in-assignment/01-main/good.rs",
+            "explanation": "examples/091-self-move-and-aliasing-in-assignment/01-main/explanation.md",
+            "compilers": "examples/091-self-move-and-aliasing-in-assignment/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
