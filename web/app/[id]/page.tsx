@@ -69,7 +69,14 @@ export default async function EntryPage({ params }: { params: Promise<{ id: stri
       <header className="mb-9 animate-rise">
         <div className="mb-3 flex flex-wrap items-center gap-x-5 gap-y-2 leading-5">
           <span className="font-mono text-[13px] leading-5 text-muted">{String(e.id).padStart(3, "0")}</span>
-          <ClassBadge value={e.classification} />
+          <span className="flex items-center gap-1.5">
+            {[...new Set([e.classification, ...e.cases.map((c) => c.classification)])].map((k, i) => (
+              <span key={k} className="flex items-center gap-1.5">
+                {i > 0 && <span className="text-[12px] leading-5 text-zinc-700">/</span>}
+                <ClassBadge value={k} />
+              </span>
+            ))}
+          </span>
           <Difficulty value={e.difficulty} />
           <span className="text-[13px] text-muted">{shortCategory(e.category)}</span>
           {e.cppStandard && <span className="font-mono text-[12px] text-muted">introduced in C++{e.cppStandard}</span>}
