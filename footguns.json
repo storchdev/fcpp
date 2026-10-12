@@ -1,0 +1,3704 @@
+[
+  {
+    "id": 1,
+    "category_number": 1,
+    "category": "Initialization and implicit conversions",
+    "title": "Default initialization vs. value initialization",
+    "description": "Different initialization syntaxes have different rules for fundamental types, aggregates, and classes. Assuming all declarations produce initialized values can be dangerous.",
+    "classification": "UB",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/default_initialization",
+      "https://en.cppreference.com/w/cpp/language/value_initialization"
+    ],
+    "examples": {
+      "status": "done",
+      "dir": "examples/001-default-initialization-vs-value-initialization",
+      "readme": null,
+      "cases": [
+        {
+          "name": "main",
+          "dir": "examples/001-default-initialization-vs-value-initialization/01-main",
+          "files": {
+            "bad_cpp": "examples/001-default-initialization-vs-value-initialization/01-main/bad.cpp",
+            "good_cpp": "examples/001-default-initialization-vs-value-initialization/01-main/good.cpp",
+            "good_rust": "examples/001-default-initialization-vs-value-initialization/01-main/good.rs",
+            "explanation": "examples/001-default-initialization-vs-value-initialization/01-main/explanation.md"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "category_number": 1,
+    "category": "Initialization and implicit conversions",
+    "title": "The most vexing parse",
+    "description": "C++ grammar can interpret something that appears to construct an object as a function declaration instead.",
+    "classification": "LOGIC",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/direct_initialization",
+      "https://en.cppreference.com/w/cpp/language/function"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 3,
+    "category_number": 1,
+    "category": "Initialization and implicit conversions",
+    "title": "Brace initialization vs. parentheses",
+    "description": "Using braces can select different constructors than using parentheses, particularly when `std::initializer_list` is involved.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/list_initialization",
+      "https://en.cppreference.com/w/cpp/language/direct_initialization"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 4,
+    "category_number": 1,
+    "category": "Initialization and implicit conversions",
+    "title": "Initializer-list constructor preference",
+    "description": "Constructors accepting `std::initializer_list` receive special treatment during overload resolution and can unexpectedly take precedence over other constructors.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/utility/initializer_list",
+      "https://en.cppreference.com/w/cpp/language/list_initialization",
+      "https://en.cppreference.com/w/cpp/language/overload_resolution"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 5,
+    "category_number": 1,
+    "category": "Initialization and implicit conversions",
+    "title": "Narrowing conversions",
+    "description": "Brace initialization rejects certain conversions that other initialization forms permit, while ordinary implicit conversions can silently lose information.",
+    "classification": "IF",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/list_initialization",
+      "https://en.cppreference.com/w/cpp/language/implicit_conversion"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 6,
+    "category_number": 1,
+    "category": "Initialization and implicit conversions",
+    "title": "Implicit conversion chains",
+    "description": "User-defined conversions, converting constructors, and standard conversions interact in ways that make overload selection non-obvious.",
+    "classification": "LOGIC",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/implicit_conversion",
+      "https://en.cppreference.com/w/cpp/language/converting_constructor",
+      "https://en.cppreference.com/w/cpp/language/overload_resolution"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 7,
+    "category_number": 1,
+    "category": "Initialization and implicit conversions",
+    "title": "`explicit` constructors and conversion operators",
+    "description": "Explicitness affects some initialization and contextual conversion forms but not others.",
+    "classification": "IF",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/explicit",
+      "https://en.cppreference.com/w/cpp/language/implicit_conversion"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 8,
+    "category_number": 1,
+    "category": "Initialization and implicit conversions",
+    "title": "Null pointer overload resolution",
+    "description": "`0`, `NULL`, and `nullptr` have different types and conversion behavior, producing surprising overload resolution results.",
+    "classification": "LOGIC",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/nullptr",
+      "https://en.cppreference.com/w/cpp/types/NULL",
+      "https://en.cppreference.com/w/cpp/language/overload_resolution"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 9,
+    "category_number": 1,
+    "category": "Initialization and implicit conversions",
+    "title": "Integer literal type deduction",
+    "description": "The type of an integer literal depends on its value, base, and suffix, potentially changing the selected overload.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/integer_literal",
+      "https://en.cppreference.com/w/cpp/language/overload_resolution"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 10,
+    "category_number": 1,
+    "category": "Initialization and implicit conversions",
+    "title": "Aggregate initialization and member ordering",
+    "description": "Aggregate initialization follows structural rules that can make changes to member declarations silently change program behavior.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/aggregate_initialization"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 11,
+    "category_number": 1,
+    "category": "Initialization and implicit conversions",
+    "title": "Class member initialization order",
+    "description": "Members are initialized in declaration order, not the textual order of a constructor's member-initializer list.",
+    "classification": "UB",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/constructor",
+      "https://en.cppreference.com/w/cpp/language/initializer_list"
+    ],
+    "examples": {
+      "status": "done",
+      "dir": "examples/011-class-member-initialization-order",
+      "readme": null,
+      "cases": [
+        {
+          "name": "main",
+          "dir": "examples/011-class-member-initialization-order/01-main",
+          "files": {
+            "bad_cpp": "examples/011-class-member-initialization-order/01-main/bad.cpp",
+            "good_cpp": "examples/011-class-member-initialization-order/01-main/good.cpp",
+            "good_rust": "examples/011-class-member-initialization-order/01-main/good.rs",
+            "explanation": "examples/011-class-member-initialization-order/01-main/explanation.md"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": 12,
+    "category_number": 1,
+    "category": "Initialization and implicit conversions",
+    "title": "Class template argument deduction (CTAD)",
+    "description": "Deduction guides and constructor-based deduction can infer types different from those a programmer expects.",
+    "classification": "LOGIC",
+    "difficulty": "hard",
+    "cpp_standard": 17,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/class_template_argument_deduction"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 13,
+    "category_number": 2,
+    "category": "Type deduction, references, and value categories",
+    "title": "`auto` drops qualifiers and references",
+    "description": "Ordinary `auto` deduction can discard top-level `const` and reference qualification, accidentally introducing copies or permitting mutation.",
+    "classification": "LOGIC",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/auto",
+      "https://en.cppreference.com/w/cpp/language/template_argument_deduction"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 14,
+    "category_number": 2,
+    "category": "Type deduction, references, and value categories",
+    "title": "`auto` with brace initialization",
+    "description": "Direct-list and copy-list initialization have special deduction rules that differ from ordinary expressions.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/auto",
+      "https://en.cppreference.com/w/cpp/language/list_initialization"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 15,
+    "category_number": 2,
+    "category": "Type deduction, references, and value categories",
+    "title": "`decltype` vs. `decltype(auto)`",
+    "description": "These follow rules different from ordinary `auto`, and subtle expression changes can turn a value return into a reference return.",
+    "classification": "LOGIC",
+    "difficulty": "hard",
+    "cpp_standard": 14,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/decltype",
+      "https://en.cppreference.com/w/cpp/language/auto"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 16,
+    "category_number": 2,
+    "category": "Type deduction, references, and value categories",
+    "title": "Parentheses changing `decltype` results",
+    "description": "`decltype` distinguishes certain unparenthesized expressions from general expressions, making seemingly insignificant parentheses affect the deduced type.",
+    "classification": "LOGIC",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/decltype"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 17,
+    "category_number": 2,
+    "category": "Type deduction, references, and value categories",
+    "title": "Lvalues, prvalues, and xvalues",
+    "description": "Expression value categories determine binding, overload selection, lifetime behavior, and move eligibility.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/value_category"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 18,
+    "category_number": 2,
+    "category": "Type deduction, references, and value categories",
+    "title": "Reference collapsing",
+    "description": "Combinations of lvalue and rvalue references follow specific collapsing rules that are essential to template deduction.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/reference",
+      "https://en.cppreference.com/w/cpp/language/template_argument_deduction"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 19,
+    "category_number": 2,
+    "category": "Type deduction, references, and value categories",
+    "title": "Forwarding references vs. rvalue references",
+    "description": "Similar-looking reference declarations can have very different deduction and binding behavior.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/reference",
+      "https://en.cppreference.com/w/cpp/language/template_argument_deduction"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 20,
+    "category_number": 2,
+    "category": "Type deduction, references, and value categories",
+    "title": "Incorrect `std::forward` usage",
+    "description": "Forwarding a value with the wrong template argument can change its value category and lead to unintended moves.",
+    "classification": "LOGIC",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/utility/forward"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 21,
+    "category_number": 2,
+    "category": "Type deduction, references, and value categories",
+    "title": "Const rvalues and move semantics",
+    "description": "A `const` object may not be movable through an ordinary move constructor even when explicitly cast to an rvalue.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/utility/move",
+      "https://en.cppreference.com/w/cpp/language/move_constructor"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 22,
+    "category_number": 2,
+    "category": "Type deduction, references, and value categories",
+    "title": "Reference-qualified member functions",
+    "description": "Member functions qualified with `&`, `&&`, or `const` participate in overload resolution based on the value category and qualifiers of the object.",
+    "classification": "IF",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/member_functions",
+      "https://en.cppreference.com/w/cpp/language/overload_resolution"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 23,
+    "category_number": 2,
+    "category": "Type deduction, references, and value categories",
+    "title": "`std::move` is only a cast",
+    "description": "Applying `std::move` doesn't itself move an object, and the eventual operation may still copy.",
+    "classification": "LOGIC",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/utility/move"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 24,
+    "category_number": 2,
+    "category": "Type deduction, references, and value categories",
+    "title": "Perfect-forwarding constructors hijacking overloads",
+    "description": "An unconstrained forwarding-reference constructor can unexpectedly compete with or override intended copy and converting constructors.",
+    "classification": "LOGIC",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/overload_resolution",
+      "https://en.cppreference.com/w/cpp/language/copy_constructor",
+      "https://en.cppreference.com/w/cpp/language/constraints"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 25,
+    "category_number": 3,
+    "category": "Object lifetime, temporaries, and dangling references",
+    "title": "Returning references or pointers to local objects",
+    "description": "References and pointers do not extend the lifetime of objects whose storage has ended.",
+    "classification": "UB",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/lifetime",
+      "https://en.cppreference.com/w/cpp/language/return"
+    ],
+    "examples": {
+      "status": "done",
+      "dir": "examples/025-returning-references-or-pointers-to",
+      "readme": null,
+      "cases": [
+        {
+          "name": "main",
+          "dir": "examples/025-returning-references-or-pointers-to/01-main",
+          "files": {
+            "bad_cpp": "examples/025-returning-references-or-pointers-to/01-main/bad.cpp",
+            "good_cpp": "examples/025-returning-references-or-pointers-to/01-main/good.cpp",
+            "good_rust": "examples/025-returning-references-or-pointers-to/01-main/good.rs",
+            "explanation": "examples/025-returning-references-or-pointers-to/01-main/explanation.md"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": 26,
+    "category_number": 3,
+    "category": "Object lifetime, temporaries, and dangling references",
+    "title": "Temporary lifetime extension",
+    "description": "Binding a temporary to a reference extends its lifetime in certain situations, but several syntactically similar situations are exceptions.",
+    "classification": "UB",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/reference_initialization"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 27,
+    "category_number": 3,
+    "category": "Object lifetime, temporaries, and dangling references",
+    "title": "Reference members bound to temporaries",
+    "description": "Initializing references stored inside objects has lifetime rules that differ depending on the initialization context.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/reference_initialization",
+      "https://en.cppreference.com/w/cpp/language/initializer_list"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 28,
+    "category_number": 3,
+    "category": "Object lifetime, temporaries, and dangling references",
+    "title": "`std::string_view` dangling references",
+    "description": "A `string_view` does not own characters, and implicit conversions from strings can disguise lifetime problems.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 17,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/string/basic_string_view"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 29,
+    "category_number": 3,
+    "category": "Object lifetime, temporaries, and dangling references",
+    "title": "`std::span` ownership confusion",
+    "description": "A `span` carries a pointer and extent, not ownership, and can outlive or become invalidated by its backing storage.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 20,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/container/span"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 30,
+    "category_number": 3,
+    "category": "Object lifetime, temporaries, and dangling references",
+    "title": "`std::initializer_list` backing-array lifetime",
+    "description": "An initializer list references a temporary array whose lifetime is not always as long as the list object.",
+    "classification": "UB",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/utility/initializer_list"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 31,
+    "category_number": 3,
+    "category": "Object lifetime, temporaries, and dangling references",
+    "title": "Dangling lambda captures",
+    "description": "Capturing a local variable by reference creates lifetime hazards when the closure escapes its defining scope.",
+    "classification": "UB",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/lambda"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 32,
+    "category_number": 3,
+    "category": "Object lifetime, temporaries, and dangling references",
+    "title": "Capturing `this` in lambdas",
+    "description": "Capturing `this` does not generally preserve the containing object's lifetime, and copy-capture defaults can be misleading.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/lambda",
+      "https://en.cppreference.com/w/cpp/language/this"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 33,
+    "category_number": 3,
+    "category": "Object lifetime, temporaries, and dangling references",
+    "title": "Dangling `c_str()` and `data()` pointers",
+    "description": "Pointers obtained from strings can become invalid when the string is modified or destroyed.",
+    "classification": "UB",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/string/basic_string/c_str",
+      "https://en.cppreference.com/w/cpp/string/basic_string/data"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 34,
+    "category_number": 3,
+    "category": "Object lifetime, temporaries, and dangling references",
+    "title": "Lifetime of subobjects and base objects",
+    "description": "A subobject's validity depends on the lifetime and construction/destruction state of its enclosing object.",
+    "classification": "UB",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/lifetime",
+      "https://en.cppreference.com/w/cpp/language/destructor"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 35,
+    "category_number": 3,
+    "category": "Object lifetime, temporaries, and dangling references",
+    "title": "Range-based `for` over temporary objects",
+    "description": "Lifetime extension in range-based loops has subtle rules, including important differences between C++20 and C++23.",
+    "classification": "UB",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/range-for",
+      "https://en.cppreference.com/w/cpp/language/reference_initialization"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 36,
+    "category_number": 3,
+    "category": "Object lifetime, temporaries, and dangling references",
+    "title": "Proxy references",
+    "description": "Some iterators and accessors return proxy objects rather than actual references, making binding and lifetime assumptions unreliable.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/container/vector_bool/reference",
+      "https://en.cppreference.com/w/cpp/container/vector_bool"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 37,
+    "category_number": 3,
+    "category": "Object lifetime, temporaries, and dangling references",
+    "title": "Destructor and temporary destruction timing",
+    "description": "Temporaries normally die at full-expression boundaries, while local variables and members have specific reverse-destruction orders.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/lifetime",
+      "https://en.cppreference.com/w/cpp/language/destructor"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 38,
+    "category_number": 3,
+    "category": "Object lifetime, temporaries, and dangling references",
+    "title": "Returning a reference through multiple function calls",
+    "description": "A chain of apparently safe reference-returning functions can conceal an object that dies along the way.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/lifetime",
+      "https://en.cppreference.com/w/cpp/language/reference"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 39,
+    "category_number": 4,
+    "category": "Raw memory, pointers, aliasing, and the C++ object model",
+    "title": "Reading uninitialized values",
+    "description": "Objects with indeterminate or erroneous values can trigger undefined or erroneous behavior, depending on type and language version.",
+    "classification": "UB",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/default_initialization",
+      "https://en.cppreference.com/w/cpp/language/ub"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 40,
+    "category_number": 4,
+    "category": "Raw memory, pointers, aliasing, and the C++ object model",
+    "title": "Strict aliasing violations",
+    "description": "Accessing an object through an unrelated type can violate type-access rules, even when the memory representation is compatible.",
+    "classification": "UB",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/object",
+      "https://en.cppreference.com/w/cpp/language/ub"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 41,
+    "category_number": 4,
+    "category": "Raw memory, pointers, aliasing, and the C++ object model",
+    "title": "`reinterpret_cast` doesn't create objects",
+    "description": "Reinterpreting a pointer's type does not automatically create an object of that type or begin its lifetime.",
+    "classification": "UB",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/reinterpret_cast",
+      "https://en.cppreference.com/w/cpp/language/object",
+      "https://en.cppreference.com/w/cpp/memory/start_lifetime_as"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 42,
+    "category_number": 4,
+    "category": "Raw memory, pointers, aliasing, and the C++ object model",
+    "title": "Misaligned accesses",
+    "description": "A pointer can refer to sufficient memory yet still be invalid for accessing a type whose alignment requirements aren't met.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/object",
+      "https://en.cppreference.com/w/cpp/language/alignas",
+      "https://en.cppreference.com/w/cpp/language/alignof"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 43,
+    "category_number": 4,
+    "category": "Raw memory, pointers, aliasing, and the C++ object model",
+    "title": "Pointer arithmetic outside an array",
+    "description": "Pointer arithmetic is only defined within tightly specified object and array bounds, not arbitrary nearby allocated memory.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/operator_arithmetic",
+      "https://en.cppreference.com/w/cpp/language/ub"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 44,
+    "category_number": 4,
+    "category": "Raw memory, pointers, aliasing, and the C++ object model",
+    "title": "One-past-the-end pointers",
+    "description": "Constructing certain one-past pointers is legal, but dereferencing them is not.",
+    "classification": "UB",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/operator_arithmetic",
+      "https://en.cppreference.com/w/cpp/language/pointer"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 45,
+    "category_number": 4,
+    "category": "Raw memory, pointers, aliasing, and the C++ object model",
+    "title": "Pointer provenance and lifetime",
+    "description": "Numerical equality of addresses is insufficient to prove that a pointer is valid for accessing an object.",
+    "classification": "UB",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/pointer",
+      "https://en.cppreference.com/w/cpp/language/lifetime"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 46,
+    "category_number": 4,
+    "category": "Raw memory, pointers, aliasing, and the C++ object model",
+    "title": "Union type punning",
+    "description": "Reading an inactive union member can violate C++ lifetime and type-access rules, even when a compiler accepts it as an extension.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/union",
+      "https://en.cppreference.com/w/cpp/numeric/bit_cast"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 47,
+    "category_number": 4,
+    "category": "Raw memory, pointers, aliasing, and the C++ object model",
+    "title": "Placement new and object replacement",
+    "description": "Reusing storage requires understanding when the old object's lifetime ends and the new object's lifetime begins.",
+    "classification": "UB",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/new",
+      "https://en.cppreference.com/w/cpp/language/lifetime"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 48,
+    "category_number": 4,
+    "category": "Raw memory, pointers, aliasing, and the C++ object model",
+    "title": "`std::launder` and pointer reuse",
+    "description": "After certain object replacements, an existing pointer cannot simply be used to access the new object without satisfying special rules.",
+    "classification": "UB",
+    "difficulty": "hard",
+    "cpp_standard": 17,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/utility/launder",
+      "https://en.cppreference.com/w/cpp/language/new"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 49,
+    "category_number": 4,
+    "category": "Raw memory, pointers, aliasing, and the C++ object model",
+    "title": "`memcpy` on non-trivial types",
+    "description": "Byte-copying an object does not generally reproduce the semantics of copy construction or assignment.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/string/byte/memcpy",
+      "https://en.cppreference.com/w/cpp/named_req/TriviallyCopyable",
+      "https://en.cppreference.com/w/cpp/types/is_trivially_copyable"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 50,
+    "category_number": 4,
+    "category": "Raw memory, pointers, aliasing, and the C++ object model",
+    "title": "Raw allocation vs. object construction",
+    "description": "Allocating enough bytes for a type is not always equivalent to constructing an object of that type.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/memory/new/operator_new",
+      "https://en.cppreference.com/w/cpp/language/lifetime",
+      "https://en.cppreference.com/w/cpp/memory/construct_at"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 51,
+    "category_number": 4,
+    "category": "Raw memory, pointers, aliasing, and the C++ object model",
+    "title": "Struct padding and object representations",
+    "description": "Structures may contain padding bytes, so binary comparisons or serialization of complete object representations may be misleading.",
+    "classification": "UNS",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/object",
+      "https://en.cppreference.com/w/cpp/types/has_unique_object_representations"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 52,
+    "category_number": 4,
+    "category": "Raw memory, pointers, aliasing, and the C++ object model",
+    "title": "Object layout and `offsetof` assumptions",
+    "description": "Standard-layout guarantees are narrower than many programmers expect, particularly with inheritance and polymorphism.",
+    "classification": "UNS",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/types/offsetof",
+      "https://en.cppreference.com/w/cpp/named_req/StandardLayoutType",
+      "https://en.cppreference.com/w/cpp/types/is_standard_layout"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 53,
+    "category_number": 4,
+    "category": "Raw memory, pointers, aliasing, and the C++ object model",
+    "title": "Mismatched allocation and deallocation",
+    "description": "Mixing allocation/deallocation mechanisms or array and scalar deletion operations can cause undefined behavior.",
+    "classification": "UB",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/delete",
+      "https://en.cppreference.com/w/cpp/language/new",
+      "https://en.cppreference.com/w/cpp/memory/c/malloc"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 54,
+    "category_number": 4,
+    "category": "Raw memory, pointers, aliasing, and the C++ object model",
+    "title": "Invalid pointer use after deallocation",
+    "description": "Freed storage does not remain a valid object merely because its address is still held in a pointer.",
+    "classification": "UB",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/delete",
+      "https://en.cppreference.com/w/cpp/language/lifetime"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 55,
+    "category_number": 4,
+    "category": "Raw memory, pointers, aliasing, and the C++ object model",
+    "title": "Over-aligned allocation and packed structures",
+    "description": "Nonstandard alignment assumptions or packed representations can produce invalid accesses when pointers to members escape.",
+    "classification": "UB",
+    "difficulty": "hard",
+    "cpp_standard": 17,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/alignas",
+      "https://en.cppreference.com/w/cpp/memory/new/operator_new",
+      "https://en.cppreference.com/w/cpp/memory/c/aligned_alloc"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 56,
+    "category_number": 5,
+    "category": "Arithmetic, bitwise operations, and expression evaluation",
+    "title": "Signed integer overflow",
+    "description": "Overflow of ordinary signed integer arithmetic is generally undefined behavior, enabling optimizations that surprise programmers.",
+    "classification": "UB",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/operator_arithmetic",
+      "https://en.cppreference.com/w/cpp/language/ub"
+    ],
+    "examples": {
+      "status": "done",
+      "dir": "examples/056-signed-integer-overflow",
+      "readme": null,
+      "cases": [
+        {
+          "name": "main",
+          "dir": "examples/056-signed-integer-overflow/01-main",
+          "files": {
+            "bad_cpp": "examples/056-signed-integer-overflow/01-main/bad.cpp",
+            "good_cpp": "examples/056-signed-integer-overflow/01-main/good.cpp",
+            "good_rust": "examples/056-signed-integer-overflow/01-main/good.rs",
+            "explanation": "examples/056-signed-integer-overflow/01-main/explanation.md"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": 57,
+    "category_number": 5,
+    "category": "Arithmetic, bitwise operations, and expression evaluation",
+    "title": "Unsigned arithmetic wraparound",
+    "description": "Unsigned arithmetic wraps modulo its range, which is defined but can still create subtle indexing and arithmetic bugs.",
+    "classification": "LOGIC",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/types",
+      "https://en.cppreference.com/w/cpp/language/operator_arithmetic"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 58,
+    "category_number": 5,
+    "category": "Arithmetic, bitwise operations, and expression evaluation",
+    "title": "Signed/unsigned comparisons",
+    "description": "Usual arithmetic conversions can produce surprising outcomes when signed and unsigned values interact.",
+    "classification": "LOGIC",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/usual_arithmetic_conversions",
+      "https://en.cppreference.com/w/cpp/utility/intcmp"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 59,
+    "category_number": 5,
+    "category": "Arithmetic, bitwise operations, and expression evaluation",
+    "title": "Integer promotions",
+    "description": "Smaller integral types are promoted before many arithmetic operations, changing intermediate types and results.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/implicit_conversion",
+      "https://en.cppreference.com/w/cpp/language/usual_arithmetic_conversions"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 60,
+    "category_number": 5,
+    "category": "Arithmetic, bitwise operations, and expression evaluation",
+    "title": "Integer division corner cases",
+    "description": "Division by zero and certain signed division overflows have undefined behavior.",
+    "classification": "UB",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/operator_arithmetic"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 61,
+    "category_number": 5,
+    "category": "Arithmetic, bitwise operations, and expression evaluation",
+    "title": "Bit shifts and signed integers",
+    "description": "Shift counts, operand promotions, and signed-shift semantics have rules that differ across language versions.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/operator_arithmetic"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 62,
+    "category_number": 5,
+    "category": "Arithmetic, bitwise operations, and expression evaluation",
+    "title": "Truncation and overflow during numeric casts",
+    "description": "Integral and floating-point conversions can truncate, change signedness, or enter undefined-behavior territory.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/implicit_conversion",
+      "https://en.cppreference.com/w/cpp/language/static_cast"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 63,
+    "category_number": 5,
+    "category": "Arithmetic, bitwise operations, and expression evaluation",
+    "title": "Character signedness",
+    "description": "Whether plain `char` is signed is implementation-defined, which can break arithmetic and byte-oriented logic.",
+    "classification": "UNS",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/types",
+      "https://en.cppreference.com/w/cpp/types/numeric_limits"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 64,
+    "category_number": 5,
+    "category": "Arithmetic, bitwise operations, and expression evaluation",
+    "title": "Unsequenced side effects",
+    "description": "Multiple modifications or reads of the same scalar object within an expression can become undefined behavior when sequencing requirements are violated.",
+    "classification": "UB",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/eval_order"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 65,
+    "category_number": 5,
+    "category": "Arithmetic, bitwise operations, and expression evaluation",
+    "title": "Function argument evaluation order",
+    "description": "Function arguments are not generally evaluated in a guaranteed left-to-right order, even though C++17 strengthened certain sequencing rules.",
+    "classification": "UNS",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/eval_order"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 66,
+    "category_number": 5,
+    "category": "Arithmetic, bitwise operations, and expression evaluation",
+    "title": "Operator precedence vs. evaluation order",
+    "description": "Parsing precedence, associativity, and runtime evaluation sequencing are different concepts.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/operator_precedence",
+      "https://en.cppreference.com/w/cpp/language/eval_order"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 67,
+    "category_number": 5,
+    "category": "Arithmetic, bitwise operations, and expression evaluation",
+    "title": "Conditional operator type deduction",
+    "description": "The conditional operator applies complex rules to determine common types and value categories, sometimes creating unexpected conversions or temporaries.",
+    "classification": "LOGIC",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/operator_other",
+      "https://en.cppreference.com/w/cpp/language/value_category"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 68,
+    "category_number": 5,
+    "category": "Arithmetic, bitwise operations, and expression evaluation",
+    "title": "Floating-point non-associativity",
+    "description": "Reordering floating-point arithmetic can alter numerical results, and compiler optimization settings can change the effective guarantees.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/numeric/fenv",
+      "https://en.cppreference.com/w/cpp/types/numeric_limits"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 69,
+    "category_number": 5,
+    "category": "Arithmetic, bitwise operations, and expression evaluation",
+    "title": "NaN and comparison semantics",
+    "description": "NaN breaks ordinary ordering intuitions and can violate comparator requirements used by standard algorithms and containers.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/numeric/math/isnan",
+      "https://en.cppreference.com/w/cpp/named_req/Compare",
+      "https://en.cppreference.com/w/cpp/utility/compare/partial_ordering"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 70,
+    "category_number": 6,
+    "category": "Classes, inheritance, virtual functions, and destruction",
+    "title": "Object slicing",
+    "description": "Copying a derived object into a base object by value discards the derived portion and changes polymorphic behavior.",
+    "classification": "LOGIC",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/derived_class",
+      "https://en.cppreference.com/w/cpp/language/copy_constructor"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 71,
+    "category_number": 6,
+    "category": "Classes, inheritance, virtual functions, and destruction",
+    "title": "Deleting through a non-virtual base destructor",
+    "description": "Destroying a derived object through an incompatible base-class deletion interface can cause undefined behavior.",
+    "classification": "UB",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/destructor",
+      "https://en.cppreference.com/w/cpp/language/virtual",
+      "https://en.cppreference.com/w/cpp/language/delete"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 72,
+    "category_number": 6,
+    "category": "Classes, inheritance, virtual functions, and destruction",
+    "title": "Virtual calls during construction and destruction",
+    "description": "Virtual dispatch is restricted by the object's current construction or destruction stage rather than always reaching the most-derived override.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/virtual",
+      "https://en.cppreference.com/w/cpp/language/constructor"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 73,
+    "category_number": 6,
+    "category": "Classes, inheritance, virtual functions, and destruction",
+    "title": "Pure virtual calls in object lifetime transitions",
+    "description": "Calling a pure virtual function in an inappropriate construction/destruction context can result in undefined behavior.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/abstract_class",
+      "https://en.cppreference.com/w/cpp/language/virtual"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 74,
+    "category_number": 6,
+    "category": "Classes, inheritance, virtual functions, and destruction",
+    "title": "Default arguments on virtual functions",
+    "description": "Virtual dispatch and default argument selection use different binding mechanisms, producing counterintuitive results.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/default_arguments",
+      "https://en.cppreference.com/w/cpp/language/virtual"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 75,
+    "category_number": 6,
+    "category": "Classes, inheritance, virtual functions, and destruction",
+    "title": "Name hiding in inheritance",
+    "description": "A declaration in a derived class can hide base-class overloads even when the parameter lists differ.",
+    "classification": "LOGIC",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/derived_class",
+      "https://en.cppreference.com/w/cpp/language/using_declaration",
+      "https://en.cppreference.com/w/cpp/language/unqualified_lookup"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 76,
+    "category_number": 6,
+    "category": "Classes, inheritance, virtual functions, and destruction",
+    "title": "Multiple inheritance pointer adjustments",
+    "description": "Converting between base and derived pointers can require address adjustment rather than a simple reinterpretation.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/derived_class",
+      "https://en.cppreference.com/w/cpp/language/static_cast",
+      "https://en.cppreference.com/w/cpp/language/reinterpret_cast"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 77,
+    "category_number": 6,
+    "category": "Classes, inheritance, virtual functions, and destruction",
+    "title": "Virtual inheritance layout assumptions",
+    "description": "Virtual bases complicate object layout, pointer offsets, and the assumptions behind low-level casts.",
+    "classification": "UNS",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/derived_class",
+      "https://en.cppreference.com/w/cpp/language/static_cast"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 78,
+    "category_number": 6,
+    "category": "Classes, inheritance, virtual functions, and destruction",
+    "title": "RTTI during construction or destruction",
+    "description": "`dynamic_cast` and `typeid` interact with the object's current construction/destruction state, not just its eventual dynamic type.",
+    "classification": "UB",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/dynamic_cast",
+      "https://en.cppreference.com/w/cpp/language/typeid"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 79,
+    "category_number": 6,
+    "category": "Classes, inheritance, virtual functions, and destruction",
+    "title": "Shallow `const` and logical constness",
+    "description": "`const` on a pointer-like wrapper or object does not necessarily imply that all reachable data is immutable.",
+    "classification": "LOGIC",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/cv",
+      "https://en.cppreference.com/w/cpp/language/member_functions"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 80,
+    "category_number": 7,
+    "category": "Move semantics, ownership, and RAII",
+    "title": "Use-after-move assumptions",
+    "description": "A moved-from object is generally still valid but has an unspecified state unless its type provides stronger guarantees.",
+    "classification": "LOGIC",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/utility/move",
+      "https://en.cppreference.com/w/cpp/language/move_constructor"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 81,
+    "category_number": 7,
+    "category": "Move semantics, ownership, and RAII",
+    "title": "Moving from `const` objects",
+    "description": "Ordinary move operations often cannot bind to `const` sources, silently causing copies.",
+    "classification": "PERF",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/utility/move",
+      "https://en.cppreference.com/w/cpp/language/move_constructor"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 82,
+    "category_number": 7,
+    "category": "Move semantics, ownership, and RAII",
+    "title": "Pessimizing moves on return",
+    "description": "Explicitly applying `std::move` to a local return object can inhibit named return value optimization.",
+    "classification": "PERF",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/copy_elision",
+      "https://en.cppreference.com/w/cpp/language/return"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 83,
+    "category_number": 7,
+    "category": "Move semantics, ownership, and RAII",
+    "title": "Copy elision vs. actual moves",
+    "description": "Guaranteed copy elision and optional NRVO differ, and reasoning in terms of an invisible move constructor can be incorrect.",
+    "classification": "LOGIC",
+    "difficulty": "hard",
+    "cpp_standard": 17,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/copy_elision"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 84,
+    "category_number": 7,
+    "category": "Move semantics, ownership, and RAII",
+    "title": "Implicitly deleted or suppressed special members",
+    "description": "Declaring one special member function can affect generation or availability of copy and move constructors and assignments.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/rule_of_three",
+      "https://en.cppreference.com/w/cpp/language/copy_constructor",
+      "https://en.cppreference.com/w/cpp/language/move_constructor"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 85,
+    "category_number": 7,
+    "category": "Move semantics, ownership, and RAII",
+    "title": "Exception safety of move constructors",
+    "description": "Whether moves can throw influences how standard containers relocate objects and preserve exception guarantees.",
+    "classification": "PERF",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/utility/move_if_noexcept",
+      "https://en.cppreference.com/w/cpp/language/noexcept_spec",
+      "https://en.cppreference.com/w/cpp/container/vector/push_back"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 86,
+    "category_number": 7,
+    "category": "Move semantics, ownership, and RAII",
+    "title": "Double ownership with `std::shared_ptr`",
+    "description": "Constructing independent owning control blocks for the same raw object can cause multiple deletions.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/memory/shared_ptr"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 87,
+    "category_number": 7,
+    "category": "Move semantics, ownership, and RAII",
+    "title": "`shared_ptr` ownership cycles",
+    "description": "Reference-counted ownership cannot reclaim strongly connected cycles without deliberately breaking the ownership graph.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/memory/shared_ptr",
+      "https://en.cppreference.com/w/cpp/memory/weak_ptr"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 88,
+    "category_number": 7,
+    "category": "Move semantics, ownership, and RAII",
+    "title": "`enable_shared_from_this` misuse",
+    "description": "Requesting shared ownership from an object not properly managed by a compatible shared control block can fail.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/memory/enable_shared_from_this",
+      "https://en.cppreference.com/w/cpp/memory/enable_shared_from_this/shared_from_this"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 89,
+    "category_number": 7,
+    "category": "Move semantics, ownership, and RAII",
+    "title": "`weak_ptr` check-then-use races",
+    "description": "Checking whether an object is expired does not reserve its lifetime; obtaining temporary ownership requires the appropriate operation.",
+    "classification": "CONC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/memory/weak_ptr/expired",
+      "https://en.cppreference.com/w/cpp/memory/weak_ptr/lock"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 90,
+    "category_number": 7,
+    "category": "Move semantics, ownership, and RAII",
+    "title": "`unique_ptr::release` vs. `reset`",
+    "description": "These operations have fundamentally different ownership and destruction effects.",
+    "classification": "LOGIC",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/memory/unique_ptr/release",
+      "https://en.cppreference.com/w/cpp/memory/unique_ptr/reset"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 91,
+    "category_number": 7,
+    "category": "Move semantics, ownership, and RAII",
+    "title": "Self-move and aliasing in assignment",
+    "description": "Move assignment must respect the type's requirements even when source and destination refer to the same object.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/move_assignment",
+      "https://en.cppreference.com/w/cpp/utility/move"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 92,
+    "category_number": 8,
+    "category": "Standard containers, iterators, and algorithms",
+    "title": "`std::vector` reallocation invalidation",
+    "description": "Growth may invalidate every pointer, reference, and iterator into a vector.",
+    "classification": "UB",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/container/vector",
+      "https://en.cppreference.com/w/cpp/container/vector/push_back"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 93,
+    "category_number": 8,
+    "category": "Standard containers, iterators, and algorithms",
+    "title": "`reserve()` vs. `resize()`",
+    "description": "Capacity and constructed element count are distinct, and confusing them can lead to accesses outside the valid element range.",
+    "classification": "UB",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/container/vector/reserve",
+      "https://en.cppreference.com/w/cpp/container/vector/resize"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 94,
+    "category_number": 8,
+    "category": "Standard containers, iterators, and algorithms",
+    "title": "`std::deque` invalidation rules",
+    "description": "Deque iterator and reference invalidation rules differ significantly from vector and list rules and depend on the operation.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/container/deque"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 95,
+    "category_number": 8,
+    "category": "Standard containers, iterators, and algorithms",
+    "title": "`std::unordered_map` rehashing",
+    "description": "Rehashing invalidates iterators while preserving certain references and pointers, a distinction that is easy to miss.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/container/unordered_map",
+      "https://en.cppreference.com/w/cpp/container/unordered_map/rehash"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 96,
+    "category_number": 8,
+    "category": "Standard containers, iterators, and algorithms",
+    "title": "Past-the-end iterator invalidation",
+    "description": "A cached `end()` iterator may become invalid after container modification even when some element iterators remain valid.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/container/vector/end",
+      "https://en.cppreference.com/w/cpp/container/vector/erase"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 97,
+    "category_number": 8,
+    "category": "Standard containers, iterators, and algorithms",
+    "title": "Erasing while iterating",
+    "description": "Container-specific invalidation rules can make ordinary increment-and-erase loops invalid.",
+    "classification": "UB",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/container/vector/erase",
+      "https://en.cppreference.com/w/cpp/container/map/erase",
+      "https://en.cppreference.com/w/cpp/container/vector/erase2"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 98,
+    "category_number": 8,
+    "category": "Standard containers, iterators, and algorithms",
+    "title": "`std::map::operator[]` implicit insertion",
+    "description": "Access using `operator[]` can mutate the container even when the programmer intended a read-only lookup.",
+    "classification": "LOGIC",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/container/map/operator_at",
+      "https://en.cppreference.com/w/cpp/container/map/at"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 99,
+    "category_number": 8,
+    "category": "Standard containers, iterators, and algorithms",
+    "title": "`insert`, `emplace`, and `try_emplace` semantics",
+    "description": "These operations differ in construction, evaluation, and handling of existing keys.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 17,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/container/map/insert",
+      "https://en.cppreference.com/w/cpp/container/map/emplace",
+      "https://en.cppreference.com/w/cpp/container/map/try_emplace"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 100,
+    "category_number": 8,
+    "category": "Standard containers, iterators, and algorithms",
+    "title": "Strict weak ordering requirements",
+    "description": "Invalid comparison predicates can violate associative-container or sorting-algorithm preconditions, potentially causing undefined behavior.",
+    "classification": "UB",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/named_req/Compare",
+      "https://en.cppreference.com/w/cpp/algorithm/sort",
+      "https://en.cppreference.com/w/cpp/container/map"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 101,
+    "category_number": 8,
+    "category": "Standard containers, iterators, and algorithms",
+    "title": "Hash/equality consistency",
+    "description": "Unordered containers require hashing and equality to agree on equivalent keys.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/named_req/Hash",
+      "https://en.cppreference.com/w/cpp/utility/hash",
+      "https://en.cppreference.com/w/cpp/container/unordered_map"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 102,
+    "category_number": 8,
+    "category": "Standard containers, iterators, and algorithms",
+    "title": "`std::vector<bool>` specialization",
+    "description": "Its bit-packed storage and proxy-reference behavior differ materially from ordinary `std::vector<T>`.",
+    "classification": "LOGIC",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/container/vector_bool",
+      "https://en.cppreference.com/w/cpp/container/vector_bool/reference"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 103,
+    "category_number": 8,
+    "category": "Standard containers, iterators, and algorithms",
+    "title": "`std::remove` vs. container erasure",
+    "description": "The standard removal algorithm rearranges elements but does not itself reduce a container's size.",
+    "classification": "LOGIC",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/algorithm/remove",
+      "https://en.cppreference.com/w/cpp/container/vector/erase2"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 104,
+    "category_number": 8,
+    "category": "Standard containers, iterators, and algorithms",
+    "title": "Algorithms with invalid ranges or iterators",
+    "description": "Standard algorithms depend on valid ranges, output destinations, and often additional ordering or overlap preconditions.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/algorithm",
+      "https://en.cppreference.com/w/cpp/iterator"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 105,
+    "category_number": 8,
+    "category": "Standard containers, iterators, and algorithms",
+    "title": "Returning references from `std::min` and `std::max`",
+    "description": "Their reference-returning overloads can create dangling results when temporaries are involved.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/algorithm/min",
+      "https://en.cppreference.com/w/cpp/algorithm/max"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 106,
+    "category_number": 8,
+    "category": "Standard containers, iterators, and algorithms",
+    "title": "`std::accumulate` initial-value type",
+    "description": "The accumulator's type is determined by the initial value, which can silently affect arithmetic precision and overflow.",
+    "classification": "LOGIC",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/algorithm/accumulate"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 107,
+    "category_number": 8,
+    "category": "Standard containers, iterators, and algorithms",
+    "title": "`std::reduce` ordering assumptions",
+    "description": "Reduction is not necessarily performed in left-to-right order, which matters for non-associative operations.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 17,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/algorithm/reduce",
+      "https://en.cppreference.com/w/cpp/algorithm/accumulate"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 108,
+    "category_number": 8,
+    "category": "Standard containers, iterators, and algorithms",
+    "title": "Iterator category vs. algorithmic complexity",
+    "description": "Generic algorithms may compile with non-random-access iterators yet have unexpectedly poor complexity compared with container-specific operations.",
+    "classification": "PERF",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/iterator/distance",
+      "https://en.cppreference.com/w/cpp/iterator/advance",
+      "https://en.cppreference.com/w/cpp/named_req/RandomAccessIterator"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 109,
+    "category_number": 9,
+    "category": "Templates, overload resolution, and name lookup",
+    "title": "Two-phase name lookup",
+    "description": "Names in templates can be resolved at different times, producing surprising differences between dependent and non-dependent expressions.",
+    "classification": "LOGIC",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/dependent_name",
+      "https://en.cppreference.com/w/cpp/language/unqualified_lookup"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 110,
+    "category_number": 9,
+    "category": "Templates, overload resolution, and name lookup",
+    "title": "Argument-dependent lookup (ADL)",
+    "description": "Unqualified function calls can discover overloads through associated types and namespaces, changing overload selection.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/adl",
+      "https://en.cppreference.com/w/cpp/language/overload_resolution"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 111,
+    "category_number": 9,
+    "category": "Templates, overload resolution, and name lookup",
+    "title": "Hidden friend functions",
+    "description": "Friend functions defined inside classes can participate in ADL while remaining invisible to ordinary lookup.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/friend",
+      "https://en.cppreference.com/w/cpp/language/adl"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 112,
+    "category_number": 9,
+    "category": "Templates, overload resolution, and name lookup",
+    "title": "Dependent `typename` and `template` disambiguation",
+    "description": "The compiler sometimes needs explicit guidance to distinguish types and template names from other dependent constructs.",
+    "classification": "IF",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/dependent_name"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 113,
+    "category_number": 9,
+    "category": "Templates, overload resolution, and name lookup",
+    "title": "SFINAE vs. hard compilation errors",
+    "description": "Not every substitution failure occurs in a context where it is silently removed from overload consideration.",
+    "classification": "IF",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/sfinae",
+      "https://en.cppreference.com/w/cpp/types/enable_if"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 114,
+    "category_number": 9,
+    "category": "Templates, overload resolution, and name lookup",
+    "title": "Template overloads vs. specializations",
+    "description": "Function-template specializations do not participate in overload selection in the same way as ordinary overloads.",
+    "classification": "LOGIC",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/function_template",
+      "https://en.cppreference.com/w/cpp/language/template_specialization"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 115,
+    "category_number": 9,
+    "category": "Templates, overload resolution, and name lookup",
+    "title": "Forwarding references and braced initializer lists",
+    "description": "Braced lists do not behave like ordinary deducible expressions, breaking otherwise generic forwarding interfaces.",
+    "classification": "IF",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/template_argument_deduction",
+      "https://en.cppreference.com/w/cpp/utility/forward"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 116,
+    "category_number": 9,
+    "category": "Templates, overload resolution, and name lookup",
+    "title": "Implicit conversion ranking",
+    "description": "Exact matches, promotions, conversions, and user-defined conversions interact with template deduction and overload ranking.",
+    "classification": "LOGIC",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/overload_resolution",
+      "https://en.cppreference.com/w/cpp/language/implicit_conversion"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 117,
+    "category_number": 9,
+    "category": "Templates, overload resolution, and name lookup",
+    "title": "Concepts and constraint subsumption",
+    "description": "C++20 constraints don't always order overloads according to intuitive logical implications.",
+    "classification": "LOGIC",
+    "difficulty": "hard",
+    "cpp_standard": 20,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/constraints",
+      "https://en.cppreference.com/w/cpp/language/concepts"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 118,
+    "category_number": 9,
+    "category": "Templates, overload resolution, and name lookup",
+    "title": "`if constexpr` discarded branches",
+    "description": "A discarded branch is not a blanket exemption from syntax, semantic, and template-validity requirements.",
+    "classification": "IF",
+    "difficulty": "medium",
+    "cpp_standard": 17,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/if"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 119,
+    "category_number": 9,
+    "category": "Templates, overload resolution, and name lookup",
+    "title": "`constexpr`, `consteval`, and `constinit`",
+    "description": "These keywords impose different compile-time evaluation or initialization requirements and are not interchangeable.",
+    "classification": "IF",
+    "difficulty": "medium",
+    "cpp_standard": 20,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/constexpr",
+      "https://en.cppreference.com/w/cpp/language/consteval",
+      "https://en.cppreference.com/w/cpp/language/constinit"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 120,
+    "category_number": 9,
+    "category": "Templates, overload resolution, and name lookup",
+    "title": "Template instantiation across translation units",
+    "description": "Templates that compile independently can still encounter definition visibility, specialization, or linkage problems.",
+    "classification": "IF",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/class_template",
+      "https://en.cppreference.com/w/cpp/language/function_template",
+      "https://en.cppreference.com/w/cpp/language/definition"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 121,
+    "category_number": 10,
+    "category": "Exceptions, error handling, and termination",
+    "title": "Throwing from destructors",
+    "description": "Exceptions escaping destructors during stack unwinding can cause immediate program termination.",
+    "classification": "LOGIC",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/destructor",
+      "https://en.cppreference.com/w/cpp/error/terminate",
+      "https://en.cppreference.com/w/cpp/language/noexcept_spec"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 122,
+    "category_number": 10,
+    "category": "Exceptions, error handling, and termination",
+    "title": "`noexcept` violations",
+    "description": "An exception escaping a non-throwing function results in termination rather than ordinary exception propagation.",
+    "classification": "LOGIC",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/noexcept_spec",
+      "https://en.cppreference.com/w/cpp/error/terminate"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 123,
+    "category_number": 10,
+    "category": "Exceptions, error handling, and termination",
+    "title": "Catching polymorphic exceptions by value",
+    "description": "Catching by value can copy and slice an exception object, changing its observed type.",
+    "classification": "LOGIC",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/catch",
+      "https://en.cppreference.com/w/cpp/language/try_catch"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 124,
+    "category_number": 10,
+    "category": "Exceptions, error handling, and termination",
+    "title": "`throw;` vs. throwing an exception object",
+    "description": "Rethrowing an active exception differs from constructing and throwing another exception, including implications for slicing.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/throw",
+      "https://en.cppreference.com/w/cpp/error/current_exception"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 125,
+    "category_number": 10,
+    "category": "Exceptions, error handling, and termination",
+    "title": "Constructor exceptions and partial object destruction",
+    "description": "When construction throws, destruction applies to completed subobjects, not to a fully constructed containing object.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/constructor",
+      "https://en.cppreference.com/w/cpp/language/function-try-block"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 126,
+    "category_number": 10,
+    "category": "Exceptions, error handling, and termination",
+    "title": "`std::optional::value()` and `std::expected::value()`",
+    "description": "These accessors have explicit failure behavior that differs from unchecked access and from exception-free assumptions.",
+    "classification": "LOGIC",
+    "difficulty": "easy",
+    "cpp_standard": 17,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/utility/optional/value",
+      "https://en.cppreference.com/w/cpp/utility/expected/value"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 127,
+    "category_number": 10,
+    "category": "Exceptions, error handling, and termination",
+    "title": "`std::variant` exceptional states",
+    "description": "Some operations can leave a variant without an active alternative, invalidating assumptions that it always holds exactly one.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 17,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/utility/variant/valueless_by_exception",
+      "https://en.cppreference.com/w/cpp/utility/variant"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 128,
+    "category_number": 10,
+    "category": "Exceptions, error handling, and termination",
+    "title": "Exception guarantees and partially modified state",
+    "description": "Operations can provide basic, strong, or no meaningful exception guarantee; assuming rollback is automatic can corrupt program invariants.",
+    "classification": "LOGIC",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/exceptions",
+      "https://en.cppreference.com/w/cpp/error/exception"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 129,
+    "category_number": 11,
+    "category": "Concurrency, atomics, and the C++ memory model",
+    "title": "Data races and undefined behavior",
+    "description": "Unsynchronized conflicting accesses to the same memory location can cause undefined behavior, not merely stale or inconsistent reads.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/memory_model",
+      "https://en.cppreference.com/w/cpp/thread"
+    ],
+    "examples": {
+      "status": "done",
+      "dir": "examples/129-data-races-and-undefined-behavior",
+      "readme": null,
+      "cases": [
+        {
+          "name": "main",
+          "dir": "examples/129-data-races-and-undefined-behavior/01-main",
+          "files": {
+            "bad_cpp": "examples/129-data-races-and-undefined-behavior/01-main/bad.cpp",
+            "good_cpp": "examples/129-data-races-and-undefined-behavior/01-main/good.cpp",
+            "good_rust": "examples/129-data-races-and-undefined-behavior/01-main/good.rs",
+            "explanation": "examples/129-data-races-and-undefined-behavior/01-main/explanation.md"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": 130,
+    "category_number": 11,
+    "category": "Concurrency, atomics, and the C++ memory model",
+    "title": "Atomicity vs. visibility vs. ordering",
+    "description": "Making an individual operation atomic does not automatically establish the synchronization needed for surrounding memory accesses.",
+    "classification": "CONC",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/atomic/memory_order",
+      "https://en.cppreference.com/w/cpp/atomic/atomic"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 131,
+    "category_number": 11,
+    "category": "Concurrency, atomics, and the C++ memory model",
+    "title": "`memory_order_relaxed` misuse",
+    "description": "Relaxed atomics preserve atomicity but do not automatically publish or synchronize other data.",
+    "classification": "CONC",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/atomic/memory_order"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 132,
+    "category_number": 11,
+    "category": "Concurrency, atomics, and the C++ memory model",
+    "title": "Release/acquire synchronization",
+    "description": "Release/acquire ordering establishes synchronization only under the relevant reads-from and ordering conditions.",
+    "classification": "CONC",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/atomic/memory_order"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 133,
+    "category_number": 11,
+    "category": "Concurrency, atomics, and the C++ memory model",
+    "title": "Sequential consistency misconceptions",
+    "description": "Even sequentially consistent atomic operations do not make an entire program behave like a single globally serialized execution in every respect.",
+    "classification": "CONC",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/atomic/memory_order"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 134,
+    "category_number": 11,
+    "category": "Concurrency, atomics, and the C++ memory model",
+    "title": "Release sequences and read-modify-write operations",
+    "description": "Release sequences have precise rules that matter when multiple threads modify a publication or synchronization variable.",
+    "classification": "CONC",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/atomic/memory_order",
+      "https://en.cppreference.com/w/cpp/atomic/atomic/fetch_add"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 135,
+    "category_number": 11,
+    "category": "Concurrency, atomics, and the C++ memory model",
+    "title": "Incorrect compare-exchange loops",
+    "description": "`compare_exchange_weak` may fail spuriously, and both compare-exchange variants update the expected-value argument upon failure.",
+    "classification": "CONC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/atomic/atomic/compare_exchange"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 136,
+    "category_number": 11,
+    "category": "Concurrency, atomics, and the C++ memory model",
+    "title": "Invalid compare-exchange memory orders",
+    "description": "Success and failure memory-order constraints differ, and violating those constraints can produce invalid atomic usage.",
+    "classification": "CONC",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/atomic/atomic/compare_exchange",
+      "https://en.cppreference.com/w/cpp/atomic/memory_order"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 137,
+    "category_number": 11,
+    "category": "Concurrency, atomics, and the C++ memory model",
+    "title": "ABA problem in lock-free algorithms",
+    "description": "A pointer or state can return to an earlier value while the underlying object history has changed, invalidating simple compare-and-swap reasoning.",
+    "classification": "CONC",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/atomic/atomic/compare_exchange",
+      "https://en.cppreference.com/w/cpp/atomic/atomic"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 138,
+    "category_number": 11,
+    "category": "Concurrency, atomics, and the C++ memory model",
+    "title": "Memory reclamation in lock-free structures",
+    "description": "Removing a node atomically does not guarantee it is safe to reclaim while other threads might still access it.",
+    "classification": "CONC",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/atomic/atomic",
+      "https://en.cppreference.com/w/cpp/atomic/memory_order"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 139,
+    "category_number": 11,
+    "category": "Concurrency, atomics, and the C++ memory model",
+    "title": "Condition-variable spurious wakeups",
+    "description": "A waiting thread can wake without the desired condition becoming true, so wakeup alone is not proof that the invariant holds.",
+    "classification": "CONC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/thread/condition_variable",
+      "https://en.cppreference.com/w/cpp/thread/condition_variable/wait"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 140,
+    "category_number": 11,
+    "category": "Concurrency, atomics, and the C++ memory model",
+    "title": "Lost wakeups and predicate synchronization",
+    "description": "Incorrect coordination between the predicate, mutex, and notification can leave threads blocked indefinitely.",
+    "classification": "CONC",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/thread/condition_variable",
+      "https://en.cppreference.com/w/cpp/thread/condition_variable/notify_one"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 141,
+    "category_number": 11,
+    "category": "Concurrency, atomics, and the C++ memory model",
+    "title": "Mutex deadlock from inconsistent lock ordering",
+    "description": "Acquiring multiple mutexes in conflicting orders can deadlock even if each individual operation appears correct.",
+    "classification": "CONC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/thread/mutex",
+      "https://en.cppreference.com/w/cpp/thread/lock",
+      "https://en.cppreference.com/w/cpp/thread/scoped_lock"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 142,
+    "category_number": 11,
+    "category": "Concurrency, atomics, and the C++ memory model",
+    "title": "`std::thread` destruction semantics",
+    "description": "Destroying a joinable `std::thread` causes program termination rather than automatically joining or detaching it.",
+    "classification": "CONC",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/thread/thread",
+      "https://en.cppreference.com/w/cpp/thread/thread/~thread",
+      "https://en.cppreference.com/w/cpp/thread/jthread"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 143,
+    "category_number": 11,
+    "category": "Concurrency, atomics, and the C++ memory model",
+    "title": "`std::async` execution policy surprises",
+    "description": "An async task may be deferred, and associated future lifecycle operations can unexpectedly block.",
+    "classification": "CONC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/thread/async",
+      "https://en.cppreference.com/w/cpp/thread/launch",
+      "https://en.cppreference.com/w/cpp/thread/future"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 144,
+    "category_number": 11,
+    "category": "Concurrency, atomics, and the C++ memory model",
+    "title": "Misunderstanding `volatile`",
+    "description": "C++ `volatile` does not provide inter-thread synchronization or replace atomics.",
+    "classification": "CONC",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/cv",
+      "https://en.cppreference.com/w/cpp/atomic/atomic"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 145,
+    "category_number": 11,
+    "category": "Concurrency, atomics, and the C++ memory model",
+    "title": "Concurrent access to standard containers",
+    "description": "Thread-safe independent reads do not imply that concurrent structural modifications or iterator use are safe.",
+    "classification": "CONC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/container",
+      "https://en.cppreference.com/w/cpp/thread/mutex"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 146,
+    "category_number": 11,
+    "category": "Concurrency, atomics, and the C++ memory model",
+    "title": "Atomic reference-counting misconceptions",
+    "description": "Atomic `shared_ptr` ownership management does not automatically make accesses to the managed object thread-safe.",
+    "classification": "CONC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/memory/shared_ptr",
+      "https://en.cppreference.com/w/cpp/atomic/atomic"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 147,
+    "category_number": 11,
+    "category": "Concurrency, atomics, and the C++ memory model",
+    "title": "`std::atomic_ref` lifetime and alignment",
+    "description": "Retrofitting atomic operations onto an existing object comes with alignment, lifetime, and mixed-access constraints.",
+    "classification": "CONC",
+    "difficulty": "hard",
+    "cpp_standard": 20,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/atomic/atomic_ref"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 148,
+    "category_number": 11,
+    "category": "Concurrency, atomics, and the C++ memory model",
+    "title": "Lock-free vs. wait-free guarantees",
+    "description": "An atomic operation being lock-free does not imply bounded latency, starvation freedom, or wait-free progress.",
+    "classification": "CONC",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/atomic/atomic/is_lock_free",
+      "https://en.cppreference.com/w/cpp/atomic/atomic_is_lock_free"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 149,
+    "category_number": 11,
+    "category": "Concurrency, atomics, and the C++ memory model",
+    "title": "False sharing",
+    "description": "Independent variables occupying the same cache line can cause severe contention without any C++ data race.",
+    "classification": "PERF",
+    "difficulty": "medium",
+    "cpp_standard": 17,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/thread/hardware_destructive_interference_size",
+      "https://en.cppreference.com/w/cpp/language/alignas"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 150,
+    "category_number": 12,
+    "category": "Modern C++: ranges, coroutines, and vocabulary types",
+    "title": "Lazy ranges and repeated evaluation",
+    "description": "Range views can defer computation, meaning dereferencing or iterating may execute transformations at a different time or frequency than expected.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 20,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/ranges",
+      "https://en.cppreference.com/w/cpp/ranges/transform_view"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 151,
+    "category_number": 12,
+    "category": "Modern C++: ranges, coroutines, and vocabulary types",
+    "title": "Dangling range adaptors",
+    "description": "Composing non-owning views can preserve references to short-lived objects without making the lifetime problem obvious.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 20,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/ranges/dangling",
+      "https://en.cppreference.com/w/cpp/ranges/view"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 152,
+    "category_number": 12,
+    "category": "Modern C++: ranges, coroutines, and vocabulary types",
+    "title": "Borrowed ranges vs. owning ranges",
+    "description": "Range algorithms distinguish ranges whose iterators can safely outlive the range object from those whose iterators cannot.",
+    "classification": "LOGIC",
+    "difficulty": "hard",
+    "cpp_standard": 20,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/ranges/borrowed_range",
+      "https://en.cppreference.com/w/cpp/ranges/dangling"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 153,
+    "category_number": 12,
+    "category": "Modern C++: ranges, coroutines, and vocabulary types",
+    "title": "Structured bindings and copying",
+    "description": "Structured bindings can introduce copies or references depending on declaration syntax and tuple-like customization.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 17,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/structured_binding"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 154,
+    "category_number": 12,
+    "category": "Modern C++: ranges, coroutines, and vocabulary types",
+    "title": "Coroutine frame lifetime",
+    "description": "Coroutines manage their own state and suspension points, so local-variable and parameter lifetimes differ from ordinary functions.",
+    "classification": "UB",
+    "difficulty": "hard",
+    "cpp_standard": 20,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/coroutines"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 155,
+    "category_number": 12,
+    "category": "Modern C++: ranges, coroutines, and vocabulary types",
+    "title": "Dangling coroutine captures and references",
+    "description": "Captures and reference parameters may outlive their referents across suspension, even when the coroutine frame remains valid.",
+    "classification": "UB",
+    "difficulty": "hard",
+    "cpp_standard": 20,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/coroutines",
+      "https://en.cppreference.com/w/cpp/language/lambda"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 156,
+    "category_number": 12,
+    "category": "Modern C++: ranges, coroutines, and vocabulary types",
+    "title": "Coroutine handle ownership",
+    "description": "Coroutine handles are non-owning interfaces, making destruction, resumption, and double-destruction hazards particularly important.",
+    "classification": "UB",
+    "difficulty": "hard",
+    "cpp_standard": 20,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/coroutine/coroutine_handle",
+      "https://en.cppreference.com/w/cpp/coroutine/coroutine_handle/destroy"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 157,
+    "category_number": 12,
+    "category": "Modern C++: ranges, coroutines, and vocabulary types",
+    "title": "Suspending while holding locks",
+    "description": "Suspending a coroutine while retaining thread-affine synchronization resources can lead to deadlocks or invalid resumption assumptions.",
+    "classification": "CONC",
+    "difficulty": "hard",
+    "cpp_standard": 20,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/coroutines",
+      "https://en.cppreference.com/w/cpp/thread/mutex"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 158,
+    "category_number": 12,
+    "category": "Modern C++: ranges, coroutines, and vocabulary types",
+    "title": "`std::optional` disengaged-state access",
+    "description": "Optional objects distinguish between being present and holding a particular value, with different rules for checked and unchecked access.",
+    "classification": "UB",
+    "difficulty": "easy",
+    "cpp_standard": 17,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/utility/optional",
+      "https://en.cppreference.com/w/cpp/utility/optional/operator*"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 159,
+    "category_number": 12,
+    "category": "Modern C++: ranges, coroutines, and vocabulary types",
+    "title": "`std::any` and `std::variant` runtime type assumptions",
+    "description": "These types offer different forms of type erasure and discriminated storage, and invalid access has different failure semantics.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 17,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/utility/any",
+      "https://en.cppreference.com/w/cpp/utility/variant",
+      "https://en.cppreference.com/w/cpp/utility/any/any_cast"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 160,
+    "category_number": 13,
+    "category": "Translation units, linkage, initialization, and ABI",
+    "title": "One Definition Rule (ODR) violations",
+    "description": "Inconsistent or duplicated definitions across translation units can produce ill-formed programs, sometimes without a required diagnostic.",
+    "classification": "UB",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/definition"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 161,
+    "category_number": 13,
+    "category": "Translation units, linkage, initialization, and ABI",
+    "title": "Static initialization order fiasco",
+    "description": "Dynamically initialized objects in different translation units may depend on initialization ordering that is not guaranteed.",
+    "classification": "UNS",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/initialization",
+      "https://en.cppreference.com/w/cpp/language/storage_duration"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 162,
+    "category_number": 13,
+    "category": "Translation units, linkage, initialization, and ABI",
+    "title": "Static destruction order",
+    "description": "Objects with static storage duration can be destroyed in an order that invalidates dependencies still used by other destructors.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/storage_duration",
+      "https://en.cppreference.com/w/cpp/utility/program/atexit"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 163,
+    "category_number": 13,
+    "category": "Translation units, linkage, initialization, and ABI",
+    "title": "Function-local static initialization",
+    "description": "Initialization of local statics is thread-safe under modern C++ rules, but recursion during initialization has special hazards.",
+    "classification": "UB",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/storage_duration",
+      "https://en.cppreference.com/w/cpp/thread/call_once"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 164,
+    "category_number": 13,
+    "category": "Translation units, linkage, initialization, and ABI",
+    "title": "`inline` functions and variables across translation units",
+    "description": "`inline` changes ODR and linkage rules rather than simply requesting that a compiler eliminate function calls.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 17,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/inline"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 165,
+    "category_number": 13,
+    "category": "Translation units, linkage, initialization, and ABI",
+    "title": "Header-defined globals and linkage",
+    "description": "Namespaces, `static`, `extern`, `const`, and inline variables have different linkage behaviors that can create duplicate or independent objects.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 17,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/storage_duration",
+      "https://en.cppreference.com/w/cpp/language/inline",
+      "https://en.cppreference.com/w/cpp/language/namespace"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 166,
+    "category_number": 13,
+    "category": "Translation units, linkage, initialization, and ABI",
+    "title": "ABI incompatibility",
+    "description": "Object layout, calling conventions, name mangling, exception handling, and standard-library ABI choices can prevent separately compiled binaries from interoperating safely.",
+    "classification": "UNS",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/language_linkage",
+      "https://en.cppreference.com/w/cpp/language/definition"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 167,
+    "category_number": 13,
+    "category": "Translation units, linkage, initialization, and ABI",
+    "title": "Mismatched compiler flags across translation units",
+    "description": "Differences in macro definitions, structure packing, ABI modes, or language configuration can silently invalidate cross-file assumptions.",
+    "classification": "UB",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/definition",
+      "https://en.cppreference.com/w/cpp/preprocessor/replace"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 168,
+    "category_number": 14,
+    "category": "Low-latency and HFT-specific C++ footguns",
+    "title": "Hidden dynamic allocations",
+    "description": "High-level library abstractions can allocate internally despite looking inexpensive at the call site.",
+    "classification": "PERF",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/memory/new/operator_new",
+      "https://en.cppreference.com/w/cpp/string/basic_string",
+      "https://en.cppreference.com/w/cpp/container/vector"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 169,
+    "category_number": 14,
+    "category": "Low-latency and HFT-specific C++ footguns",
+    "title": "`std::function` type-erasure overhead",
+    "description": "Type erasure can introduce indirect calls, potentially hidden allocations, and implementation-dependent small-object storage behavior.",
+    "classification": "PERF",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/utility/functional/function",
+      "https://en.cppreference.com/w/cpp/utility/functional/move_only_function"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 170,
+    "category_number": 14,
+    "category": "Low-latency and HFT-specific C++ footguns",
+    "title": "Virtual dispatch and devirtualization",
+    "description": "Virtual calls can obstruct some optimizations, but the actual cost depends on whether the compiler can devirtualize and inline them.",
+    "classification": "PERF",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/virtual",
+      "https://en.cppreference.com/w/cpp/language/final"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 171,
+    "category_number": 14,
+    "category": "Low-latency and HFT-specific C++ footguns",
+    "title": "`std::shared_ptr` reference-count contention",
+    "description": "Shared ownership can add atomic reference-count operations and contention that become expensive in hot paths.",
+    "classification": "PERF",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/memory/shared_ptr",
+      "https://en.cppreference.com/w/cpp/atomic/atomic"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 172,
+    "category_number": 14,
+    "category": "Low-latency and HFT-specific C++ footguns",
+    "title": "Node-based vs. contiguous containers",
+    "description": "Pointer-heavy containers can have poor cache locality and allocation overhead despite attractive asymptotic complexity.",
+    "classification": "PERF",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/container/list",
+      "https://en.cppreference.com/w/cpp/container/map",
+      "https://en.cppreference.com/w/cpp/container/vector"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 173,
+    "category_number": 14,
+    "category": "Low-latency and HFT-specific C++ footguns",
+    "title": "`std::unordered_map` performance assumptions",
+    "description": "Average constant-time complexity hides hashing costs, pointer chasing, rehashing, allocator effects, and pathological collision behavior.",
+    "classification": "PERF",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/container/unordered_map",
+      "https://en.cppreference.com/w/cpp/container/unordered_map/rehash",
+      "https://en.cppreference.com/w/cpp/container/unordered_map/reserve"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 174,
+    "category_number": 14,
+    "category": "Low-latency and HFT-specific C++ footguns",
+    "title": "Custom allocator and `std::pmr` lifetime errors",
+    "description": "Allocator resources must outlive their dependent allocations, and allocator propagation rules can create unexpected ownership or performance behavior.",
+    "classification": "UB",
+    "difficulty": "hard",
+    "cpp_standard": 17,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/memory/memory_resource",
+      "https://en.cppreference.com/w/cpp/memory/polymorphic_allocator",
+      "https://en.cppreference.com/w/cpp/memory/monotonic_buffer_resource"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 175,
+    "category_number": 14,
+    "category": "Low-latency and HFT-specific C++ footguns",
+    "title": "`memcpy` vs. element-wise copying",
+    "description": "For suitable types, copying raw bytes can be a powerful optimization, but it depends on valid object lifetime, representation, and aliasing assumptions.",
+    "classification": "PERF",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/string/byte/memcpy",
+      "https://en.cppreference.com/w/cpp/algorithm/copy",
+      "https://en.cppreference.com/w/cpp/named_req/TriviallyCopyable"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 176,
+    "category_number": 14,
+    "category": "Low-latency and HFT-specific C++ footguns",
+    "title": "Hidden copies in range-based loops",
+    "description": "A loop that looks reference-like can accidentally copy expensive objects or proxy values due to type deduction.",
+    "classification": "PERF",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/range-for",
+      "https://en.cppreference.com/w/cpp/language/auto"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 177,
+    "category_number": 14,
+    "category": "Low-latency and HFT-specific C++ footguns",
+    "title": "Clock semantics in latency measurement",
+    "description": "`system_clock`, `steady_clock`, and `high_resolution_clock` have different guarantees; the highest-resolution clock is not necessarily steady.",
+    "classification": "PERF",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/chrono/steady_clock",
+      "https://en.cppreference.com/w/cpp/chrono/system_clock",
+      "https://en.cppreference.com/w/cpp/chrono/high_resolution_clock"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 178,
+    "category_number": 14,
+    "category": "Low-latency and HFT-specific C++ footguns",
+    "title": "I/O buffering and unexpected flushing",
+    "description": "Standard stream operations can impose synchronization, locale-processing, or flushing costs at surprising points.",
+    "classification": "PERF",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/io/basic_ostream/flush",
+      "https://en.cppreference.com/w/cpp/io/ios_base/sync_with_stdio",
+      "https://en.cppreference.com/w/cpp/io/manip/endl"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 179,
+    "category_number": 14,
+    "category": "Low-latency and HFT-specific C++ footguns",
+    "title": "Compile-time vs. runtime computation",
+    "description": "`constexpr` does not guarantee that every call is evaluated at compile time, while `consteval` imposes stronger constraints.",
+    "classification": "PERF",
+    "difficulty": "medium",
+    "cpp_standard": 20,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/constexpr",
+      "https://en.cppreference.com/w/cpp/language/consteval"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 180,
+    "category_number": 14,
+    "category": "Low-latency and HFT-specific C++ footguns",
+    "title": "Floating-point prices and exact comparisons",
+    "description": "Binary floating-point cannot represent every decimal financial quantity exactly, creating potentially unacceptable precision and ordering behavior.",
+    "classification": "LOGIC",
+    "difficulty": "easy",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/types/numeric_limits",
+      "https://en.cppreference.com/w/cpp/types/numeric_limits/epsilon"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 181,
+    "category_number": 14,
+    "category": "Low-latency and HFT-specific C++ footguns",
+    "title": "Compiler optimization exploiting undefined behavior",
+    "description": "Optimizing compilers may eliminate, reorder, or transform operations based on the assumption that undefined behavior never occurs.",
+    "classification": "UB",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/ub",
+      "https://en.cppreference.com/w/cpp/language/as_if"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  },
+  {
+    "id": 182,
+    "category_number": 14,
+    "category": "Low-latency and HFT-specific C++ footguns",
+    "title": "Microbenchmark distortions",
+    "description": "Compiler elimination of unused work, inlining differences, optimization barriers, and caching can make C++ microbenchmarks measure something other than the intended operation.",
+    "classification": "PERF",
+    "difficulty": "hard",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/as_if",
+      "https://en.cppreference.com/w/cpp/language/cv"
+    ],
+    "examples": {
+      "status": "todo",
+      "dir": null,
+      "readme": null,
+      "cases": []
+    }
+  }
+]

@@ -1,0 +1,266 @@
+## 1. Initialization and implicit conversions
+
+1. Default initialization vs. value initialization — Different initialization syntaxes have different rules for fundamental types, aggregates, and classes. Assuming all declarations produce initialized values can be dangerous.
+2. The most vexing parse — C++ grammar can interpret something that appears to construct an object as a function declaration instead.
+3. Brace initialization vs. parentheses — Using braces can select different constructors than using parentheses, particularly when `std::initializer_list` is involved.
+4. Initializer-list constructor preference — Constructors accepting `std::initializer_list` receive special treatment during overload resolution and can unexpectedly take precedence over other constructors.
+5. Narrowing conversions — Brace initialization rejects certain conversions that other initialization forms permit, while ordinary implicit conversions can silently lose information.
+6. Implicit conversion chains — User-defined conversions, converting constructors, and standard conversions interact in ways that make overload selection non-obvious.
+7. `explicit` constructors and conversion operators — Explicitness affects some initialization and contextual conversion forms but not others.
+8. Null pointer overload resolution — `0`, `NULL`, and `nullptr` have different types and conversion behavior, producing surprising overload resolution results.
+9. Integer literal type deduction — The type of an integer literal depends on its value, base, and suffix, potentially changing the selected overload.
+10. Aggregate initialization and member ordering — Aggregate initialization follows structural rules that can make changes to member declarations silently change program behavior.
+11. Class member initialization order — Members are initialized in declaration order, not the textual order of a constructor's member-initializer list.
+12. Class template argument deduction (CTAD) — Deduction guides and constructor-based deduction can infer types different from those a programmer expects.
+
+## 2. Type deduction, references, and value categories
+
+13. `auto` drops qualifiers and references — Ordinary `auto` deduction can discard top-level `const` and reference qualification, accidentally introducing copies or permitting mutation.
+14. `auto` with brace initialization — Direct-list and copy-list initialization have special deduction rules that differ from ordinary expressions.
+15. `decltype` vs. `decltype(auto)` — These follow rules different from ordinary `auto`, and subtle expression changes can turn a value return into a reference return.
+16. Parentheses changing `decltype` results — `decltype` distinguishes certain unparenthesized expressions from general expressions, making seemingly insignificant parentheses affect the deduced type.
+17. Lvalues, prvalues, and xvalues — Expression value categories determine binding, overload selection, lifetime behavior, and move eligibility.
+18. Reference collapsing — Combinations of lvalue and rvalue references follow specific collapsing rules that are essential to template deduction.
+19. Forwarding references vs. rvalue references — Similar-looking reference declarations can have very different deduction and binding behavior.
+20. Incorrect `std::forward` usage — Forwarding a value with the wrong template argument can change its value category and lead to unintended moves.
+21. Const rvalues and move semantics — A `const` object may not be movable through an ordinary move constructor even when explicitly cast to an rvalue.
+22. Reference-qualified member functions — Member functions qualified with `&`, `&&`, or `const` participate in overload resolution based on the value category and qualifiers of the object.
+23. `std::move` is only a cast — Applying `std::move` doesn't itself move an object, and the eventual operation may still copy.
+24. Perfect-forwarding constructors hijacking overloads — An unconstrained forwarding-reference constructor can unexpectedly compete with or override intended copy and converting constructors.
+
+## 3. Object lifetime, temporaries, and dangling references
+
+25. Returning references or pointers to local objects — References and pointers do not extend the lifetime of objects whose storage has ended.
+26. Temporary lifetime extension — Binding a temporary to a reference extends its lifetime in certain situations, but several syntactically similar situations are exceptions.
+27. Reference members bound to temporaries — Initializing references stored inside objects has lifetime rules that differ depending on the initialization context.
+28. `std::string_view` dangling references — A `string_view` does not own characters, and implicit conversions from strings can disguise lifetime problems.
+29. `std::span` ownership confusion — A `span` carries a pointer and extent, not ownership, and can outlive or become invalidated by its backing storage.
+30. `std::initializer_list` backing-array lifetime — An initializer list references a temporary array whose lifetime is not always as long as the list object.
+31. Dangling lambda captures — Capturing a local variable by reference creates lifetime hazards when the closure escapes its defining scope.
+32. Capturing `this` in lambdas — Capturing `this` does not generally preserve the containing object's lifetime, and copy-capture defaults can be misleading.
+33. Dangling `c_str()` and `data()` pointers — Pointers obtained from strings can become invalid when the string is modified or destroyed.
+34. Lifetime of subobjects and base objects — A subobject's validity depends on the lifetime and construction/destruction state of its enclosing object.
+35. Range-based `for` over temporary objects — Lifetime extension in range-based loops has subtle rules, including important differences between C++20 and C++23.
+36. Proxy references — Some iterators and accessors return proxy objects rather than actual references, making binding and lifetime assumptions unreliable.
+37. Destructor and temporary destruction timing — Temporaries normally die at full-expression boundaries, while local variables and members have specific reverse-destruction orders.
+38. Returning a reference through multiple function calls — A chain of apparently safe reference-returning functions can conceal an object that dies along the way.
+
+## 4. Raw memory, pointers, aliasing, and the C++ object model
+
+39. Reading uninitialized values — Objects with indeterminate or erroneous values can trigger undefined or erroneous behavior, depending on type and language version.
+40. Strict aliasing violations — Accessing an object through an unrelated type can violate type-access rules, even when the memory representation is compatible.
+41. `reinterpret_cast` doesn't create objects — Reinterpreting a pointer's type does not automatically create an object of that type or begin its lifetime.
+42. Misaligned accesses — A pointer can refer to sufficient memory yet still be invalid for accessing a type whose alignment requirements aren't met.
+43. Pointer arithmetic outside an array — Pointer arithmetic is only defined within tightly specified object and array bounds, not arbitrary nearby allocated memory.
+44. One-past-the-end pointers — Constructing certain one-past pointers is legal, but dereferencing them is not.
+45. Pointer provenance and lifetime — Numerical equality of addresses is insufficient to prove that a pointer is valid for accessing an object.
+46. Union type punning — Reading an inactive union member can violate C++ lifetime and type-access rules, even when a compiler accepts it as an extension.
+47. Placement new and object replacement — Reusing storage requires understanding when the old object's lifetime ends and the new object's lifetime begins.
+48. `std::launder` and pointer reuse — After certain object replacements, an existing pointer cannot simply be used to access the new object without satisfying special rules.
+49. `memcpy` on non-trivial types — Byte-copying an object does not generally reproduce the semantics of copy construction or assignment.
+50. Raw allocation vs. object construction — Allocating enough bytes for a type is not always equivalent to constructing an object of that type.
+51. Struct padding and object representations — Structures may contain padding bytes, so binary comparisons or serialization of complete object representations may be misleading.
+52. Object layout and `offsetof` assumptions — Standard-layout guarantees are narrower than many programmers expect, particularly with inheritance and polymorphism.
+53. Mismatched allocation and deallocation — Mixing allocation/deallocation mechanisms or array and scalar deletion operations can cause undefined behavior.
+54. Invalid pointer use after deallocation — Freed storage does not remain a valid object merely because its address is still held in a pointer.
+55. Over-aligned allocation and packed structures — Nonstandard alignment assumptions or packed representations can produce invalid accesses when pointers to members escape.
+
+These are particularly valuable topics for questions about compiler optimizations, custom allocators, memory pools, and binary market-data structures.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://cppreference.com\&sz=32)
+
+Cppreference
+
++1
+
+
+
+## 5. Arithmetic, bitwise operations, and expression evaluation
+
+56. Signed integer overflow — Overflow of ordinary signed integer arithmetic is generally undefined behavior, enabling optimizations that surprise programmers.
+57. Unsigned arithmetic wraparound — Unsigned arithmetic wraps modulo its range, which is defined but can still create subtle indexing and arithmetic bugs.
+58. Signed/unsigned comparisons — Usual arithmetic conversions can produce surprising outcomes when signed and unsigned values interact.
+59. Integer promotions — Smaller integral types are promoted before many arithmetic operations, changing intermediate types and results.
+60. Integer division corner cases — Division by zero and certain signed division overflows have undefined behavior.
+61. Bit shifts and signed integers — Shift counts, operand promotions, and signed-shift semantics have rules that differ across language versions.
+62. Truncation and overflow during numeric casts — Integral and floating-point conversions can truncate, change signedness, or enter undefined-behavior territory.
+63. Character signedness — Whether plain `char` is signed is implementation-defined, which can break arithmetic and byte-oriented logic.
+64. Unsequenced side effects — Multiple modifications or reads of the same scalar object within an expression can become undefined behavior when sequencing requirements are violated.
+65. Function argument evaluation order — Function arguments are not generally evaluated in a guaranteed left-to-right order, even though C++17 strengthened certain sequencing rules.
+66. Operator precedence vs. evaluation order — Parsing precedence, associativity, and runtime evaluation sequencing are different concepts.
+67. Conditional operator type deduction — The conditional operator applies complex rules to determine common types and value categories, sometimes creating unexpected conversions or temporaries.
+68. Floating-point non-associativity — Reordering floating-point arithmetic can alter numerical results, and compiler optimization settings can change the effective guarantees.
+69. NaN and comparison semantics — NaN breaks ordinary ordering intuitions and can violate comparator requirements used by standard algorithms and containers.
+
+## 6. Classes, inheritance, virtual functions, and destruction
+
+70. Object slicing — Copying a derived object into a base object by value discards the derived portion and changes polymorphic behavior.
+71. Deleting through a non-virtual base destructor — Destroying a derived object through an incompatible base-class deletion interface can cause undefined behavior.
+72. Virtual calls during construction and destruction — Virtual dispatch is restricted by the object's current construction or destruction stage rather than always reaching the most-derived override.
+73. Pure virtual calls in object lifetime transitions — Calling a pure virtual function in an inappropriate construction/destruction context can result in undefined behavior.
+74. Default arguments on virtual functions — Virtual dispatch and default argument selection use different binding mechanisms, producing counterintuitive results.
+75. Name hiding in inheritance — A declaration in a derived class can hide base-class overloads even when the parameter lists differ.
+76. Multiple inheritance pointer adjustments — Converting between base and derived pointers can require address adjustment rather than a simple reinterpretation.
+77. Virtual inheritance layout assumptions — Virtual bases complicate object layout, pointer offsets, and the assumptions behind low-level casts.
+78. RTTI during construction or destruction — `dynamic_cast` and `typeid` interact with the object's current construction/destruction state, not just its eventual dynamic type.
+79. Shallow `const` and logical constness — `const` on a pointer-like wrapper or object does not necessarily imply that all reachable data is immutable.
+
+## 7. Move semantics, ownership, and RAII
+
+80. Use-after-move assumptions — A moved-from object is generally still valid but has an unspecified state unless its type provides stronger guarantees.
+81. Moving from `const` objects — Ordinary move operations often cannot bind to `const` sources, silently causing copies.
+82. Pessimizing moves on return — Explicitly applying `std::move` to a local return object can inhibit named return value optimization.
+83. Copy elision vs. actual moves — Guaranteed copy elision and optional NRVO differ, and reasoning in terms of an invisible move constructor can be incorrect.
+84. Implicitly deleted or suppressed special members — Declaring one special member function can affect generation or availability of copy and move constructors and assignments.
+85. Exception safety of move constructors — Whether moves can throw influences how standard containers relocate objects and preserve exception guarantees.
+86. Double ownership with `std::shared_ptr` — Constructing independent owning control blocks for the same raw object can cause multiple deletions.
+87. `shared_ptr` ownership cycles — Reference-counted ownership cannot reclaim strongly connected cycles without deliberately breaking the ownership graph.
+88. `enable_shared_from_this` misuse — Requesting shared ownership from an object not properly managed by a compatible shared control block can fail.
+89. `weak_ptr` check-then-use races — Checking whether an object is expired does not reserve its lifetime; obtaining temporary ownership requires the appropriate operation.
+90. `unique_ptr::release` vs. `reset` — These operations have fundamentally different ownership and destruction effects.
+91. Self-move and aliasing in assignment — Move assignment must respect the type's requirements even when source and destination refer to the same object.
+
+## 8. Standard containers, iterators, and algorithms
+
+92. `std::vector` reallocation invalidation — Growth may invalidate every pointer, reference, and iterator into a vector.
+93. `reserve()` vs. `resize()` — Capacity and constructed element count are distinct, and confusing them can lead to accesses outside the valid element range.
+94. `std::deque` invalidation rules — Deque iterator and reference invalidation rules differ significantly from vector and list rules and depend on the operation.
+95. `std::unordered_map` rehashing — Rehashing invalidates iterators while preserving certain references and pointers, a distinction that is easy to miss.
+96. Past-the-end iterator invalidation — A cached `end()` iterator may become invalid after container modification even when some element iterators remain valid.
+97. Erasing while iterating — Container-specific invalidation rules can make ordinary increment-and-erase loops invalid.
+98. `std::map::operator[]` implicit insertion — Access using `operator[]` can mutate the container even when the programmer intended a read-only lookup.
+99. `insert`, `emplace`, and `try_emplace` semantics — These operations differ in construction, evaluation, and handling of existing keys.
+100. Strict weak ordering requirements — Invalid comparison predicates can violate associative-container or sorting-algorithm preconditions, potentially causing undefined behavior.
+101. Hash/equality consistency — Unordered containers require hashing and equality to agree on equivalent keys.
+102. `std::vector<bool>` specialization — Its bit-packed storage and proxy-reference behavior differ materially from ordinary `std::vector<T>`.
+103. `std::remove` vs. container erasure — The standard removal algorithm rearranges elements but does not itself reduce a container's size.
+104. Algorithms with invalid ranges or iterators — Standard algorithms depend on valid ranges, output destinations, and often additional ordering or overlap preconditions.
+105. Returning references from `std::min` and `std::max` — Their reference-returning overloads can create dangling results when temporaries are involved.
+106. `std::accumulate` initial-value type — The accumulator's type is determined by the initial value, which can silently affect arithmetic precision and overflow.
+107. `std::reduce` ordering assumptions — Reduction is not necessarily performed in left-to-right order, which matters for non-associative operations.
+108. Iterator category vs. algorithmic complexity — Generic algorithms may compile with non-random-access iterators yet have unexpectedly poor complexity compared with container-specific operations.
+
+[image](https://www.google.com/s2/favicons?domain=https://en.cppreference.com\&sz=32)
+
+cppreference.com
+
++1
+
+## 9. Templates, overload resolution, and name lookup
+
+109. Two-phase name lookup — Names in templates can be resolved at different times, producing surprising differences between dependent and non-dependent expressions.
+110. Argument-dependent lookup (ADL) — Unqualified function calls can discover overloads through associated types and namespaces, changing overload selection.
+111. Hidden friend functions — Friend functions defined inside classes can participate in ADL while remaining invisible to ordinary lookup.
+112. Dependent `typename` and `template` disambiguation — The compiler sometimes needs explicit guidance to distinguish types and template names from other dependent constructs.
+113. SFINAE vs. hard compilation errors — Not every substitution failure occurs in a context where it is silently removed from overload consideration.
+114. Template overloads vs. specializations — Function-template specializations do not participate in overload selection in the same way as ordinary overloads.
+115. Forwarding references and braced initializer lists — Braced lists do not behave like ordinary deducible expressions, breaking otherwise generic forwarding interfaces.
+116. Implicit conversion ranking — Exact matches, promotions, conversions, and user-defined conversions interact with template deduction and overload ranking.
+117. Concepts and constraint subsumption — C++20 constraints don't always order overloads according to intuitive logical implications.
+118. `if constexpr` discarded branches — A discarded branch is not a blanket exemption from syntax, semantic, and template-validity requirements.
+119. `constexpr`, `consteval`, and `constinit` — These keywords impose different compile-time evaluation or initialization requirements and are not interchangeable.
+120. Template instantiation across translation units — Templates that compile independently can still encounter definition visibility, specialization, or linkage problems.
+
+## 10. Exceptions, error handling, and termination
+
+121. Throwing from destructors — Exceptions escaping destructors during stack unwinding can cause immediate program termination.
+122. `noexcept` violations — An exception escaping a non-throwing function results in termination rather than ordinary exception propagation.
+123. Catching polymorphic exceptions by value — Catching by value can copy and slice an exception object, changing its observed type.
+124. `throw;` vs. throwing an exception object — Rethrowing an active exception differs from constructing and throwing another exception, including implications for slicing.
+125. Constructor exceptions and partial object destruction — When construction throws, destruction applies to completed subobjects, not to a fully constructed containing object.
+126. `std::optional::value()` and `std::expected::value()` — These accessors have explicit failure behavior that differs from unchecked access and from exception-free assumptions.
+127. `std::variant` exceptional states — Some operations can leave a variant without an active alternative, invalidating assumptions that it always holds exactly one.
+128. Exception guarantees and partially modified state — Operations can provide basic, strong, or no meaningful exception guarantee; assuming rollback is automatic can corrupt program invariants.
+
+## 11. Concurrency, atomics, and the C++ memory model
+
+This is one of the highest-priority areas for HFT interviews.
+
+129. Data races and undefined behavior — Unsynchronized conflicting accesses to the same memory location can cause undefined behavior, not merely stale or inconsistent reads.
+130. Atomicity vs. visibility vs. ordering — Making an individual operation atomic does not automatically establish the synchronization needed for surrounding memory accesses.
+131. `memory_order_relaxed` misuse — Relaxed atomics preserve atomicity but do not automatically publish or synchronize other data.
+132. Release/acquire synchronization — Release/acquire ordering establishes synchronization only under the relevant reads-from and ordering conditions.
+133. Sequential consistency misconceptions — Even sequentially consistent atomic operations do not make an entire program behave like a single globally serialized execution in every respect.
+134. Release sequences and read-modify-write operations — Release sequences have precise rules that matter when multiple threads modify a publication or synchronization variable.
+135. Incorrect compare-exchange loops — `compare_exchange_weak` may fail spuriously, and both compare-exchange variants update the expected-value argument upon failure.
+136. Invalid compare-exchange memory orders — Success and failure memory-order constraints differ, and violating those constraints can produce invalid atomic usage.
+137. ABA problem in lock-free algorithms — A pointer or state can return to an earlier value while the underlying object history has changed, invalidating simple compare-and-swap reasoning.
+138. Memory reclamation in lock-free structures — Removing a node atomically does not guarantee it is safe to reclaim while other threads might still access it.
+139. Condition-variable spurious wakeups — A waiting thread can wake without the desired condition becoming true, so wakeup alone is not proof that the invariant holds.
+140. Lost wakeups and predicate synchronization — Incorrect coordination between the predicate, mutex, and notification can leave threads blocked indefinitely.
+141. Mutex deadlock from inconsistent lock ordering — Acquiring multiple mutexes in conflicting orders can deadlock even if each individual operation appears correct.
+142. `std::thread` destruction semantics — Destroying a joinable `std::thread` causes program termination rather than automatically joining or detaching it.
+143. `std::async` execution policy surprises — An async task may be deferred, and associated future lifecycle operations can unexpectedly block.
+144. Misunderstanding `volatile` — C++ `volatile` does not provide inter-thread synchronization or replace atomics.
+145. Concurrent access to standard containers — Thread-safe independent reads do not imply that concurrent structural modifications or iterator use are safe.
+146. Atomic reference-counting misconceptions — Atomic `shared_ptr` ownership management does not automatically make accesses to the managed object thread-safe.
+147. `std::atomic_ref` lifetime and alignment — Retrofitting atomic operations onto an existing object comes with alignment, lifetime, and mixed-access constraints.
+148. Lock-free vs. wait-free guarantees — An atomic operation being lock-free does not imply bounded latency, starvation freedom, or wait-free progress.
+149. False sharing — Independent variables occupying the same cache line can cause severe contention without any C++ data race.
+
+[image](https://www.google.com/s2/favicons?domain=https://cppreference.com\&sz=32)
+
+Cppreference
+
++1
+
+## 12. Modern C++: ranges, coroutines, and vocabulary types
+
+150. Lazy ranges and repeated evaluation — Range views can defer computation, meaning dereferencing or iterating may execute transformations at a different time or frequency than expected.
+151. Dangling range adaptors — Composing non-owning views can preserve references to short-lived objects without making the lifetime problem obvious.
+152. Borrowed ranges vs. owning ranges — Range algorithms distinguish ranges whose iterators can safely outlive the range object from those whose iterators cannot.
+153. Structured bindings and copying — Structured bindings can introduce copies or references depending on declaration syntax and tuple-like customization.
+154. Coroutine frame lifetime — Coroutines manage their own state and suspension points, so local-variable and parameter lifetimes differ from ordinary functions.
+155. Dangling coroutine captures and references — Captures and reference parameters may outlive their referents across suspension, even when the coroutine frame remains valid.
+156. Coroutine handle ownership — Coroutine handles are non-owning interfaces, making destruction, resumption, and double-destruction hazards particularly important.
+157. Suspending while holding locks — Suspending a coroutine while retaining thread-affine synchronization resources can lead to deadlocks or invalid resumption assumptions.
+158. `std::optional` disengaged-state access — Optional objects distinguish between being present and holding a particular value, with different rules for checked and unchecked access.
+159. `std::any` and `std::variant` runtime type assumptions — These types offer different forms of type erasure and discriminated storage, and invalid access has different failure semantics.
+
+[image](https://www.google.com/s2/favicons?domain=https://en.cppreference.com\&sz=32)
+
+cppreference.com
+
+## 13. Translation units, linkage, initialization, and ABI
+
+160. One Definition Rule (ODR) violations — Inconsistent or duplicated definitions across translation units can produce ill-formed programs, sometimes without a required diagnostic.
+161. Static initialization order fiasco — Dynamically initialized objects in different translation units may depend on initialization ordering that is not guaranteed.
+162. Static destruction order — Objects with static storage duration can be destroyed in an order that invalidates dependencies still used by other destructors.
+163. Function-local static initialization — Initialization of local statics is thread-safe under modern C++ rules, but recursion during initialization has special hazards.
+164. `inline` functions and variables across translation units — `inline` changes ODR and linkage rules rather than simply requesting that a compiler eliminate function calls.
+165. Header-defined globals and linkage — Namespaces, `static`, `extern`, `const`, and inline variables have different linkage behaviors that can create duplicate or independent objects.
+166. ABI incompatibility — Object layout, calling conventions, name mangling, exception handling, and standard-library ABI choices can prevent separately compiled binaries from interoperating safely.
+167. Mismatched compiler flags across translation units — Differences in macro definitions, structure packing, ABI modes, or language configuration can silently invalidate cross-file assumptions.
+
+## 14. Low-latency and HFT-specific C++ footguns
+
+These aren't necessarily undefined behavior, but they are especially relevant to performance-sensitive C++ engineering.
+
+168. Hidden dynamic allocations — High-level library abstractions can allocate internally despite looking inexpensive at the call site.
+169. `std::function` type-erasure overhead — Type erasure can introduce indirect calls, potentially hidden allocations, and implementation-dependent small-object storage behavior.
+170. Virtual dispatch and devirtualization — Virtual calls can obstruct some optimizations, but the actual cost depends on whether the compiler can devirtualize and inline them.
+171. `std::shared_ptr` reference-count contention — Shared ownership can add atomic reference-count operations and contention that become expensive in hot paths.
+172. Node-based vs. contiguous containers — Pointer-heavy containers can have poor cache locality and allocation overhead despite attractive asymptotic complexity.
+173. `std::unordered_map` performance assumptions — Average constant-time complexity hides hashing costs, pointer chasing, rehashing, allocator effects, and pathological collision behavior.
+174. Custom allocator and `std::pmr` lifetime errors — Allocator resources must outlive their dependent allocations, and allocator propagation rules can create unexpected ownership or performance behavior.
+175. `memcpy` vs. element-wise copying — For suitable types, copying raw bytes can be a powerful optimization, but it depends on valid object lifetime, representation, and aliasing assumptions.
+176. Hidden copies in range-based loops — A loop that looks reference-like can accidentally copy expensive objects or proxy values due to type deduction.
+177. Clock semantics in latency measurement — `system_clock`, `steady_clock`, and `high_resolution_clock` have different guarantees; the highest-resolution clock is not necessarily steady.
+178. I/O buffering and unexpected flushing — Standard stream operations can impose synchronization, locale-processing, or flushing costs at surprising points.
+179. Compile-time vs. runtime computation — `constexpr` does not guarantee that every call is evaluated at compile time, while `consteval` imposes stronger constraints.
+180. Floating-point prices and exact comparisons — Binary floating-point cannot represent every decimal financial quantity exactly, creating potentially unacceptable precision and ordering behavior.
+181. Compiler optimization exploiting undefined behavior — Optimizing compilers may eliminate, reorder, or transform operations based on the assumption that undefined behavior never occurs.
+182. Microbenchmark distortions — Compiler elimination of unused work, inlining differences, optimization barriers, and caching can make C++ microbenchmarks measure something other than the intended operation.
+
+## Recommended structure for the eventual interview catalog
+
+I would preserve each of these as an independent topic and eventually attach a difficulty level and a failure classification.
+
+| Classification | Meaning                                         |
+| -------------- | ----------------------------------------------- |
+| UB             | Undefined behavior                              |
+| IF             | Ill-formed program / compilation failure        |
+| UNS            | Unspecified or implementation-defined behavior  |
+| LOGIC          | Well-defined but surprising or incorrect result |
+| PERF           | Performance footgun                             |
+| CONC           | Concurrency or memory-model trap                |
