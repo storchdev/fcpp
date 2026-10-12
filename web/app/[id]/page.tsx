@@ -38,7 +38,6 @@ export default async function EntryPage({ params }: { params: Promise<{ id: stri
     const x = parseExplanation(c.explanation);
     const chips = [
       c.headers.std,
-      c.headers.sanitize && `sanitize: ${c.headers.sanitize}`,
       ...c.detection.map(detectionLabel),
     ].filter(Boolean) as string[];
     return {

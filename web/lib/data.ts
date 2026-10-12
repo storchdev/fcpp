@@ -106,7 +106,11 @@ export function parseExplanation(md?: string) {
 }
 
 /** compilers.md minus its title line. */
-export const parseCompilers = (md?: string) => (md ?? "").replace(/^# .*\n+/, "").trim();
+export const parseCompilers = (md?: string) =>
+  (md ?? "")
+    .replace(/^# .*\n+/, "")
+    .replace(/^\*\*(g\+\+ vs clang\+\+[^\n]*?\.)\*\*/m, "_$1_") // the bold run contains inline code and does not parse
+    .trim();
 
 /** README minus its title line. */
 export const parseReadme = (md?: string) => (md ?? "").replace(/^# .*\n+/, "").trim();

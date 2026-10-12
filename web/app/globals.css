@@ -22,7 +22,8 @@ body {
 .prose table { @apply text-sm; }
 .prose th { @apply font-medium text-zinc-300; }
 .prose a { @apply no-underline hover:underline; }
-.code pre { margin: 0; overflow-x: auto; padding: 14px 16px; }
+.code { display: flex; flex: 1; min-width: 0; }
+.code > pre { flex: 1; min-width: 0; margin: 0; overflow-x: auto; padding: 14px 16px; scrollbar-width: thin; scrollbar-color: #2e2e38 transparent; }
 .code pre code { font-family: theme(fontFamily.mono); font-size: 12.5px; line-height: 1.65; background: transparent; }
 
 /* highlight.js tokens */

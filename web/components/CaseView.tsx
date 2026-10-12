@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import { Check, FileCode2, ShieldAlert, X } from "lucide-react";
+import { Check, FileCode2, ShieldAlert, Terminal, X } from "lucide-react";
 
 export type CaseData = {
   name: string;
@@ -13,13 +13,11 @@ export type CaseData = {
   compilers: ReactNode;
 };
 
-const TABS = ["Explanation", "Code", "Compilers"] as const;
-
 function Panel({ file, tone, children, className = "" }: { file: string; tone: "bad" | "good" | "rust"; children: ReactNode; className?: string }) {
   const Icon = tone === "bad" ? X : tone === "good" ? Check : FileCode2;
   const color = tone === "bad" ? "text-red-300" : tone === "good" ? "text-emerald-300" : "text-orange-300";
   return (
-    <div className={`min-w-0 overflow-hidden rounded-xl border border-line bg-[#0e0e12] ${className}`}>
+    <div className={`flex min-w-0 flex-col overflow-hidden rounded-xl border border-line bg-[#0e0e12] ${className}`}>
       <div className="flex items-center gap-2 border-b border-line px-4 py-2 font-mono text-[12px] text-zinc-400">
         <Icon className={`h-3.5 w-3.5 ${color}`} />
         {file}
@@ -30,8 +28,7 @@ function Panel({ file, tone, children, className = "" }: { file: string; tone: "
 }
 
 export function CaseView({ cases, overview }: { cases: CaseData[]; overview?: ReactNode }) {
-  const [ci, setCi] = useState(-1 + (overview ? 0 : 1));
-  const [tab, setTab] = useState<(typeof TABS)[number]>("Explanation");
+  const [ci, setCi] = useState(0);
   const showOverview = ci === -1;
   const c = cases[Math.max(ci, 0)];
   const multi = cases.length > 1;
@@ -61,35 +58,18 @@ export function CaseView({ cases, overview }: { cases: CaseData[]; overview?: Re
             ))}
           </div>
 
-          <div className="mb-6 flex gap-6 border-b border-line">
-            {TABS.map((t) => (
-              <button
-                key={t}
-                onClick={() => setTab(t)}
-                className={`relative -mb-px pb-2.5 text-sm transition-colors ${tab === t ? "text-zinc-50" : "text-muted hover:text-zinc-300"}`}
-              >
-                {t}
-                <span className={`absolute inset-x-0 -bottom-px h-px bg-accent transition-opacity duration-200 ${tab === t ? "opacity-100" : "opacity-0"}`} />
-              </button>
-            ))}
-          </div>
-
-          <div key={tab} className="animate-rise">
-            {tab === "Explanation" && (
-              <div className="max-w-3xl space-y-9">
-                <Section icon={<ShieldAlert className="h-4 w-4 text-red-300" />} title="Why the bad code is wrong">{c.explanation.why}</Section>
-                <Section icon={<Check className="h-4 w-4 text-emerald-300" />} title="The fix">{c.explanation.fix}</Section>
-                <Section icon={<FileCode2 className="h-4 w-4 text-orange-300" />} title="Rust">{c.explanation.rust}</Section>
-              </div>
-            )}
-            {tab === "Code" && (
-              <div className="relative left-1/2 grid w-[min(1480px,100vw-40px)] -translate-x-1/2 gap-4 xl:grid-cols-2">
-                {c.code.bad && <Panel file="bad.cpp" tone="bad">{c.code.bad}</Panel>}
-                {c.code.good && <Panel file="good.cpp" tone="good">{c.code.good}</Panel>}
-                {c.code.rust && <Panel file="good.rs" tone="rust" className="xl:col-span-2">{c.code.rust}</Panel>}
-              </div>
-            )}
-            {tab === "Compilers" && <div className="max-w-3xl">{c.compilers}</div>}
+          <div className="space-y-12">
+            <div className="grid gap-4 xl:grid-cols-2">
+              {c.code.bad && <Panel file="bad.cpp" tone="bad">{c.code.bad}</Panel>}
+              {c.code.good && <Panel file="good.cpp" tone="good">{c.code.good}</Panel>}
+              {c.code.rust && <Panel file="good.rs" tone="rust" className="xl:col-span-2">{c.code.rust}</Panel>}
+            </div>
+            <div className="max-w-4xl space-y-10">
+              <Section icon={<ShieldAlert className="h-4 w-4 text-red-300" />} title="Why the bad code is wrong">{c.explanation.why}</Section>
+              <Section icon={<Check className="h-4 w-4 text-emerald-300" />} title="The fix">{c.explanation.fix}</Section>
+              <Section icon={<FileCode2 className="h-4 w-4 text-orange-300" />} title="Rust">{c.explanation.rust}</Section>
+              <Section icon={<Terminal className="h-4 w-4 text-sky-300" />} title="g++ vs clang++">{c.compilers}</Section>
+            </div>
           </div>
         </div>
       )}
