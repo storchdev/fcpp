@@ -18,12 +18,19 @@ export default function Home() {
             >
               2-hour rant
             </a>
-            . Not a Rust ad, I swear.
+            . Not a Rust ad, I swear. Wrap it up coding jesus
           </p>
         </div>
-        <span aria-hidden className="flex select-none items-center text-[4.25rem] leading-none">
+        <a
+          href="https://www.rust-lang.org/tools/install"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Install Rust"
+          title="Install Rust"
+          className="flex select-none items-center text-[4.25rem] leading-none transition-transform duration-300 hover:rotate-6 hover:scale-110"
+        >
           🦀
-        </span>
+        </a>
       </section>
       <Catalog items={items} />
     </>
