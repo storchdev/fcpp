@@ -3,8 +3,8 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: { default: "C++ Footguns", template: "%s · C++ Footguns" },
-  description: "A catalog of C++ footguns, each with bad code, the fix, and what g++ and clang++ actually do.",
+  title: { default: "F*** C++", template: "%s · F*** C++" },
+  description: "182 C++ footguns with runnable bad code, the fix, and what g++ and clang++ did.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -7,9 +7,8 @@ export function Header() {
       <div className="mx-auto flex h-14 max-w-[1480px] items-center justify-between px-5">
         <Link href="/" className="group flex items-center gap-2.5 text-[15px] font-semibold text-zinc-100">
           <Footprints className="h-[18px] w-[18px] text-accent transition-transform duration-300 group-hover:-rotate-12" />
-          C++ Footguns
+          F*** C++
         </Link>
-        <span className="hidden text-[13px] text-muted sm:block">interview gotchas, with runnable proof</span>
       </div>
     </header>
   );
