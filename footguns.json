@@ -6326,10 +6326,25 @@
       "https://en.cppreference.com/w/cpp/ranges/transform_view"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/150-lazy-ranges-and-repeated-evaluation",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/150-lazy-ranges-and-repeated-evaluation/01-main",
+          "files": {
+            "bad_cpp": "examples/150-lazy-ranges-and-repeated-evaluation/01-main/bad.cpp",
+            "good_cpp": "examples/150-lazy-ranges-and-repeated-evaluation/01-main/good.cpp",
+            "explanation": "examples/150-lazy-ranges-and-repeated-evaluation/01-main/explanation.md",
+            "compilers": "examples/150-lazy-ranges-and-repeated-evaluation/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -6346,10 +6361,25 @@
       "https://en.cppreference.com/w/cpp/ranges/view"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/151-dangling-range-adaptors",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/151-dangling-range-adaptors/01-main",
+          "files": {
+            "bad_cpp": "examples/151-dangling-range-adaptors/01-main/bad.cpp",
+            "good_cpp": "examples/151-dangling-range-adaptors/01-main/good.cpp",
+            "explanation": "examples/151-dangling-range-adaptors/01-main/explanation.md",
+            "compilers": "examples/151-dangling-range-adaptors/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -6358,7 +6388,7 @@
     "category": "Modern C++: ranges, coroutines, and vocabulary types",
     "title": "Borrowed ranges vs. owning ranges",
     "description": "Range algorithms distinguish ranges whose iterators can safely outlive the range object from those whose iterators cannot.",
-    "classification": "LOGIC",
+    "classification": "IF",
     "difficulty": "hard",
     "cpp_standard": 20,
     "cppreference_urls": [
@@ -6366,10 +6396,25 @@
       "https://en.cppreference.com/w/cpp/ranges/dangling"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/152-borrowed-ranges-vs-owning-ranges",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/152-borrowed-ranges-vs-owning-ranges/01-main",
+          "files": {
+            "bad_cpp": "examples/152-borrowed-ranges-vs-owning-ranges/01-main/bad.cpp",
+            "good_cpp": "examples/152-borrowed-ranges-vs-owning-ranges/01-main/good.cpp",
+            "explanation": "examples/152-borrowed-ranges-vs-owning-ranges/01-main/explanation.md",
+            "compilers": "examples/152-borrowed-ranges-vs-owning-ranges/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -6385,10 +6430,25 @@
       "https://en.cppreference.com/w/cpp/language/structured_binding"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/153-structured-bindings-and-copying",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/153-structured-bindings-and-copying/01-main",
+          "files": {
+            "bad_cpp": "examples/153-structured-bindings-and-copying/01-main/bad.cpp",
+            "good_cpp": "examples/153-structured-bindings-and-copying/01-main/good.cpp",
+            "explanation": "examples/153-structured-bindings-and-copying/01-main/explanation.md",
+            "compilers": "examples/153-structured-bindings-and-copying/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -6404,10 +6464,25 @@
       "https://en.cppreference.com/w/cpp/language/coroutines"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/154-coroutine-frame-lifetime",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/154-coroutine-frame-lifetime/01-main",
+          "files": {
+            "bad_cpp": "examples/154-coroutine-frame-lifetime/01-main/bad.cpp",
+            "good_cpp": "examples/154-coroutine-frame-lifetime/01-main/good.cpp",
+            "explanation": "examples/154-coroutine-frame-lifetime/01-main/explanation.md",
+            "compilers": "examples/154-coroutine-frame-lifetime/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -6424,10 +6499,39 @@
       "https://en.cppreference.com/w/cpp/language/lambda"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/155-dangling-coroutine-captures-and-references",
+      "readme": "examples/155-dangling-coroutine-captures-and-references/README.md",
+      "cases": [
+        {
+          "name": "reference-parameter",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/155-dangling-coroutine-captures-and-references/01-reference-parameter",
+          "files": {
+            "bad_cpp": "examples/155-dangling-coroutine-captures-and-references/01-reference-parameter/bad.cpp",
+            "good_cpp": "examples/155-dangling-coroutine-captures-and-references/01-reference-parameter/good.cpp",
+            "explanation": "examples/155-dangling-coroutine-captures-and-references/01-reference-parameter/explanation.md",
+            "compilers": "examples/155-dangling-coroutine-captures-and-references/01-reference-parameter/compilers.md"
+          }
+        },
+        {
+          "name": "lambda-capture",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/155-dangling-coroutine-captures-and-references/02-lambda-capture",
+          "files": {
+            "bad_cpp": "examples/155-dangling-coroutine-captures-and-references/02-lambda-capture/bad.cpp",
+            "good_cpp": "examples/155-dangling-coroutine-captures-and-references/02-lambda-capture/good.cpp",
+            "explanation": "examples/155-dangling-coroutine-captures-and-references/02-lambda-capture/explanation.md",
+            "compilers": "examples/155-dangling-coroutine-captures-and-references/02-lambda-capture/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -6444,10 +6548,25 @@
       "https://en.cppreference.com/w/cpp/coroutine/coroutine_handle/destroy"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/156-coroutine-handle-ownership",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/156-coroutine-handle-ownership/01-main",
+          "files": {
+            "bad_cpp": "examples/156-coroutine-handle-ownership/01-main/bad.cpp",
+            "good_cpp": "examples/156-coroutine-handle-ownership/01-main/good.cpp",
+            "explanation": "examples/156-coroutine-handle-ownership/01-main/explanation.md",
+            "compilers": "examples/156-coroutine-handle-ownership/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -6464,10 +6583,25 @@
       "https://en.cppreference.com/w/cpp/thread/mutex"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/157-suspending-while-holding-locks",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "CONC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/157-suspending-while-holding-locks/01-main",
+          "files": {
+            "bad_cpp": "examples/157-suspending-while-holding-locks/01-main/bad.cpp",
+            "good_cpp": "examples/157-suspending-while-holding-locks/01-main/good.cpp",
+            "explanation": "examples/157-suspending-while-holding-locks/01-main/explanation.md",
+            "compilers": "examples/157-suspending-while-holding-locks/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -6484,10 +6618,39 @@
       "https://en.cppreference.com/w/cpp/utility/optional/operator*"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/158-std-optional-disengaged-state-access",
+      "readme": "examples/158-std-optional-disengaged-state-access/README.md",
+      "cases": [
+        {
+          "name": "engaged-vs-value",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/158-std-optional-disengaged-state-access/01-engaged-vs-value",
+          "files": {
+            "bad_cpp": "examples/158-std-optional-disengaged-state-access/01-engaged-vs-value/bad.cpp",
+            "good_cpp": "examples/158-std-optional-disengaged-state-access/01-engaged-vs-value/good.cpp",
+            "explanation": "examples/158-std-optional-disengaged-state-access/01-engaged-vs-value/explanation.md",
+            "compilers": "examples/158-std-optional-disengaged-state-access/01-engaged-vs-value/compilers.md"
+          }
+        },
+        {
+          "name": "unchecked-deref",
+          "classification": "UB",
+          "detection": [
+            "tool:clang-tidy:bugprone-unchecked-optional-access"
+          ],
+          "dir": "examples/158-std-optional-disengaged-state-access/02-unchecked-deref",
+          "files": {
+            "bad_cpp": "examples/158-std-optional-disengaged-state-access/02-unchecked-deref/bad.cpp",
+            "good_cpp": "examples/158-std-optional-disengaged-state-access/02-unchecked-deref/good.cpp",
+            "explanation": "examples/158-std-optional-disengaged-state-access/02-unchecked-deref/explanation.md",
+            "compilers": "examples/158-std-optional-disengaged-state-access/02-unchecked-deref/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -6505,10 +6668,39 @@
       "https://en.cppreference.com/w/cpp/utility/any/any_cast"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/159-std-any-and-std-variant-runtime-type-assumptions",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "variant-get-mismatch",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/159-std-any-and-std-variant-runtime-type-assumptions/01-variant-get-mismatch",
+          "files": {
+            "bad_cpp": "examples/159-std-any-and-std-variant-runtime-type-assumptions/01-variant-get-mismatch/bad.cpp",
+            "good_cpp": "examples/159-std-any-and-std-variant-runtime-type-assumptions/01-variant-get-mismatch/good.cpp",
+            "explanation": "examples/159-std-any-and-std-variant-runtime-type-assumptions/01-variant-get-mismatch/explanation.md",
+            "compilers": "examples/159-std-any-and-std-variant-runtime-type-assumptions/01-variant-get-mismatch/compilers.md"
+          }
+        },
+        {
+          "name": "any-cast-mismatch",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/159-std-any-and-std-variant-runtime-type-assumptions/02-any-cast-mismatch",
+          "files": {
+            "bad_cpp": "examples/159-std-any-and-std-variant-runtime-type-assumptions/02-any-cast-mismatch/bad.cpp",
+            "good_cpp": "examples/159-std-any-and-std-variant-runtime-type-assumptions/02-any-cast-mismatch/good.cpp",
+            "explanation": "examples/159-std-any-and-std-variant-runtime-type-assumptions/02-any-cast-mismatch/explanation.md",
+            "compilers": "examples/159-std-any-and-std-variant-runtime-type-assumptions/02-any-cast-mismatch/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
