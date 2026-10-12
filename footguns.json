@@ -503,10 +503,25 @@
       "https://en.cppreference.com/w/cpp/language/template_argument_deduction"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/013-auto-drops-qualifiers-and-references",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/013-auto-drops-qualifiers-and-references/01-main",
+          "files": {
+            "bad_cpp": "examples/013-auto-drops-qualifiers-and-references/01-main/bad.cpp",
+            "good_cpp": "examples/013-auto-drops-qualifiers-and-references/01-main/good.cpp",
+            "good_rust": "examples/013-auto-drops-qualifiers-and-references/01-main/good.rs",
+            "explanation": "examples/013-auto-drops-qualifiers-and-references/01-main/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -523,10 +538,37 @@
       "https://en.cppreference.com/w/cpp/language/list_initialization"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/014-auto-with-brace-initialization",
+      "readme": "examples/014-auto-with-brace-initialization/README.md",
+      "cases": [
+        {
+          "name": "copy-list",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/014-auto-with-brace-initialization/01-copy-list",
+          "files": {
+            "bad_cpp": "examples/014-auto-with-brace-initialization/01-copy-list/bad.cpp",
+            "good_cpp": "examples/014-auto-with-brace-initialization/01-copy-list/good.cpp",
+            "explanation": "examples/014-auto-with-brace-initialization/01-copy-list/explanation.md"
+          }
+        },
+        {
+          "name": "direct-list-multiple",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/014-auto-with-brace-initialization/02-direct-list-multiple",
+          "files": {
+            "bad_cpp": "examples/014-auto-with-brace-initialization/02-direct-list-multiple/bad.cpp",
+            "good_cpp": "examples/014-auto-with-brace-initialization/02-direct-list-multiple/good.cpp",
+            "explanation": "examples/014-auto-with-brace-initialization/02-direct-list-multiple/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -543,10 +585,42 @@
       "https://en.cppreference.com/w/cpp/language/auto"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/015-decltype-vs-decltype-auto",
+      "readme": "examples/015-decltype-vs-decltype-auto/README.md",
+      "cases": [
+        {
+          "name": "auto-strips-reference",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/015-decltype-vs-decltype-auto/01-auto-strips-reference",
+          "files": {
+            "bad_cpp": "examples/015-decltype-vs-decltype-auto/01-auto-strips-reference/bad.cpp",
+            "good_cpp": "examples/015-decltype-vs-decltype-auto/01-auto-strips-reference/good.cpp",
+            "good_rust": "examples/015-decltype-vs-decltype-auto/01-auto-strips-reference/good.rs",
+            "explanation": "examples/015-decltype-vs-decltype-auto/01-auto-strips-reference/explanation.md"
+          }
+        },
+        {
+          "name": "parenthesized-return",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address",
+            "warning:g++:-Wreturn-local-addr",
+            "warning:clang++:-Wreturn-stack-address",
+            "tool:clang-tidy:readability-redundant-parentheses"
+          ],
+          "dir": "examples/015-decltype-vs-decltype-auto/02-parenthesized-return",
+          "files": {
+            "bad_cpp": "examples/015-decltype-vs-decltype-auto/02-parenthesized-return/bad.cpp",
+            "good_cpp": "examples/015-decltype-vs-decltype-auto/02-parenthesized-return/good.cpp",
+            "good_rust": "examples/015-decltype-vs-decltype-auto/02-parenthesized-return/good.rs",
+            "explanation": "examples/015-decltype-vs-decltype-auto/02-parenthesized-return/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -562,10 +636,25 @@
       "https://en.cppreference.com/w/cpp/language/decltype"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/016-parentheses-changing-decltype-results",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "tool:clang-tidy:readability-redundant-parentheses"
+          ],
+          "dir": "examples/016-parentheses-changing-decltype-results/01-main",
+          "files": {
+            "bad_cpp": "examples/016-parentheses-changing-decltype-results/01-main/bad.cpp",
+            "good_cpp": "examples/016-parentheses-changing-decltype-results/01-main/good.cpp",
+            "good_rust": "examples/016-parentheses-changing-decltype-results/01-main/good.rs",
+            "explanation": "examples/016-parentheses-changing-decltype-results/01-main/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -581,10 +670,25 @@
       "https://en.cppreference.com/w/cpp/language/value_category"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/017-lvalues-prvalues-and-xvalues",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "named-rvalue-ref",
+          "classification": "LOGIC",
+          "detection": [
+            "tool:clang-tidy:cppcoreguidelines-rvalue-reference-param-not-moved"
+          ],
+          "dir": "examples/017-lvalues-prvalues-and-xvalues/01-named-rvalue-ref",
+          "files": {
+            "bad_cpp": "examples/017-lvalues-prvalues-and-xvalues/01-named-rvalue-ref/bad.cpp",
+            "good_cpp": "examples/017-lvalues-prvalues-and-xvalues/01-named-rvalue-ref/good.cpp",
+            "good_rust": "examples/017-lvalues-prvalues-and-xvalues/01-named-rvalue-ref/good.rs",
+            "explanation": "examples/017-lvalues-prvalues-and-xvalues/01-named-rvalue-ref/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -601,10 +705,25 @@
       "https://en.cppreference.com/w/cpp/language/template_argument_deduction"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/018-reference-collapsing",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "tool:clang-tidy:cppcoreguidelines-missing-std-forward"
+          ],
+          "dir": "examples/018-reference-collapsing/01-main",
+          "files": {
+            "bad_cpp": "examples/018-reference-collapsing/01-main/bad.cpp",
+            "good_cpp": "examples/018-reference-collapsing/01-main/good.cpp",
+            "good_rust": "examples/018-reference-collapsing/01-main/good.rs",
+            "explanation": "examples/018-reference-collapsing/01-main/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -621,10 +740,37 @@
       "https://en.cppreference.com/w/cpp/language/template_argument_deduction"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/019-forwarding-references-vs-rvalue-references",
+      "readme": "examples/019-forwarding-references-vs-rvalue-references/README.md",
+      "cases": [
+        {
+          "name": "move-on-forwarding-ref",
+          "classification": "LOGIC",
+          "detection": [
+            "tool:clang-tidy:bugprone-move-forwarding-reference"
+          ],
+          "dir": "examples/019-forwarding-references-vs-rvalue-references/01-move-on-forwarding-ref",
+          "files": {
+            "bad_cpp": "examples/019-forwarding-references-vs-rvalue-references/01-move-on-forwarding-ref/bad.cpp",
+            "good_cpp": "examples/019-forwarding-references-vs-rvalue-references/01-move-on-forwarding-ref/good.cpp",
+            "explanation": "examples/019-forwarding-references-vs-rvalue-references/01-move-on-forwarding-ref/explanation.md"
+          }
+        },
+        {
+          "name": "not-a-forwarding-ref",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/019-forwarding-references-vs-rvalue-references/02-not-a-forwarding-ref",
+          "files": {
+            "bad_cpp": "examples/019-forwarding-references-vs-rvalue-references/02-not-a-forwarding-ref/bad.cpp",
+            "good_cpp": "examples/019-forwarding-references-vs-rvalue-references/02-not-a-forwarding-ref/good.cpp",
+            "explanation": "examples/019-forwarding-references-vs-rvalue-references/02-not-a-forwarding-ref/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -640,10 +786,37 @@
       "https://en.cppreference.com/w/cpp/utility/forward"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/020-incorrect-std-forward-usage",
+      "readme": "examples/020-incorrect-std-forward-usage/README.md",
+      "cases": [
+        {
+          "name": "forward-twice",
+          "classification": "LOGIC",
+          "detection": [
+            "tool:clang-tidy:bugprone-use-after-move"
+          ],
+          "dir": "examples/020-incorrect-std-forward-usage/01-forward-twice",
+          "files": {
+            "bad_cpp": "examples/020-incorrect-std-forward-usage/01-forward-twice/bad.cpp",
+            "good_cpp": "examples/020-incorrect-std-forward-usage/01-forward-twice/good.cpp",
+            "explanation": "examples/020-incorrect-std-forward-usage/01-forward-twice/explanation.md"
+          }
+        },
+        {
+          "name": "wrong-template-argument",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/020-incorrect-std-forward-usage/02-wrong-template-argument",
+          "files": {
+            "bad_cpp": "examples/020-incorrect-std-forward-usage/02-wrong-template-argument/bad.cpp",
+            "good_cpp": "examples/020-incorrect-std-forward-usage/02-wrong-template-argument/good.cpp",
+            "explanation": "examples/020-incorrect-std-forward-usage/02-wrong-template-argument/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -660,10 +833,25 @@
       "https://en.cppreference.com/w/cpp/language/move_constructor"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/021-const-rvalues-and-move-semantics",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "tool:clang-tidy:performance-move-const-arg"
+          ],
+          "dir": "examples/021-const-rvalues-and-move-semantics/01-main",
+          "files": {
+            "bad_cpp": "examples/021-const-rvalues-and-move-semantics/01-main/bad.cpp",
+            "good_cpp": "examples/021-const-rvalues-and-move-semantics/01-main/good.cpp",
+            "good_rust": "examples/021-const-rvalues-and-move-semantics/01-main/good.rs",
+            "explanation": "examples/021-const-rvalues-and-move-semantics/01-main/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -680,10 +868,37 @@
       "https://en.cppreference.com/w/cpp/language/overload_resolution"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/022-reference-qualified-member-functions",
+      "readme": "examples/022-reference-qualified-member-functions/README.md",
+      "cases": [
+        {
+          "name": "mixed-qualified-and-unqualified",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/022-reference-qualified-member-functions/01-mixed-qualified-and-unqualified",
+          "files": {
+            "bad_cpp": "examples/022-reference-qualified-member-functions/01-mixed-qualified-and-unqualified/bad.cpp",
+            "good_cpp": "examples/022-reference-qualified-member-functions/01-mixed-qualified-and-unqualified/good.cpp",
+            "explanation": "examples/022-reference-qualified-member-functions/01-mixed-qualified-and-unqualified/explanation.md"
+          }
+        },
+        {
+          "name": "lvalue-only-on-temporary",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/022-reference-qualified-member-functions/02-lvalue-only-on-temporary",
+          "files": {
+            "bad_cpp": "examples/022-reference-qualified-member-functions/02-lvalue-only-on-temporary/bad.cpp",
+            "good_cpp": "examples/022-reference-qualified-member-functions/02-lvalue-only-on-temporary/good.cpp",
+            "explanation": "examples/022-reference-qualified-member-functions/02-lvalue-only-on-temporary/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -699,10 +914,39 @@
       "https://en.cppreference.com/w/cpp/utility/move"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/023-std-move-is-only-a-cast",
+      "readme": "examples/023-std-move-is-only-a-cast/README.md",
+      "cases": [
+        {
+          "name": "move-into-const-ref-or-int",
+          "classification": "LOGIC",
+          "detection": [
+            "tool:clang-tidy:performance-move-const-arg"
+          ],
+          "dir": "examples/023-std-move-is-only-a-cast/01-move-into-const-ref-or-int",
+          "files": {
+            "bad_cpp": "examples/023-std-move-is-only-a-cast/01-move-into-const-ref-or-int/bad.cpp",
+            "good_cpp": "examples/023-std-move-is-only-a-cast/01-move-into-const-ref-or-int/good.cpp",
+            "explanation": "examples/023-std-move-is-only-a-cast/01-move-into-const-ref-or-int/explanation.md"
+          }
+        },
+        {
+          "name": "no-move-constructor",
+          "classification": "LOGIC",
+          "detection": [
+            "warning:g++:-Wdeprecated-copy-dtor",
+            "warning:clang++:-Wdeprecated-copy-with-user-provided-dtor",
+            "tool:clang-tidy:performance-move-const-arg"
+          ],
+          "dir": "examples/023-std-move-is-only-a-cast/02-no-move-constructor",
+          "files": {
+            "bad_cpp": "examples/023-std-move-is-only-a-cast/02-no-move-constructor/bad.cpp",
+            "good_cpp": "examples/023-std-move-is-only-a-cast/02-no-move-constructor/good.cpp",
+            "explanation": "examples/023-std-move-is-only-a-cast/02-no-move-constructor/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -720,10 +964,24 @@
       "https://en.cppreference.com/w/cpp/language/constraints"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/024-perfect-forwarding-constructors-hijacking-overloads",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "tool:clang-tidy:bugprone-forwarding-reference-overload"
+          ],
+          "dir": "examples/024-perfect-forwarding-constructors-hijacking-overloads/01-main",
+          "files": {
+            "bad_cpp": "examples/024-perfect-forwarding-constructors-hijacking-overloads/01-main/bad.cpp",
+            "good_cpp": "examples/024-perfect-forwarding-constructors-hijacking-overloads/01-main/good.cpp",
+            "explanation": "examples/024-perfect-forwarding-constructors-hijacking-overloads/01-main/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
