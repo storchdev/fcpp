@@ -11,7 +11,8 @@ COPY web/ ./
 # Pages are generated at build time from the catalog data.
 COPY footguns.json /data/footguns.json
 COPY examples /data/examples
-ENV DATA_ROOT=/data NEXT_TELEMETRY_DISABLED=1
+ARG BASE_PATH=""
+ENV DATA_ROOT=/data NEXT_TELEMETRY_DISABLED=1 NEXT_BASE_PATH=$BASE_PATH
 RUN npm run build
 
 FROM node:22-alpine AS run

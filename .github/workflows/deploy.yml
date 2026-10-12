@@ -1,0 +1,59 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+env:
+  IMAGE: fcpp
+  PORT: "3100"
+  BASE_PATH: /fcpp
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build image
+        run: docker build -f web/Dockerfile --build-arg BASE_PATH=$BASE_PATH -t $IMAGE:${{ github.sha }} -t $IMAGE:latest .
+
+      - name: Configure SSH
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          ssh-keyscan -H "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts
+          cat >> ~/.ssh/config <<CFG
+          Host vps
+            HostName ${{ secrets.VPS_HOST }}
+            User ${{ secrets.VPS_USER }}
+            IdentityFile ~/.ssh/id_deploy
+          CFG
+
+      - name: Ship image
+        run: docker save $IMAGE:${{ github.sha }} | gzip | ssh vps 'gunzip | docker load'
+
+      - name: Restart container
+        run: |
+          ssh vps bash -s <<REMOTE
+          set -e
+          docker rm -f $IMAGE 2>/dev/null || true
+          docker run -d --name $IMAGE --restart unless-stopped \
+            -p 127.0.0.1:$PORT:3000 $IMAGE:${{ github.sha }}
+          docker image prune -f >/dev/null
+          REMOTE
+
+      - name: Smoke test
+        run: |
+          for i in $(seq 1 20); do
+            code=$(ssh vps "curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:$PORT$BASE_PATH" || true)
+            [ "$code" = 200 ] && exit 0
+            sleep 2
+          done
+          echo "site did not return 200 (last: $code)"; exit 1
