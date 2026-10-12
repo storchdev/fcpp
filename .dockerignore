@@ -1,0 +1,7 @@
+node_modules
+.next
+.git
+*.o
+t114
+t114.cpp
+t118*.cpp

@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html { background: #0b0b0e; }
+body {
+  @apply bg-bg font-sans text-[15px] text-zinc-200 antialiased;
+  background-image: radial-gradient(900px 420px at 50% -120px, rgba(185, 165, 255, 0.07), transparent 70%);
+  background-repeat: no-repeat;
+}
+::selection { background: rgba(185, 165, 255, 0.28); }
+:focus-visible { outline: 2px solid rgba(185, 165, 255, 0.6); outline-offset: 2px; border-radius: 6px; }
+
+/* markdown */
+.prose { --tw-prose-body: #c9c9d1; --tw-prose-headings: #f4f4f6; --tw-prose-bold: #f4f4f6; --tw-prose-links: #b9a5ff;
+  --tw-prose-code: #e4e4ea; --tw-prose-th-borders: #2a2a33; --tw-prose-td-borders: #23232b; --tw-prose-quotes: #c9c9d1; --tw-prose-bullets: #5b5b68; }
+.prose code:not(pre code) { @apply rounded bg-white/[0.07] px-1.5 py-0.5 text-[0.86em] font-normal; }
+.prose code:not(pre code)::before, .prose code:not(pre code)::after { content: none; }
+.prose pre { @apply rounded-lg border border-line bg-[#0e0e12] text-[13px] leading-relaxed; }
+.prose pre code { @apply bg-transparent p-0 text-[13px]; }
+.prose table { @apply text-sm; }
+.prose th { @apply font-medium text-zinc-300; }
+.prose a { @apply no-underline hover:underline; }
+.code pre { margin: 0; overflow-x: auto; padding: 14px 16px; }
+.code pre code { font-family: theme(fontFamily.mono); font-size: 12.5px; line-height: 1.65; background: transparent; }
+
+/* highlight.js tokens */
+.hljs-comment, .hljs-quote { color: #6b6b78; font-style: italic; }
+.hljs-keyword, .hljs-selector-tag, .hljs-built_in, .hljs-type { color: #c4a7ff; }
+.hljs-string, .hljs-regexp, .hljs-char { color: #9ad8a6; }
+.hljs-number, .hljs-literal { color: #f0b27a; }
+.hljs-title, .hljs-title.function_, .hljs-function .hljs-title { color: #7cc4ff; }
+.hljs-title.class_ { color: #f2d48a; }
+.hljs-meta, .hljs-meta .hljs-keyword { color: #e58aa6; }
+.hljs-attr, .hljs-variable, .hljs-params { color: #d4d4dc; }
+.hljs-operator, .hljs-punctuation { color: #9a9aa8; }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
