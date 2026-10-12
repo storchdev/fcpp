@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import { Check, FileCode2, ShieldAlert, Terminal, X } from "lucide-react";
+import { Check, ChevronDown, FileCode2, ShieldAlert, Terminal, X } from "lucide-react";
 
 export type CaseData = {
   name: string;
@@ -58,18 +58,25 @@ export function CaseView({ cases, overview }: { cases: CaseData[]; overview?: Re
             ))}
           </div>
 
-          <div className="space-y-12">
-            <div className="grid gap-4 xl:grid-cols-2">
-              {c.code.bad && <Panel file="bad.cpp" tone="bad">{c.code.bad}</Panel>}
-              {c.code.good && <Panel file="good.cpp" tone="good">{c.code.good}</Panel>}
-              {c.code.rust && <Panel file="good.rs" tone="rust" className="xl:col-span-2">{c.code.rust}</Panel>}
+          <div className="space-y-4">
+            <div className="grid items-start gap-4 xl:grid-cols-2 xl:gap-y-3">
+              {c.code.bad && <Panel file="bad.cpp" tone="bad" className="order-1 h-full xl:order-1">{c.code.bad}</Panel>}
+              {c.explanation.why && (
+                <Fold className="order-2 xl:order-3" icon={<ShieldAlert className="h-4 w-4 text-red-300" />} title="Why the bad code is wrong">{c.explanation.why}</Fold>
+              )}
+              {c.code.good && <Panel file="good.cpp" tone="good" className="order-3 h-full xl:order-2">{c.code.good}</Panel>}
+              {c.explanation.fix && (
+                <Fold className="order-4 xl:order-4" icon={<Check className="h-4 w-4 text-emerald-300" />} title="The fix">{c.explanation.fix}</Fold>
+              )}
             </div>
-            <div className="max-w-4xl space-y-10">
-              <Section icon={<ShieldAlert className="h-4 w-4 text-red-300" />} title="Why the bad code is wrong">{c.explanation.why}</Section>
-              <Section icon={<Check className="h-4 w-4 text-emerald-300" />} title="The fix">{c.explanation.fix}</Section>
-              <Section icon={<FileCode2 className="h-4 w-4 text-orange-300" />} title="Rust">{c.explanation.rust}</Section>
-              <Section icon={<Terminal className="h-4 w-4 text-sky-300" />} title="g++ vs clang++">{c.compilers}</Section>
-            </div>
+            {c.code.rust && (
+              <div className="space-y-3">
+                <Panel file="good.rs" tone="rust">{c.code.rust}</Panel>
+                <Fold icon={<FileCode2 className="h-4 w-4 text-orange-300" />} title="Rust">{c.explanation.rust}</Fold>
+              </div>
+            )}
+            {!c.code.rust && <Fold icon={<FileCode2 className="h-4 w-4 text-orange-300" />} title="Rust">{c.explanation.rust}</Fold>}
+            <Fold icon={<Terminal className="h-4 w-4 text-sky-300" />} title="g++ vs clang++">{c.compilers}</Fold>
           </div>
         </div>
       )}
@@ -90,14 +97,24 @@ function Pill({ active, onClick, children }: { active: boolean; onClick: () => v
   );
 }
 
-function Section({ icon, title, children }: { icon: ReactNode; title: string; children: ReactNode }) {
+function Fold({ icon, title, children, className = "" }: { icon: ReactNode; title: string; children: ReactNode; className?: string }) {
+  const [open, setOpen] = useState(false);
   return (
-    <section>
-      <h2 className="mb-3 flex items-center gap-2 text-[13px] font-medium uppercase tracking-wider text-muted">
+    <section className={`rounded-xl border border-line bg-panel/60 ${className}`}>
+      <button
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        className="flex w-full items-center gap-2.5 px-4 py-3 text-left text-sm text-zinc-300 transition-colors hover:text-zinc-50"
+      >
         {icon}
         {title}
-      </h2>
-      {children}
+        <ChevronDown className={`ml-auto h-4 w-4 text-muted transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
+      </button>
+      <div className={`grid transition-[grid-template-rows] duration-300 ease-out ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+        <div className="overflow-hidden">
+          <div className={`border-t border-line px-5 py-5 transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0"}`}>{children}</div>
+        </div>
+      </div>
     </section>
   );
 }
