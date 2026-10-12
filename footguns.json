@@ -6716,10 +6716,29 @@
       "https://en.cppreference.com/w/cpp/language/definition"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/160-one-definition-rule-odr-violations",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "inline-function",
+          "classification": "UB",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/160-one-definition-rule-odr-violations/01-inline-function",
+          "files": {
+            "bad_cpp": "examples/160-one-definition-rule-odr-violations/01-inline-function/bad.cpp",
+            "good_cpp": "examples/160-one-definition-rule-odr-violations/01-inline-function/good.cpp",
+            "explanation": "examples/160-one-definition-rule-odr-violations/01-inline-function/explanation.md",
+            "compilers": "examples/160-one-definition-rule-odr-violations/01-inline-function/compilers.md",
+            "extra": [
+              "examples/160-one-definition-rule-odr-violations/01-inline-function/bad_b.cpp",
+              "examples/160-one-definition-rule-odr-violations/01-inline-function/good_b.cpp"
+            ]
+          }
+        }
+      ]
     }
   },
   {
@@ -6736,10 +6755,29 @@
       "https://en.cppreference.com/w/cpp/language/storage_duration"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/161-static-initialization-order-fiasco",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UNS",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/161-static-initialization-order-fiasco/01-main",
+          "files": {
+            "bad_cpp": "examples/161-static-initialization-order-fiasco/01-main/bad.cpp",
+            "good_cpp": "examples/161-static-initialization-order-fiasco/01-main/good.cpp",
+            "explanation": "examples/161-static-initialization-order-fiasco/01-main/explanation.md",
+            "compilers": "examples/161-static-initialization-order-fiasco/01-main/compilers.md",
+            "extra": [
+              "examples/161-static-initialization-order-fiasco/01-main/bad_b.cpp",
+              "examples/161-static-initialization-order-fiasco/01-main/good_b.cpp"
+            ]
+          }
+        }
+      ]
     }
   },
   {
@@ -6748,7 +6786,7 @@
     "category": "Translation units, linkage, initialization, and ABI",
     "title": "Static destruction order",
     "description": "Objects with static storage duration can be destroyed in an order that invalidates dependencies still used by other destructors.",
-    "classification": "LOGIC",
+    "classification": "UB",
     "difficulty": "medium",
     "cpp_standard": 11,
     "cppreference_urls": [
@@ -6756,10 +6794,25 @@
       "https://en.cppreference.com/w/cpp/utility/program/atexit"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/162-static-destruction-order",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/162-static-destruction-order/01-main",
+          "files": {
+            "bad_cpp": "examples/162-static-destruction-order/01-main/bad.cpp",
+            "good_cpp": "examples/162-static-destruction-order/01-main/good.cpp",
+            "explanation": "examples/162-static-destruction-order/01-main/explanation.md",
+            "compilers": "examples/162-static-destruction-order/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -6776,10 +6829,25 @@
       "https://en.cppreference.com/w/cpp/thread/call_once"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/163-function-local-static-initialization",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UB",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/163-function-local-static-initialization/01-main",
+          "files": {
+            "bad_cpp": "examples/163-function-local-static-initialization/01-main/bad.cpp",
+            "good_cpp": "examples/163-function-local-static-initialization/01-main/good.cpp",
+            "explanation": "examples/163-function-local-static-initialization/01-main/explanation.md",
+            "compilers": "examples/163-function-local-static-initialization/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -6788,17 +6856,38 @@
     "category": "Translation units, linkage, initialization, and ABI",
     "title": "`inline` functions and variables across translation units",
     "description": "`inline` changes ODR and linkage rules rather than simply requesting that a compiler eliminate function calls.",
-    "classification": "LOGIC",
+    "classification": "IF",
     "difficulty": "medium",
     "cpp_standard": 17,
     "cppreference_urls": [
       "https://en.cppreference.com/w/cpp/language/inline"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/164-inline-functions-and-variables-across-translation-units",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/164-inline-functions-and-variables-across-translation-units/01-main",
+          "files": {
+            "bad_cpp": "examples/164-inline-functions-and-variables-across-translation-units/01-main/bad.cpp",
+            "good_cpp": "examples/164-inline-functions-and-variables-across-translation-units/01-main/good.cpp",
+            "explanation": "examples/164-inline-functions-and-variables-across-translation-units/01-main/explanation.md",
+            "compilers": "examples/164-inline-functions-and-variables-across-translation-units/01-main/compilers.md",
+            "extra": [
+              "examples/164-inline-functions-and-variables-across-translation-units/01-main/bad_b.cpp",
+              "examples/164-inline-functions-and-variables-across-translation-units/01-main/bad_shared.h",
+              "examples/164-inline-functions-and-variables-across-translation-units/01-main/good_b.cpp",
+              "examples/164-inline-functions-and-variables-across-translation-units/01-main/good_shared.h"
+            ]
+          }
+        }
+      ]
     }
   },
   {
@@ -6816,10 +6905,51 @@
       "https://en.cppreference.com/w/cpp/language/namespace"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/165-header-defined-globals-and-linkage",
+      "readme": "examples/165-header-defined-globals-and-linkage/README.md",
+      "cases": [
+        {
+          "name": "duplicate-definition",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/165-header-defined-globals-and-linkage/01-duplicate-definition",
+          "files": {
+            "bad_cpp": "examples/165-header-defined-globals-and-linkage/01-duplicate-definition/bad.cpp",
+            "good_cpp": "examples/165-header-defined-globals-and-linkage/01-duplicate-definition/good.cpp",
+            "explanation": "examples/165-header-defined-globals-and-linkage/01-duplicate-definition/explanation.md",
+            "compilers": "examples/165-header-defined-globals-and-linkage/01-duplicate-definition/compilers.md",
+            "extra": [
+              "examples/165-header-defined-globals-and-linkage/01-duplicate-definition/bad_b.cpp",
+              "examples/165-header-defined-globals-and-linkage/01-duplicate-definition/bad_shared.h",
+              "examples/165-header-defined-globals-and-linkage/01-duplicate-definition/good_b.cpp",
+              "examples/165-header-defined-globals-and-linkage/01-duplicate-definition/good_shared.h"
+            ]
+          }
+        },
+        {
+          "name": "static-copies",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/165-header-defined-globals-and-linkage/02-static-copies",
+          "files": {
+            "bad_cpp": "examples/165-header-defined-globals-and-linkage/02-static-copies/bad.cpp",
+            "good_cpp": "examples/165-header-defined-globals-and-linkage/02-static-copies/good.cpp",
+            "explanation": "examples/165-header-defined-globals-and-linkage/02-static-copies/explanation.md",
+            "compilers": "examples/165-header-defined-globals-and-linkage/02-static-copies/compilers.md",
+            "extra": [
+              "examples/165-header-defined-globals-and-linkage/02-static-copies/bad_b.cpp",
+              "examples/165-header-defined-globals-and-linkage/02-static-copies/bad_shared.h",
+              "examples/165-header-defined-globals-and-linkage/02-static-copies/good_b.cpp",
+              "examples/165-header-defined-globals-and-linkage/02-static-copies/good_shared.h"
+            ]
+          }
+        }
+      ]
     }
   },
   {
@@ -6836,10 +6966,29 @@
       "https://en.cppreference.com/w/cpp/language/definition"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/166-abi-incompatibility",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/166-abi-incompatibility/01-main",
+          "files": {
+            "bad_cpp": "examples/166-abi-incompatibility/01-main/bad.cpp",
+            "good_cpp": "examples/166-abi-incompatibility/01-main/good.cpp",
+            "explanation": "examples/166-abi-incompatibility/01-main/explanation.md",
+            "compilers": "examples/166-abi-incompatibility/01-main/compilers.md",
+            "extra": [
+              "examples/166-abi-incompatibility/01-main/bad_lib.cpp",
+              "examples/166-abi-incompatibility/01-main/good_lib.cpp"
+            ]
+          }
+        }
+      ]
     }
   },
   {
@@ -6856,10 +7005,31 @@
       "https://en.cppreference.com/w/cpp/preprocessor/replace"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/167-mismatched-compiler-flags-across-translation-units",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UB",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/167-mismatched-compiler-flags-across-translation-units/01-main",
+          "files": {
+            "bad_cpp": "examples/167-mismatched-compiler-flags-across-translation-units/01-main/bad.cpp",
+            "good_cpp": "examples/167-mismatched-compiler-flags-across-translation-units/01-main/good.cpp",
+            "explanation": "examples/167-mismatched-compiler-flags-across-translation-units/01-main/explanation.md",
+            "compilers": "examples/167-mismatched-compiler-flags-across-translation-units/01-main/compilers.md",
+            "extra": [
+              "examples/167-mismatched-compiler-flags-across-translation-units/01-main/bad_b.cpp",
+              "examples/167-mismatched-compiler-flags-across-translation-units/01-main/bad_packet.h",
+              "examples/167-mismatched-compiler-flags-across-translation-units/01-main/good_b.cpp",
+              "examples/167-mismatched-compiler-flags-across-translation-units/01-main/good_packet.h"
+            ]
+          }
+        }
+      ]
     }
   },
   {

@@ -6,7 +6,9 @@ independently and any file may be absent. good.cpp / good.rs must compile cleanl
 bad.cpp must compile; when run under its declared sanitizer it is expected to be flagged
 (non-zero exit, or sanitizer output). A header line `// sanitize: address|undefined|thread|memory`
 selects the sanitizer; `// std: c++NN` selects the standard. `// expect: compile-error` means bad.cpp
-must fail to compile. Without a sanitizer, bad.cpp only has to build and run.
+must fail to compile. Without a sanitizer, bad.cpp only has to build and run. A header line
+`// also: a.cpp b.cpp` names extra translation units in the same directory that are compiled and
+linked together with that file (for entries that are about more than one translation unit).
 """
 import json, re, subprocess, sys, tempfile, os
 from pathlib import Path
@@ -24,9 +26,15 @@ def header(path, key, default):
 def run(cmd, **kw):
     return subprocess.run(cmd, capture_output=True, text=True, timeout=60, env=ENV, **kw)
 
+def header_list(path, key):
+    for line in path.read_text().splitlines()[:10]:
+        m = re.match(rf"//\s*{key}:\s*(.+)", line)
+        if m: return [str(path.parent / n) for n in m.group(1).split()]
+    return []
+
 def cpp(src, out, std, san=None, optimize="-O1"):
     cxx = "clang++" if san == "memory" else "g++"
-    cmd = [cxx, f"-std={std}", "-Wall", "-Wextra", optimize, "-g", "-pthread", str(src), "-o", str(out)]
+    cmd = [cxx, f"-std={std}", "-Wall", "-Wextra", optimize, "-g", "-pthread", str(src), *header_list(Path(src), "also"), "-o", str(out)]
     if san: cmd.insert(1, f"-fsanitize={san}")
     if san == "memory": cmd.insert(2, "-fsanitize-memory-track-origins")
     return run(cmd)

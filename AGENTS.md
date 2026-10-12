@@ -110,6 +110,9 @@ For entries classified `IF`, the bad code intentionally does not compile, which 
 - Putting the failing code in `bad.cpp` with a header line `// expect: compile-error` and a comment giving the compiler's actual error text.
 - Extending `tools/check_examples.py` the first time you need it so that `// expect: compile-error` means "compilation must fail", and then confirm the other examples still pass. Keep the change small and mention it in your report.
 
+### Multi-translation-unit entries
+Entries about linkage, ODR, initialization order or ABI need more than one `.cpp`. Put the extra sources and headers in the case folder and list the extra `.cpp` files in a header line of `bad.cpp` / `good.cpp`: `// also: bad_b.cpp`. The checker compiles and links them together in that order (file order can matter, e.g. 161). Use separate `bad_*` and `good_*` files so each side is self-contained, list the extra files under `files.extra` in the case's JSON, and mention in `explanation.md` that the case is multi-file. `detection` warnings are checked on `bad.cpp` alone (`-c`).
+
 ### Non-deterministic bugs
 Data races, memory-order, and reclamation bugs may not reproduce on every run. Rules:
 - The bad code must be *detectable* under its sanitizer reliably (TSan for races). Don't claim a specific wrong output unless you have seen it; otherwise say "may print X".
