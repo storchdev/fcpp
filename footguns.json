@@ -4674,10 +4674,39 @@
       "https://en.cppreference.com/w/cpp/language/unqualified_lookup"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/109-two-phase-name-lookup",
+      "readme": "examples/109-two-phase-name-lookup/README.md",
+      "cases": [
+        {
+          "name": "dependent-base",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/109-two-phase-name-lookup/01-dependent-base",
+          "files": {
+            "bad_cpp": "examples/109-two-phase-name-lookup/01-dependent-base/bad.cpp",
+            "good_cpp": "examples/109-two-phase-name-lookup/01-dependent-base/good.cpp",
+            "explanation": "examples/109-two-phase-name-lookup/01-dependent-base/explanation.md",
+            "compilers": "examples/109-two-phase-name-lookup/01-dependent-base/compilers.md"
+          }
+        },
+        {
+          "name": "late-overload",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/109-two-phase-name-lookup/02-late-overload",
+          "files": {
+            "bad_cpp": "examples/109-two-phase-name-lookup/02-late-overload/bad.cpp",
+            "good_cpp": "examples/109-two-phase-name-lookup/02-late-overload/good.cpp",
+            "explanation": "examples/109-two-phase-name-lookup/02-late-overload/explanation.md",
+            "compilers": "examples/109-two-phase-name-lookup/02-late-overload/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -4694,10 +4723,39 @@
       "https://en.cppreference.com/w/cpp/language/overload_resolution"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/110-argument-dependent-lookup-adl",
+      "readme": "examples/110-argument-dependent-lookup-adl/README.md",
+      "cases": [
+        {
+          "name": "hijacked-call",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/110-argument-dependent-lookup-adl/01-hijacked-call",
+          "files": {
+            "bad_cpp": "examples/110-argument-dependent-lookup-adl/01-hijacked-call/bad.cpp",
+            "good_cpp": "examples/110-argument-dependent-lookup-adl/01-hijacked-call/good.cpp",
+            "explanation": "examples/110-argument-dependent-lookup-adl/01-hijacked-call/explanation.md",
+            "compilers": "examples/110-argument-dependent-lookup-adl/01-hijacked-call/compilers.md"
+          }
+        },
+        {
+          "name": "qualified-swap",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/110-argument-dependent-lookup-adl/02-qualified-swap",
+          "files": {
+            "bad_cpp": "examples/110-argument-dependent-lookup-adl/02-qualified-swap/bad.cpp",
+            "good_cpp": "examples/110-argument-dependent-lookup-adl/02-qualified-swap/good.cpp",
+            "explanation": "examples/110-argument-dependent-lookup-adl/02-qualified-swap/explanation.md",
+            "compilers": "examples/110-argument-dependent-lookup-adl/02-qualified-swap/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -4706,7 +4764,7 @@
     "category": "Templates, overload resolution, and name lookup",
     "title": "Hidden friend functions",
     "description": "Friend functions defined inside classes can participate in ADL while remaining invisible to ordinary lookup.",
-    "classification": "LOGIC",
+    "classification": "IF",
     "difficulty": "medium",
     "cpp_standard": 11,
     "cppreference_urls": [
@@ -4714,10 +4772,25 @@
       "https://en.cppreference.com/w/cpp/language/adl"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/111-hidden-friend-functions",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/111-hidden-friend-functions/01-main",
+          "files": {
+            "bad_cpp": "examples/111-hidden-friend-functions/01-main/bad.cpp",
+            "good_cpp": "examples/111-hidden-friend-functions/01-main/good.cpp",
+            "explanation": "examples/111-hidden-friend-functions/01-main/explanation.md",
+            "compilers": "examples/111-hidden-friend-functions/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -4733,10 +4806,39 @@
       "https://en.cppreference.com/w/cpp/language/dependent_name"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/112-dependent-typename-and-template-disambiguation",
+      "readme": "examples/112-dependent-typename-and-template-disambiguation/README.md",
+      "cases": [
+        {
+          "name": "missing-typename",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/112-dependent-typename-and-template-disambiguation/01-missing-typename",
+          "files": {
+            "bad_cpp": "examples/112-dependent-typename-and-template-disambiguation/01-missing-typename/bad.cpp",
+            "good_cpp": "examples/112-dependent-typename-and-template-disambiguation/01-missing-typename/good.cpp",
+            "explanation": "examples/112-dependent-typename-and-template-disambiguation/01-missing-typename/explanation.md",
+            "compilers": "examples/112-dependent-typename-and-template-disambiguation/01-missing-typename/compilers.md"
+          }
+        },
+        {
+          "name": "missing-template",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/112-dependent-typename-and-template-disambiguation/02-missing-template",
+          "files": {
+            "bad_cpp": "examples/112-dependent-typename-and-template-disambiguation/02-missing-template/bad.cpp",
+            "good_cpp": "examples/112-dependent-typename-and-template-disambiguation/02-missing-template/good.cpp",
+            "explanation": "examples/112-dependent-typename-and-template-disambiguation/02-missing-template/explanation.md",
+            "compilers": "examples/112-dependent-typename-and-template-disambiguation/02-missing-template/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -4753,10 +4855,25 @@
       "https://en.cppreference.com/w/cpp/types/enable_if"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/113-sfinae-vs-hard-compilation-errors",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/113-sfinae-vs-hard-compilation-errors/01-main",
+          "files": {
+            "bad_cpp": "examples/113-sfinae-vs-hard-compilation-errors/01-main/bad.cpp",
+            "good_cpp": "examples/113-sfinae-vs-hard-compilation-errors/01-main/good.cpp",
+            "explanation": "examples/113-sfinae-vs-hard-compilation-errors/01-main/explanation.md",
+            "compilers": "examples/113-sfinae-vs-hard-compilation-errors/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -4773,10 +4890,25 @@
       "https://en.cppreference.com/w/cpp/language/template_specialization"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/114-template-overloads-vs-specializations",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/114-template-overloads-vs-specializations/01-main",
+          "files": {
+            "bad_cpp": "examples/114-template-overloads-vs-specializations/01-main/bad.cpp",
+            "good_cpp": "examples/114-template-overloads-vs-specializations/01-main/good.cpp",
+            "explanation": "examples/114-template-overloads-vs-specializations/01-main/explanation.md",
+            "compilers": "examples/114-template-overloads-vs-specializations/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -4793,10 +4925,25 @@
       "https://en.cppreference.com/w/cpp/utility/forward"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/115-forwarding-references-and-braced-initializer-lists",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/115-forwarding-references-and-braced-initializer-lists/01-main",
+          "files": {
+            "bad_cpp": "examples/115-forwarding-references-and-braced-initializer-lists/01-main/bad.cpp",
+            "good_cpp": "examples/115-forwarding-references-and-braced-initializer-lists/01-main/good.cpp",
+            "explanation": "examples/115-forwarding-references-and-braced-initializer-lists/01-main/explanation.md",
+            "compilers": "examples/115-forwarding-references-and-braced-initializer-lists/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -4813,10 +4960,39 @@
       "https://en.cppreference.com/w/cpp/language/implicit_conversion"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/116-implicit-conversion-ranking",
+      "readme": "examples/116-implicit-conversion-ranking/README.md",
+      "cases": [
+        {
+          "name": "template-beats-promotion",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/116-implicit-conversion-ranking/01-template-beats-promotion",
+          "files": {
+            "bad_cpp": "examples/116-implicit-conversion-ranking/01-template-beats-promotion/bad.cpp",
+            "good_cpp": "examples/116-implicit-conversion-ranking/01-template-beats-promotion/good.cpp",
+            "explanation": "examples/116-implicit-conversion-ranking/01-template-beats-promotion/explanation.md",
+            "compilers": "examples/116-implicit-conversion-ranking/01-template-beats-promotion/compilers.md"
+          }
+        },
+        {
+          "name": "literal-to-bool",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/116-implicit-conversion-ranking/02-literal-to-bool",
+          "files": {
+            "bad_cpp": "examples/116-implicit-conversion-ranking/02-literal-to-bool/bad.cpp",
+            "good_cpp": "examples/116-implicit-conversion-ranking/02-literal-to-bool/good.cpp",
+            "explanation": "examples/116-implicit-conversion-ranking/02-literal-to-bool/explanation.md",
+            "compilers": "examples/116-implicit-conversion-ranking/02-literal-to-bool/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -4825,7 +5001,7 @@
     "category": "Templates, overload resolution, and name lookup",
     "title": "Concepts and constraint subsumption",
     "description": "C++20 constraints don't always order overloads according to intuitive logical implications.",
-    "classification": "LOGIC",
+    "classification": "IF",
     "difficulty": "hard",
     "cpp_standard": 20,
     "cppreference_urls": [
@@ -4833,10 +5009,25 @@
       "https://en.cppreference.com/w/cpp/language/concepts"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/117-concepts-and-constraint-subsumption",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/117-concepts-and-constraint-subsumption/01-main",
+          "files": {
+            "bad_cpp": "examples/117-concepts-and-constraint-subsumption/01-main/bad.cpp",
+            "good_cpp": "examples/117-concepts-and-constraint-subsumption/01-main/good.cpp",
+            "explanation": "examples/117-concepts-and-constraint-subsumption/01-main/explanation.md",
+            "compilers": "examples/117-concepts-and-constraint-subsumption/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -4852,10 +5043,25 @@
       "https://en.cppreference.com/w/cpp/language/if"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/118-if-constexpr-discarded-branches",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/118-if-constexpr-discarded-branches/01-main",
+          "files": {
+            "bad_cpp": "examples/118-if-constexpr-discarded-branches/01-main/bad.cpp",
+            "good_cpp": "examples/118-if-constexpr-discarded-branches/01-main/good.cpp",
+            "explanation": "examples/118-if-constexpr-discarded-branches/01-main/explanation.md",
+            "compilers": "examples/118-if-constexpr-discarded-branches/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -4873,10 +5079,53 @@
       "https://en.cppreference.com/w/cpp/language/constinit"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/119-constexpr-consteval-and-constinit",
+      "readme": "examples/119-constexpr-consteval-and-constinit/README.md",
+      "cases": [
+        {
+          "name": "consteval-runtime-arg",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/119-constexpr-consteval-and-constinit/01-consteval-runtime-arg",
+          "files": {
+            "bad_cpp": "examples/119-constexpr-consteval-and-constinit/01-consteval-runtime-arg/bad.cpp",
+            "good_cpp": "examples/119-constexpr-consteval-and-constinit/01-consteval-runtime-arg/good.cpp",
+            "explanation": "examples/119-constexpr-consteval-and-constinit/01-consteval-runtime-arg/explanation.md",
+            "compilers": "examples/119-constexpr-consteval-and-constinit/01-consteval-runtime-arg/compilers.md"
+          }
+        },
+        {
+          "name": "constexpr-not-guaranteed",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/119-constexpr-consteval-and-constinit/02-constexpr-not-guaranteed",
+          "files": {
+            "bad_cpp": "examples/119-constexpr-consteval-and-constinit/02-constexpr-not-guaranteed/bad.cpp",
+            "good_cpp": "examples/119-constexpr-consteval-and-constinit/02-constexpr-not-guaranteed/good.cpp",
+            "explanation": "examples/119-constexpr-consteval-and-constinit/02-constexpr-not-guaranteed/explanation.md",
+            "compilers": "examples/119-constexpr-consteval-and-constinit/02-constexpr-not-guaranteed/compilers.md"
+          }
+        },
+        {
+          "name": "constinit-not-ctor-const",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/119-constexpr-consteval-and-constinit/03-constinit-not-ctor-const",
+          "files": {
+            "bad_cpp": "examples/119-constexpr-consteval-and-constinit/03-constinit-not-ctor-const/bad.cpp",
+            "good_cpp": "examples/119-constexpr-consteval-and-constinit/03-constinit-not-ctor-const/good.cpp",
+            "explanation": "examples/119-constexpr-consteval-and-constinit/03-constinit-not-ctor-const/explanation.md",
+            "compilers": "examples/119-constexpr-consteval-and-constinit/03-constinit-not-ctor-const/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -4894,10 +5143,39 @@
       "https://en.cppreference.com/w/cpp/language/definition"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/120-template-instantiation-across-translation-units",
+      "readme": "examples/120-template-instantiation-across-translation-units/README.md",
+      "cases": [
+        {
+          "name": "specialization-after-use",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/120-template-instantiation-across-translation-units/01-specialization-after-use",
+          "files": {
+            "bad_cpp": "examples/120-template-instantiation-across-translation-units/01-specialization-after-use/bad.cpp",
+            "good_cpp": "examples/120-template-instantiation-across-translation-units/01-specialization-after-use/good.cpp",
+            "explanation": "examples/120-template-instantiation-across-translation-units/01-specialization-after-use/explanation.md",
+            "compilers": "examples/120-template-instantiation-across-translation-units/01-specialization-after-use/compilers.md"
+          }
+        },
+        {
+          "name": "definition-not-visible",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/120-template-instantiation-across-translation-units/02-definition-not-visible",
+          "files": {
+            "bad_cpp": "examples/120-template-instantiation-across-translation-units/02-definition-not-visible/bad.cpp",
+            "good_cpp": "examples/120-template-instantiation-across-translation-units/02-definition-not-visible/good.cpp",
+            "explanation": "examples/120-template-instantiation-across-translation-units/02-definition-not-visible/explanation.md",
+            "compilers": "examples/120-template-instantiation-across-translation-units/02-definition-not-visible/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
