@@ -37,7 +37,7 @@ export default async function EntryPage({ params }: { params: Promise<{ id: stri
   const cases: CaseData[] = e.cases.map((c) => {
     const x = parseExplanation(c.explanation);
     const chips = [
-      c.headers.std,
+      c.headers.std && `-std=${c.headers.std}`,
       ...c.detection.map(detectionLabel),
     ].filter(Boolean) as string[];
     return {
@@ -71,7 +71,7 @@ export default async function EntryPage({ params }: { params: Promise<{ id: stri
           <ClassBadge value={e.classification} />
           <Difficulty value={e.difficulty} />
           <span className="text-[13px] text-muted">{shortCategory(e.category)}</span>
-          {e.cppStandard && <span className="font-mono text-[12px] text-muted">since C++{e.cppStandard}</span>}
+          {e.cppStandard && <span className="font-mono text-[12px] text-muted">introduced in C++{e.cppStandard}</span>}
         </div>
         <h1 className="text-3xl font-semibold tracking-tight text-zinc-50">{e.title}</h1>
         <p className="mt-3 max-w-3xl text-[15px] leading-7 text-zinc-400">{e.description}</p>
