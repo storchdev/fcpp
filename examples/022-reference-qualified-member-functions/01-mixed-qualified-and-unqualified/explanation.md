@@ -12,3 +12,7 @@ The attempt is natural: "return a reference normally, but move out when the obje
 ## The fix (`good.cpp`)
 
 Qualify every overload: `const std::string& name() const&` and `std::string name() &&`. An lvalue (or const rvalue) picks `const&`, a non-const rvalue picks `&&`; `good.cpp` shows both. Detection is the compile error on both compilers.
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

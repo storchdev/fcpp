@@ -9,3 +9,7 @@ Under `-std=c++17` neither compiler warns with `-Wall -Wextra`. clang-tidy `cppc
 ## The fix (`good.cpp`)
 
 Copy the member explicitly: `[n = n] { return n; }` (an init-capture, C++14), which makes the closure independent of the object, or `[*this]` to copy the whole object.
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

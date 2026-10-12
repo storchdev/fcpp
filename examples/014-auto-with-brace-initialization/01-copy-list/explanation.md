@@ -11,3 +11,7 @@ Older documentation says `auto x{42};` is also an `initializer_list` in C++11. T
 ## The fix (`good.cpp`)
 
 For one value, write `auto a = 42;` or `auto b{42};`. If a list is really wanted, name the type: `std::initializer_list<int>{42}`, or better a real container. Avoid `auto x = {…}` unless you specifically want an `initializer_list`.
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

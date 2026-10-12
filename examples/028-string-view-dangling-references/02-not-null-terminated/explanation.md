@@ -9,3 +9,7 @@ A quieter variant: with `std::string s = "hello world"; std::string_view sv(s);`
 ## The fix (`good.cpp`)
 
 Pass the length: `%.*s` with `static_cast<int>(sv.size())`, or use iostreams. If a C API requires a terminator, construct a `std::string` (`std::string owned(sv)`) and pass `c_str()`.
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

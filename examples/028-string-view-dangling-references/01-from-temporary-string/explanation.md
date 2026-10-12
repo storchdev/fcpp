@@ -11,3 +11,7 @@ No warning appears under `-Wall -Wextra`, and none of the clang-tidy checks I ra
 ## The fix (`good.cpp`)
 
 Keep the `std::string` in a named variable that outlives every view into it; or have the function return `std::string` when the caller needs ownership.
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

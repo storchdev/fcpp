@@ -9,3 +9,7 @@ The `&` qualifier is the right tool when returning `*this` by reference would da
 ## The fix (`good.cpp`)
 
 Add an `&&` overload that returns by rvalue reference (`Builder&& add(...) &&`), so a chain begun on a temporary keeps working and the final `str()` or a conversion consumes it. Keep both overloads' bodies in sync (or have one call the other through `std::move(*this)`).
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

@@ -9,3 +9,7 @@ The mistake is believing `std::move` empties things. A reader will assume `s` is
 ## The fix (`good.cpp`)
 
 Drop the `std::move` when the receiver only reads or copies. Use `std::move` into a by-value parameter or `T&&` overload that takes ownership (`adopt(std::move(s))` — after which `s` is empty on libstdc++, valid but unspecified by the standard). For scalars just copy.
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

@@ -11,3 +11,7 @@ An empty `~Packet() {}` added "for debugging" or to mark a polymorphic base is a
 ## The fix (`good.cpp`)
 
 Follow the rule of zero: remove the destructor so the implicit moves are generated (`a=0 b=40` on libstdc++). If the destructor is needed, declare the moves explicitly: `Packet(Packet&&) = default; Packet& operator=(Packet&&) = default;` and the copies if they are still wanted.
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

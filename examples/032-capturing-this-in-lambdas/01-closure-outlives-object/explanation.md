@@ -11,3 +11,7 @@ The shape is common in event handlers, timers and async callbacks registered in 
 ## The fix (`good.cpp`)
 
 `[*this]` (C++17) captures a copy of the whole object, so the closure owns its state. That is only right if a snapshot is acceptable. When the closure must observe the live object, tie the lifetimes: hold the object in a `std::shared_ptr` (via `enable_shared_from_this`) and capture `shared_from_this()` or a `weak_ptr`, or unregister the callback in the destructor.
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

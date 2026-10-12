@@ -16,4 +16,6 @@ So a type can be constructed from `double` in one spelling and not in another. A
 
 Decide where the conversion happens and write it down: either a constructor that takes what callers really have (`Distance(double)`), or an explicit conversion at the call site (`Distance(Meters(5.0))`). Marking the constructors `explicit` (see 007) also keeps `double` from becoming a `Meters` or a `Distance` by accident anywhere else.
 
+## Rust (no `good.rs`)
+
 Rust has no implicit user-defined conversions at all: `From`/`Into` are called explicitly, so the chain would have to be written out.

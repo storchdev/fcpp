@@ -11,10 +11,12 @@ Reading (2) is a valid declaration, so the standard requires it. The program the
 
 The failure often surfaces somewhere else. The line above is accepted, and the first use of `t` (`t.start`, `t.elapsed()`) produces a confusing error such as "request for member 'start' in 't', which is of non-class type 'Timer(Clock (*)())'". If `t` is never used, as with a guard object, the code compiles and silently does nothing. Reviewers miss it because `Timer t(Clock());` looks exactly like the harmless `Timer t(Clock{});`-style code they have read thousands of times.
 
-Detection: g++ warns with `-Wvexing-parse`, which is enabled by default; I observed `warning: parentheses were disambiguated as a function declaration` with g++ 16.2. Clang has the same diagnostic under `-Wvexing-parse`.
+Detection: g++ warns with `-Wvexing-parse`, which is enabled by default; I observed `warning: parentheses were disambiguated as a function declaration [-Wvexing-parse]` from both g++ 16.2.1 and clang++ 23.1.1 (`-std=c++17 -Wall -Wextra`, one warning each, at line 16). Both also print `t is a function: 1` when run. There is no behavioral difference between the compilers for this case.
 
 ## The fix (`good.cpp`)
 
 Use brace initialization, `Timer t{Clock{}};`. Braces cannot begin a parameter declaration, so the line can only be an object. Wrapping the argument in an extra pair of parentheses (`Timer u((Clock()));`) also works, but a tidy-up pass can easily remove them again. Brace initialization has its own traps (see 003 and 004), but those involve classes with `std::initializer_list` constructors. An alternative is `auto t = Timer(Clock());`.
+
+## Rust (no `good.rs`)
 
 Rust has no analogue: a `let` binding always introduces a value, and function items use the `fn` keyword.

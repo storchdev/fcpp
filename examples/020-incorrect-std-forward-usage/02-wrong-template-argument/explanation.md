@@ -9,3 +9,7 @@ The code compiles without warnings under `-Wall -Wextra`. When `U == T` for rval
 ## The fix (`good.cpp`)
 
 `std::forward<U>(u)`. Alternatively `std::forward<decltype(u)>(u)`, which cannot name the wrong template parameter.
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

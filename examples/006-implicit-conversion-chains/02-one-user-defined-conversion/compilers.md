@@ -1,0 +1,3 @@
+# 006.02 — Implicit conversion chains: at most one user-defined conversion: compiler comparison
+
+**g++ vs clang++ (g++ 16.2.1, clang++ 23.1.1, `-std=c++17`).** Both reject the program, with different wording. g++: `error: could not convert '5.0e+0' from 'double' to 'Distance'` followed by `error: no matching function for call to 'travel'`. clang++: `error: no matching function for call to 'travel'` (one error, plus the note `candidate function not viable: no known conversion from 'double' to 'Distance' for 1st argument`). So the ill-formedness does not depend on the compiler; only the message does.

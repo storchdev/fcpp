@@ -9,3 +9,7 @@ A span kept in a variable or member across statements that mutate the owner foll
 ## The fix (`good.cpp`)
 
 Create the span after the last operation that can reallocate (`resize`, `push_back`, `insert`, …), or re-create it after each mutation. Prefer to pass `std::span` into functions rather than to keep one.
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

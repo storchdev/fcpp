@@ -1,0 +1,3 @@
+# 009 — Integer literal type deduction: compiler comparison
+
+**g++ vs clang++ (g++ 16.2.1, clang++ 23.1.1, `-std=c++17 -Wall -Wextra`, `-O0` and `-O2`).** Both print `2147483647  : int`, `2147483648  : long`, `0x80000000  : unsigned int`, `-2147483648 : long` and `-1 < 4294967295` at both levels, so the deduced types are the same. Both warn on the same two lines with different flags: line 18 `-Wsign-compare` (g++: `comparison of integer expressions of different signedness`; clang++: `comparison of integers of different signs`), and line 19 the always-true comparison, which g++ reports as `[-Wtype-limits]` and clang++ as `[-Wtautological-constant-out-of-range-compare]`.

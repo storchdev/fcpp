@@ -9,12 +9,14 @@ For `log("disk full")` the argument is a `const char[10]`:
 - `log(bool)`: array-to-pointer conversion, then a boolean conversion (pointer to bool). This is a *standard* conversion sequence.
 - `log(const std::string&)`: the converting constructor `std::string(const char*)`. This is a *user-defined* conversion sequence.
 
-The standard sequence wins, so the program calls `log(bool)` with `true`. Observed output (g++ 16.2, `-std=c++17`): `bool: 1` and then `string: disk full`. There is no warning with `-Wall -Wextra`. It is a classic trap in logging APIs and in any overload set that has a `bool` parameter next to a class-type parameter such as `std::string`.
+The standard sequence wins, so the program calls `log(bool)` with `true`. Observed output (g++ 16.2.1 and clang++ 23.1.1, `-std=c++17`): `bool: 1` and then `string: disk full`. There is no warning with `-Wall -Wextra`. It is a classic trap in logging APIs and in any overload set that has a `bool` parameter next to a class-type parameter such as `std::string`.
 
 Nothing is undefined; the wrong function is simply called.
 
 ## The fix (`good.cpp`)
 
 Make the `bool` overload only accept actual `bool`s. Here a constrained template (`std::same_as<bool>`, C++20) removes it from consideration for pointer arguments. Alternatives: add an exact `log(const char*)` overload that forwards to the string version; replace the `bool` parameter with a small enum.
+
+## Rust (no `good.rs`)
 
 Rust has no overloading and no implicit conversions between these types, so the call chooses exactly one function.

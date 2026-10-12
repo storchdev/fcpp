@@ -11,3 +11,7 @@ Detection is a compile error (the failing form), so it is rarely a silent bug; t
 ## The fix (`good.cpp`)
 
 If the function should accept any value category of one specific type, make the whole parameter a forwarding reference and constrain it: `template <class V> requires same_as<remove_cvref_t<V>, vector<string>> void consume(V&& v)` (C++20), then `std::forward<V>(v)`. Otherwise provide `const std::vector<T>&` and `std::vector<T>&&` overloads, or take by value.
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

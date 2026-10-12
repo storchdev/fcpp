@@ -12,3 +12,7 @@ The trap is that `std::vector<int> v{1, 2}` is fine and `auto` looks like it sho
 ## The fix (`good.cpp`)
 
 Make the elements the same type (`{1.0, 2.5}`) or name the destination type and let the elements convert (`std::vector<double> v{1, 2.5};`).
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

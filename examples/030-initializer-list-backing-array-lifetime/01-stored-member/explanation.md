@@ -8,8 +8,12 @@ g++ 16.2.1 reports `stack-use-after-scope` with `-fsanitize=address -O1` (`-std=
 
 Returning a list is the same bug: `std::initializer_list<int> f() { return {1, 2, 3}; }` compiles with a warning on both compilers (g++ `returning temporary ‘initializer_list’ does not extend the lifetime of the underlying array [-Winit-list-lifetime]`, clang++ `returning address of local temporary object [-Wreturn-stack-address]`) and, with constant elements, happened to print the right values in my run: it works by accident of where the array was placed.
 
-No `-Wall -Wextra` warning fires for the member-storing form on either compiler, and no clang-tidy check I ran reported it.
+clang++ gives no `-Wall -Wextra` warning for the member-storing form at any level I tried, and g++ none at `-O0`; at `-O1` and `-O2` g++ emits `-Wdangling-pointer=` and `-Wuninitialized` (both reported inside `<bits/basic_string.h>`, not on a line of this program). No clang-tidy check I ran reported it.
 
 ## The fix (`good.cpp`)
 
 Copy the elements into an owning container (`std::vector<int>`). Use `std::initializer_list` for parameters only, and consume it before the call returns.
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

@@ -12,4 +12,6 @@ The type is deduced, so the compiler has no complaint. The failure is usually di
 
 Spell out the element type when the intent is "one element that is a `T`": `std::vector<std::vector<int>> grid{row};`. Wrapping the argument in another expression of the same type, such as `std::vector{std::vector<int>(row)}`, does not help: it is still a single `std::vector<int>`, so the copy rule applies.
 
+## Rust (no `good.rs`)
+
 Rust has no CTAD; generics are inferred from expressions, and `vec![row]` always creates a `Vec<Vec<i32>>`.

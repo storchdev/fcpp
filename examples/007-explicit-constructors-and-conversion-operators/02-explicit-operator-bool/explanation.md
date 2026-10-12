@@ -12,4 +12,6 @@ Detection: neither compiler warns about the missing `explicit`; clang-tidy has `
 
 Declare `explicit operator bool() const`. Then provide the comparisons you actually want (`operator==` here). The contextual forms (`if (a && !b)`) still compile, and `static_cast<bool>(a)` gives the explicit form. The commented lines in `good.cpp` are the ones that become errors.
 
+## Rust (no `good.rs`)
+
 Rust has no implicit conversions, and `bool` is not produced from user types; you write `h.is_open()` or implement a method.

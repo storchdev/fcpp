@@ -4,7 +4,7 @@
 
 In list-initialization ([over.match.list]), overload resolution runs in two phases. In phase one the candidates are *only* the `std::initializer_list` constructors, and the argument is the whole braced list. If any of them is viable, the best one is used, even if another constructor is a far better match for the individual elements. Phase two, which considers all constructors, runs only when phase one found nothing viable.
 
-`Widget w2{10, true}` has an exact match in `Widget(int, bool)`, but `Widget(std::initializer_list<long double>)` is viable because `10` and `true` both convert to `long double`. Phase one finds it, so phase two never happens. The observed output (g++ 16.2, `-std=c++17`) is:
+`Widget w2{10, true}` has an exact match in `Widget(int, bool)`, but `Widget(std::initializer_list<long double>)` is viable because `10` and `true` both convert to `long double`. Phase one finds it, so phase two never happens. The observed output (g++ 16.2.1, `-std=c++17`) is:
 
 ```
 Widget(int, bool)                       <- w1(10, true)
@@ -24,5 +24,7 @@ This is a trap for class authors as well as callers. Adding an `initializer_list
 - Give a class an `initializer_list` constructor only if it is a sequence of elements (a container); then `{}` consistently means "these are the elements".
 - Use `()` at call sites that mean "call this constructor". In `good.cpp` the `Widget` class has no `initializer_list` constructor, so `Widget{10, true}` and `Widget(10, true)` agree.
 - If you must keep both, provide a named factory or a tag type for the non-list behavior.
+
+## Rust (no `good.rs`)
 
 Rust has no overloading or implicit list constructors, so this cannot happen.

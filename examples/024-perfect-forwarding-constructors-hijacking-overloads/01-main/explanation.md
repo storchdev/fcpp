@@ -11,3 +11,7 @@ No warning fires under `-Wall -Wextra`. Detection: clang-tidy `bugprone-forwardi
 ## The fix (`good.cpp`)
 
 Constrain the template so it is removed from overload resolution for `Session` (and derived/cv-ref variants): `requires (!std::same_as<std::remove_cvref_t<T>, Session>)` in C++20; before C++20 use `std::enable_if_t<!std::is_same_v<std::decay_t<T>, Session>>`. `good.cpp` then prints `a=1 b=1 d=1`. A tag-dispatch or a named factory is the alternative when the constraint is hard to state.
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

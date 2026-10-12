@@ -13,4 +13,6 @@ Two things catch people out:
 
 Name the type (`return Point{0, 0};`) or use direct-initialization (`Point q(1, 2);`, `Point r{3, 4};`), which accepts explicit constructors. Keep `explicit` on constructors that do not describe a natural, lossless conversion; that is the point of the keyword.
 
+## Rust (no `good.rs`)
+
 Rust has no implicit conversion for user types, so there is no equivalent of the keyword: a struct literal or an explicit `From::from` call is always required.

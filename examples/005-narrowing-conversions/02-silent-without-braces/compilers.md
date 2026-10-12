@@ -1,0 +1,3 @@
+# 005.02 — Narrowing conversions: silent outside braces: compiler comparison
+
+**g++ vs clang++ (g++ 16.2.1, clang++ 23.1.1, `-std=c++20 -Wall -Wextra`, `-O0` and `-O2`).** Both compilers build it and print `percent=99 level=44 id=705032704 f=16777216.0` at both levels. They warn about different lines: g++ warns only about the `300` to `uint8_t` conversion (`unsigned conversion from 'int' to 'uint8_t' ... changes value from '300' to '44' [-Woverflow]`, line 9). clang++ warns about that line too (`[-Wconstant-conversion]`) and also about line 12, `int` to `float` changing 16777217 to 16777216 (`[-Wimplicit-const-int-float-conversion]`), which g++ does not report under `-Wall -Wextra`. So neither warning set covers every lossy line here.

@@ -9,3 +9,7 @@ It compiles cleanly without warnings under `-Wall -Wextra`, and each call site l
 ## The fix (`good.cpp`)
 
 `std::forward<T>(line)` casts to `T&&`, which is an lvalue reference for lvalue arguments (copies) and an rvalue reference for rvalues (moves). If the function should only take ownership, write two overloads (`const T&` and `T&&` of a non-template `T`), or take the parameter by value and `std::move` it.
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

@@ -12,4 +12,6 @@ Parentheses make it worse. With `()`, CTAD does not use the `initializer_list` g
 
 Write the type: `std::vector<std::string>`, or give CTAD a `std::string` to deduce from, using the `s` literal suffix from `std::literals::string_literals` (C++14): `std::vector{"bob"s, "alice"s}`. For `std::string_view` use the `sv` suffix. In both cases the comparison is then textual.
 
+## Rust (no `good.rs`)
+
 Rust string literals are `&'static str`, which compares by content, and there is no pointer-comparison pitfall for `==` on string types.

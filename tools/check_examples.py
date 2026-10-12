@@ -59,6 +59,34 @@ def check_detection(items, bad, std, san, exp, tmp):
             problems.append(f"{it}: unknown detection kind")
     return problems
 
+def lint_explanation(d):
+    """explanation.md has a fixed skeleton: title, Why wrong, The fix, Rust (always last, heading depends on good.rs)."""
+    ex = d / "explanation.md"
+    if not (d / "bad.cpp").exists(): return []
+    if not ex.exists(): return ["explanation.md is missing"]
+    heads = [l for l in ex.read_text().splitlines() if l.startswith("#")]
+    num = d.parent.name[:3]
+    multi = sum(1 for c in d.parent.iterdir() if c.is_dir()) > 1
+    title = rf"# {num}\.{d.name[:2]} — \S" if multi else rf"# {num} — \S"
+    rust = "## Rust (`good.rs`)" if (d / "good.rs").exists() else "## Rust (no `good.rs`)"
+    want = ["## Why the bad code is wrong (`bad.cpp`)", "## The fix (`good.cpp`)", rust]
+    probs = []
+    if not heads or not re.match(title, heads[0]): probs.append(f"first line must match `{title}`")
+    if heads[1:] != want: probs.append(f"headings must be exactly {want}, found {heads[1:]}")
+    return probs
+
+def lint_compilers(d):
+    """Every case needs compilers.md: how g++ and clang++ compare, starting with the labelled paragraph."""
+    if not (d / "bad.cpp").exists(): return []
+    cm = d / "compilers.md"
+    if not cm.exists(): return ["compilers.md is missing (see AGENTS.md)"]
+    text, probs = cm.read_text(), []
+    if "g++" not in text or "clang++" not in text:
+        probs.append("compilers.md must name both g++ and clang++")
+    if not re.search(r"^\*\*g\+\+ vs clang\+\+", text, re.M):
+        probs.append("compilers.md is missing the `**g++ vs clang++ (versions, flags).**` paragraph")
+    return probs
+
 def main():
     detection = load_detection()
     only = sys.argv[1:]
@@ -102,6 +130,8 @@ def main():
                     for p in probs: print("  detection FAIL:", p)
                     if not probs: print(f"  detection ok ({', '.join(items)})")
                     failures += bool(probs)
+            for prob in lint_explanation(d): print("  explanation.md FAIL:", prob); failures += 1
+            for prob in lint_compilers(d): print("  compilers.md FAIL:", prob); failures += 1
             if rs.exists():
                 r = run(["rustc", "--edition", "2021", "-O", "-o", str(tmp / "r"), str(rs)])
                 ok = r.returncode == 0 and run([tmp / "r"]).returncode == 0

@@ -1,0 +1,3 @@
+# 014.02 — `auto` with brace initialization: multiple elements: compiler comparison
+
+**g++ vs clang++ (g++ 16.2.1, clang++ 23.1.1, `-std=c++17 -Wall -Wextra`, `-O0` and `-O2`).** Both reject the program with two errors, with different text. Line 7 (`auto x{1, 2};`): g++ `direct-list-initialization of 'auto' requires exactly one element [-fpermissive]`; clang++ `initializer for variable 'x' with type 'auto' contains multiple expressions`. Line 8 (`auto y = {1, 2.5};`): g++ `unable to deduce 'std::initializer_list<auto>' from '{1, 2.5e+0}'`; clang++ `deduced conflicting types ('int' vs 'double') for initializer list element type`. The result is the same at `-O0` and `-O2`.

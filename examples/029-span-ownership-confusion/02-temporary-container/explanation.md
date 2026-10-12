@@ -11,3 +11,7 @@ Detection: clang++ warns under `-Wall -Wextra`: `warning: object backing the poi
 ## The fix (`good.cpp`)
 
 Name the owner (`const std::vector<int> owner = make();`) and create the span from it, with the owner declared in an enclosing scope of every use of the span.
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

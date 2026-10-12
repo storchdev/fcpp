@@ -12,3 +12,7 @@ The error is the same loop that works for every other `std::vector<T>`, which is
 ## The fix (`good.cpp`)
 
 `for (auto&& f : flags)` binds either a real `T&` or the proxy and works for any element type; assigning through the proxy writes the bit. That form is the standard idiom for generic range-for loops. Do not write `std::vector<bool>::reference` by hand.
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

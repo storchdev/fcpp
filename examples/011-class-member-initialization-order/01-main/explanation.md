@@ -8,7 +8,7 @@ In `Buffer`, `data_` is declared before `size_`. The constructor lists `size_(n)
 
 Why it survives code review: the code reads correctly top to bottom, and it often "works" in debug builds where the stack slot happens to contain a sensible value. It also tends to appear during refactors, when someone reorders members for layout or readability without touching the constructor.
 
-Compilers can warn (`-Wreorder`, enabled by `-Wall`) when the list order disagrees with declaration order, but that does not catch the case where the list order is "consistent" yet the *declaration* order is wrong for the dependency.
+Both compilers warn when the list order disagrees with declaration order (g++ `-Wreorder`, clang++ `-Wreorder-ctor`, both on under `-Wall`), and both also warn that `size_` is used uninitialized (`-Wuninitialized`, line 15). That does not catch the case where the list order is "consistent" yet the *declaration* order is wrong for the dependency.
 
 ## The fix (`good.cpp`)
 

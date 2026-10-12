@@ -9,3 +9,7 @@ The behavior is defined (a moved-from `std::string` is valid but unspecified), w
 ## The fix (`good.cpp`)
 
 Forward only on the last use of the name. Earlier uses treat the object as an lvalue (`store(item)` with a `const&` parameter). In general, `std::forward` and `std::move` are "consume" operations and should appear at most once per path.
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

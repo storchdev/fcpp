@@ -12,6 +12,6 @@ Detection: clang-tidy `clang-analyzer-optin.cplusplus.VirtualCall` reports `Call
 
 Do not rely on virtual dispatch in constructors or destructors. Run the virtual operation after construction: from a factory (`create<T>()` in `good.cpp`), from an explicit `init()`, or via a non-virtual interface called by the owner.
 
-## Rust (no equivalent)
+## Rust (no `good.rs`)
 
 Rust has no constructors or inheritance, and a struct value cannot be used before all of its fields are initialized.

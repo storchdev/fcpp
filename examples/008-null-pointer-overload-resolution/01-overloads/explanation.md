@@ -19,3 +19,7 @@ So the same spelling of "no pointer" gives an error in one overload set and sile
 ## The fix (`good.cpp`)
 
 Write `nullptr` everywhere. It has a dedicated type, `std::nullptr_t`, which converts to every pointer and pointer-to-member type and to `bool` (only in direct-initialization), and never to an integer. To find leftovers, `-Wzero-as-null-pointer-constant` (g++ and clang++) flags a literal `0` used as a null pointer but, in my check, not `NULL`; clang-tidy's `modernize-use-nullptr` flags both in pointer contexts (`const char* p = NULL;`) and can rewrite them. Neither flags `assign(NULL)` above, because there `NULL` really is used as an integer; g++'s `-Wconversion-null` is the one that does.
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

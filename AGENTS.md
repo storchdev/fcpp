@@ -39,20 +39,21 @@ examples/NNN-short-slug/
     good.cpp                the corrected C++
     good.rs                 OPTIONAL Rust equivalent
     explanation.md          why bad is bad (long), why good works, Rust notes
+    compilers.md            g++ vs clang++ results for bad.cpp (required, see "Writing `compilers.md`")
   02-another-case/
     ...
 ```
 
 - `NNN` is the zero-padded `id` from `footguns.json`. The slug is ~5 lowercase hyphenated words from the title.
 - Case folders are `NN-kebab-name`, numbered from `01`. A single-case entry still uses `01-main/` (or a more descriptive name).
-- Every file in a case is optional, but a case needs at least `bad.cpp` + `good.cpp` + `explanation.md` unless the footgun is purely a compile error (see "IF entries").
+- Every file in a case is optional, but a case needs at least `bad.cpp` + `good.cpp` + `explanation.md` + `compilers.md` unless the footgun is purely a compile error (see "IF entries").
 - Never put code in the JSON or in `explanation.md` that isn't also in a file that compiles. The explanation may quote snippets of the files.
 
 ## Workflow for each entry
 
 1. Read the entry in `footguns.json` (title, description, classification, `cpp_standard`) and open its `cppreference_urls` for the exact rules. Use the standard's wording; do not guess about UB.
 2. Decide how many cases are needed (next section).
-3. For each case write `bad.cpp`, `good.cpp`, optional `good.rs`, `explanation.md`.
+3. For each case write `bad.cpp`, `good.cpp`, optional `good.rs`, `explanation.md`, `compilers.md`.
 4. Run `python3 -I tools/check_examples.py <NNN>` and fix everything it reports.
 5. Update `footguns.json` (see "Updating the JSON"), including each case's `classification` and `detection`.
 6. Do not mark an entry done if any of its files fail the checker.
@@ -100,7 +101,7 @@ Add `examples/NNN-slug/README.md` only when there are 2+ cases and the reader ne
 
 ### `good.rs`
 - Include it when Rust has a genuine contrast: the bug is impossible or a compile error (borrow checker, definite initialization, `Send`/`Sync`, no UB in safe arithmetic), or Rust forces an explicit choice (`checked_add`, `Ordering`).
-- Skip it when Rust has no meaningful analogue (ADL, hidden friends, ODR, SFINAE, C++ ABI issues). Say nothing rather than forcing it, but if there is a short, useful sentence ("Rust has no ADL; method resolution is explicit via traits"), put it in `explanation.md` instead of a file.
+- Skip it when Rust has no meaningful analogue (ADL, hidden friends, ODR, SFINAE, C++ ABI issues). Don't force it, but the `## Rust (no `good.rs`)` section of `explanation.md` still exists: put the short, useful sentence there ("Rust has no ADL; method resolution is explicit via traits").
 - It must compile with `rustc --edition 2021` as a single file with no dependencies and exit 0. Show the rejected code as a commented-out block with the actual error code (e.g. `E0515`) if the point is that the compiler stops you.
 - Prefer safe Rust. If the contrast is "this needs `unsafe`", show the unsafe block and explain the invariants.
 
@@ -128,7 +129,7 @@ Every factual claim in an `explanation.md`, a code comment, a README or the JSON
 
 ## Writing `explanation.md`
 
-Use these sections, in order. Keep the bad-code section the longest (typically 2–5 paragraphs). Do not oversimplify; explain the actual standard rule and the actual failure mechanism.
+Every `explanation.md` has exactly this skeleton and nothing else; only the title line and the section bodies differ between cases. `check_examples.py` fails any deviation. Use these sections, in order. Keep the bad-code section the longest (typically 2–5 paragraphs). Do not oversimplify; explain the actual standard rule and the actual failure mechanism.
 
 ```markdown
 # NNN — Title            (for multi-case entries: "NNN.NN — Title: case name")
@@ -142,8 +143,9 @@ Use these sections, in order. Keep the bad-code section the longest (typically 2
 ## The fix (`good.cpp`)
 - What changed and why it is correct; alternatives and their tradeoffs.
 
-## Rust (`good.rs`)       <- omit if there is no good.rs
-- What Rust does differently and the specific mechanism (borrow checker, types, explicit API).
+## Rust (`good.rs`)       <- heading is `## Rust (no `good.rs`)` when the case has no good.rs; the section is never omitted
+- With good.rs: what Rust does differently and the specific mechanism (borrow checker, types, explicit API).
+- Without good.rs: one or two sentences on why there is no analogue (verified with rustc if it states a Rust fact), or "No Rust equivalent is provided for this case."
 ```
 
 Accuracy rules:
@@ -151,6 +153,23 @@ Accuracy rules:
 - Distinguish **undefined**, **unspecified**, **implementation-defined**, **erroneous** (C++26), and **ill-formed, no diagnostic required**. Don't call something UB if it isn't (for example: exceptions escaping a `noexcept` function or a destructor call `std::terminate`, which is defined).
 - State the standard version in which behavior changed, and keep `cpp_standard` in the JSON as the version that *introduced the relevant feature* (not the version that fixed the problem).
 - Prefer cppreference-style names for things; link nothing in the explanation that isn't already in `cppreference_urls` unless you checked it resolves.
+
+## Writing `compilers.md`
+
+Every case with a `bad.cpp` has a `compilers.md` beside `explanation.md`. It is kept separate so a UI can show it as its own tab and so the explanation stays about the language rule. It records what the two compilers did with `bad.cpp`; the cause belongs in `explanation.md`.
+
+```markdown
+# NNN — Title: compiler comparison        (same title line as explanation.md, plus ": compiler comparison")
+
+**g++ vs clang++ (g++ X.Y.Z, clang++ X.Y.Z, `-std=... -Wall -Wextra`, sanitizer flags, `-O0` and `-O2`).** One or two sentences, or a table.
+```
+
+- Compile and run `bad.cpp` with both compilers, at `-O0` and `-O2` (and at the checker's `-O1` for sanitizer runs), and record what each did: warnings (with the flag), errors (with the text), sanitizer reports (with the kind), and program output.
+- If they behave identically, say so with the levels tried ("No difference: neither compiler warns, and both print ... at `-O0` and `-O2`"). Never leave a compiler out.
+- If they differ, use a table with `| | g++ | clang++ |` and one row per observation (Warnings, No sanitizer at each level, each sanitizer). Record sanitizer gaps (g++ has no MemorySanitizer) and any `detection` item that exists for only one compiler.
+- Garbage values vary per run, so write "garbage" unless you are quoting one specific run.
+- `explanation.md` may refer to `compilers.md` ("see `compilers.md`") but must not repeat its tables. Claims in `compilers.md` follow the same "Never assume" rule: nothing that was not run this session.
+- The checker (`check_examples.py`) fails a case with no `compilers.md`, one that does not name both `g++` and `clang++`, or one without the `**g++ vs clang++` paragraph. It cannot check that the content is true; that is still on you.
 
 ## Updating the JSON
 
@@ -171,7 +190,8 @@ Each entry's `examples` field looks like:
         "bad_cpp": ".../bad.cpp",
         "good_cpp": ".../good.cpp",
         "good_rust": ".../good.rs",        // omit keys for files that don't exist
-        "explanation": ".../explanation.md"
+        "explanation": ".../explanation.md",
+        "compilers": ".../compilers.md"
       }
     }
   ]
@@ -192,8 +212,9 @@ Update with a small script (`python3 -I`) rather than hand-editing the 182-entry
 ## Definition of done for an entry
 
 - [ ] Case count justified by the "when to use multiple cases" rules.
-- [ ] Each case has `bad.cpp`, `good.cpp`, `explanation.md`; `good.rs` only where it adds something.
+- [ ] Each case has `bad.cpp`, `good.cpp`, `explanation.md`, `compilers.md`; `good.rs` only where it adds something.
 - [ ] `tools/check_examples.py <NNN>` passes (good builds and exits 0; bad is flagged or, for IF entries, fails to compile as expected).
+- [ ] Each `compilers.md` covers both g++ and clang++ at `-O0` and `-O2`, and every statement in it was run this session.
 - [ ] Every factual claim about compiler output, flags, warnings, tools, or standard versions was run on g++ and clang++ this session (see "Never assume") or cited; anything unverified was removed.
 - [ ] Each case has `classification` and `detection` in `footguns.json`, and the checker verifies `detection`.
 - [ ] `footguns.json` updated, still valid, ids 1–182 intact.

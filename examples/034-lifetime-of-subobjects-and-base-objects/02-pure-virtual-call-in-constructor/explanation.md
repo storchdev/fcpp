@@ -9,3 +9,7 @@ Detection: clang-tidy `clang-analyzer-cplusplus.PureVirtualCall` reports `Call t
 ## The fix (`good.cpp`)
 
 Split construction from the virtual step: construct the object, then call `init()` once the derived part exists. A factory function can enforce that order, or pass the needed behavior into the base constructor as a parameter (a function object or a policy type) instead of a virtual hook.
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

@@ -11,3 +11,7 @@ Code that must also build as C++20 gets case 01's behavior for the original loop
 ## The fix (`good.cpp`)
 
 Keep the `Box` in a named variable (`const Box box = make();`) for as long as any reference into it is used, or leave the full expression inside the range-for.
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

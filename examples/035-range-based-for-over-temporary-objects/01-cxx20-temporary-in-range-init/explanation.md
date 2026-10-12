@@ -11,3 +11,7 @@ Detection: g++ warns under `-Wall -Wextra`: `warning: possibly dangling referenc
 ## The fix (`good.cpp`)
 
 Name the owner. The C++20 range-for init-statement keeps its scope tight: `for (const Box box = make(); const auto& s : box.items())`. Alternatively make `items()` return by value, or add an `&&`-qualified overload that moves the vector out (entry 022).
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

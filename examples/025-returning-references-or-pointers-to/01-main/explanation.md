@@ -6,11 +6,11 @@ A reference or raw pointer is just an address with a type; it does not own or ex
 
 `make_tag` is the same bug one level down: `c_str()` returns a pointer into the string's internal buffer, and that buffer goes away with `t`. Nothing here "looks" wrong at the call site; `const char*` and `const std::string&` are perfectly normal return types.
 
-Why it often appears to work: the freed stack/heap bytes usually still contain the old characters for a while, so the program prints `hello, world` anyway. The failure shows up later — after an unrelated change reuses that stack slot, under optimization, or when the allocator reuses the freed heap block. Compilers warn for the simplest form (`-Wreturn-local-addr`, `-Wdangling-reference`) but not through helper calls or `c_str()`.
+Why it often appears to work: the freed stack/heap bytes usually still contain the old characters for a while, so the program prints `hello, world` anyway. The failure shows up later — after an unrelated change reuses that stack slot, under optimization, or when the allocator reuses the freed heap block. The compilers differ here (see `compilers.md`): g++ warns about the returned reference but not about the `c_str()` pointer, while clang++ warns about both.
 
 Notably, binding a returned reference to `const std::string& g` does **not** extend the lifetime: lifetime extension only applies to temporaries bound directly, and here the function returned a reference to a non-temporary that is already dead.
 
-AddressSanitizer catches this with `detect_stack_use_after_return=1` (stack-use-after-return) or heap-use-after-free for the string buffer.
+AddressSanitizer is what the checker uses, with `detect_stack_use_after_return=1`; what it reports differs by compiler (see `compilers.md`).
 
 ## The fix (`good.cpp`)
 

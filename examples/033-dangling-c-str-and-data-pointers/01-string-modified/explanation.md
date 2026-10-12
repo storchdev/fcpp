@@ -11,3 +11,7 @@ No `-Wall -Wextra` warning from either compiler. clang-tidy `clang-analyzer-cplu
 ## The fix (`good.cpp`)
 
 Take the pointer after the last modification and use it before the next one, or re-obtain it each time. Prefer passing `const std::string&` or `std::string_view` and calling `c_str()` at the C API boundary.
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.

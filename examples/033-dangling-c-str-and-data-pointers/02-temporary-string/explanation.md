@@ -11,3 +11,7 @@ Detection: clang++ warns under `-Wall -Wextra`: `warning: object backing the poi
 ## The fix (`good.cpp`)
 
 Name the string (`const std::string path = config_path();`) so it outlives the pointer, or consume the pointer in the same full-expression.
+
+## Rust (no `good.rs`)
+
+No Rust equivalent is provided for this case.
