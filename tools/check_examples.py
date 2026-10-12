@@ -49,7 +49,7 @@ def check_detection(items, bad, std, san, exp, tmp):
         elif kind == "warning":
             cxx, _, flag = rest.partition(":")
             r = run([cxx, f"-std={std}", "-Wall", "-Wextra", flag, "-c", "-o", "/dev/null", "-pthread", str(bad)])
-            if f"[{flag}]" not in r.stderr: problems.append(f"{it}: {cxx} did not emit [{flag}]")
+            if f"[{flag}]" not in r.stderr and f"[{flag}=]" not in r.stderr: problems.append(f"{it}: {cxx} did not emit [{flag}]")
         elif kind == "tool":
             tool, _, check = rest.partition(":")
             if tool != "clang-tidy": problems.append(f"{it}: unknown tool"); continue

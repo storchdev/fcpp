@@ -5193,10 +5193,41 @@
       "https://en.cppreference.com/w/cpp/language/noexcept_spec"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/121-throwing-from-destructors",
+      "readme": "examples/121-throwing-from-destructors/README.md",
+      "cases": [
+        {
+          "name": "during-unwinding",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/121-throwing-from-destructors/01-during-unwinding",
+          "files": {
+            "bad_cpp": "examples/121-throwing-from-destructors/01-during-unwinding/bad.cpp",
+            "good_cpp": "examples/121-throwing-from-destructors/01-during-unwinding/good.cpp",
+            "explanation": "examples/121-throwing-from-destructors/01-during-unwinding/explanation.md",
+            "compilers": "examples/121-throwing-from-destructors/01-during-unwinding/compilers.md"
+          }
+        },
+        {
+          "name": "implicit-noexcept",
+          "classification": "LOGIC",
+          "detection": [
+            "warning:g++:-Wterminate",
+            "warning:clang++:-Wexceptions",
+            "tool:clang-tidy:bugprone-exception-escape"
+          ],
+          "dir": "examples/121-throwing-from-destructors/02-implicit-noexcept",
+          "files": {
+            "bad_cpp": "examples/121-throwing-from-destructors/02-implicit-noexcept/bad.cpp",
+            "good_cpp": "examples/121-throwing-from-destructors/02-implicit-noexcept/good.cpp",
+            "explanation": "examples/121-throwing-from-destructors/02-implicit-noexcept/explanation.md",
+            "compilers": "examples/121-throwing-from-destructors/02-implicit-noexcept/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -5213,10 +5244,27 @@
       "https://en.cppreference.com/w/cpp/error/terminate"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/122-noexcept-violations",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "warning:g++:-Wterminate",
+            "warning:clang++:-Wexceptions",
+            "tool:clang-tidy:bugprone-exception-escape"
+          ],
+          "dir": "examples/122-noexcept-violations/01-main",
+          "files": {
+            "bad_cpp": "examples/122-noexcept-violations/01-main/bad.cpp",
+            "good_cpp": "examples/122-noexcept-violations/01-main/good.cpp",
+            "explanation": "examples/122-noexcept-violations/01-main/explanation.md",
+            "compilers": "examples/122-noexcept-violations/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -5233,10 +5281,25 @@
       "https://en.cppreference.com/w/cpp/language/try_catch"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/123-catching-polymorphic-exceptions-by-value",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "warning:g++:-Wcatch-value"
+          ],
+          "dir": "examples/123-catching-polymorphic-exceptions-by-value/01-main",
+          "files": {
+            "bad_cpp": "examples/123-catching-polymorphic-exceptions-by-value/01-main/bad.cpp",
+            "good_cpp": "examples/123-catching-polymorphic-exceptions-by-value/01-main/good.cpp",
+            "explanation": "examples/123-catching-polymorphic-exceptions-by-value/01-main/explanation.md",
+            "compilers": "examples/123-catching-polymorphic-exceptions-by-value/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -5253,10 +5316,25 @@
       "https://en.cppreference.com/w/cpp/error/current_exception"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/124-throw-vs-throwing-an-exception-object",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/124-throw-vs-throwing-an-exception-object/01-main",
+          "files": {
+            "bad_cpp": "examples/124-throw-vs-throwing-an-exception-object/01-main/bad.cpp",
+            "good_cpp": "examples/124-throw-vs-throwing-an-exception-object/01-main/good.cpp",
+            "explanation": "examples/124-throw-vs-throwing-an-exception-object/01-main/explanation.md",
+            "compilers": "examples/124-throw-vs-throwing-an-exception-object/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -5273,10 +5351,39 @@
       "https://en.cppreference.com/w/cpp/language/function-try-block"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/125-constructor-exceptions-and-partial-object-destruction",
+      "readme": "examples/125-constructor-exceptions-and-partial-object-destruction/README.md",
+      "cases": [
+        {
+          "name": "destructor-not-run",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/125-constructor-exceptions-and-partial-object-destruction/01-destructor-not-run",
+          "files": {
+            "bad_cpp": "examples/125-constructor-exceptions-and-partial-object-destruction/01-destructor-not-run/bad.cpp",
+            "good_cpp": "examples/125-constructor-exceptions-and-partial-object-destruction/01-destructor-not-run/good.cpp",
+            "explanation": "examples/125-constructor-exceptions-and-partial-object-destruction/01-destructor-not-run/explanation.md",
+            "compilers": "examples/125-constructor-exceptions-and-partial-object-destruction/01-destructor-not-run/compilers.md"
+          }
+        },
+        {
+          "name": "leaked-member",
+          "classification": "LOGIC",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/125-constructor-exceptions-and-partial-object-destruction/02-leaked-member",
+          "files": {
+            "bad_cpp": "examples/125-constructor-exceptions-and-partial-object-destruction/02-leaked-member/bad.cpp",
+            "good_cpp": "examples/125-constructor-exceptions-and-partial-object-destruction/02-leaked-member/good.cpp",
+            "explanation": "examples/125-constructor-exceptions-and-partial-object-destruction/02-leaked-member/explanation.md",
+            "compilers": "examples/125-constructor-exceptions-and-partial-object-destruction/02-leaked-member/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -5293,10 +5400,40 @@
       "https://en.cppreference.com/w/cpp/utility/expected/value"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/126-std-optional-value-and-std-expected-value",
+      "readme": "examples/126-std-optional-value-and-std-expected-value/README.md",
+      "cases": [
+        {
+          "name": "deref-empty",
+          "classification": "UB",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/126-std-optional-value-and-std-expected-value/01-deref-empty",
+          "files": {
+            "bad_cpp": "examples/126-std-optional-value-and-std-expected-value/01-deref-empty/bad.cpp",
+            "good_cpp": "examples/126-std-optional-value-and-std-expected-value/01-deref-empty/good.cpp",
+            "good_rust": "examples/126-std-optional-value-and-std-expected-value/01-deref-empty/good.rs",
+            "explanation": "examples/126-std-optional-value-and-std-expected-value/01-deref-empty/explanation.md",
+            "compilers": "examples/126-std-optional-value-and-std-expected-value/01-deref-empty/compilers.md"
+          }
+        },
+        {
+          "name": "expected-value-throws",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/126-std-optional-value-and-std-expected-value/02-expected-value-throws",
+          "files": {
+            "bad_cpp": "examples/126-std-optional-value-and-std-expected-value/02-expected-value-throws/bad.cpp",
+            "good_cpp": "examples/126-std-optional-value-and-std-expected-value/02-expected-value-throws/good.cpp",
+            "explanation": "examples/126-std-optional-value-and-std-expected-value/02-expected-value-throws/explanation.md",
+            "compilers": "examples/126-std-optional-value-and-std-expected-value/02-expected-value-throws/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -5313,10 +5450,25 @@
       "https://en.cppreference.com/w/cpp/utility/variant"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/127-std-variant-exceptional-states",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/127-std-variant-exceptional-states/01-main",
+          "files": {
+            "bad_cpp": "examples/127-std-variant-exceptional-states/01-main/bad.cpp",
+            "good_cpp": "examples/127-std-variant-exceptional-states/01-main/good.cpp",
+            "explanation": "examples/127-std-variant-exceptional-states/01-main/explanation.md",
+            "compilers": "examples/127-std-variant-exceptional-states/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -5333,10 +5485,25 @@
       "https://en.cppreference.com/w/cpp/error/exception"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/128-exception-guarantees-and-partially-modified-state",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/128-exception-guarantees-and-partially-modified-state/01-main",
+          "files": {
+            "bad_cpp": "examples/128-exception-guarantees-and-partially-modified-state/01-main/bad.cpp",
+            "good_cpp": "examples/128-exception-guarantees-and-partially-modified-state/01-main/good.cpp",
+            "explanation": "examples/128-exception-guarantees-and-partially-modified-state/01-main/explanation.md",
+            "compilers": "examples/128-exception-guarantees-and-partially-modified-state/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
