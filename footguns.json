@@ -3008,10 +3008,26 @@
       "https://en.cppreference.com/w/cpp/language/copy_constructor"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/070-object-slicing",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "tool:clang-tidy:cppcoreguidelines-slicing"
+          ],
+          "dir": "examples/070-object-slicing/01-main",
+          "files": {
+            "bad_cpp": "examples/070-object-slicing/01-main/bad.cpp",
+            "good_cpp": "examples/070-object-slicing/01-main/good.cpp",
+            "good_rust": "examples/070-object-slicing/01-main/good.rs",
+            "explanation": "examples/070-object-slicing/01-main/explanation.md",
+            "compilers": "examples/070-object-slicing/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3029,10 +3045,29 @@
       "https://en.cppreference.com/w/cpp/language/delete"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/071-deleting-through-non-virtual-base-destructor",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address",
+            "warning:g++:-Wdelete-non-virtual-dtor",
+            "warning:clang++:-Wdelete-non-abstract-non-virtual-dtor",
+            "tool:clang-tidy:cppcoreguidelines-virtual-class-destructor"
+          ],
+          "dir": "examples/071-deleting-through-non-virtual-base-destructor/01-main",
+          "files": {
+            "bad_cpp": "examples/071-deleting-through-non-virtual-base-destructor/01-main/bad.cpp",
+            "good_cpp": "examples/071-deleting-through-non-virtual-base-destructor/01-main/good.cpp",
+            "good_rust": "examples/071-deleting-through-non-virtual-base-destructor/01-main/good.rs",
+            "explanation": "examples/071-deleting-through-non-virtual-base-destructor/01-main/explanation.md",
+            "compilers": "examples/071-deleting-through-non-virtual-base-destructor/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3049,10 +3084,25 @@
       "https://en.cppreference.com/w/cpp/language/constructor"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/072-virtual-calls-during-construction-and-destruction",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "tool:clang-tidy:clang-analyzer-optin.cplusplus.VirtualCall"
+          ],
+          "dir": "examples/072-virtual-calls-during-construction-and-destruction/01-main",
+          "files": {
+            "bad_cpp": "examples/072-virtual-calls-during-construction-and-destruction/01-main/bad.cpp",
+            "good_cpp": "examples/072-virtual-calls-during-construction-and-destruction/01-main/good.cpp",
+            "explanation": "examples/072-virtual-calls-during-construction-and-destruction/01-main/explanation.md",
+            "compilers": "examples/072-virtual-calls-during-construction-and-destruction/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3069,10 +3119,25 @@
       "https://en.cppreference.com/w/cpp/language/virtual"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/073-pure-virtual-calls-in-object-lifetime-transitions",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UB",
+          "detection": [
+            "tool:clang-tidy:clang-analyzer-cplusplus.PureVirtualCall"
+          ],
+          "dir": "examples/073-pure-virtual-calls-in-object-lifetime-transitions/01-main",
+          "files": {
+            "bad_cpp": "examples/073-pure-virtual-calls-in-object-lifetime-transitions/01-main/bad.cpp",
+            "good_cpp": "examples/073-pure-virtual-calls-in-object-lifetime-transitions/01-main/good.cpp",
+            "explanation": "examples/073-pure-virtual-calls-in-object-lifetime-transitions/01-main/explanation.md",
+            "compilers": "examples/073-pure-virtual-calls-in-object-lifetime-transitions/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3089,10 +3154,26 @@
       "https://en.cppreference.com/w/cpp/language/virtual"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/074-default-arguments-on-virtual-functions",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "tool:clang-tidy:google-default-arguments"
+          ],
+          "dir": "examples/074-default-arguments-on-virtual-functions/01-main",
+          "files": {
+            "bad_cpp": "examples/074-default-arguments-on-virtual-functions/01-main/bad.cpp",
+            "good_cpp": "examples/074-default-arguments-on-virtual-functions/01-main/good.cpp",
+            "good_rust": "examples/074-default-arguments-on-virtual-functions/01-main/good.rs",
+            "explanation": "examples/074-default-arguments-on-virtual-functions/01-main/explanation.md",
+            "compilers": "examples/074-default-arguments-on-virtual-functions/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3110,10 +3191,39 @@
       "https://en.cppreference.com/w/cpp/language/unqualified_lookup"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/075-name-hiding-in-inheritance",
+      "readme": "examples/075-name-hiding-in-inheritance/README.md",
+      "cases": [
+        {
+          "name": "hidden-overload",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/075-name-hiding-in-inheritance/01-hidden-overload",
+          "files": {
+            "bad_cpp": "examples/075-name-hiding-in-inheritance/01-hidden-overload/bad.cpp",
+            "good_cpp": "examples/075-name-hiding-in-inheritance/01-hidden-overload/good.cpp",
+            "explanation": "examples/075-name-hiding-in-inheritance/01-hidden-overload/explanation.md",
+            "compilers": "examples/075-name-hiding-in-inheritance/01-hidden-overload/compilers.md"
+          }
+        },
+        {
+          "name": "silent-wrong-overload",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/075-name-hiding-in-inheritance/02-silent-wrong-overload",
+          "files": {
+            "bad_cpp": "examples/075-name-hiding-in-inheritance/02-silent-wrong-overload/bad.cpp",
+            "good_cpp": "examples/075-name-hiding-in-inheritance/02-silent-wrong-overload/good.cpp",
+            "explanation": "examples/075-name-hiding-in-inheritance/02-silent-wrong-overload/explanation.md",
+            "compilers": "examples/075-name-hiding-in-inheritance/02-silent-wrong-overload/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3131,10 +3241,39 @@
       "https://en.cppreference.com/w/cpp/language/reinterpret_cast"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/076-multiple-inheritance-pointer-adjustments",
+      "readme": "examples/076-multiple-inheritance-pointer-adjustments/README.md",
+      "cases": [
+        {
+          "name": "reinterpret-cast",
+          "classification": "UB",
+          "detection": [
+            "warning:clang++:-Wreinterpret-base-class"
+          ],
+          "dir": "examples/076-multiple-inheritance-pointer-adjustments/01-reinterpret-cast",
+          "files": {
+            "bad_cpp": "examples/076-multiple-inheritance-pointer-adjustments/01-reinterpret-cast/bad.cpp",
+            "good_cpp": "examples/076-multiple-inheritance-pointer-adjustments/01-reinterpret-cast/good.cpp",
+            "explanation": "examples/076-multiple-inheritance-pointer-adjustments/01-reinterpret-cast/explanation.md",
+            "compilers": "examples/076-multiple-inheritance-pointer-adjustments/01-reinterpret-cast/compilers.md"
+          }
+        },
+        {
+          "name": "void-pointer",
+          "classification": "UB",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/076-multiple-inheritance-pointer-adjustments/02-void-pointer",
+          "files": {
+            "bad_cpp": "examples/076-multiple-inheritance-pointer-adjustments/02-void-pointer/bad.cpp",
+            "good_cpp": "examples/076-multiple-inheritance-pointer-adjustments/02-void-pointer/good.cpp",
+            "explanation": "examples/076-multiple-inheritance-pointer-adjustments/02-void-pointer/explanation.md",
+            "compilers": "examples/076-multiple-inheritance-pointer-adjustments/02-void-pointer/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3151,10 +3290,25 @@
       "https://en.cppreference.com/w/cpp/language/static_cast"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/077-virtual-inheritance-layout-assumptions",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UNS",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/077-virtual-inheritance-layout-assumptions/01-main",
+          "files": {
+            "bad_cpp": "examples/077-virtual-inheritance-layout-assumptions/01-main/bad.cpp",
+            "good_cpp": "examples/077-virtual-inheritance-layout-assumptions/01-main/good.cpp",
+            "explanation": "examples/077-virtual-inheritance-layout-assumptions/01-main/explanation.md",
+            "compilers": "examples/077-virtual-inheritance-layout-assumptions/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3171,10 +3325,39 @@
       "https://en.cppreference.com/w/cpp/language/typeid"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/078-rtti-during-construction-or-destruction",
+      "readme": "examples/078-rtti-during-construction-or-destruction/README.md",
+      "cases": [
+        {
+          "name": "typeid-in-ctor",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/078-rtti-during-construction-or-destruction/01-typeid-in-ctor",
+          "files": {
+            "bad_cpp": "examples/078-rtti-during-construction-or-destruction/01-typeid-in-ctor/bad.cpp",
+            "good_cpp": "examples/078-rtti-during-construction-or-destruction/01-typeid-in-ctor/good.cpp",
+            "explanation": "examples/078-rtti-during-construction-or-destruction/01-typeid-in-ctor/explanation.md",
+            "compilers": "examples/078-rtti-during-construction-or-destruction/01-typeid-in-ctor/compilers.md"
+          }
+        },
+        {
+          "name": "unconstructed-base",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:undefined"
+          ],
+          "dir": "examples/078-rtti-during-construction-or-destruction/02-unconstructed-base",
+          "files": {
+            "bad_cpp": "examples/078-rtti-during-construction-or-destruction/02-unconstructed-base/bad.cpp",
+            "good_cpp": "examples/078-rtti-during-construction-or-destruction/02-unconstructed-base/good.cpp",
+            "explanation": "examples/078-rtti-during-construction-or-destruction/02-unconstructed-base/explanation.md",
+            "compilers": "examples/078-rtti-during-construction-or-destruction/02-unconstructed-base/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -3191,10 +3374,26 @@
       "https://en.cppreference.com/w/cpp/language/member_functions"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/079-shallow-const-and-logical-constness",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/079-shallow-const-and-logical-constness/01-main",
+          "files": {
+            "bad_cpp": "examples/079-shallow-const-and-logical-constness/01-main/bad.cpp",
+            "good_cpp": "examples/079-shallow-const-and-logical-constness/01-main/good.cpp",
+            "good_rust": "examples/079-shallow-const-and-logical-constness/01-main/good.rs",
+            "explanation": "examples/079-shallow-const-and-logical-constness/01-main/explanation.md",
+            "compilers": "examples/079-shallow-const-and-logical-constness/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
