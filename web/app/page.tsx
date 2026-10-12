@@ -11,7 +11,7 @@ export default function Home() {
           <p className="mt-2 max-w-2xl text-[15px] leading-7 text-muted">
             {items.length} C++ gotchas. Inspired by this{" "}
             <a
-              href="https://www.youtube.com/watch?v=7fGB-hjc2Gc&t=2465s"
+              href="https://www.youtube.com/watch?v=7fGB-hjc2Gc"
               target="_blank"
               rel="noreferrer"
               className="text-accent underline-offset-2 hover:underline"
