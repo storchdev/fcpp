@@ -150,7 +150,7 @@ export function Catalog({ items }: { items: Summary[] }) {
           <li key={i.id} className="animate-rise border-b border-line/70 last:border-b-0" style={{ animationDelay: `${Math.min(n, 14) * 18}ms` }}>
             <Link
               href={`/${i.id}`}
-              className="group grid grid-cols-[2.5rem_1fr_auto] items-baseline gap-x-4 gap-y-1 px-4 py-3 transition-colors hover:bg-white/[0.035] md:grid-cols-[3rem_1fr_9rem_5rem_6.5rem_1rem]"
+              className="group grid grid-cols-[2.5rem_1fr_auto] items-center gap-x-4 gap-y-1 px-4 py-3 transition-colors hover:bg-white/[0.035] md:grid-cols-[3rem_1fr_9rem_5rem_6.5rem_1rem]"
             >
               <span className="font-mono text-[13px] tabular-nums text-muted">{String(i.id).padStart(3, "0")}</span>
               <span className="min-w-0">

@@ -51,7 +51,7 @@ export function CaseView({ cases, overview }: { cases: CaseData[]; overview?: Re
         <div key="overview" className="max-w-3xl animate-rise">{overview}</div>
       ) : (
         <div key={c.name} className="animate-rise">
-          <div className="mb-5 flex flex-wrap items-baseline gap-2 text-[13px]">
+          <div className="mb-5 flex flex-wrap items-center gap-2 text-[13px] leading-5">
             {c.classification}
             {c.chips.map((chip) => (
               <span key={chip} className="font-mono text-[12px] text-muted before:mr-2 before:text-zinc-700 before:content-['·']">{chip}</span>
