@@ -13,6 +13,22 @@ This repo is a catalog of 182 C++ footguns (interview-style "gotchas"). `footgun
 
 Classification codes: `UB` undefined behavior, `IF` ill-formed/compile failure, `UNS` unspecified/implementation-defined, `LOGIC` well-defined but surprising, `PERF` performance footgun, `CONC` concurrency/memory-model trap.
 
+The code describes the *language rule* involved, not how the compiler reports it. `IF` means the standard makes the program ill-formed, even if one compiler only warns (e.g. g++ warns for non-constant narrowing in braces where clang++ errors). A construct that compiles with only a warning is classified by what the code then does (`UB`, `LOGIC`, ...).
+
+**The entry-level `classification` in `footguns.json` is the primary lesson. Every case also gets its own `classification`**, because cases of one entry often differ (006: one case `LOGIC`, one `IF`). While writing cases, check the entry's code against what the cases actually show; if they disagree, fix the case codes and report any entry-level change (you may now change `classification` on entry or case for this reason, and only this reason).
+
+## Detection
+
+Every case's JSON has a `detection` list: the mechanisms that catch `bad.cpp`, as verified by `tools/check_examples.py` (it fails if a listed mechanism does not fire). Items:
+
+- `error`: `bad.cpp` is ill-formed (`// expect: compile-error`).
+- `warning:<g++|clang++>:<-Wflag>`: the compiler emits `[-Wflag]` for `bad.cpp` under `-Wall -Wextra` plus that flag. List the flag per compiler; names differ (`-Wreorder` vs `-Wreorder-ctor`). Flags outside `-Wall -Wextra` such as `-Wconversion` are fine, they just have to be real.
+- `sanitizer:<name>`: must equal the `// sanitize:` header.
+- `tool:clang-tidy:<check>`: `clang-tidy -checks='-*,<check>'` reports it.
+- `none`: nothing tested catches it (alone in the list). Say in `explanation.md` how a reviewer would find it.
+
+List only mechanisms you ran. A warning that covers only part of the bad code (e.g. `-Wmissing-field-initializers` catches missing trailing members but not reordering) is still listed; explain the gap in `explanation.md`.
+
 ## Layout
 
 ```
@@ -38,7 +54,7 @@ examples/NNN-short-slug/
 2. Decide how many cases are needed (next section).
 3. For each case write `bad.cpp`, `good.cpp`, optional `good.rs`, `explanation.md`.
 4. Run `python3 -I tools/check_examples.py <NNN>` and fix everything it reports.
-5. Update `footguns.json` (see "Updating the JSON").
+5. Update `footguns.json` (see "Updating the JSON"), including each case's `classification` and `detection`.
 6. Do not mark an entry done if any of its files fail the checker.
 
 Work in batches (a category at a time) and stop to report; do not try to do all 177 remaining entries in one pass.
@@ -99,6 +115,17 @@ Data races, memory-order, and reclamation bugs may not reproduce on every run. R
 - Don't rely on timing sleeps to force an interleaving in the good code; good code must be correct under any interleaving.
 - Never claim hardware behavior (reordering on x86 vs ARM) you haven't verified; attribute to the standard ("permitted by the memory model") instead.
 
+## Never assume: ask the compilers
+
+Every factual claim in an `explanation.md`, a code comment, a README or the JSON must come from something you ran in this session, not from memory or from what the standard "should" imply. Memory has already been wrong here: `-Wzero-as-null-pointer-constant` does not flag `NULL`, g++ accepts a conversion clang++ calls ambiguous, and g++ only warns on non-constant narrowing where clang++ errors.
+
+- Compile every snippet you describe with **both** `g++` and `clang++` (and `rustc` for Rust claims), at the stated `-std=` and optimization level, and read the actual output. Quote diagnostic text as printed, with the compiler version.
+- Warning and error claims: run the compiler with the exact flags. "No warning under `-Wall -Wextra`" is only true if you saw none. Check optimization-dependent warnings (`-Wuninitialized`, `-Wmaybe-uninitialized`) at the level the checker uses.
+- Claims about a type, overload or value: prove it with `static_assert`, `decltype`, or printed output inside a scratch program, not by reasoning.
+- Claims about tools (clang-tidy checks, sanitizers): run the tool and see it report.
+- If the two compilers disagree, say so and name both results. If you could not verify a claim, delete it or write "not verified"; never present it as fact.
+- Scratch programs for these checks go in the scratchpad, not the repo. If the check is worth keeping, turn it into a `static_assert` in the case's `bad.cpp`/`good.cpp` or a `detection` item so the checker keeps verifying it.
+
 ## Writing `explanation.md`
 
 Use these sections, in order. Keep the bad-code section the longest (typically 2–5 paragraphs). Do not oversimplify; explain the actual standard rule and the actual failure mechanism.
@@ -120,7 +147,7 @@ Use these sections, in order. Keep the bad-code section the longest (typically 2
 ```
 
 Accuracy rules:
-- **Verify claims by running them.** If you write "prints 0 at -O2", compile with that flag and check. Compilers differ (GCC vs clang) and a wrong claim here is worse than no claim; state the compiler and flags you observed.
+- **Verify claims by running them** (see "Never assume"). If you write "prints 0 at -O2", compile with that flag and check. Compilers differ (GCC vs clang) and a wrong claim here is worse than no claim; state the compiler and flags you observed.
 - Distinguish **undefined**, **unspecified**, **implementation-defined**, **erroneous** (C++26), and **ill-formed, no diagnostic required**. Don't call something UB if it isn't (for example: exceptions escaping a `noexcept` function or a destructor call `std::terminate`, which is defined).
 - State the standard version in which behavior changed, and keep `cpp_standard` in the JSON as the version that *introduced the relevant feature* (not the version that fixed the problem).
 - Prefer cppreference-style names for things; link nothing in the explanation that isn't already in `cppreference_urls` unless you checked it resolves.
@@ -137,6 +164,8 @@ Each entry's `examples` field looks like:
   "cases": [
     {
       "name": "function-return",          // folder name without the NN- prefix
+      "classification": "UB",             // this case's code (see Classification codes)
+      "detection": ["sanitizer:address", "warning:g++:-Wreturn-local-addr"],   // see "Detection"
       "dir": "examples/026-.../01-function-return",
       "files": {
         "bad_cpp": ".../bad.cpp",
@@ -149,7 +178,7 @@ Each entry's `examples` field looks like:
 }
 ```
 
-Paths are relative to the repo root. Only include `files` keys for files that exist. Set `status` to `"done"` only after `tools/check_examples.py <NNN>` passes. Do not edit any other field in `footguns.json` without being asked; if you believe a classification, difficulty, standard number, or URL is wrong, report it instead of silently changing it.
+Paths are relative to the repo root. Only include `files` keys for files that exist. Set `status` to `"done"` only after `tools/check_examples.py <NNN>` passes. Do not edit any other field in `footguns.json` without being asked (case and entry `classification` excepted, see above); if you believe a difficulty, standard number, or URL is wrong, report it instead of silently changing it.
 
 Update with a small script (`python3 -I`) rather than hand-editing the 182-entry file, then confirm the file still parses and ids are intact (1–182).
 
@@ -165,5 +194,6 @@ Update with a small script (`python3 -I`) rather than hand-editing the 182-entry
 - [ ] Case count justified by the "when to use multiple cases" rules.
 - [ ] Each case has `bad.cpp`, `good.cpp`, `explanation.md`; `good.rs` only where it adds something.
 - [ ] `tools/check_examples.py <NNN>` passes (good builds and exits 0; bad is flagged or, for IF entries, fails to compile as expected).
-- [ ] Every factual claim about compiler output, flags, or standard versions was verified or cited.
+- [ ] Every factual claim about compiler output, flags, warnings, tools, or standard versions was run on g++ and clang++ this session (see "Never assume") or cited; anything unverified was removed.
+- [ ] Each case has `classification` and `detection` in `footguns.json`, and the checker verifies `detection`.
 - [ ] `footguns.json` updated, still valid, ids 1–182 intact.

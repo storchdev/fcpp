@@ -19,6 +19,11 @@
       "cases": [
         {
           "name": "main",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:memory",
+            "warning:g++:-Wuninitialized"
+          ],
           "dir": "examples/001-default-initialization-vs-value-initialization/01-main",
           "files": {
             "bad_cpp": "examples/001-default-initialization-vs-value-initialization/01-main/bad.cpp",
@@ -44,10 +49,25 @@
       "https://en.cppreference.com/w/cpp/language/function"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/002-the-most-vexing-parse",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "warning:g++:-Wvexing-parse",
+            "warning:clang++:-Wvexing-parse"
+          ],
+          "dir": "examples/002-the-most-vexing-parse/01-main",
+          "files": {
+            "bad_cpp": "examples/002-the-most-vexing-parse/01-main/bad.cpp",
+            "good_cpp": "examples/002-the-most-vexing-parse/01-main/good.cpp",
+            "explanation": "examples/002-the-most-vexing-parse/01-main/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -64,10 +84,25 @@
       "https://en.cppreference.com/w/cpp/language/direct_initialization"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/003-brace-initialization-vs-parentheses",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/003-brace-initialization-vs-parentheses/01-main",
+          "files": {
+            "bad_cpp": "examples/003-brace-initialization-vs-parentheses/01-main/bad.cpp",
+            "good_cpp": "examples/003-brace-initialization-vs-parentheses/01-main/good.cpp",
+            "good_rust": "examples/003-brace-initialization-vs-parentheses/01-main/good.rs",
+            "explanation": "examples/003-brace-initialization-vs-parentheses/01-main/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -85,10 +120,24 @@
       "https://en.cppreference.com/w/cpp/language/overload_resolution"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/004-initializer-list-constructor-preference",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/004-initializer-list-constructor-preference/01-main",
+          "files": {
+            "bad_cpp": "examples/004-initializer-list-constructor-preference/01-main/bad.cpp",
+            "good_cpp": "examples/004-initializer-list-constructor-preference/01-main/good.cpp",
+            "explanation": "examples/004-initializer-list-constructor-preference/01-main/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -105,10 +154,41 @@
       "https://en.cppreference.com/w/cpp/language/implicit_conversion"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/005-narrowing-conversions",
+      "readme": "examples/005-narrowing-conversions/README.md",
+      "cases": [
+        {
+          "name": "brace-rejects-narrowing",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/005-narrowing-conversions/01-brace-rejects-narrowing",
+          "files": {
+            "bad_cpp": "examples/005-narrowing-conversions/01-brace-rejects-narrowing/bad.cpp",
+            "good_cpp": "examples/005-narrowing-conversions/01-brace-rejects-narrowing/good.cpp",
+            "good_rust": "examples/005-narrowing-conversions/01-brace-rejects-narrowing/good.rs",
+            "explanation": "examples/005-narrowing-conversions/01-brace-rejects-narrowing/explanation.md"
+          }
+        },
+        {
+          "name": "silent-without-braces",
+          "classification": "LOGIC",
+          "detection": [
+            "warning:g++:-Woverflow",
+            "warning:g++:-Wconversion",
+            "warning:clang++:-Wconstant-conversion"
+          ],
+          "dir": "examples/005-narrowing-conversions/02-silent-without-braces",
+          "files": {
+            "bad_cpp": "examples/005-narrowing-conversions/02-silent-without-braces/bad.cpp",
+            "good_cpp": "examples/005-narrowing-conversions/02-silent-without-braces/good.cpp",
+            "good_rust": "examples/005-narrowing-conversions/02-silent-without-braces/good.rs",
+            "explanation": "examples/005-narrowing-conversions/02-silent-without-braces/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -126,10 +206,37 @@
       "https://en.cppreference.com/w/cpp/language/overload_resolution"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/006-implicit-conversion-chains",
+      "readme": "examples/006-implicit-conversion-chains/README.md",
+      "cases": [
+        {
+          "name": "standard-beats-user-defined",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/006-implicit-conversion-chains/01-standard-beats-user-defined",
+          "files": {
+            "bad_cpp": "examples/006-implicit-conversion-chains/01-standard-beats-user-defined/bad.cpp",
+            "good_cpp": "examples/006-implicit-conversion-chains/01-standard-beats-user-defined/good.cpp",
+            "explanation": "examples/006-implicit-conversion-chains/01-standard-beats-user-defined/explanation.md"
+          }
+        },
+        {
+          "name": "one-user-defined-conversion",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/006-implicit-conversion-chains/02-one-user-defined-conversion",
+          "files": {
+            "bad_cpp": "examples/006-implicit-conversion-chains/02-one-user-defined-conversion/bad.cpp",
+            "good_cpp": "examples/006-implicit-conversion-chains/02-one-user-defined-conversion/good.cpp",
+            "explanation": "examples/006-implicit-conversion-chains/02-one-user-defined-conversion/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -146,10 +253,37 @@
       "https://en.cppreference.com/w/cpp/language/implicit_conversion"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/007-explicit-constructors-and-conversion-operators",
+      "readme": "examples/007-explicit-constructors-and-conversion-operators/README.md",
+      "cases": [
+        {
+          "name": "explicit-constructor",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/007-explicit-constructors-and-conversion-operators/01-explicit-constructor",
+          "files": {
+            "bad_cpp": "examples/007-explicit-constructors-and-conversion-operators/01-explicit-constructor/bad.cpp",
+            "good_cpp": "examples/007-explicit-constructors-and-conversion-operators/01-explicit-constructor/good.cpp",
+            "explanation": "examples/007-explicit-constructors-and-conversion-operators/01-explicit-constructor/explanation.md"
+          }
+        },
+        {
+          "name": "explicit-operator-bool",
+          "classification": "LOGIC",
+          "detection": [
+            "tool:clang-tidy:google-explicit-constructor"
+          ],
+          "dir": "examples/007-explicit-constructors-and-conversion-operators/02-explicit-operator-bool",
+          "files": {
+            "bad_cpp": "examples/007-explicit-constructors-and-conversion-operators/02-explicit-operator-bool/bad.cpp",
+            "good_cpp": "examples/007-explicit-constructors-and-conversion-operators/02-explicit-operator-bool/good.cpp",
+            "explanation": "examples/007-explicit-constructors-and-conversion-operators/02-explicit-operator-bool/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -167,10 +301,38 @@
       "https://en.cppreference.com/w/cpp/language/overload_resolution"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/008-null-pointer-overload-resolution",
+      "readme": "examples/008-null-pointer-overload-resolution/README.md",
+      "cases": [
+        {
+          "name": "overloads",
+          "classification": "LOGIC",
+          "detection": [
+            "warning:g++:-Wconversion-null"
+          ],
+          "dir": "examples/008-null-pointer-overload-resolution/01-overloads",
+          "files": {
+            "bad_cpp": "examples/008-null-pointer-overload-resolution/01-overloads/bad.cpp",
+            "good_cpp": "examples/008-null-pointer-overload-resolution/01-overloads/good.cpp",
+            "explanation": "examples/008-null-pointer-overload-resolution/01-overloads/explanation.md"
+          }
+        },
+        {
+          "name": "forwarding",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/008-null-pointer-overload-resolution/02-forwarding",
+          "files": {
+            "bad_cpp": "examples/008-null-pointer-overload-resolution/02-forwarding/bad.cpp",
+            "good_cpp": "examples/008-null-pointer-overload-resolution/02-forwarding/good.cpp",
+            "good_rust": "examples/008-null-pointer-overload-resolution/02-forwarding/good.rs",
+            "explanation": "examples/008-null-pointer-overload-resolution/02-forwarding/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -187,10 +349,26 @@
       "https://en.cppreference.com/w/cpp/language/overload_resolution"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/009-integer-literal-type-deduction",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "warning:g++:-Wsign-compare",
+            "warning:clang++:-Wsign-compare"
+          ],
+          "dir": "examples/009-integer-literal-type-deduction/01-main",
+          "files": {
+            "bad_cpp": "examples/009-integer-literal-type-deduction/01-main/bad.cpp",
+            "good_cpp": "examples/009-integer-literal-type-deduction/01-main/good.cpp",
+            "good_rust": "examples/009-integer-literal-type-deduction/01-main/good.rs",
+            "explanation": "examples/009-integer-literal-type-deduction/01-main/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -206,10 +384,26 @@
       "https://en.cppreference.com/w/cpp/language/aggregate_initialization"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/010-aggregate-initialization-and-member-ordering",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "warning:g++:-Wmissing-field-initializers",
+            "warning:clang++:-Wmissing-field-initializers"
+          ],
+          "dir": "examples/010-aggregate-initialization-and-member-ordering/01-main",
+          "files": {
+            "bad_cpp": "examples/010-aggregate-initialization-and-member-ordering/01-main/bad.cpp",
+            "good_cpp": "examples/010-aggregate-initialization-and-member-ordering/01-main/good.cpp",
+            "good_rust": "examples/010-aggregate-initialization-and-member-ordering/01-main/good.rs",
+            "explanation": "examples/010-aggregate-initialization-and-member-ordering/01-main/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -232,6 +426,12 @@
       "cases": [
         {
           "name": "main",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:memory",
+            "warning:g++:-Wreorder",
+            "warning:clang++:-Wreorder-ctor"
+          ],
           "dir": "examples/011-class-member-initialization-order/01-main",
           "files": {
             "bad_cpp": "examples/011-class-member-initialization-order/01-main/bad.cpp",
@@ -256,10 +456,37 @@
       "https://en.cppreference.com/w/cpp/language/class_template_argument_deduction"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/012-class-template-argument-deduction-ctad",
+      "readme": "examples/012-class-template-argument-deduction-ctad/README.md",
+      "cases": [
+        {
+          "name": "copy-deduction",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/012-class-template-argument-deduction-ctad/01-copy-deduction",
+          "files": {
+            "bad_cpp": "examples/012-class-template-argument-deduction-ctad/01-copy-deduction/bad.cpp",
+            "good_cpp": "examples/012-class-template-argument-deduction-ctad/01-copy-deduction/good.cpp",
+            "explanation": "examples/012-class-template-argument-deduction-ctad/01-copy-deduction/explanation.md"
+          }
+        },
+        {
+          "name": "string-literals",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/012-class-template-argument-deduction-ctad/02-string-literals",
+          "files": {
+            "bad_cpp": "examples/012-class-template-argument-deduction-ctad/02-string-literals/bad.cpp",
+            "good_cpp": "examples/012-class-template-argument-deduction-ctad/02-string-literals/good.cpp",
+            "explanation": "examples/012-class-template-argument-deduction-ctad/02-string-literals/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -519,6 +746,12 @@
       "cases": [
         {
           "name": "main",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address",
+            "warning:g++:-Wreturn-local-addr",
+            "warning:clang++:-Wreturn-stack-address"
+          ],
           "dir": "examples/025-returning-references-or-pointers-to/01-main",
           "files": {
             "bad_cpp": "examples/025-returning-references-or-pointers-to/01-main/bad.cpp",
@@ -1152,6 +1385,10 @@
       "cases": [
         {
           "name": "main",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:undefined"
+          ],
           "dir": "examples/056-signed-integer-overflow/01-main",
           "files": {
             "bad_cpp": "examples/056-signed-integer-overflow/01-main/bad.cpp",
@@ -2627,6 +2864,10 @@
       "cases": [
         {
           "name": "main",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:thread"
+          ],
           "dir": "examples/129-data-races-and-undefined-behavior/01-main",
           "files": {
             "bad_cpp": "examples/129-data-races-and-undefined-behavior/01-main/bad.cpp",

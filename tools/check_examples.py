@@ -5,9 +5,10 @@ Layout: examples/NNN-slug/NN-case/{bad.cpp,good.cpp,good.rs,explanation.md}; eac
 independently and any file may be absent. good.cpp / good.rs must compile cleanly and exit 0.
 bad.cpp must compile; when run under its declared sanitizer it is expected to be flagged
 (non-zero exit, or sanitizer output). A header line `// sanitize: address|undefined|thread|memory`
-selects the sanitizer; `// std: c++NN` selects the standard.
+selects the sanitizer; `// std: c++NN` selects the standard. `// expect: compile-error` means bad.cpp
+must fail to compile. Without a sanitizer, bad.cpp only has to build and run.
 """
-import re, subprocess, sys, tempfile, os
+import json, re, subprocess, sys, tempfile, os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent / "examples"
@@ -30,7 +31,36 @@ def cpp(src, out, std, san=None, optimize="-O1"):
     if san == "memory": cmd.insert(2, "-fsanitize-memory-track-origins")
     return run(cmd)
 
+def load_detection():
+    """Map case directory (relative to repo root) -> detection list from footguns.json."""
+    idx = json.loads((ROOT.parent / "footguns.json").read_text())
+    return {c["dir"]: c.get("detection") for e in idx for c in e["examples"].get("cases", [])}
+
+def check_detection(items, bad, std, san, exp, tmp):
+    """Verify each claimed detection mechanism actually fires on bad.cpp. Returns list of problems."""
+    problems = []
+    if items == ["none"]: return problems
+    for it in items:
+        kind, _, rest = it.partition(":")
+        if kind == "error":
+            if exp != "compile-error": problems.append(f"{it}: bad.cpp has no `// expect: compile-error`")
+        elif kind == "sanitizer":
+            if rest != san: problems.append(f"{it}: header says sanitize={san}")
+        elif kind == "warning":
+            cxx, _, flag = rest.partition(":")
+            r = run([cxx, f"-std={std}", "-Wall", "-Wextra", flag, "-c", "-o", "/dev/null", "-pthread", str(bad)])
+            if f"[{flag}]" not in r.stderr: problems.append(f"{it}: {cxx} did not emit [{flag}]")
+        elif kind == "tool":
+            tool, _, check = rest.partition(":")
+            if tool != "clang-tidy": problems.append(f"{it}: unknown tool"); continue
+            r = run(["clang-tidy", f"-checks=-*,{check}", str(bad), "--", f"-std={std}"])
+            if f"[{check}]" not in r.stdout: problems.append(f"{it}: clang-tidy did not report {check}")
+        else:
+            problems.append(f"{it}: unknown detection kind")
+    return problems
+
 def main():
+    detection = load_detection()
     only = sys.argv[1:]
     failures = 0
     with tempfile.TemporaryDirectory() as tmp:
@@ -48,13 +78,30 @@ def main():
             if bad.exists():
                 san = header(bad, "sanitize", None)
                 r = cpp(bad, tmp / "b", header(bad, "std", "c++20"), san)
-                if r.returncode:
+                if header(bad, "expect", None) == "compile-error":
+                    ok = r.returncode != 0
+                    print(f"  bad.cpp   {'fails to compile as expected' if ok else 'FAIL (compiled, but should not)'}")
+                    failures += not ok
+                elif r.returncode:
                     print(r.stderr[:600]); print("  bad.cpp   FAIL (does not compile)"); failures += 1
                 else:
                     r = run([tmp / "b"])
-                    flagged = r.returncode != 0 or "runtime error" in r.stderr or "Sanitizer" in r.stderr
-                    print(f"  bad.cpp   {'flagged by ' + san if flagged else 'NOT flagged by ' + str(san)}")
-                    failures += not flagged
+                    if san is None:  # LOGIC/PERF: bad code only has to build and run; the behavior is in its output
+                        print("  bad.cpp   builds and runs (no sanitizer)")
+                    else:
+                        flagged = r.returncode != 0 or "runtime error" in r.stderr or "Sanitizer" in r.stderr
+                        print(f"  bad.cpp   {'flagged by ' + san if flagged else 'NOT flagged by ' + str(san)}")
+                        failures += not flagged
+            if bad.exists():
+                items = detection.get(str(d.relative_to(ROOT.parent)))
+                if items is None:
+                    print("  detection not recorded in footguns.json (skipped)")
+                else:
+                    probs = check_detection(items, bad, header(bad, "std", "c++20"), header(bad, "sanitize", None),
+                                            header(bad, "expect", None), tmp)
+                    for p in probs: print("  detection FAIL:", p)
+                    if not probs: print(f"  detection ok ({', '.join(items)})")
+                    failures += bool(probs)
             if rs.exists():
                 r = run(["rustc", "--edition", "2021", "-O", "-o", str(tmp / "r"), str(rs)])
                 ok = r.returncode == 0 and run([tmp / "r"]).returncode == 0
