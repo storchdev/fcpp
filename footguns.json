@@ -5556,10 +5556,25 @@
       "https://en.cppreference.com/w/cpp/atomic/atomic"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/130-atomicity-vs-visibility-vs-ordering",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "CONC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/130-atomicity-vs-visibility-vs-ordering/01-main",
+          "files": {
+            "bad_cpp": "examples/130-atomicity-vs-visibility-vs-ordering/01-main/bad.cpp",
+            "good_cpp": "examples/130-atomicity-vs-visibility-vs-ordering/01-main/good.cpp",
+            "explanation": "examples/130-atomicity-vs-visibility-vs-ordering/01-main/explanation.md",
+            "compilers": "examples/130-atomicity-vs-visibility-vs-ordering/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -5575,10 +5590,26 @@
       "https://en.cppreference.com/w/cpp/atomic/memory_order"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/131-memory-order-relaxed-misuse",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "CONC",
+          "detection": [
+            "sanitizer:thread"
+          ],
+          "dir": "examples/131-memory-order-relaxed-misuse/01-main",
+          "files": {
+            "bad_cpp": "examples/131-memory-order-relaxed-misuse/01-main/bad.cpp",
+            "good_cpp": "examples/131-memory-order-relaxed-misuse/01-main/good.cpp",
+            "good_rust": "examples/131-memory-order-relaxed-misuse/01-main/good.rs",
+            "explanation": "examples/131-memory-order-relaxed-misuse/01-main/explanation.md",
+            "compilers": "examples/131-memory-order-relaxed-misuse/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -5594,10 +5625,25 @@
       "https://en.cppreference.com/w/cpp/atomic/memory_order"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/132-release-acquire-synchronization",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "CONC",
+          "detection": [
+            "sanitizer:thread"
+          ],
+          "dir": "examples/132-release-acquire-synchronization/01-main",
+          "files": {
+            "bad_cpp": "examples/132-release-acquire-synchronization/01-main/bad.cpp",
+            "good_cpp": "examples/132-release-acquire-synchronization/01-main/good.cpp",
+            "explanation": "examples/132-release-acquire-synchronization/01-main/explanation.md",
+            "compilers": "examples/132-release-acquire-synchronization/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -5613,10 +5659,39 @@
       "https://en.cppreference.com/w/cpp/atomic/memory_order"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/133-sequential-consistency-misconceptions",
+      "readme": "examples/133-sequential-consistency-misconceptions/README.md",
+      "cases": [
+        {
+          "name": "store-buffering",
+          "classification": "CONC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/133-sequential-consistency-misconceptions/01-store-buffering",
+          "files": {
+            "bad_cpp": "examples/133-sequential-consistency-misconceptions/01-store-buffering/bad.cpp",
+            "good_cpp": "examples/133-sequential-consistency-misconceptions/01-store-buffering/good.cpp",
+            "explanation": "examples/133-sequential-consistency-misconceptions/01-store-buffering/explanation.md",
+            "compilers": "examples/133-sequential-consistency-misconceptions/01-store-buffering/compilers.md"
+          }
+        },
+        {
+          "name": "plain-data",
+          "classification": "CONC",
+          "detection": [
+            "sanitizer:thread"
+          ],
+          "dir": "examples/133-sequential-consistency-misconceptions/02-plain-data",
+          "files": {
+            "bad_cpp": "examples/133-sequential-consistency-misconceptions/02-plain-data/bad.cpp",
+            "good_cpp": "examples/133-sequential-consistency-misconceptions/02-plain-data/good.cpp",
+            "explanation": "examples/133-sequential-consistency-misconceptions/02-plain-data/explanation.md",
+            "compilers": "examples/133-sequential-consistency-misconceptions/02-plain-data/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -5633,10 +5708,25 @@
       "https://en.cppreference.com/w/cpp/atomic/atomic/fetch_add"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/134-release-sequences-and-read-modify-write-operations",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "CONC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/134-release-sequences-and-read-modify-write-operations/01-main",
+          "files": {
+            "bad_cpp": "examples/134-release-sequences-and-read-modify-write-operations/01-main/bad.cpp",
+            "good_cpp": "examples/134-release-sequences-and-read-modify-write-operations/01-main/good.cpp",
+            "explanation": "examples/134-release-sequences-and-read-modify-write-operations/01-main/explanation.md",
+            "compilers": "examples/134-release-sequences-and-read-modify-write-operations/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -5652,10 +5742,39 @@
       "https://en.cppreference.com/w/cpp/atomic/atomic/compare_exchange"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/135-incorrect-compare-exchange-loops",
+      "readme": "examples/135-incorrect-compare-exchange-loops/README.md",
+      "cases": [
+        {
+          "name": "stale-desired",
+          "classification": "CONC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/135-incorrect-compare-exchange-loops/01-stale-desired",
+          "files": {
+            "bad_cpp": "examples/135-incorrect-compare-exchange-loops/01-stale-desired/bad.cpp",
+            "good_cpp": "examples/135-incorrect-compare-exchange-loops/01-stale-desired/good.cpp",
+            "explanation": "examples/135-incorrect-compare-exchange-loops/01-stale-desired/explanation.md",
+            "compilers": "examples/135-incorrect-compare-exchange-loops/01-stale-desired/compilers.md"
+          }
+        },
+        {
+          "name": "expected-overwritten",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/135-incorrect-compare-exchange-loops/02-expected-overwritten",
+          "files": {
+            "bad_cpp": "examples/135-incorrect-compare-exchange-loops/02-expected-overwritten/bad.cpp",
+            "good_cpp": "examples/135-incorrect-compare-exchange-loops/02-expected-overwritten/good.cpp",
+            "explanation": "examples/135-incorrect-compare-exchange-loops/02-expected-overwritten/explanation.md",
+            "compilers": "examples/135-incorrect-compare-exchange-loops/02-expected-overwritten/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -5672,10 +5791,25 @@
       "https://en.cppreference.com/w/cpp/atomic/memory_order"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/136-invalid-compare-exchange-memory-orders",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UB",
+          "detection": [
+            "warning:g++:-Winvalid-memory-model"
+          ],
+          "dir": "examples/136-invalid-compare-exchange-memory-orders/01-main",
+          "files": {
+            "bad_cpp": "examples/136-invalid-compare-exchange-memory-orders/01-main/bad.cpp",
+            "good_cpp": "examples/136-invalid-compare-exchange-memory-orders/01-main/good.cpp",
+            "explanation": "examples/136-invalid-compare-exchange-memory-orders/01-main/explanation.md",
+            "compilers": "examples/136-invalid-compare-exchange-memory-orders/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -5692,10 +5826,25 @@
       "https://en.cppreference.com/w/cpp/atomic/atomic"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/137-aba-problem-in-lock-free-algorithms",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "CONC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/137-aba-problem-in-lock-free-algorithms/01-main",
+          "files": {
+            "bad_cpp": "examples/137-aba-problem-in-lock-free-algorithms/01-main/bad.cpp",
+            "good_cpp": "examples/137-aba-problem-in-lock-free-algorithms/01-main/good.cpp",
+            "explanation": "examples/137-aba-problem-in-lock-free-algorithms/01-main/explanation.md",
+            "compilers": "examples/137-aba-problem-in-lock-free-algorithms/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -5712,10 +5861,25 @@
       "https://en.cppreference.com/w/cpp/atomic/memory_order"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/138-memory-reclamation-in-lock-free-structures",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "CONC",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/138-memory-reclamation-in-lock-free-structures/01-main",
+          "files": {
+            "bad_cpp": "examples/138-memory-reclamation-in-lock-free-structures/01-main/bad.cpp",
+            "good_cpp": "examples/138-memory-reclamation-in-lock-free-structures/01-main/good.cpp",
+            "explanation": "examples/138-memory-reclamation-in-lock-free-structures/01-main/explanation.md",
+            "compilers": "examples/138-memory-reclamation-in-lock-free-structures/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
