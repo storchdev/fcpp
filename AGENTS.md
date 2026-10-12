@@ -164,15 +164,22 @@ Every case with a `bad.cpp` has a `compilers.md` beside `explanation.md`. It is 
 ```markdown
 # NNN — Title: compiler comparison        (same title line as explanation.md, plus ": compiler comparison")
 
-**g++ vs clang++ (g++ X.Y.Z, clang++ X.Y.Z, `-std=... -Wall -Wextra`, sanitizer flags, `-O0` and `-O2`).** One or two sentences, or a table.
+**g++ vs clang++ (g++ X.Y.Z, clang++ X.Y.Z, `-std=... -Wall -Wextra`, sanitizer flags, `-O0` and `-O2`).**
+
+| | g++ | clang++ |
+| --- | --- | --- |
+| Warnings | ... | ... |
+| Output, `-O0` and `-O2` | ... | ... |
 ```
 
+The paragraph is the header line only; all observations go in the table, never in prose after it.
+
 - Compile and run `bad.cpp` with both compilers, at `-O0` and `-O2` (and at the checker's `-O1` for sanitizer runs), and record what each did: warnings (with the flag), errors (with the text), sanitizer reports (with the kind), and program output.
-- If they behave identically, say so with the levels tried ("No difference: neither compiler warns, and both print ... at `-O0` and `-O2`"). Never leave a compiler out.
-- If they differ, use a table with `| | g++ | clang++ |` and one row per observation (Warnings, No sanitizer at each level, each sanitizer). Record sanitizer gaps (g++ has no MemorySanitizer) and any `detection` item that exists for only one compiler.
+- Always use a table with `| | g++ | clang++ |` and one row per observation (warnings, errors, output at each level, each sanitizer, `clang-tidy` results, scratch tests). Do not describe differences in prose. Never leave a compiler out.
+- If they behave identically, put the same value in both columns (or write "same") and give the levels tried in the row label, e.g. "Output, `-O0` and `-O2`". Record sanitizer gaps (g++ has no MemorySanitizer) and any `detection` item that exists for only one compiler as rows.
 - Garbage values vary per run, so write "garbage" unless you are quoting one specific run.
 - `explanation.md` may refer to `compilers.md` ("see `compilers.md`") but must not repeat its tables. Claims in `compilers.md` follow the same "Never assume" rule: nothing that was not run this session.
-- The checker (`check_examples.py`) fails a case with no `compilers.md`, one that does not name both `g++` and `clang++`, or one without the `**g++ vs clang++` paragraph. It cannot check that the content is true; that is still on you.
+- The checker (`check_examples.py`) fails a case with no `compilers.md`, one that does not name both `g++` and `clang++`, or one without the `**g++ vs clang++` paragraph (the checker does not yet verify that a table is present; keep it by hand). It cannot check that the content is true; that is still on you.
 
 ## Updating the JSON
 
@@ -211,6 +218,15 @@ Update with a small script (`python3 -I`) rather than hand-editing the 182-entry
 - Check one entry: `python3 -I tools/check_examples.py 026`. Check everything: `python3 -I tools/check_examples.py`.
 - Put scratch files in the session scratchpad, not in the repo.
 - The cppreference URLs were all verified to resolve (`/w/cpp/...` redirects to `/cpp/...`). If you add one, check it with `curl -sL -o /dev/null -w '%{http_code}'`, one request at a time with a 1-second delay.
+
+## Web frontend (`web/`)
+
+A Next.js 15 app (React 19, Tailwind) that renders the catalog. It reads `footguns.json` and the `examples/` files at build time (`web/lib/data.ts`; `DATA_ROOT` overrides the repo root), so new or edited examples show up without frontend changes. Each case page shows `bad.cpp`, `good.cpp`, `good.rs`, `explanation.md` and `compilers.md` (as its "g++ vs clang++" panel, where the tables render via `remark-gfm`).
+
+- Dev: `cd web && npm install && npm run dev`. Build: `npm run build`.
+- `NEXT_BASE_PATH` sets the base path (`/fcpp` when served at hudsonshi.com/fcpp; empty locally).
+- Deploy: `.github/workflows/deploy.yml` builds `web/Dockerfile` and ships it to the VPS on push to `main`.
+- Keep the file layout and JSON shape in this document stable; the frontend depends on them. Don't edit `web/` while filling in examples unless asked.
 
 ## Definition of done for an entry
 
