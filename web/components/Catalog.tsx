@@ -71,7 +71,7 @@ export function Catalog({ items }: { items: Summary[] }) {
       (i) =>
         (!cls || i.classification === cls) &&
         (!diff || i.difficulty === diff) &&
-        (!std || (i.cppStandard ?? 0) <= Number(std)) &&
+        (!std || (i.cppStandard ?? 0) >= Number(std)) &&
         (!cat || i.category === cat) &&
         (!needle ||
           `${i.id} ${i.title} ${i.description} ${i.category} ${i.classification}`.toLowerCase().includes(needle)),
@@ -115,7 +115,7 @@ export function Catalog({ items }: { items: Summary[] }) {
               <option value="">Any standard</option>
               {[11, 14, 17, 20].map((s) => (
                 <option key={s} value={s}>
-                  Up to C++{s}
+                  C++{s} and newer
                 </option>
               ))}
             </Select>
