@@ -2400,10 +2400,27 @@
       "https://en.cppreference.com/w/cpp/language/operator_arithmetic"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/057-unsigned-arithmetic-wraparound",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "warning:g++:-Wtype-limits",
+            "warning:clang++:-Wtautological-unsigned-zero-compare"
+          ],
+          "dir": "examples/057-unsigned-arithmetic-wraparound/01-main",
+          "files": {
+            "bad_cpp": "examples/057-unsigned-arithmetic-wraparound/01-main/bad.cpp",
+            "good_cpp": "examples/057-unsigned-arithmetic-wraparound/01-main/good.cpp",
+            "good_rust": "examples/057-unsigned-arithmetic-wraparound/01-main/good.rs",
+            "explanation": "examples/057-unsigned-arithmetic-wraparound/01-main/explanation.md",
+            "compilers": "examples/057-unsigned-arithmetic-wraparound/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -2420,10 +2437,27 @@
       "https://en.cppreference.com/w/cpp/utility/intcmp"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/058-signed-unsigned-comparisons",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "warning:g++:-Wsign-compare",
+            "warning:clang++:-Wsign-compare"
+          ],
+          "dir": "examples/058-signed-unsigned-comparisons/01-main",
+          "files": {
+            "bad_cpp": "examples/058-signed-unsigned-comparisons/01-main/bad.cpp",
+            "good_cpp": "examples/058-signed-unsigned-comparisons/01-main/good.cpp",
+            "good_rust": "examples/058-signed-unsigned-comparisons/01-main/good.rs",
+            "explanation": "examples/058-signed-unsigned-comparisons/01-main/explanation.md",
+            "compilers": "examples/058-signed-unsigned-comparisons/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -2440,10 +2474,41 @@
       "https://en.cppreference.com/w/cpp/language/usual_arithmetic_conversions"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/059-integer-promotions",
+      "readme": "examples/059-integer-promotions/README.md",
+      "cases": [
+        {
+          "name": "promoted-not",
+          "classification": "LOGIC",
+          "detection": [
+            "warning:g++:-Wsign-compare"
+          ],
+          "dir": "examples/059-integer-promotions/01-promoted-not",
+          "files": {
+            "bad_cpp": "examples/059-integer-promotions/01-promoted-not/bad.cpp",
+            "good_cpp": "examples/059-integer-promotions/01-promoted-not/good.cpp",
+            "good_rust": "examples/059-integer-promotions/01-promoted-not/good.rs",
+            "explanation": "examples/059-integer-promotions/01-promoted-not/explanation.md",
+            "compilers": "examples/059-integer-promotions/01-promoted-not/compilers.md"
+          }
+        },
+        {
+          "name": "multiply",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:undefined"
+          ],
+          "dir": "examples/059-integer-promotions/02-multiply",
+          "files": {
+            "bad_cpp": "examples/059-integer-promotions/02-multiply/bad.cpp",
+            "good_cpp": "examples/059-integer-promotions/02-multiply/good.cpp",
+            "good_rust": "examples/059-integer-promotions/02-multiply/good.rs",
+            "explanation": "examples/059-integer-promotions/02-multiply/explanation.md",
+            "compilers": "examples/059-integer-promotions/02-multiply/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -2459,10 +2524,41 @@
       "https://en.cppreference.com/w/cpp/language/operator_arithmetic"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/060-integer-division-corner-cases",
+      "readme": "examples/060-integer-division-corner-cases/README.md",
+      "cases": [
+        {
+          "name": "int-min-by-minus-one",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:undefined"
+          ],
+          "dir": "examples/060-integer-division-corner-cases/01-int-min-by-minus-one",
+          "files": {
+            "bad_cpp": "examples/060-integer-division-corner-cases/01-int-min-by-minus-one/bad.cpp",
+            "good_cpp": "examples/060-integer-division-corner-cases/01-int-min-by-minus-one/good.cpp",
+            "good_rust": "examples/060-integer-division-corner-cases/01-int-min-by-minus-one/good.rs",
+            "explanation": "examples/060-integer-division-corner-cases/01-int-min-by-minus-one/explanation.md",
+            "compilers": "examples/060-integer-division-corner-cases/01-int-min-by-minus-one/compilers.md"
+          }
+        },
+        {
+          "name": "divide-by-zero",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:undefined"
+          ],
+          "dir": "examples/060-integer-division-corner-cases/02-divide-by-zero",
+          "files": {
+            "bad_cpp": "examples/060-integer-division-corner-cases/02-divide-by-zero/bad.cpp",
+            "good_cpp": "examples/060-integer-division-corner-cases/02-divide-by-zero/good.cpp",
+            "good_rust": "examples/060-integer-division-corner-cases/02-divide-by-zero/good.rs",
+            "explanation": "examples/060-integer-division-corner-cases/02-divide-by-zero/explanation.md",
+            "compilers": "examples/060-integer-division-corner-cases/02-divide-by-zero/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -2478,10 +2574,40 @@
       "https://en.cppreference.com/w/cpp/language/operator_arithmetic"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/061-bit-shifts-and-signed-integers",
+      "readme": "examples/061-bit-shifts-and-signed-integers/README.md",
+      "cases": [
+        {
+          "name": "shift-count",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:undefined"
+          ],
+          "dir": "examples/061-bit-shifts-and-signed-integers/01-shift-count",
+          "files": {
+            "bad_cpp": "examples/061-bit-shifts-and-signed-integers/01-shift-count/bad.cpp",
+            "good_cpp": "examples/061-bit-shifts-and-signed-integers/01-shift-count/good.cpp",
+            "good_rust": "examples/061-bit-shifts-and-signed-integers/01-shift-count/good.rs",
+            "explanation": "examples/061-bit-shifts-and-signed-integers/01-shift-count/explanation.md",
+            "compilers": "examples/061-bit-shifts-and-signed-integers/01-shift-count/compilers.md"
+          }
+        },
+        {
+          "name": "negative-left-shift",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:undefined"
+          ],
+          "dir": "examples/061-bit-shifts-and-signed-integers/02-negative-left-shift",
+          "files": {
+            "bad_cpp": "examples/061-bit-shifts-and-signed-integers/02-negative-left-shift/bad.cpp",
+            "good_cpp": "examples/061-bit-shifts-and-signed-integers/02-negative-left-shift/good.cpp",
+            "explanation": "examples/061-bit-shifts-and-signed-integers/02-negative-left-shift/explanation.md",
+            "compilers": "examples/061-bit-shifts-and-signed-integers/02-negative-left-shift/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -2498,10 +2624,45 @@
       "https://en.cppreference.com/w/cpp/language/static_cast"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/062-truncation-and-overflow-during-numeric-casts",
+      "readme": "examples/062-truncation-and-overflow-during-numeric-casts/README.md",
+      "cases": [
+        {
+          "name": "float-to-int",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:float-cast-overflow"
+          ],
+          "dir": "examples/062-truncation-and-overflow-during-numeric-casts/01-float-to-int",
+          "files": {
+            "bad_cpp": "examples/062-truncation-and-overflow-during-numeric-casts/01-float-to-int/bad.cpp",
+            "good_cpp": "examples/062-truncation-and-overflow-during-numeric-casts/01-float-to-int/good.cpp",
+            "good_rust": "examples/062-truncation-and-overflow-during-numeric-casts/01-float-to-int/good.rs",
+            "explanation": "examples/062-truncation-and-overflow-during-numeric-casts/01-float-to-int/explanation.md",
+            "compilers": "examples/062-truncation-and-overflow-during-numeric-casts/01-float-to-int/compilers.md"
+          }
+        },
+        {
+          "name": "narrowing-integer",
+          "classification": "UNS",
+          "detection": [
+            "warning:g++:-Wconversion",
+            "warning:g++:-Wsign-conversion",
+            "warning:clang++:-Wshorten-64-to-32",
+            "warning:clang++:-Wimplicit-int-conversion",
+            "warning:clang++:-Wsign-conversion"
+          ],
+          "dir": "examples/062-truncation-and-overflow-during-numeric-casts/02-narrowing-integer",
+          "files": {
+            "bad_cpp": "examples/062-truncation-and-overflow-during-numeric-casts/02-narrowing-integer/bad.cpp",
+            "good_cpp": "examples/062-truncation-and-overflow-during-numeric-casts/02-narrowing-integer/good.cpp",
+            "good_rust": "examples/062-truncation-and-overflow-during-numeric-casts/02-narrowing-integer/good.rs",
+            "explanation": "examples/062-truncation-and-overflow-during-numeric-casts/02-narrowing-integer/explanation.md",
+            "compilers": "examples/062-truncation-and-overflow-during-numeric-casts/02-narrowing-integer/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -2518,10 +2679,44 @@
       "https://en.cppreference.com/w/cpp/types/numeric_limits"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/063-character-signedness",
+      "readme": "examples/063-character-signedness/README.md",
+      "cases": [
+        {
+          "name": "widening",
+          "classification": "UNS",
+          "detection": [
+            "warning:g++:-Wtype-limits",
+            "warning:clang++:-Wtautological-constant-out-of-range-compare"
+          ],
+          "dir": "examples/063-character-signedness/01-widening",
+          "files": {
+            "bad_cpp": "examples/063-character-signedness/01-widening/bad.cpp",
+            "good_cpp": "examples/063-character-signedness/01-widening/good.cpp",
+            "good_rust": "examples/063-character-signedness/01-widening/good.rs",
+            "explanation": "examples/063-character-signedness/01-widening/explanation.md",
+            "compilers": "examples/063-character-signedness/01-widening/compilers.md"
+          }
+        },
+        {
+          "name": "table-index",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address",
+            "warning:g++:-Wchar-subscripts",
+            "warning:clang++:-Wchar-subscripts"
+          ],
+          "dir": "examples/063-character-signedness/02-table-index",
+          "files": {
+            "bad_cpp": "examples/063-character-signedness/02-table-index/bad.cpp",
+            "good_cpp": "examples/063-character-signedness/02-table-index/good.cpp",
+            "good_rust": "examples/063-character-signedness/02-table-index/good.rs",
+            "explanation": "examples/063-character-signedness/02-table-index/explanation.md",
+            "compilers": "examples/063-character-signedness/02-table-index/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -2537,10 +2732,41 @@
       "https://en.cppreference.com/w/cpp/language/eval_order"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/064-unsequenced-side-effects",
+      "readme": "examples/064-unsequenced-side-effects/README.md",
+      "cases": [
+        {
+          "name": "two-increments",
+          "classification": "UB",
+          "detection": [
+            "warning:g++:-Wsequence-point",
+            "warning:clang++:-Wunsequenced"
+          ],
+          "dir": "examples/064-unsequenced-side-effects/01-two-increments",
+          "files": {
+            "bad_cpp": "examples/064-unsequenced-side-effects/01-two-increments/bad.cpp",
+            "good_cpp": "examples/064-unsequenced-side-effects/01-two-increments/good.cpp",
+            "explanation": "examples/064-unsequenced-side-effects/01-two-increments/explanation.md",
+            "compilers": "examples/064-unsequenced-side-effects/01-two-increments/compilers.md"
+          }
+        },
+        {
+          "name": "index-and-increment",
+          "classification": "UB",
+          "detection": [
+            "warning:g++:-Wsequence-point",
+            "warning:clang++:-Wunsequenced"
+          ],
+          "dir": "examples/064-unsequenced-side-effects/02-index-and-increment",
+          "files": {
+            "bad_cpp": "examples/064-unsequenced-side-effects/02-index-and-increment/bad.cpp",
+            "good_cpp": "examples/064-unsequenced-side-effects/02-index-and-increment/good.cpp",
+            "explanation": "examples/064-unsequenced-side-effects/02-index-and-increment/explanation.md",
+            "compilers": "examples/064-unsequenced-side-effects/02-index-and-increment/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -2556,10 +2782,26 @@
       "https://en.cppreference.com/w/cpp/language/eval_order"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/065-function-argument-evaluation-order",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UNS",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/065-function-argument-evaluation-order/01-main",
+          "files": {
+            "bad_cpp": "examples/065-function-argument-evaluation-order/01-main/bad.cpp",
+            "good_cpp": "examples/065-function-argument-evaluation-order/01-main/good.cpp",
+            "good_rust": "examples/065-function-argument-evaluation-order/01-main/good.rs",
+            "explanation": "examples/065-function-argument-evaluation-order/01-main/explanation.md",
+            "compilers": "examples/065-function-argument-evaluation-order/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -2576,10 +2818,41 @@
       "https://en.cppreference.com/w/cpp/language/eval_order"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/066-operator-precedence-vs-evaluation-order",
+      "readme": "examples/066-operator-precedence-vs-evaluation-order/README.md",
+      "cases": [
+        {
+          "name": "bitand-equality",
+          "classification": "LOGIC",
+          "detection": [
+            "warning:g++:-Wparentheses",
+            "warning:clang++:-Wparentheses"
+          ],
+          "dir": "examples/066-operator-precedence-vs-evaluation-order/01-bitand-equality",
+          "files": {
+            "bad_cpp": "examples/066-operator-precedence-vs-evaluation-order/01-bitand-equality/bad.cpp",
+            "good_cpp": "examples/066-operator-precedence-vs-evaluation-order/01-bitand-equality/good.cpp",
+            "good_rust": "examples/066-operator-precedence-vs-evaluation-order/01-bitand-equality/good.rs",
+            "explanation": "examples/066-operator-precedence-vs-evaluation-order/01-bitand-equality/explanation.md",
+            "compilers": "examples/066-operator-precedence-vs-evaluation-order/01-bitand-equality/compilers.md"
+          }
+        },
+        {
+          "name": "calls-in-expression",
+          "classification": "UNS",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/066-operator-precedence-vs-evaluation-order/02-calls-in-expression",
+          "files": {
+            "bad_cpp": "examples/066-operator-precedence-vs-evaluation-order/02-calls-in-expression/bad.cpp",
+            "good_cpp": "examples/066-operator-precedence-vs-evaluation-order/02-calls-in-expression/good.cpp",
+            "explanation": "examples/066-operator-precedence-vs-evaluation-order/02-calls-in-expression/explanation.md",
+            "compilers": "examples/066-operator-precedence-vs-evaluation-order/02-calls-in-expression/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -2596,10 +2869,41 @@
       "https://en.cppreference.com/w/cpp/language/value_category"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/067-conditional-operator-type-deduction",
+      "readme": "examples/067-conditional-operator-type-deduction/README.md",
+      "cases": [
+        {
+          "name": "common-type",
+          "classification": "LOGIC",
+          "detection": [
+            "warning:g++:-Wsign-conversion",
+            "warning:clang++:-Wsign-conversion"
+          ],
+          "dir": "examples/067-conditional-operator-type-deduction/01-common-type",
+          "files": {
+            "bad_cpp": "examples/067-conditional-operator-type-deduction/01-common-type/bad.cpp",
+            "good_cpp": "examples/067-conditional-operator-type-deduction/01-common-type/good.cpp",
+            "good_rust": "examples/067-conditional-operator-type-deduction/01-common-type/good.rs",
+            "explanation": "examples/067-conditional-operator-type-deduction/01-common-type/explanation.md",
+            "compilers": "examples/067-conditional-operator-type-deduction/01-common-type/compilers.md"
+          }
+        },
+        {
+          "name": "copy-not-alias",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/067-conditional-operator-type-deduction/02-copy-not-alias",
+          "files": {
+            "bad_cpp": "examples/067-conditional-operator-type-deduction/02-copy-not-alias/bad.cpp",
+            "good_cpp": "examples/067-conditional-operator-type-deduction/02-copy-not-alias/good.cpp",
+            "explanation": "examples/067-conditional-operator-type-deduction/02-copy-not-alias/explanation.md",
+            "compilers": "examples/067-conditional-operator-type-deduction/02-copy-not-alias/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -2616,10 +2920,26 @@
       "https://en.cppreference.com/w/cpp/types/numeric_limits"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/068-floating-point-non-associativity",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/068-floating-point-non-associativity/01-main",
+          "files": {
+            "bad_cpp": "examples/068-floating-point-non-associativity/01-main/bad.cpp",
+            "good_cpp": "examples/068-floating-point-non-associativity/01-main/good.cpp",
+            "good_rust": "examples/068-floating-point-non-associativity/01-main/good.rs",
+            "explanation": "examples/068-floating-point-non-associativity/01-main/explanation.md",
+            "compilers": "examples/068-floating-point-non-associativity/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -2637,10 +2957,41 @@
       "https://en.cppreference.com/w/cpp/utility/compare/partial_ordering"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/069-nan-and-comparison-semantics",
+      "readme": "examples/069-nan-and-comparison-semantics/README.md",
+      "cases": [
+        {
+          "name": "map-key",
+          "classification": "UB",
+          "detection": [
+            "warning:g++:-Wfloat-equal"
+          ],
+          "dir": "examples/069-nan-and-comparison-semantics/01-map-key",
+          "files": {
+            "bad_cpp": "examples/069-nan-and-comparison-semantics/01-map-key/bad.cpp",
+            "good_cpp": "examples/069-nan-and-comparison-semantics/01-map-key/good.cpp",
+            "good_rust": "examples/069-nan-and-comparison-semantics/01-map-key/good.rs",
+            "explanation": "examples/069-nan-and-comparison-semantics/01-map-key/explanation.md",
+            "compilers": "examples/069-nan-and-comparison-semantics/01-map-key/compilers.md"
+          }
+        },
+        {
+          "name": "sort",
+          "classification": "UB",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/069-nan-and-comparison-semantics/02-sort",
+          "files": {
+            "bad_cpp": "examples/069-nan-and-comparison-semantics/02-sort/bad.cpp",
+            "good_cpp": "examples/069-nan-and-comparison-semantics/02-sort/good.cpp",
+            "good_rust": "examples/069-nan-and-comparison-semantics/02-sort/good.rs",
+            "explanation": "examples/069-nan-and-comparison-semantics/02-sort/explanation.md",
+            "compilers": "examples/069-nan-and-comparison-semantics/02-sort/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
