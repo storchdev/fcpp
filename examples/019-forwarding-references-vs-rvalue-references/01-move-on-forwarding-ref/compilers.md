@@ -1,3 +1,8 @@
 # 019.01 — Forwarding references vs. rvalue references: `std::move` on a forwarding reference: compiler comparison
 
-**g++ vs clang++ (g++ 16.2.1, clang++ 23.1.1, `-std=c++17 -Wall -Wextra`, `-O0` and `-O2`).** No difference: neither compiler warns, and both print `msg="" (size 0)` at `-O0` and `-O2`.
+**g++ vs clang++ (g++ 16.2.1, clang++ 23.1.1, `-std=c++17 -Wall -Wextra`, `-O0` and `-O2`).**
+
+| | g++ | clang++ |
+| --- | --- | --- |
+| Warnings | none | none |
+| Output, `-O0` and `-O2` | `msg="" (size 0)` | `msg="" (size 0)` |

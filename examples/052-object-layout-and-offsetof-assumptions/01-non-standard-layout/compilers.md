@@ -1,3 +1,10 @@
 # 052 — Object layout and `offsetof` assumptions: compiler comparison
 
-**g++ vs clang++ (g++ 16.2.1, clang++ 23.1.1, `-std=c++17 -Wall -Wextra`, `-O0` and `-O2`).** Both compilers print `4` and `8` at `-O0` and `-O2`, and both warn about `offsetof` on the non-standard-layout types `Derived` (line 17) and `Poly` (line 18) with `-Winvalid-offsetof` (g++: `'offsetof' within non-standard-layout type 'Derived' is conditionally-supported`; clang++: `'offsetof' on non-standard-layout type 'Derived'`). clang++ additionally warns `private field 'priv' is not used` (`-Wunused-private-field`), which is unrelated to the bug.
+**g++ vs clang++ (g++ 16.2.1, clang++ 23.1.1, `-std=c++17 -Wall -Wextra`, `-O0` and `-O2`).**
+
+| | g++ | clang++ |
+| --- | --- | --- |
+| Output, `-O0` and `-O2` | `4` and `8` | `4` and `8` |
+| `-Winvalid-offsetof`, `Derived` (line 17) | `'offsetof' within non-standard-layout type 'Derived' is conditionally-supported` | `'offsetof' on non-standard-layout type 'Derived'` |
+| `-Winvalid-offsetof`, `Poly` (line 18) | same warning, for `Poly` | same warning, for `Poly` |
+| Unrelated extra warning | none | `-Wunused-private-field`: `private field 'priv' is not used` |
