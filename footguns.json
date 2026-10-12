@@ -5896,10 +5896,25 @@
       "https://en.cppreference.com/w/cpp/thread/condition_variable/wait"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/139-condition-variable-spurious-wakeups",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "CONC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/139-condition-variable-spurious-wakeups/01-main",
+          "files": {
+            "bad_cpp": "examples/139-condition-variable-spurious-wakeups/01-main/bad.cpp",
+            "good_cpp": "examples/139-condition-variable-spurious-wakeups/01-main/good.cpp",
+            "explanation": "examples/139-condition-variable-spurious-wakeups/01-main/explanation.md",
+            "compilers": "examples/139-condition-variable-spurious-wakeups/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -5916,10 +5931,25 @@
       "https://en.cppreference.com/w/cpp/thread/condition_variable/notify_one"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/140-lost-wakeups-and-predicate-synchronization",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "CONC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/140-lost-wakeups-and-predicate-synchronization/01-main",
+          "files": {
+            "bad_cpp": "examples/140-lost-wakeups-and-predicate-synchronization/01-main/bad.cpp",
+            "good_cpp": "examples/140-lost-wakeups-and-predicate-synchronization/01-main/good.cpp",
+            "explanation": "examples/140-lost-wakeups-and-predicate-synchronization/01-main/explanation.md",
+            "compilers": "examples/140-lost-wakeups-and-predicate-synchronization/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -5937,10 +5967,25 @@
       "https://en.cppreference.com/w/cpp/thread/scoped_lock"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/141-mutex-deadlock-from-inconsistent-lock-ordering",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "CONC",
+          "detection": [
+            "sanitizer:thread"
+          ],
+          "dir": "examples/141-mutex-deadlock-from-inconsistent-lock-ordering/01-main",
+          "files": {
+            "bad_cpp": "examples/141-mutex-deadlock-from-inconsistent-lock-ordering/01-main/bad.cpp",
+            "good_cpp": "examples/141-mutex-deadlock-from-inconsistent-lock-ordering/01-main/good.cpp",
+            "explanation": "examples/141-mutex-deadlock-from-inconsistent-lock-ordering/01-main/explanation.md",
+            "compilers": "examples/141-mutex-deadlock-from-inconsistent-lock-ordering/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -5958,10 +6003,25 @@
       "https://en.cppreference.com/w/cpp/thread/jthread"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/142-std-thread-destruction-semantics",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/142-std-thread-destruction-semantics/01-main",
+          "files": {
+            "bad_cpp": "examples/142-std-thread-destruction-semantics/01-main/bad.cpp",
+            "good_cpp": "examples/142-std-thread-destruction-semantics/01-main/good.cpp",
+            "explanation": "examples/142-std-thread-destruction-semantics/01-main/explanation.md",
+            "compilers": "examples/142-std-thread-destruction-semantics/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -5979,10 +6039,40 @@
       "https://en.cppreference.com/w/cpp/thread/future"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/143-std-async-execution-policy-surprises",
+      "readme": "examples/143-std-async-execution-policy-surprises/README.md",
+      "cases": [
+        {
+          "name": "discarded-future",
+          "classification": "LOGIC",
+          "detection": [
+            "warning:g++:-Wunused-result",
+            "warning:clang++:-Wunused-result"
+          ],
+          "dir": "examples/143-std-async-execution-policy-surprises/01-discarded-future",
+          "files": {
+            "bad_cpp": "examples/143-std-async-execution-policy-surprises/01-discarded-future/bad.cpp",
+            "good_cpp": "examples/143-std-async-execution-policy-surprises/01-discarded-future/good.cpp",
+            "explanation": "examples/143-std-async-execution-policy-surprises/01-discarded-future/explanation.md",
+            "compilers": "examples/143-std-async-execution-policy-surprises/01-discarded-future/compilers.md"
+          }
+        },
+        {
+          "name": "deferred-never-ready",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/143-std-async-execution-policy-surprises/02-deferred-never-ready",
+          "files": {
+            "bad_cpp": "examples/143-std-async-execution-policy-surprises/02-deferred-never-ready/bad.cpp",
+            "good_cpp": "examples/143-std-async-execution-policy-surprises/02-deferred-never-ready/good.cpp",
+            "explanation": "examples/143-std-async-execution-policy-surprises/02-deferred-never-ready/explanation.md",
+            "compilers": "examples/143-std-async-execution-policy-surprises/02-deferred-never-ready/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -5999,10 +6089,25 @@
       "https://en.cppreference.com/w/cpp/atomic/atomic"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/144-misunderstanding-volatile",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:thread"
+          ],
+          "dir": "examples/144-misunderstanding-volatile/01-main",
+          "files": {
+            "bad_cpp": "examples/144-misunderstanding-volatile/01-main/bad.cpp",
+            "good_cpp": "examples/144-misunderstanding-volatile/01-main/good.cpp",
+            "explanation": "examples/144-misunderstanding-volatile/01-main/explanation.md",
+            "compilers": "examples/144-misunderstanding-volatile/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -6019,10 +6124,25 @@
       "https://en.cppreference.com/w/cpp/thread/mutex"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/145-concurrent-access-to-standard-containers",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:thread"
+          ],
+          "dir": "examples/145-concurrent-access-to-standard-containers/01-main",
+          "files": {
+            "bad_cpp": "examples/145-concurrent-access-to-standard-containers/01-main/bad.cpp",
+            "good_cpp": "examples/145-concurrent-access-to-standard-containers/01-main/good.cpp",
+            "explanation": "examples/145-concurrent-access-to-standard-containers/01-main/explanation.md",
+            "compilers": "examples/145-concurrent-access-to-standard-containers/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -6039,10 +6159,39 @@
       "https://en.cppreference.com/w/cpp/atomic/atomic"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/146-atomic-reference-counting-misconceptions",
+      "readme": "examples/146-atomic-reference-counting-misconceptions/README.md",
+      "cases": [
+        {
+          "name": "shared-object",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:thread"
+          ],
+          "dir": "examples/146-atomic-reference-counting-misconceptions/01-shared-object",
+          "files": {
+            "bad_cpp": "examples/146-atomic-reference-counting-misconceptions/01-shared-object/bad.cpp",
+            "good_cpp": "examples/146-atomic-reference-counting-misconceptions/01-shared-object/good.cpp",
+            "explanation": "examples/146-atomic-reference-counting-misconceptions/01-shared-object/explanation.md",
+            "compilers": "examples/146-atomic-reference-counting-misconceptions/01-shared-object/compilers.md"
+          }
+        },
+        {
+          "name": "shared-pointer-object",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:thread"
+          ],
+          "dir": "examples/146-atomic-reference-counting-misconceptions/02-shared-pointer-object",
+          "files": {
+            "bad_cpp": "examples/146-atomic-reference-counting-misconceptions/02-shared-pointer-object/bad.cpp",
+            "good_cpp": "examples/146-atomic-reference-counting-misconceptions/02-shared-pointer-object/good.cpp",
+            "explanation": "examples/146-atomic-reference-counting-misconceptions/02-shared-pointer-object/explanation.md",
+            "compilers": "examples/146-atomic-reference-counting-misconceptions/02-shared-pointer-object/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -6058,10 +6207,25 @@
       "https://en.cppreference.com/w/cpp/atomic/atomic_ref"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/147-std-atomic-ref-lifetime-and-alignment",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "mixed-access",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:thread"
+          ],
+          "dir": "examples/147-std-atomic-ref-lifetime-and-alignment/01-mixed-access",
+          "files": {
+            "bad_cpp": "examples/147-std-atomic-ref-lifetime-and-alignment/01-mixed-access/bad.cpp",
+            "good_cpp": "examples/147-std-atomic-ref-lifetime-and-alignment/01-mixed-access/good.cpp",
+            "explanation": "examples/147-std-atomic-ref-lifetime-and-alignment/01-mixed-access/explanation.md",
+            "compilers": "examples/147-std-atomic-ref-lifetime-and-alignment/01-mixed-access/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -6078,10 +6242,39 @@
       "https://en.cppreference.com/w/cpp/atomic/atomic_is_lock_free"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/148-lock-free-vs-wait-free-guarantees",
+      "readme": "examples/148-lock-free-vs-wait-free-guarantees/README.md",
+      "cases": [
+        {
+          "name": "non-lock-free-atomic",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/148-lock-free-vs-wait-free-guarantees/01-non-lock-free-atomic",
+          "files": {
+            "bad_cpp": "examples/148-lock-free-vs-wait-free-guarantees/01-non-lock-free-atomic/bad.cpp",
+            "good_cpp": "examples/148-lock-free-vs-wait-free-guarantees/01-non-lock-free-atomic/good.cpp",
+            "explanation": "examples/148-lock-free-vs-wait-free-guarantees/01-non-lock-free-atomic/explanation.md",
+            "compilers": "examples/148-lock-free-vs-wait-free-guarantees/01-non-lock-free-atomic/compilers.md"
+          }
+        },
+        {
+          "name": "cas-retries",
+          "classification": "CONC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/148-lock-free-vs-wait-free-guarantees/02-cas-retries",
+          "files": {
+            "bad_cpp": "examples/148-lock-free-vs-wait-free-guarantees/02-cas-retries/bad.cpp",
+            "good_cpp": "examples/148-lock-free-vs-wait-free-guarantees/02-cas-retries/good.cpp",
+            "explanation": "examples/148-lock-free-vs-wait-free-guarantees/02-cas-retries/explanation.md",
+            "compilers": "examples/148-lock-free-vs-wait-free-guarantees/02-cas-retries/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -6098,10 +6291,25 @@
       "https://en.cppreference.com/w/cpp/language/alignas"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/149-false-sharing",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "PERF",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/149-false-sharing/01-main",
+          "files": {
+            "bad_cpp": "examples/149-false-sharing/01-main/bad.cpp",
+            "good_cpp": "examples/149-false-sharing/01-main/good.cpp",
+            "explanation": "examples/149-false-sharing/01-main/explanation.md",
+            "compilers": "examples/149-false-sharing/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
