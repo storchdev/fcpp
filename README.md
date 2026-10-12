@@ -1,5 +1,7 @@
 # f***cpp: a catalog of C++ footguns
 
+Live site: <https://hudsonshi.com/fcpp>
+
 182 interview-style C++ "gotchas", each with runnable code and a long explanation. The index is `footguns.json`; `examples/` holds one folder per entry, one subfolder per case.
 
 Each case has:
