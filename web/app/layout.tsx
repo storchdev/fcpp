@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
   title: { default: "F*** C++", template: "%s · F*** C++" },
@@ -11,8 +10,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <Header />
-        <main className="mx-auto max-w-[1480px] px-5 pb-24 pt-10">{children}</main>
+        <main className="mx-auto max-w-[1480px] px-5 pb-24 pt-12">{children}</main>
       </body>
     </html>
   );
