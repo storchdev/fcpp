@@ -4,7 +4,7 @@ import rehypeHighlight from "rehype-highlight";
 
 export function Markdown({ children, className = "" }: { children: string; className?: string }) {
   return (
-    <div className={`prose prose-invert max-w-none prose-p:leading-7 prose-headings:font-semibold ${className}`}>
+    <div className={`prose max-w-none prose-p:leading-7 prose-headings:font-semibold ${className}`}>
       <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[[rehypeHighlight, { detect: false }]]}>
         {children}
       </ReactMarkdown>

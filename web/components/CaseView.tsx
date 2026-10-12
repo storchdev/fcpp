@@ -38,7 +38,7 @@ function Panel({ file, tone, raw, children, className = "" }: { file: string; to
   const Icon = tone === "bad" ? X : tone === "good" ? Check : FileCode2;
   const color = tone === "bad" ? "text-red-300" : tone === "good" ? "text-emerald-300" : "text-orange-300";
   return (
-    <div className={`flex min-w-0 flex-col overflow-hidden rounded-xl border border-line bg-[#0e0e12] ${className}`}>
+    <div className={`flex min-w-0 flex-col overflow-hidden rounded-xl border border-line bg-code ${className}`}>
       <div className="flex items-center gap-2 border-b border-line px-4 py-2 font-mono text-[12px] text-zinc-400">
         <Icon className={`h-3.5 w-3.5 ${color}`} />
         {file}
