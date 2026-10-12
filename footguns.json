@@ -1034,10 +1034,41 @@
       "https://en.cppreference.com/w/cpp/language/reference_initialization"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/026-temporary-lifetime-extension",
+      "readme": "examples/026-temporary-lifetime-extension/README.md",
+      "cases": [
+        {
+          "name": "through-function-return",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address",
+            "warning:g++:-Wdangling-reference",
+            "tool:clang-tidy:bugprone-return-const-ref-from-parameter"
+          ],
+          "dir": "examples/026-temporary-lifetime-extension/01-through-function-return",
+          "files": {
+            "bad_cpp": "examples/026-temporary-lifetime-extension/01-through-function-return/bad.cpp",
+            "good_cpp": "examples/026-temporary-lifetime-extension/01-through-function-return/good.cpp",
+            "good_rust": "examples/026-temporary-lifetime-extension/01-through-function-return/good.rs",
+            "explanation": "examples/026-temporary-lifetime-extension/01-through-function-return/explanation.md"
+          }
+        },
+        {
+          "name": "new-expression",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address",
+            "warning:clang++:-Wdangling-field"
+          ],
+          "dir": "examples/026-temporary-lifetime-extension/02-new-expression",
+          "files": {
+            "bad_cpp": "examples/026-temporary-lifetime-extension/02-new-expression/bad.cpp",
+            "good_cpp": "examples/026-temporary-lifetime-extension/02-new-expression/good.cpp",
+            "explanation": "examples/026-temporary-lifetime-extension/02-new-expression/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1054,10 +1085,39 @@
       "https://en.cppreference.com/w/cpp/language/initializer_list"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/027-reference-members-bound-to-temporaries",
+      "readme": "examples/027-reference-members-bound-to-temporaries/README.md",
+      "cases": [
+        {
+          "name": "constructor-parameter",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/027-reference-members-bound-to-temporaries/01-constructor-parameter",
+          "files": {
+            "bad_cpp": "examples/027-reference-members-bound-to-temporaries/01-constructor-parameter/bad.cpp",
+            "good_cpp": "examples/027-reference-members-bound-to-temporaries/01-constructor-parameter/good.cpp",
+            "good_rust": "examples/027-reference-members-bound-to-temporaries/01-constructor-parameter/good.rs",
+            "explanation": "examples/027-reference-members-bound-to-temporaries/01-constructor-parameter/explanation.md"
+          }
+        },
+        {
+          "name": "parenthesized-aggregate-init",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address",
+            "warning:clang++:-Wdangling"
+          ],
+          "dir": "examples/027-reference-members-bound-to-temporaries/02-parenthesized-aggregate-init",
+          "files": {
+            "bad_cpp": "examples/027-reference-members-bound-to-temporaries/02-parenthesized-aggregate-init/bad.cpp",
+            "good_cpp": "examples/027-reference-members-bound-to-temporaries/02-parenthesized-aggregate-init/good.cpp",
+            "explanation": "examples/027-reference-members-bound-to-temporaries/02-parenthesized-aggregate-init/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1073,10 +1133,38 @@
       "https://en.cppreference.com/w/cpp/string/basic_string_view"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/028-string-view-dangling-references",
+      "readme": "examples/028-string-view-dangling-references/README.md",
+      "cases": [
+        {
+          "name": "from-temporary-string",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/028-string-view-dangling-references/01-from-temporary-string",
+          "files": {
+            "bad_cpp": "examples/028-string-view-dangling-references/01-from-temporary-string/bad.cpp",
+            "good_cpp": "examples/028-string-view-dangling-references/01-from-temporary-string/good.cpp",
+            "explanation": "examples/028-string-view-dangling-references/01-from-temporary-string/explanation.md"
+          }
+        },
+        {
+          "name": "not-null-terminated",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address",
+            "tool:clang-tidy:bugprone-suspicious-stringview-data-usage"
+          ],
+          "dir": "examples/028-string-view-dangling-references/02-not-null-terminated",
+          "files": {
+            "bad_cpp": "examples/028-string-view-dangling-references/02-not-null-terminated/bad.cpp",
+            "good_cpp": "examples/028-string-view-dangling-references/02-not-null-terminated/good.cpp",
+            "explanation": "examples/028-string-view-dangling-references/02-not-null-terminated/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1092,10 +1180,39 @@
       "https://en.cppreference.com/w/cpp/container/span"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/029-span-ownership-confusion",
+      "readme": "examples/029-span-ownership-confusion/README.md",
+      "cases": [
+        {
+          "name": "container-reallocation",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/029-span-ownership-confusion/01-container-reallocation",
+          "files": {
+            "bad_cpp": "examples/029-span-ownership-confusion/01-container-reallocation/bad.cpp",
+            "good_cpp": "examples/029-span-ownership-confusion/01-container-reallocation/good.cpp",
+            "explanation": "examples/029-span-ownership-confusion/01-container-reallocation/explanation.md"
+          }
+        },
+        {
+          "name": "temporary-container",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address",
+            "warning:clang++:-Wdangling-gsl",
+            "tool:clang-tidy:bugprone-dangling-handle"
+          ],
+          "dir": "examples/029-span-ownership-confusion/02-temporary-container",
+          "files": {
+            "bad_cpp": "examples/029-span-ownership-confusion/02-temporary-container/bad.cpp",
+            "good_cpp": "examples/029-span-ownership-confusion/02-temporary-container/good.cpp",
+            "explanation": "examples/029-span-ownership-confusion/02-temporary-container/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1111,10 +1228,24 @@
       "https://en.cppreference.com/w/cpp/utility/initializer_list"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/030-initializer-list-backing-array-lifetime",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "stored-member",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/030-initializer-list-backing-array-lifetime/01-stored-member",
+          "files": {
+            "bad_cpp": "examples/030-initializer-list-backing-array-lifetime/01-stored-member/bad.cpp",
+            "good_cpp": "examples/030-initializer-list-backing-array-lifetime/01-stored-member/good.cpp",
+            "explanation": "examples/030-initializer-list-backing-array-lifetime/01-stored-member/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1130,10 +1261,26 @@
       "https://en.cppreference.com/w/cpp/language/lambda"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/031-dangling-lambda-captures",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "returned-closure",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address",
+            "tool:clang-tidy:clang-analyzer-core.StackAddressEscape"
+          ],
+          "dir": "examples/031-dangling-lambda-captures/01-returned-closure",
+          "files": {
+            "bad_cpp": "examples/031-dangling-lambda-captures/01-returned-closure/bad.cpp",
+            "good_cpp": "examples/031-dangling-lambda-captures/01-returned-closure/good.cpp",
+            "good_rust": "examples/031-dangling-lambda-captures/01-returned-closure/good.rs",
+            "explanation": "examples/031-dangling-lambda-captures/01-returned-closure/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1150,10 +1297,40 @@
       "https://en.cppreference.com/w/cpp/language/this"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/032-capturing-this-in-lambdas",
+      "readme": "examples/032-capturing-this-in-lambdas/README.md",
+      "cases": [
+        {
+          "name": "closure-outlives-object",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address",
+            "warning:g++:-Wdeprecated",
+            "warning:clang++:-Wdeprecated-this-capture",
+            "tool:clang-tidy:cppcoreguidelines-misleading-capture-default-by-value"
+          ],
+          "dir": "examples/032-capturing-this-in-lambdas/01-closure-outlives-object",
+          "files": {
+            "bad_cpp": "examples/032-capturing-this-in-lambdas/01-closure-outlives-object/bad.cpp",
+            "good_cpp": "examples/032-capturing-this-in-lambdas/01-closure-outlives-object/good.cpp",
+            "explanation": "examples/032-capturing-this-in-lambdas/01-closure-outlives-object/explanation.md"
+          }
+        },
+        {
+          "name": "copy-default-captures-this",
+          "classification": "LOGIC",
+          "detection": [
+            "tool:clang-tidy:cppcoreguidelines-misleading-capture-default-by-value"
+          ],
+          "dir": "examples/032-capturing-this-in-lambdas/02-copy-default-captures-this",
+          "files": {
+            "bad_cpp": "examples/032-capturing-this-in-lambdas/02-copy-default-captures-this/bad.cpp",
+            "good_cpp": "examples/032-capturing-this-in-lambdas/02-copy-default-captures-this/good.cpp",
+            "explanation": "examples/032-capturing-this-in-lambdas/02-copy-default-captures-this/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1170,10 +1347,40 @@
       "https://en.cppreference.com/w/cpp/string/basic_string/data"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/033-dangling-c-str-and-data-pointers",
+      "readme": "examples/033-dangling-c-str-and-data-pointers/README.md",
+      "cases": [
+        {
+          "name": "string-modified",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address",
+            "tool:clang-tidy:clang-analyzer-cplusplus.InnerPointer"
+          ],
+          "dir": "examples/033-dangling-c-str-and-data-pointers/01-string-modified",
+          "files": {
+            "bad_cpp": "examples/033-dangling-c-str-and-data-pointers/01-string-modified/bad.cpp",
+            "good_cpp": "examples/033-dangling-c-str-and-data-pointers/01-string-modified/good.cpp",
+            "explanation": "examples/033-dangling-c-str-and-data-pointers/01-string-modified/explanation.md"
+          }
+        },
+        {
+          "name": "temporary-string",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address",
+            "warning:clang++:-Wdangling-gsl",
+            "tool:clang-tidy:clang-analyzer-cplusplus.InnerPointer"
+          ],
+          "dir": "examples/033-dangling-c-str-and-data-pointers/02-temporary-string",
+          "files": {
+            "bad_cpp": "examples/033-dangling-c-str-and-data-pointers/02-temporary-string/bad.cpp",
+            "good_cpp": "examples/033-dangling-c-str-and-data-pointers/02-temporary-string/good.cpp",
+            "explanation": "examples/033-dangling-c-str-and-data-pointers/02-temporary-string/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1190,10 +1397,37 @@
       "https://en.cppreference.com/w/cpp/language/destructor"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/034-lifetime-of-subobjects-and-base-objects",
+      "readme": "examples/034-lifetime-of-subobjects-and-base-objects/README.md",
+      "cases": [
+        {
+          "name": "virtual-call-in-constructor",
+          "classification": "LOGIC",
+          "detection": [
+            "tool:clang-tidy:clang-analyzer-optin.cplusplus.VirtualCall"
+          ],
+          "dir": "examples/034-lifetime-of-subobjects-and-base-objects/01-virtual-call-in-constructor",
+          "files": {
+            "bad_cpp": "examples/034-lifetime-of-subobjects-and-base-objects/01-virtual-call-in-constructor/bad.cpp",
+            "good_cpp": "examples/034-lifetime-of-subobjects-and-base-objects/01-virtual-call-in-constructor/good.cpp",
+            "explanation": "examples/034-lifetime-of-subobjects-and-base-objects/01-virtual-call-in-constructor/explanation.md"
+          }
+        },
+        {
+          "name": "pure-virtual-call-in-constructor",
+          "classification": "UB",
+          "detection": [
+            "tool:clang-tidy:clang-analyzer-cplusplus.PureVirtualCall"
+          ],
+          "dir": "examples/034-lifetime-of-subobjects-and-base-objects/02-pure-virtual-call-in-constructor",
+          "files": {
+            "bad_cpp": "examples/034-lifetime-of-subobjects-and-base-objects/02-pure-virtual-call-in-constructor/bad.cpp",
+            "good_cpp": "examples/034-lifetime-of-subobjects-and-base-objects/02-pure-virtual-call-in-constructor/good.cpp",
+            "explanation": "examples/034-lifetime-of-subobjects-and-base-objects/02-pure-virtual-call-in-constructor/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1210,10 +1444,39 @@
       "https://en.cppreference.com/w/cpp/language/reference_initialization"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/035-range-based-for-over-temporary-objects",
+      "readme": "examples/035-range-based-for-over-temporary-objects/README.md",
+      "cases": [
+        {
+          "name": "cxx20-temporary-in-range-init",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address",
+            "warning:g++:-Wdangling-reference"
+          ],
+          "dir": "examples/035-range-based-for-over-temporary-objects/01-cxx20-temporary-in-range-init",
+          "files": {
+            "bad_cpp": "examples/035-range-based-for-over-temporary-objects/01-cxx20-temporary-in-range-init/bad.cpp",
+            "good_cpp": "examples/035-range-based-for-over-temporary-objects/01-cxx20-temporary-in-range-init/good.cpp",
+            "explanation": "examples/035-range-based-for-over-temporary-objects/01-cxx20-temporary-in-range-init/explanation.md"
+          }
+        },
+        {
+          "name": "cxx23-hoisted-reference",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address",
+            "warning:g++:-Wdangling-reference"
+          ],
+          "dir": "examples/035-range-based-for-over-temporary-objects/02-cxx23-hoisted-reference",
+          "files": {
+            "bad_cpp": "examples/035-range-based-for-over-temporary-objects/02-cxx23-hoisted-reference/bad.cpp",
+            "good_cpp": "examples/035-range-based-for-over-temporary-objects/02-cxx23-hoisted-reference/good.cpp",
+            "explanation": "examples/035-range-based-for-over-temporary-objects/02-cxx23-hoisted-reference/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1230,10 +1493,37 @@
       "https://en.cppreference.com/w/cpp/container/vector_bool"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/036-proxy-references",
+      "readme": "examples/036-proxy-references/README.md",
+      "cases": [
+        {
+          "name": "auto-copies-the-proxy",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/036-proxy-references/01-auto-copies-the-proxy",
+          "files": {
+            "bad_cpp": "examples/036-proxy-references/01-auto-copies-the-proxy/bad.cpp",
+            "good_cpp": "examples/036-proxy-references/01-auto-copies-the-proxy/good.cpp",
+            "explanation": "examples/036-proxy-references/01-auto-copies-the-proxy/explanation.md"
+          }
+        },
+        {
+          "name": "cannot-bind-lvalue-reference",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/036-proxy-references/02-cannot-bind-lvalue-reference",
+          "files": {
+            "bad_cpp": "examples/036-proxy-references/02-cannot-bind-lvalue-reference/bad.cpp",
+            "good_cpp": "examples/036-proxy-references/02-cannot-bind-lvalue-reference/good.cpp",
+            "explanation": "examples/036-proxy-references/02-cannot-bind-lvalue-reference/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1250,10 +1540,41 @@
       "https://en.cppreference.com/w/cpp/language/destructor"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/037-destructor-and-temporary-destruction-timing",
+      "readme": "examples/037-destructor-and-temporary-destruction-timing/README.md",
+      "cases": [
+        {
+          "name": "unnamed-lock-guard",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:thread",
+            "warning:g++:-Wunused-result",
+            "warning:clang++:-Wunused-value",
+            "tool:clang-tidy:bugprone-unused-raii"
+          ],
+          "dir": "examples/037-destructor-and-temporary-destruction-timing/01-unnamed-lock-guard",
+          "files": {
+            "bad_cpp": "examples/037-destructor-and-temporary-destruction-timing/01-unnamed-lock-guard/bad.cpp",
+            "good_cpp": "examples/037-destructor-and-temporary-destruction-timing/01-unnamed-lock-guard/good.cpp",
+            "good_rust": "examples/037-destructor-and-temporary-destruction-timing/01-unnamed-lock-guard/good.rs",
+            "explanation": "examples/037-destructor-and-temporary-destruction-timing/01-unnamed-lock-guard/explanation.md"
+          }
+        },
+        {
+          "name": "member-destruction-order",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/037-destructor-and-temporary-destruction-timing/02-member-destruction-order",
+          "files": {
+            "bad_cpp": "examples/037-destructor-and-temporary-destruction-timing/02-member-destruction-order/bad.cpp",
+            "good_cpp": "examples/037-destructor-and-temporary-destruction-timing/02-member-destruction-order/good.cpp",
+            "explanation": "examples/037-destructor-and-temporary-destruction-timing/02-member-destruction-order/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1270,10 +1591,25 @@
       "https://en.cppreference.com/w/cpp/language/reference"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/038-returning-a-reference-through-multiple-calls",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/038-returning-a-reference-through-multiple-calls/01-main",
+          "files": {
+            "bad_cpp": "examples/038-returning-a-reference-through-multiple-calls/01-main/bad.cpp",
+            "good_cpp": "examples/038-returning-a-reference-through-multiple-calls/01-main/good.cpp",
+            "good_rust": "examples/038-returning-a-reference-through-multiple-calls/01-main/good.rs",
+            "explanation": "examples/038-returning-a-reference-through-multiple-calls/01-main/explanation.md"
+          }
+        }
+      ]
     }
   },
   {
