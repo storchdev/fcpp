@@ -29,7 +29,8 @@
             "bad_cpp": "examples/001-default-initialization-vs-value-initialization/01-main/bad.cpp",
             "good_cpp": "examples/001-default-initialization-vs-value-initialization/01-main/good.cpp",
             "good_rust": "examples/001-default-initialization-vs-value-initialization/01-main/good.rs",
-            "explanation": "examples/001-default-initialization-vs-value-initialization/01-main/explanation.md"
+            "explanation": "examples/001-default-initialization-vs-value-initialization/01-main/explanation.md",
+            "compilers": "examples/001-default-initialization-vs-value-initialization/01-main/compilers.md"
           }
         }
       ]
@@ -64,7 +65,8 @@
           "files": {
             "bad_cpp": "examples/002-the-most-vexing-parse/01-main/bad.cpp",
             "good_cpp": "examples/002-the-most-vexing-parse/01-main/good.cpp",
-            "explanation": "examples/002-the-most-vexing-parse/01-main/explanation.md"
+            "explanation": "examples/002-the-most-vexing-parse/01-main/explanation.md",
+            "compilers": "examples/002-the-most-vexing-parse/01-main/compilers.md"
           }
         }
       ]
@@ -99,7 +101,8 @@
             "bad_cpp": "examples/003-brace-initialization-vs-parentheses/01-main/bad.cpp",
             "good_cpp": "examples/003-brace-initialization-vs-parentheses/01-main/good.cpp",
             "good_rust": "examples/003-brace-initialization-vs-parentheses/01-main/good.rs",
-            "explanation": "examples/003-brace-initialization-vs-parentheses/01-main/explanation.md"
+            "explanation": "examples/003-brace-initialization-vs-parentheses/01-main/explanation.md",
+            "compilers": "examples/003-brace-initialization-vs-parentheses/01-main/compilers.md"
           }
         }
       ]
@@ -134,7 +137,8 @@
           "files": {
             "bad_cpp": "examples/004-initializer-list-constructor-preference/01-main/bad.cpp",
             "good_cpp": "examples/004-initializer-list-constructor-preference/01-main/good.cpp",
-            "explanation": "examples/004-initializer-list-constructor-preference/01-main/explanation.md"
+            "explanation": "examples/004-initializer-list-constructor-preference/01-main/explanation.md",
+            "compilers": "examples/004-initializer-list-constructor-preference/01-main/compilers.md"
           }
         }
       ]
@@ -169,7 +173,8 @@
             "bad_cpp": "examples/005-narrowing-conversions/01-brace-rejects-narrowing/bad.cpp",
             "good_cpp": "examples/005-narrowing-conversions/01-brace-rejects-narrowing/good.cpp",
             "good_rust": "examples/005-narrowing-conversions/01-brace-rejects-narrowing/good.rs",
-            "explanation": "examples/005-narrowing-conversions/01-brace-rejects-narrowing/explanation.md"
+            "explanation": "examples/005-narrowing-conversions/01-brace-rejects-narrowing/explanation.md",
+            "compilers": "examples/005-narrowing-conversions/01-brace-rejects-narrowing/compilers.md"
           }
         },
         {
@@ -185,7 +190,8 @@
             "bad_cpp": "examples/005-narrowing-conversions/02-silent-without-braces/bad.cpp",
             "good_cpp": "examples/005-narrowing-conversions/02-silent-without-braces/good.cpp",
             "good_rust": "examples/005-narrowing-conversions/02-silent-without-braces/good.rs",
-            "explanation": "examples/005-narrowing-conversions/02-silent-without-braces/explanation.md"
+            "explanation": "examples/005-narrowing-conversions/02-silent-without-braces/explanation.md",
+            "compilers": "examples/005-narrowing-conversions/02-silent-without-braces/compilers.md"
           }
         }
       ]
@@ -220,7 +226,8 @@
           "files": {
             "bad_cpp": "examples/006-implicit-conversion-chains/01-standard-beats-user-defined/bad.cpp",
             "good_cpp": "examples/006-implicit-conversion-chains/01-standard-beats-user-defined/good.cpp",
-            "explanation": "examples/006-implicit-conversion-chains/01-standard-beats-user-defined/explanation.md"
+            "explanation": "examples/006-implicit-conversion-chains/01-standard-beats-user-defined/explanation.md",
+            "compilers": "examples/006-implicit-conversion-chains/01-standard-beats-user-defined/compilers.md"
           }
         },
         {
@@ -233,7 +240,8 @@
           "files": {
             "bad_cpp": "examples/006-implicit-conversion-chains/02-one-user-defined-conversion/bad.cpp",
             "good_cpp": "examples/006-implicit-conversion-chains/02-one-user-defined-conversion/good.cpp",
-            "explanation": "examples/006-implicit-conversion-chains/02-one-user-defined-conversion/explanation.md"
+            "explanation": "examples/006-implicit-conversion-chains/02-one-user-defined-conversion/explanation.md",
+            "compilers": "examples/006-implicit-conversion-chains/02-one-user-defined-conversion/compilers.md"
           }
         }
       ]
@@ -267,7 +275,8 @@
           "files": {
             "bad_cpp": "examples/007-explicit-constructors-and-conversion-operators/01-explicit-constructor/bad.cpp",
             "good_cpp": "examples/007-explicit-constructors-and-conversion-operators/01-explicit-constructor/good.cpp",
-            "explanation": "examples/007-explicit-constructors-and-conversion-operators/01-explicit-constructor/explanation.md"
+            "explanation": "examples/007-explicit-constructors-and-conversion-operators/01-explicit-constructor/explanation.md",
+            "compilers": "examples/007-explicit-constructors-and-conversion-operators/01-explicit-constructor/compilers.md"
           }
         },
         {
@@ -280,7 +289,8 @@
           "files": {
             "bad_cpp": "examples/007-explicit-constructors-and-conversion-operators/02-explicit-operator-bool/bad.cpp",
             "good_cpp": "examples/007-explicit-constructors-and-conversion-operators/02-explicit-operator-bool/good.cpp",
-            "explanation": "examples/007-explicit-constructors-and-conversion-operators/02-explicit-operator-bool/explanation.md"
+            "explanation": "examples/007-explicit-constructors-and-conversion-operators/02-explicit-operator-bool/explanation.md",
+            "compilers": "examples/007-explicit-constructors-and-conversion-operators/02-explicit-operator-bool/compilers.md"
           }
         }
       ]
@@ -315,7 +325,8 @@
           "files": {
             "bad_cpp": "examples/008-null-pointer-overload-resolution/01-overloads/bad.cpp",
             "good_cpp": "examples/008-null-pointer-overload-resolution/01-overloads/good.cpp",
-            "explanation": "examples/008-null-pointer-overload-resolution/01-overloads/explanation.md"
+            "explanation": "examples/008-null-pointer-overload-resolution/01-overloads/explanation.md",
+            "compilers": "examples/008-null-pointer-overload-resolution/01-overloads/compilers.md"
           }
         },
         {
@@ -329,7 +340,8 @@
             "bad_cpp": "examples/008-null-pointer-overload-resolution/02-forwarding/bad.cpp",
             "good_cpp": "examples/008-null-pointer-overload-resolution/02-forwarding/good.cpp",
             "good_rust": "examples/008-null-pointer-overload-resolution/02-forwarding/good.rs",
-            "explanation": "examples/008-null-pointer-overload-resolution/02-forwarding/explanation.md"
+            "explanation": "examples/008-null-pointer-overload-resolution/02-forwarding/explanation.md",
+            "compilers": "examples/008-null-pointer-overload-resolution/02-forwarding/compilers.md"
           }
         }
       ]
@@ -365,7 +377,8 @@
             "bad_cpp": "examples/009-integer-literal-type-deduction/01-main/bad.cpp",
             "good_cpp": "examples/009-integer-literal-type-deduction/01-main/good.cpp",
             "good_rust": "examples/009-integer-literal-type-deduction/01-main/good.rs",
-            "explanation": "examples/009-integer-literal-type-deduction/01-main/explanation.md"
+            "explanation": "examples/009-integer-literal-type-deduction/01-main/explanation.md",
+            "compilers": "examples/009-integer-literal-type-deduction/01-main/compilers.md"
           }
         }
       ]
@@ -400,7 +413,8 @@
             "bad_cpp": "examples/010-aggregate-initialization-and-member-ordering/01-main/bad.cpp",
             "good_cpp": "examples/010-aggregate-initialization-and-member-ordering/01-main/good.cpp",
             "good_rust": "examples/010-aggregate-initialization-and-member-ordering/01-main/good.rs",
-            "explanation": "examples/010-aggregate-initialization-and-member-ordering/01-main/explanation.md"
+            "explanation": "examples/010-aggregate-initialization-and-member-ordering/01-main/explanation.md",
+            "compilers": "examples/010-aggregate-initialization-and-member-ordering/01-main/compilers.md"
           }
         }
       ]
@@ -437,7 +451,8 @@
             "bad_cpp": "examples/011-class-member-initialization-order/01-main/bad.cpp",
             "good_cpp": "examples/011-class-member-initialization-order/01-main/good.cpp",
             "good_rust": "examples/011-class-member-initialization-order/01-main/good.rs",
-            "explanation": "examples/011-class-member-initialization-order/01-main/explanation.md"
+            "explanation": "examples/011-class-member-initialization-order/01-main/explanation.md",
+            "compilers": "examples/011-class-member-initialization-order/01-main/compilers.md"
           }
         }
       ]
@@ -470,7 +485,8 @@
           "files": {
             "bad_cpp": "examples/012-class-template-argument-deduction-ctad/01-copy-deduction/bad.cpp",
             "good_cpp": "examples/012-class-template-argument-deduction-ctad/01-copy-deduction/good.cpp",
-            "explanation": "examples/012-class-template-argument-deduction-ctad/01-copy-deduction/explanation.md"
+            "explanation": "examples/012-class-template-argument-deduction-ctad/01-copy-deduction/explanation.md",
+            "compilers": "examples/012-class-template-argument-deduction-ctad/01-copy-deduction/compilers.md"
           }
         },
         {
@@ -483,7 +499,8 @@
           "files": {
             "bad_cpp": "examples/012-class-template-argument-deduction-ctad/02-string-literals/bad.cpp",
             "good_cpp": "examples/012-class-template-argument-deduction-ctad/02-string-literals/good.cpp",
-            "explanation": "examples/012-class-template-argument-deduction-ctad/02-string-literals/explanation.md"
+            "explanation": "examples/012-class-template-argument-deduction-ctad/02-string-literals/explanation.md",
+            "compilers": "examples/012-class-template-argument-deduction-ctad/02-string-literals/compilers.md"
           }
         }
       ]
@@ -518,7 +535,8 @@
             "bad_cpp": "examples/013-auto-drops-qualifiers-and-references/01-main/bad.cpp",
             "good_cpp": "examples/013-auto-drops-qualifiers-and-references/01-main/good.cpp",
             "good_rust": "examples/013-auto-drops-qualifiers-and-references/01-main/good.rs",
-            "explanation": "examples/013-auto-drops-qualifiers-and-references/01-main/explanation.md"
+            "explanation": "examples/013-auto-drops-qualifiers-and-references/01-main/explanation.md",
+            "compilers": "examples/013-auto-drops-qualifiers-and-references/01-main/compilers.md"
           }
         }
       ]
@@ -552,7 +570,8 @@
           "files": {
             "bad_cpp": "examples/014-auto-with-brace-initialization/01-copy-list/bad.cpp",
             "good_cpp": "examples/014-auto-with-brace-initialization/01-copy-list/good.cpp",
-            "explanation": "examples/014-auto-with-brace-initialization/01-copy-list/explanation.md"
+            "explanation": "examples/014-auto-with-brace-initialization/01-copy-list/explanation.md",
+            "compilers": "examples/014-auto-with-brace-initialization/01-copy-list/compilers.md"
           }
         },
         {
@@ -565,7 +584,8 @@
           "files": {
             "bad_cpp": "examples/014-auto-with-brace-initialization/02-direct-list-multiple/bad.cpp",
             "good_cpp": "examples/014-auto-with-brace-initialization/02-direct-list-multiple/good.cpp",
-            "explanation": "examples/014-auto-with-brace-initialization/02-direct-list-multiple/explanation.md"
+            "explanation": "examples/014-auto-with-brace-initialization/02-direct-list-multiple/explanation.md",
+            "compilers": "examples/014-auto-with-brace-initialization/02-direct-list-multiple/compilers.md"
           }
         }
       ]
@@ -600,7 +620,8 @@
             "bad_cpp": "examples/015-decltype-vs-decltype-auto/01-auto-strips-reference/bad.cpp",
             "good_cpp": "examples/015-decltype-vs-decltype-auto/01-auto-strips-reference/good.cpp",
             "good_rust": "examples/015-decltype-vs-decltype-auto/01-auto-strips-reference/good.rs",
-            "explanation": "examples/015-decltype-vs-decltype-auto/01-auto-strips-reference/explanation.md"
+            "explanation": "examples/015-decltype-vs-decltype-auto/01-auto-strips-reference/explanation.md",
+            "compilers": "examples/015-decltype-vs-decltype-auto/01-auto-strips-reference/compilers.md"
           }
         },
         {
@@ -617,7 +638,8 @@
             "bad_cpp": "examples/015-decltype-vs-decltype-auto/02-parenthesized-return/bad.cpp",
             "good_cpp": "examples/015-decltype-vs-decltype-auto/02-parenthesized-return/good.cpp",
             "good_rust": "examples/015-decltype-vs-decltype-auto/02-parenthesized-return/good.rs",
-            "explanation": "examples/015-decltype-vs-decltype-auto/02-parenthesized-return/explanation.md"
+            "explanation": "examples/015-decltype-vs-decltype-auto/02-parenthesized-return/explanation.md",
+            "compilers": "examples/015-decltype-vs-decltype-auto/02-parenthesized-return/compilers.md"
           }
         }
       ]
@@ -651,7 +673,8 @@
             "bad_cpp": "examples/016-parentheses-changing-decltype-results/01-main/bad.cpp",
             "good_cpp": "examples/016-parentheses-changing-decltype-results/01-main/good.cpp",
             "good_rust": "examples/016-parentheses-changing-decltype-results/01-main/good.rs",
-            "explanation": "examples/016-parentheses-changing-decltype-results/01-main/explanation.md"
+            "explanation": "examples/016-parentheses-changing-decltype-results/01-main/explanation.md",
+            "compilers": "examples/016-parentheses-changing-decltype-results/01-main/compilers.md"
           }
         }
       ]
@@ -685,7 +708,8 @@
             "bad_cpp": "examples/017-lvalues-prvalues-and-xvalues/01-named-rvalue-ref/bad.cpp",
             "good_cpp": "examples/017-lvalues-prvalues-and-xvalues/01-named-rvalue-ref/good.cpp",
             "good_rust": "examples/017-lvalues-prvalues-and-xvalues/01-named-rvalue-ref/good.rs",
-            "explanation": "examples/017-lvalues-prvalues-and-xvalues/01-named-rvalue-ref/explanation.md"
+            "explanation": "examples/017-lvalues-prvalues-and-xvalues/01-named-rvalue-ref/explanation.md",
+            "compilers": "examples/017-lvalues-prvalues-and-xvalues/01-named-rvalue-ref/compilers.md"
           }
         }
       ]
@@ -720,7 +744,8 @@
             "bad_cpp": "examples/018-reference-collapsing/01-main/bad.cpp",
             "good_cpp": "examples/018-reference-collapsing/01-main/good.cpp",
             "good_rust": "examples/018-reference-collapsing/01-main/good.rs",
-            "explanation": "examples/018-reference-collapsing/01-main/explanation.md"
+            "explanation": "examples/018-reference-collapsing/01-main/explanation.md",
+            "compilers": "examples/018-reference-collapsing/01-main/compilers.md"
           }
         }
       ]
@@ -754,7 +779,8 @@
           "files": {
             "bad_cpp": "examples/019-forwarding-references-vs-rvalue-references/01-move-on-forwarding-ref/bad.cpp",
             "good_cpp": "examples/019-forwarding-references-vs-rvalue-references/01-move-on-forwarding-ref/good.cpp",
-            "explanation": "examples/019-forwarding-references-vs-rvalue-references/01-move-on-forwarding-ref/explanation.md"
+            "explanation": "examples/019-forwarding-references-vs-rvalue-references/01-move-on-forwarding-ref/explanation.md",
+            "compilers": "examples/019-forwarding-references-vs-rvalue-references/01-move-on-forwarding-ref/compilers.md"
           }
         },
         {
@@ -767,7 +793,8 @@
           "files": {
             "bad_cpp": "examples/019-forwarding-references-vs-rvalue-references/02-not-a-forwarding-ref/bad.cpp",
             "good_cpp": "examples/019-forwarding-references-vs-rvalue-references/02-not-a-forwarding-ref/good.cpp",
-            "explanation": "examples/019-forwarding-references-vs-rvalue-references/02-not-a-forwarding-ref/explanation.md"
+            "explanation": "examples/019-forwarding-references-vs-rvalue-references/02-not-a-forwarding-ref/explanation.md",
+            "compilers": "examples/019-forwarding-references-vs-rvalue-references/02-not-a-forwarding-ref/compilers.md"
           }
         }
       ]
@@ -800,7 +827,8 @@
           "files": {
             "bad_cpp": "examples/020-incorrect-std-forward-usage/01-forward-twice/bad.cpp",
             "good_cpp": "examples/020-incorrect-std-forward-usage/01-forward-twice/good.cpp",
-            "explanation": "examples/020-incorrect-std-forward-usage/01-forward-twice/explanation.md"
+            "explanation": "examples/020-incorrect-std-forward-usage/01-forward-twice/explanation.md",
+            "compilers": "examples/020-incorrect-std-forward-usage/01-forward-twice/compilers.md"
           }
         },
         {
@@ -813,7 +841,8 @@
           "files": {
             "bad_cpp": "examples/020-incorrect-std-forward-usage/02-wrong-template-argument/bad.cpp",
             "good_cpp": "examples/020-incorrect-std-forward-usage/02-wrong-template-argument/good.cpp",
-            "explanation": "examples/020-incorrect-std-forward-usage/02-wrong-template-argument/explanation.md"
+            "explanation": "examples/020-incorrect-std-forward-usage/02-wrong-template-argument/explanation.md",
+            "compilers": "examples/020-incorrect-std-forward-usage/02-wrong-template-argument/compilers.md"
           }
         }
       ]
@@ -848,7 +877,8 @@
             "bad_cpp": "examples/021-const-rvalues-and-move-semantics/01-main/bad.cpp",
             "good_cpp": "examples/021-const-rvalues-and-move-semantics/01-main/good.cpp",
             "good_rust": "examples/021-const-rvalues-and-move-semantics/01-main/good.rs",
-            "explanation": "examples/021-const-rvalues-and-move-semantics/01-main/explanation.md"
+            "explanation": "examples/021-const-rvalues-and-move-semantics/01-main/explanation.md",
+            "compilers": "examples/021-const-rvalues-and-move-semantics/01-main/compilers.md"
           }
         }
       ]
@@ -882,7 +912,8 @@
           "files": {
             "bad_cpp": "examples/022-reference-qualified-member-functions/01-mixed-qualified-and-unqualified/bad.cpp",
             "good_cpp": "examples/022-reference-qualified-member-functions/01-mixed-qualified-and-unqualified/good.cpp",
-            "explanation": "examples/022-reference-qualified-member-functions/01-mixed-qualified-and-unqualified/explanation.md"
+            "explanation": "examples/022-reference-qualified-member-functions/01-mixed-qualified-and-unqualified/explanation.md",
+            "compilers": "examples/022-reference-qualified-member-functions/01-mixed-qualified-and-unqualified/compilers.md"
           }
         },
         {
@@ -895,7 +926,8 @@
           "files": {
             "bad_cpp": "examples/022-reference-qualified-member-functions/02-lvalue-only-on-temporary/bad.cpp",
             "good_cpp": "examples/022-reference-qualified-member-functions/02-lvalue-only-on-temporary/good.cpp",
-            "explanation": "examples/022-reference-qualified-member-functions/02-lvalue-only-on-temporary/explanation.md"
+            "explanation": "examples/022-reference-qualified-member-functions/02-lvalue-only-on-temporary/explanation.md",
+            "compilers": "examples/022-reference-qualified-member-functions/02-lvalue-only-on-temporary/compilers.md"
           }
         }
       ]
@@ -928,7 +960,8 @@
           "files": {
             "bad_cpp": "examples/023-std-move-is-only-a-cast/01-move-into-const-ref-or-int/bad.cpp",
             "good_cpp": "examples/023-std-move-is-only-a-cast/01-move-into-const-ref-or-int/good.cpp",
-            "explanation": "examples/023-std-move-is-only-a-cast/01-move-into-const-ref-or-int/explanation.md"
+            "explanation": "examples/023-std-move-is-only-a-cast/01-move-into-const-ref-or-int/explanation.md",
+            "compilers": "examples/023-std-move-is-only-a-cast/01-move-into-const-ref-or-int/compilers.md"
           }
         },
         {
@@ -943,7 +976,8 @@
           "files": {
             "bad_cpp": "examples/023-std-move-is-only-a-cast/02-no-move-constructor/bad.cpp",
             "good_cpp": "examples/023-std-move-is-only-a-cast/02-no-move-constructor/good.cpp",
-            "explanation": "examples/023-std-move-is-only-a-cast/02-no-move-constructor/explanation.md"
+            "explanation": "examples/023-std-move-is-only-a-cast/02-no-move-constructor/explanation.md",
+            "compilers": "examples/023-std-move-is-only-a-cast/02-no-move-constructor/compilers.md"
           }
         }
       ]
@@ -978,7 +1012,8 @@
           "files": {
             "bad_cpp": "examples/024-perfect-forwarding-constructors-hijacking-overloads/01-main/bad.cpp",
             "good_cpp": "examples/024-perfect-forwarding-constructors-hijacking-overloads/01-main/good.cpp",
-            "explanation": "examples/024-perfect-forwarding-constructors-hijacking-overloads/01-main/explanation.md"
+            "explanation": "examples/024-perfect-forwarding-constructors-hijacking-overloads/01-main/explanation.md",
+            "compilers": "examples/024-perfect-forwarding-constructors-hijacking-overloads/01-main/compilers.md"
           }
         }
       ]
@@ -1015,7 +1050,8 @@
             "bad_cpp": "examples/025-returning-references-or-pointers-to/01-main/bad.cpp",
             "good_cpp": "examples/025-returning-references-or-pointers-to/01-main/good.cpp",
             "good_rust": "examples/025-returning-references-or-pointers-to/01-main/good.rs",
-            "explanation": "examples/025-returning-references-or-pointers-to/01-main/explanation.md"
+            "explanation": "examples/025-returning-references-or-pointers-to/01-main/explanation.md",
+            "compilers": "examples/025-returning-references-or-pointers-to/01-main/compilers.md"
           }
         }
       ]
@@ -1051,7 +1087,8 @@
             "bad_cpp": "examples/026-temporary-lifetime-extension/01-through-function-return/bad.cpp",
             "good_cpp": "examples/026-temporary-lifetime-extension/01-through-function-return/good.cpp",
             "good_rust": "examples/026-temporary-lifetime-extension/01-through-function-return/good.rs",
-            "explanation": "examples/026-temporary-lifetime-extension/01-through-function-return/explanation.md"
+            "explanation": "examples/026-temporary-lifetime-extension/01-through-function-return/explanation.md",
+            "compilers": "examples/026-temporary-lifetime-extension/01-through-function-return/compilers.md"
           }
         },
         {
@@ -1065,7 +1102,8 @@
           "files": {
             "bad_cpp": "examples/026-temporary-lifetime-extension/02-new-expression/bad.cpp",
             "good_cpp": "examples/026-temporary-lifetime-extension/02-new-expression/good.cpp",
-            "explanation": "examples/026-temporary-lifetime-extension/02-new-expression/explanation.md"
+            "explanation": "examples/026-temporary-lifetime-extension/02-new-expression/explanation.md",
+            "compilers": "examples/026-temporary-lifetime-extension/02-new-expression/compilers.md"
           }
         }
       ]
@@ -1100,7 +1138,8 @@
             "bad_cpp": "examples/027-reference-members-bound-to-temporaries/01-constructor-parameter/bad.cpp",
             "good_cpp": "examples/027-reference-members-bound-to-temporaries/01-constructor-parameter/good.cpp",
             "good_rust": "examples/027-reference-members-bound-to-temporaries/01-constructor-parameter/good.rs",
-            "explanation": "examples/027-reference-members-bound-to-temporaries/01-constructor-parameter/explanation.md"
+            "explanation": "examples/027-reference-members-bound-to-temporaries/01-constructor-parameter/explanation.md",
+            "compilers": "examples/027-reference-members-bound-to-temporaries/01-constructor-parameter/compilers.md"
           }
         },
         {
@@ -1114,7 +1153,8 @@
           "files": {
             "bad_cpp": "examples/027-reference-members-bound-to-temporaries/02-parenthesized-aggregate-init/bad.cpp",
             "good_cpp": "examples/027-reference-members-bound-to-temporaries/02-parenthesized-aggregate-init/good.cpp",
-            "explanation": "examples/027-reference-members-bound-to-temporaries/02-parenthesized-aggregate-init/explanation.md"
+            "explanation": "examples/027-reference-members-bound-to-temporaries/02-parenthesized-aggregate-init/explanation.md",
+            "compilers": "examples/027-reference-members-bound-to-temporaries/02-parenthesized-aggregate-init/compilers.md"
           }
         }
       ]
@@ -1147,7 +1187,8 @@
           "files": {
             "bad_cpp": "examples/028-string-view-dangling-references/01-from-temporary-string/bad.cpp",
             "good_cpp": "examples/028-string-view-dangling-references/01-from-temporary-string/good.cpp",
-            "explanation": "examples/028-string-view-dangling-references/01-from-temporary-string/explanation.md"
+            "explanation": "examples/028-string-view-dangling-references/01-from-temporary-string/explanation.md",
+            "compilers": "examples/028-string-view-dangling-references/01-from-temporary-string/compilers.md"
           }
         },
         {
@@ -1161,7 +1202,8 @@
           "files": {
             "bad_cpp": "examples/028-string-view-dangling-references/02-not-null-terminated/bad.cpp",
             "good_cpp": "examples/028-string-view-dangling-references/02-not-null-terminated/good.cpp",
-            "explanation": "examples/028-string-view-dangling-references/02-not-null-terminated/explanation.md"
+            "explanation": "examples/028-string-view-dangling-references/02-not-null-terminated/explanation.md",
+            "compilers": "examples/028-string-view-dangling-references/02-not-null-terminated/compilers.md"
           }
         }
       ]
@@ -1194,7 +1236,8 @@
           "files": {
             "bad_cpp": "examples/029-span-ownership-confusion/01-container-reallocation/bad.cpp",
             "good_cpp": "examples/029-span-ownership-confusion/01-container-reallocation/good.cpp",
-            "explanation": "examples/029-span-ownership-confusion/01-container-reallocation/explanation.md"
+            "explanation": "examples/029-span-ownership-confusion/01-container-reallocation/explanation.md",
+            "compilers": "examples/029-span-ownership-confusion/01-container-reallocation/compilers.md"
           }
         },
         {
@@ -1209,7 +1252,8 @@
           "files": {
             "bad_cpp": "examples/029-span-ownership-confusion/02-temporary-container/bad.cpp",
             "good_cpp": "examples/029-span-ownership-confusion/02-temporary-container/good.cpp",
-            "explanation": "examples/029-span-ownership-confusion/02-temporary-container/explanation.md"
+            "explanation": "examples/029-span-ownership-confusion/02-temporary-container/explanation.md",
+            "compilers": "examples/029-span-ownership-confusion/02-temporary-container/compilers.md"
           }
         }
       ]
@@ -1242,7 +1286,8 @@
           "files": {
             "bad_cpp": "examples/030-initializer-list-backing-array-lifetime/01-stored-member/bad.cpp",
             "good_cpp": "examples/030-initializer-list-backing-array-lifetime/01-stored-member/good.cpp",
-            "explanation": "examples/030-initializer-list-backing-array-lifetime/01-stored-member/explanation.md"
+            "explanation": "examples/030-initializer-list-backing-array-lifetime/01-stored-member/explanation.md",
+            "compilers": "examples/030-initializer-list-backing-array-lifetime/01-stored-member/compilers.md"
           }
         }
       ]
@@ -1277,7 +1322,8 @@
             "bad_cpp": "examples/031-dangling-lambda-captures/01-returned-closure/bad.cpp",
             "good_cpp": "examples/031-dangling-lambda-captures/01-returned-closure/good.cpp",
             "good_rust": "examples/031-dangling-lambda-captures/01-returned-closure/good.rs",
-            "explanation": "examples/031-dangling-lambda-captures/01-returned-closure/explanation.md"
+            "explanation": "examples/031-dangling-lambda-captures/01-returned-closure/explanation.md",
+            "compilers": "examples/031-dangling-lambda-captures/01-returned-closure/compilers.md"
           }
         }
       ]
@@ -1314,7 +1360,8 @@
           "files": {
             "bad_cpp": "examples/032-capturing-this-in-lambdas/01-closure-outlives-object/bad.cpp",
             "good_cpp": "examples/032-capturing-this-in-lambdas/01-closure-outlives-object/good.cpp",
-            "explanation": "examples/032-capturing-this-in-lambdas/01-closure-outlives-object/explanation.md"
+            "explanation": "examples/032-capturing-this-in-lambdas/01-closure-outlives-object/explanation.md",
+            "compilers": "examples/032-capturing-this-in-lambdas/01-closure-outlives-object/compilers.md"
           }
         },
         {
@@ -1327,7 +1374,8 @@
           "files": {
             "bad_cpp": "examples/032-capturing-this-in-lambdas/02-copy-default-captures-this/bad.cpp",
             "good_cpp": "examples/032-capturing-this-in-lambdas/02-copy-default-captures-this/good.cpp",
-            "explanation": "examples/032-capturing-this-in-lambdas/02-copy-default-captures-this/explanation.md"
+            "explanation": "examples/032-capturing-this-in-lambdas/02-copy-default-captures-this/explanation.md",
+            "compilers": "examples/032-capturing-this-in-lambdas/02-copy-default-captures-this/compilers.md"
           }
         }
       ]
@@ -1362,7 +1410,8 @@
           "files": {
             "bad_cpp": "examples/033-dangling-c-str-and-data-pointers/01-string-modified/bad.cpp",
             "good_cpp": "examples/033-dangling-c-str-and-data-pointers/01-string-modified/good.cpp",
-            "explanation": "examples/033-dangling-c-str-and-data-pointers/01-string-modified/explanation.md"
+            "explanation": "examples/033-dangling-c-str-and-data-pointers/01-string-modified/explanation.md",
+            "compilers": "examples/033-dangling-c-str-and-data-pointers/01-string-modified/compilers.md"
           }
         },
         {
@@ -1377,7 +1426,8 @@
           "files": {
             "bad_cpp": "examples/033-dangling-c-str-and-data-pointers/02-temporary-string/bad.cpp",
             "good_cpp": "examples/033-dangling-c-str-and-data-pointers/02-temporary-string/good.cpp",
-            "explanation": "examples/033-dangling-c-str-and-data-pointers/02-temporary-string/explanation.md"
+            "explanation": "examples/033-dangling-c-str-and-data-pointers/02-temporary-string/explanation.md",
+            "compilers": "examples/033-dangling-c-str-and-data-pointers/02-temporary-string/compilers.md"
           }
         }
       ]
@@ -1411,7 +1461,8 @@
           "files": {
             "bad_cpp": "examples/034-lifetime-of-subobjects-and-base-objects/01-virtual-call-in-constructor/bad.cpp",
             "good_cpp": "examples/034-lifetime-of-subobjects-and-base-objects/01-virtual-call-in-constructor/good.cpp",
-            "explanation": "examples/034-lifetime-of-subobjects-and-base-objects/01-virtual-call-in-constructor/explanation.md"
+            "explanation": "examples/034-lifetime-of-subobjects-and-base-objects/01-virtual-call-in-constructor/explanation.md",
+            "compilers": "examples/034-lifetime-of-subobjects-and-base-objects/01-virtual-call-in-constructor/compilers.md"
           }
         },
         {
@@ -1424,7 +1475,8 @@
           "files": {
             "bad_cpp": "examples/034-lifetime-of-subobjects-and-base-objects/02-pure-virtual-call-in-constructor/bad.cpp",
             "good_cpp": "examples/034-lifetime-of-subobjects-and-base-objects/02-pure-virtual-call-in-constructor/good.cpp",
-            "explanation": "examples/034-lifetime-of-subobjects-and-base-objects/02-pure-virtual-call-in-constructor/explanation.md"
+            "explanation": "examples/034-lifetime-of-subobjects-and-base-objects/02-pure-virtual-call-in-constructor/explanation.md",
+            "compilers": "examples/034-lifetime-of-subobjects-and-base-objects/02-pure-virtual-call-in-constructor/compilers.md"
           }
         }
       ]
@@ -1459,7 +1511,8 @@
           "files": {
             "bad_cpp": "examples/035-range-based-for-over-temporary-objects/01-cxx20-temporary-in-range-init/bad.cpp",
             "good_cpp": "examples/035-range-based-for-over-temporary-objects/01-cxx20-temporary-in-range-init/good.cpp",
-            "explanation": "examples/035-range-based-for-over-temporary-objects/01-cxx20-temporary-in-range-init/explanation.md"
+            "explanation": "examples/035-range-based-for-over-temporary-objects/01-cxx20-temporary-in-range-init/explanation.md",
+            "compilers": "examples/035-range-based-for-over-temporary-objects/01-cxx20-temporary-in-range-init/compilers.md"
           }
         },
         {
@@ -1473,7 +1526,8 @@
           "files": {
             "bad_cpp": "examples/035-range-based-for-over-temporary-objects/02-cxx23-hoisted-reference/bad.cpp",
             "good_cpp": "examples/035-range-based-for-over-temporary-objects/02-cxx23-hoisted-reference/good.cpp",
-            "explanation": "examples/035-range-based-for-over-temporary-objects/02-cxx23-hoisted-reference/explanation.md"
+            "explanation": "examples/035-range-based-for-over-temporary-objects/02-cxx23-hoisted-reference/explanation.md",
+            "compilers": "examples/035-range-based-for-over-temporary-objects/02-cxx23-hoisted-reference/compilers.md"
           }
         }
       ]
@@ -1507,7 +1561,8 @@
           "files": {
             "bad_cpp": "examples/036-proxy-references/01-auto-copies-the-proxy/bad.cpp",
             "good_cpp": "examples/036-proxy-references/01-auto-copies-the-proxy/good.cpp",
-            "explanation": "examples/036-proxy-references/01-auto-copies-the-proxy/explanation.md"
+            "explanation": "examples/036-proxy-references/01-auto-copies-the-proxy/explanation.md",
+            "compilers": "examples/036-proxy-references/01-auto-copies-the-proxy/compilers.md"
           }
         },
         {
@@ -1520,7 +1575,8 @@
           "files": {
             "bad_cpp": "examples/036-proxy-references/02-cannot-bind-lvalue-reference/bad.cpp",
             "good_cpp": "examples/036-proxy-references/02-cannot-bind-lvalue-reference/good.cpp",
-            "explanation": "examples/036-proxy-references/02-cannot-bind-lvalue-reference/explanation.md"
+            "explanation": "examples/036-proxy-references/02-cannot-bind-lvalue-reference/explanation.md",
+            "compilers": "examples/036-proxy-references/02-cannot-bind-lvalue-reference/compilers.md"
           }
         }
       ]
@@ -1558,7 +1614,8 @@
             "bad_cpp": "examples/037-destructor-and-temporary-destruction-timing/01-unnamed-lock-guard/bad.cpp",
             "good_cpp": "examples/037-destructor-and-temporary-destruction-timing/01-unnamed-lock-guard/good.cpp",
             "good_rust": "examples/037-destructor-and-temporary-destruction-timing/01-unnamed-lock-guard/good.rs",
-            "explanation": "examples/037-destructor-and-temporary-destruction-timing/01-unnamed-lock-guard/explanation.md"
+            "explanation": "examples/037-destructor-and-temporary-destruction-timing/01-unnamed-lock-guard/explanation.md",
+            "compilers": "examples/037-destructor-and-temporary-destruction-timing/01-unnamed-lock-guard/compilers.md"
           }
         },
         {
@@ -1571,7 +1628,8 @@
           "files": {
             "bad_cpp": "examples/037-destructor-and-temporary-destruction-timing/02-member-destruction-order/bad.cpp",
             "good_cpp": "examples/037-destructor-and-temporary-destruction-timing/02-member-destruction-order/good.cpp",
-            "explanation": "examples/037-destructor-and-temporary-destruction-timing/02-member-destruction-order/explanation.md"
+            "explanation": "examples/037-destructor-and-temporary-destruction-timing/02-member-destruction-order/explanation.md",
+            "compilers": "examples/037-destructor-and-temporary-destruction-timing/02-member-destruction-order/compilers.md"
           }
         }
       ]
@@ -1606,7 +1664,8 @@
             "bad_cpp": "examples/038-returning-a-reference-through-multiple-calls/01-main/bad.cpp",
             "good_cpp": "examples/038-returning-a-reference-through-multiple-calls/01-main/good.cpp",
             "good_rust": "examples/038-returning-a-reference-through-multiple-calls/01-main/good.rs",
-            "explanation": "examples/038-returning-a-reference-through-multiple-calls/01-main/explanation.md"
+            "explanation": "examples/038-returning-a-reference-through-multiple-calls/01-main/explanation.md",
+            "compilers": "examples/038-returning-a-reference-through-multiple-calls/01-main/compilers.md"
           }
         }
       ]
@@ -1626,10 +1685,27 @@
       "https://en.cppreference.com/w/cpp/language/ub"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/039-reading-uninitialized-values",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "conditional-init",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:memory",
+            "tool:clang-tidy:clang-analyzer-core.UndefinedBinaryOperatorResult"
+          ],
+          "dir": "examples/039-reading-uninitialized-values/01-conditional-init",
+          "files": {
+            "bad_cpp": "examples/039-reading-uninitialized-values/01-conditional-init/bad.cpp",
+            "good_cpp": "examples/039-reading-uninitialized-values/01-conditional-init/good.cpp",
+            "good_rust": "examples/039-reading-uninitialized-values/01-conditional-init/good.rs",
+            "explanation": "examples/039-reading-uninitialized-values/01-conditional-init/explanation.md",
+            "compilers": "examples/039-reading-uninitialized-values/01-conditional-init/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1646,10 +1722,25 @@
       "https://en.cppreference.com/w/cpp/language/ub"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/040-strict-aliasing-violations",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "float-as-int",
+          "classification": "UB",
+          "detection": [
+            "tool:clang-tidy:cppcoreguidelines-pro-type-reinterpret-cast"
+          ],
+          "dir": "examples/040-strict-aliasing-violations/01-float-as-int",
+          "files": {
+            "bad_cpp": "examples/040-strict-aliasing-violations/01-float-as-int/bad.cpp",
+            "good_cpp": "examples/040-strict-aliasing-violations/01-float-as-int/good.cpp",
+            "explanation": "examples/040-strict-aliasing-violations/01-float-as-int/explanation.md",
+            "compilers": "examples/040-strict-aliasing-violations/01-float-as-int/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1667,10 +1758,26 @@
       "https://en.cppreference.com/w/cpp/memory/start_lifetime_as"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/041-reinterpret-cast-doesnt-create-objects",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "storage-cast",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:undefined",
+            "tool:clang-tidy:cppcoreguidelines-pro-type-reinterpret-cast"
+          ],
+          "dir": "examples/041-reinterpret-cast-doesnt-create-objects/01-storage-cast",
+          "files": {
+            "bad_cpp": "examples/041-reinterpret-cast-doesnt-create-objects/01-storage-cast/bad.cpp",
+            "good_cpp": "examples/041-reinterpret-cast-doesnt-create-objects/01-storage-cast/good.cpp",
+            "explanation": "examples/041-reinterpret-cast-doesnt-create-objects/01-storage-cast/explanation.md",
+            "compilers": "examples/041-reinterpret-cast-doesnt-create-objects/01-storage-cast/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1688,10 +1795,27 @@
       "https://en.cppreference.com/w/cpp/language/alignof"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/042-misaligned-accesses",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "packet-field",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:undefined",
+            "tool:clang-tidy:cppcoreguidelines-pro-type-reinterpret-cast"
+          ],
+          "dir": "examples/042-misaligned-accesses/01-packet-field",
+          "files": {
+            "bad_cpp": "examples/042-misaligned-accesses/01-packet-field/bad.cpp",
+            "good_cpp": "examples/042-misaligned-accesses/01-packet-field/good.cpp",
+            "good_rust": "examples/042-misaligned-accesses/01-packet-field/good.rs",
+            "explanation": "examples/042-misaligned-accesses/01-packet-field/explanation.md",
+            "compilers": "examples/042-misaligned-accesses/01-packet-field/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1708,10 +1832,39 @@
       "https://en.cppreference.com/w/cpp/language/ub"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/043-pointer-arithmetic-outside-an-array",
+      "readme": "examples/043-pointer-arithmetic-outside-an-array/README.md",
+      "cases": [
+        {
+          "name": "index-past-member-array",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:undefined"
+          ],
+          "dir": "examples/043-pointer-arithmetic-outside-an-array/01-index-past-member-array",
+          "files": {
+            "bad_cpp": "examples/043-pointer-arithmetic-outside-an-array/01-index-past-member-array/bad.cpp",
+            "good_cpp": "examples/043-pointer-arithmetic-outside-an-array/01-index-past-member-array/good.cpp",
+            "explanation": "examples/043-pointer-arithmetic-outside-an-array/01-index-past-member-array/explanation.md",
+            "compilers": "examples/043-pointer-arithmetic-outside-an-array/01-index-past-member-array/compilers.md"
+          }
+        },
+        {
+          "name": "bounds-check-by-forming-pointer",
+          "classification": "UB",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/043-pointer-arithmetic-outside-an-array/02-bounds-check-by-forming-pointer",
+          "files": {
+            "bad_cpp": "examples/043-pointer-arithmetic-outside-an-array/02-bounds-check-by-forming-pointer/bad.cpp",
+            "good_cpp": "examples/043-pointer-arithmetic-outside-an-array/02-bounds-check-by-forming-pointer/good.cpp",
+            "explanation": "examples/043-pointer-arithmetic-outside-an-array/02-bounds-check-by-forming-pointer/explanation.md",
+            "compilers": "examples/043-pointer-arithmetic-outside-an-array/02-bounds-check-by-forming-pointer/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1728,10 +1881,26 @@
       "https://en.cppreference.com/w/cpp/language/pointer"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/044-one-past-the-end-pointers",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "inclusive-loop",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/044-one-past-the-end-pointers/01-inclusive-loop",
+          "files": {
+            "bad_cpp": "examples/044-one-past-the-end-pointers/01-inclusive-loop/bad.cpp",
+            "good_cpp": "examples/044-one-past-the-end-pointers/01-inclusive-loop/good.cpp",
+            "good_rust": "examples/044-one-past-the-end-pointers/01-inclusive-loop/good.rs",
+            "explanation": "examples/044-one-past-the-end-pointers/01-inclusive-loop/explanation.md",
+            "compilers": "examples/044-one-past-the-end-pointers/01-inclusive-loop/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1748,10 +1917,25 @@
       "https://en.cppreference.com/w/cpp/language/lifetime"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/045-pointer-provenance-and-lifetime",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "reused-address",
+          "classification": "UB",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/045-pointer-provenance-and-lifetime/01-reused-address",
+          "files": {
+            "bad_cpp": "examples/045-pointer-provenance-and-lifetime/01-reused-address/bad.cpp",
+            "good_cpp": "examples/045-pointer-provenance-and-lifetime/01-reused-address/good.cpp",
+            "explanation": "examples/045-pointer-provenance-and-lifetime/01-reused-address/explanation.md",
+            "compilers": "examples/045-pointer-provenance-and-lifetime/01-reused-address/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1768,10 +1952,26 @@
       "https://en.cppreference.com/w/cpp/numeric/bit_cast"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/046-union-type-punning",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "float-bits",
+          "classification": "UB",
+          "detection": [
+            "tool:clang-tidy:cppcoreguidelines-pro-type-union-access"
+          ],
+          "dir": "examples/046-union-type-punning/01-float-bits",
+          "files": {
+            "bad_cpp": "examples/046-union-type-punning/01-float-bits/bad.cpp",
+            "good_cpp": "examples/046-union-type-punning/01-float-bits/good.cpp",
+            "good_rust": "examples/046-union-type-punning/01-float-bits/good.rs",
+            "explanation": "examples/046-union-type-punning/01-float-bits/explanation.md",
+            "compilers": "examples/046-union-type-punning/01-float-bits/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1788,10 +1988,40 @@
       "https://en.cppreference.com/w/cpp/language/lifetime"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/047-placement-new-and-object-replacement",
+      "readme": "examples/047-placement-new-and-object-replacement/README.md",
+      "cases": [
+        {
+          "name": "misaligned-arena",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:undefined",
+            "tool:clang-tidy:clang-analyzer-cplusplus.PlacementNew"
+          ],
+          "dir": "examples/047-placement-new-and-object-replacement/01-misaligned-arena",
+          "files": {
+            "bad_cpp": "examples/047-placement-new-and-object-replacement/01-misaligned-arena/bad.cpp",
+            "good_cpp": "examples/047-placement-new-and-object-replacement/01-misaligned-arena/good.cpp",
+            "explanation": "examples/047-placement-new-and-object-replacement/01-misaligned-arena/explanation.md",
+            "compilers": "examples/047-placement-new-and-object-replacement/01-misaligned-arena/compilers.md"
+          }
+        },
+        {
+          "name": "skipped-destructor",
+          "classification": "LOGIC",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/047-placement-new-and-object-replacement/02-skipped-destructor",
+          "files": {
+            "bad_cpp": "examples/047-placement-new-and-object-replacement/02-skipped-destructor/bad.cpp",
+            "good_cpp": "examples/047-placement-new-and-object-replacement/02-skipped-destructor/good.cpp",
+            "explanation": "examples/047-placement-new-and-object-replacement/02-skipped-destructor/explanation.md",
+            "compilers": "examples/047-placement-new-and-object-replacement/02-skipped-destructor/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1808,10 +2038,25 @@
       "https://en.cppreference.com/w/cpp/language/new"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/048-std-launder-and-pointer-reuse",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "storage-pointer",
+          "classification": "UB",
+          "detection": [
+            "tool:clang-tidy:cppcoreguidelines-pro-type-reinterpret-cast"
+          ],
+          "dir": "examples/048-std-launder-and-pointer-reuse/01-storage-pointer",
+          "files": {
+            "bad_cpp": "examples/048-std-launder-and-pointer-reuse/01-storage-pointer/bad.cpp",
+            "good_cpp": "examples/048-std-launder-and-pointer-reuse/01-storage-pointer/good.cpp",
+            "explanation": "examples/048-std-launder-and-pointer-reuse/01-storage-pointer/explanation.md",
+            "compilers": "examples/048-std-launder-and-pointer-reuse/01-storage-pointer/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1829,10 +2074,29 @@
       "https://en.cppreference.com/w/cpp/types/is_trivially_copyable"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/049-memcpy-on-non-trivial-types",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "string",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address",
+            "warning:g++:-Wclass-memaccess",
+            "warning:clang++:-Wnontrivial-memcall",
+            "tool:clang-tidy:bugprone-undefined-memory-manipulation"
+          ],
+          "dir": "examples/049-memcpy-on-non-trivial-types/01-string",
+          "files": {
+            "bad_cpp": "examples/049-memcpy-on-non-trivial-types/01-string/bad.cpp",
+            "good_cpp": "examples/049-memcpy-on-non-trivial-types/01-string/good.cpp",
+            "good_rust": "examples/049-memcpy-on-non-trivial-types/01-string/good.rs",
+            "explanation": "examples/049-memcpy-on-non-trivial-types/01-string/explanation.md",
+            "compilers": "examples/049-memcpy-on-non-trivial-types/01-string/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1850,10 +2114,25 @@
       "https://en.cppreference.com/w/cpp/memory/construct_at"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/050-raw-allocation-vs-object-construction",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "malloc-struct",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:memory"
+          ],
+          "dir": "examples/050-raw-allocation-vs-object-construction/01-malloc-struct",
+          "files": {
+            "bad_cpp": "examples/050-raw-allocation-vs-object-construction/01-malloc-struct/bad.cpp",
+            "good_cpp": "examples/050-raw-allocation-vs-object-construction/01-malloc-struct/good.cpp",
+            "explanation": "examples/050-raw-allocation-vs-object-construction/01-malloc-struct/explanation.md",
+            "compilers": "examples/050-raw-allocation-vs-object-construction/01-malloc-struct/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1870,10 +2149,25 @@
       "https://en.cppreference.com/w/cpp/types/has_unique_object_representations"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/051-struct-padding-and-object-representations",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "memcmp-padding",
+          "classification": "UNS",
+          "detection": [
+            "tool:clang-tidy:bugprone-suspicious-memory-comparison"
+          ],
+          "dir": "examples/051-struct-padding-and-object-representations/01-memcmp-padding",
+          "files": {
+            "bad_cpp": "examples/051-struct-padding-and-object-representations/01-memcmp-padding/bad.cpp",
+            "good_cpp": "examples/051-struct-padding-and-object-representations/01-memcmp-padding/good.cpp",
+            "explanation": "examples/051-struct-padding-and-object-representations/01-memcmp-padding/explanation.md",
+            "compilers": "examples/051-struct-padding-and-object-representations/01-memcmp-padding/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1891,10 +2185,26 @@
       "https://en.cppreference.com/w/cpp/types/is_standard_layout"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/052-object-layout-and-offsetof-assumptions",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "non-standard-layout",
+          "classification": "UNS",
+          "detection": [
+            "warning:g++:-Winvalid-offsetof",
+            "warning:clang++:-Winvalid-offsetof"
+          ],
+          "dir": "examples/052-object-layout-and-offsetof-assumptions/01-non-standard-layout",
+          "files": {
+            "bad_cpp": "examples/052-object-layout-and-offsetof-assumptions/01-non-standard-layout/bad.cpp",
+            "good_cpp": "examples/052-object-layout-and-offsetof-assumptions/01-non-standard-layout/good.cpp",
+            "explanation": "examples/052-object-layout-and-offsetof-assumptions/01-non-standard-layout/explanation.md",
+            "compilers": "examples/052-object-layout-and-offsetof-assumptions/01-non-standard-layout/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1912,10 +2222,45 @@
       "https://en.cppreference.com/w/cpp/memory/c/malloc"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/053-mismatched-allocation-and-deallocation",
+      "readme": "examples/053-mismatched-allocation-and-deallocation/README.md",
+      "cases": [
+        {
+          "name": "array-vs-scalar",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address",
+            "warning:g++:-Wmismatched-new-delete",
+            "warning:clang++:-Wmismatched-new-delete",
+            "tool:clang-tidy:clang-analyzer-unix.MismatchedDeallocator"
+          ],
+          "dir": "examples/053-mismatched-allocation-and-deallocation/01-array-vs-scalar",
+          "files": {
+            "bad_cpp": "examples/053-mismatched-allocation-and-deallocation/01-array-vs-scalar/bad.cpp",
+            "good_cpp": "examples/053-mismatched-allocation-and-deallocation/01-array-vs-scalar/good.cpp",
+            "good_rust": "examples/053-mismatched-allocation-and-deallocation/01-array-vs-scalar/good.rs",
+            "explanation": "examples/053-mismatched-allocation-and-deallocation/01-array-vs-scalar/explanation.md",
+            "compilers": "examples/053-mismatched-allocation-and-deallocation/01-array-vs-scalar/compilers.md"
+          }
+        },
+        {
+          "name": "malloc-vs-delete",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address",
+            "warning:g++:-Wmismatched-new-delete",
+            "tool:clang-tidy:clang-analyzer-unix.MismatchedDeallocator"
+          ],
+          "dir": "examples/053-mismatched-allocation-and-deallocation/02-malloc-vs-delete",
+          "files": {
+            "bad_cpp": "examples/053-mismatched-allocation-and-deallocation/02-malloc-vs-delete/bad.cpp",
+            "good_cpp": "examples/053-mismatched-allocation-and-deallocation/02-malloc-vs-delete/good.cpp",
+            "explanation": "examples/053-mismatched-allocation-and-deallocation/02-malloc-vs-delete/explanation.md",
+            "compilers": "examples/053-mismatched-allocation-and-deallocation/02-malloc-vs-delete/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1932,10 +2277,26 @@
       "https://en.cppreference.com/w/cpp/language/lifetime"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/054-invalid-pointer-use-after-deallocation",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "stale-pointer",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/054-invalid-pointer-use-after-deallocation/01-stale-pointer",
+          "files": {
+            "bad_cpp": "examples/054-invalid-pointer-use-after-deallocation/01-stale-pointer/bad.cpp",
+            "good_cpp": "examples/054-invalid-pointer-use-after-deallocation/01-stale-pointer/good.cpp",
+            "good_rust": "examples/054-invalid-pointer-use-after-deallocation/01-stale-pointer/good.rs",
+            "explanation": "examples/054-invalid-pointer-use-after-deallocation/01-stale-pointer/explanation.md",
+            "compilers": "examples/054-invalid-pointer-use-after-deallocation/01-stale-pointer/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1953,10 +2314,40 @@
       "https://en.cppreference.com/w/cpp/memory/c/aligned_alloc"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/055-over-aligned-allocation-and-packed-structures",
+      "readme": "examples/055-over-aligned-allocation-and-packed-structures/README.md",
+      "cases": [
+        {
+          "name": "overaligned-malloc",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:undefined"
+          ],
+          "dir": "examples/055-over-aligned-allocation-and-packed-structures/01-overaligned-malloc",
+          "files": {
+            "bad_cpp": "examples/055-over-aligned-allocation-and-packed-structures/01-overaligned-malloc/bad.cpp",
+            "good_cpp": "examples/055-over-aligned-allocation-and-packed-structures/01-overaligned-malloc/good.cpp",
+            "explanation": "examples/055-over-aligned-allocation-and-packed-structures/01-overaligned-malloc/explanation.md",
+            "compilers": "examples/055-over-aligned-allocation-and-packed-structures/01-overaligned-malloc/compilers.md"
+          }
+        },
+        {
+          "name": "packed-member-pointer",
+          "classification": "UB",
+          "detection": [
+            "warning:g++:-Waddress-of-packed-member",
+            "warning:clang++:-Waddress-of-packed-member"
+          ],
+          "dir": "examples/055-over-aligned-allocation-and-packed-structures/02-packed-member-pointer",
+          "files": {
+            "bad_cpp": "examples/055-over-aligned-allocation-and-packed-structures/02-packed-member-pointer/bad.cpp",
+            "good_cpp": "examples/055-over-aligned-allocation-and-packed-structures/02-packed-member-pointer/good.cpp",
+            "explanation": "examples/055-over-aligned-allocation-and-packed-structures/02-packed-member-pointer/explanation.md",
+            "compilers": "examples/055-over-aligned-allocation-and-packed-structures/02-packed-member-pointer/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -1988,7 +2379,8 @@
             "bad_cpp": "examples/056-signed-integer-overflow/01-main/bad.cpp",
             "good_cpp": "examples/056-signed-integer-overflow/01-main/good.cpp",
             "good_rust": "examples/056-signed-integer-overflow/01-main/good.rs",
-            "explanation": "examples/056-signed-integer-overflow/01-main/explanation.md"
+            "explanation": "examples/056-signed-integer-overflow/01-main/explanation.md",
+            "compilers": "examples/056-signed-integer-overflow/01-main/compilers.md"
           }
         }
       ]
@@ -3467,7 +3859,8 @@
             "bad_cpp": "examples/129-data-races-and-undefined-behavior/01-main/bad.cpp",
             "good_cpp": "examples/129-data-races-and-undefined-behavior/01-main/good.cpp",
             "good_rust": "examples/129-data-races-and-undefined-behavior/01-main/good.rs",
-            "explanation": "examples/129-data-races-and-undefined-behavior/01-main/explanation.md"
+            "explanation": "examples/129-data-races-and-undefined-behavior/01-main/explanation.md",
+            "compilers": "examples/129-data-races-and-undefined-behavior/01-main/compilers.md"
           }
         }
       ]
