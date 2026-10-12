@@ -36,6 +36,7 @@ export function Catalog({ items }: { items: Summary[] }) {
   const [q, setQ] = useState("");
   const [cls, setCls] = useState<Classification | null>(null);
   const [diff, setDiff] = useState("");
+  const [std, setStd] = useState("");
   const [cat, setCat] = useState("");
   const [sort, setSort] = useState<{ key: SortKey; dir: 1 | -1 }>({ key: "id", dir: 1 });
   const input = useRef<HTMLInputElement>(null);
@@ -70,6 +71,7 @@ export function Catalog({ items }: { items: Summary[] }) {
       (i) =>
         (!cls || i.classification === cls) &&
         (!diff || i.difficulty === diff) &&
+        (!std || (i.cppStandard ?? 0) <= Number(std)) &&
         (!cat || i.category === cat) &&
         (!needle ||
           `${i.id} ${i.title} ${i.description} ${i.category} ${i.classification}`.toLowerCase().includes(needle)),
@@ -78,7 +80,7 @@ export function Catalog({ items }: { items: Summary[] }) {
       const c = typeof x === "number" && typeof y === "number" ? x - y : String(x).localeCompare(String(y));
       return (c || a.id - b.id) * sort.dir;
     });
-  }, [items, q, cls, diff, cat, sort]);
+  }, [items, q, cls, diff, std, cat, sort]);
 
   return (
     <div className="rounded-xl border border-line bg-panel/60">
@@ -109,6 +111,14 @@ export function Catalog({ items }: { items: Summary[] }) {
             </button>
           ))}
           <div className="ml-auto flex gap-2">
+            <Select value={std} onChange={(e) => setStd(e.target.value)} aria-label="C++ standard">
+              <option value="">Any standard</option>
+              {[11, 14, 17, 20].map((s) => (
+                <option key={s} value={s}>
+                  Up to C++{s}
+                </option>
+              ))}
+            </Select>
             <Select value={diff} onChange={(e) => setDiff(e.target.value)} aria-label="Difficulty">
               <option value="">Any difficulty</option>
               <option value="easy">Easy</option>
