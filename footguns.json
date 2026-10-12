@@ -7047,10 +7047,25 @@
       "https://en.cppreference.com/w/cpp/container/vector"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/168-hidden-dynamic-allocations",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "PERF",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/168-hidden-dynamic-allocations/01-main",
+          "files": {
+            "bad_cpp": "examples/168-hidden-dynamic-allocations/01-main/bad.cpp",
+            "good_cpp": "examples/168-hidden-dynamic-allocations/01-main/good.cpp",
+            "explanation": "examples/168-hidden-dynamic-allocations/01-main/explanation.md",
+            "compilers": "examples/168-hidden-dynamic-allocations/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -7067,10 +7082,25 @@
       "https://en.cppreference.com/w/cpp/utility/functional/move_only_function"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/169-std-function-type-erasure-overhead",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "PERF",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/169-std-function-type-erasure-overhead/01-main",
+          "files": {
+            "bad_cpp": "examples/169-std-function-type-erasure-overhead/01-main/bad.cpp",
+            "good_cpp": "examples/169-std-function-type-erasure-overhead/01-main/good.cpp",
+            "explanation": "examples/169-std-function-type-erasure-overhead/01-main/explanation.md",
+            "compilers": "examples/169-std-function-type-erasure-overhead/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -7087,10 +7117,25 @@
       "https://en.cppreference.com/w/cpp/language/final"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/170-virtual-dispatch-and-devirtualization",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "PERF",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/170-virtual-dispatch-and-devirtualization/01-main",
+          "files": {
+            "bad_cpp": "examples/170-virtual-dispatch-and-devirtualization/01-main/bad.cpp",
+            "good_cpp": "examples/170-virtual-dispatch-and-devirtualization/01-main/good.cpp",
+            "explanation": "examples/170-virtual-dispatch-and-devirtualization/01-main/explanation.md",
+            "compilers": "examples/170-virtual-dispatch-and-devirtualization/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -7107,10 +7152,25 @@
       "https://en.cppreference.com/w/cpp/atomic/atomic"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/171-std-shared-ptr-reference-count-contention",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "PERF",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/171-std-shared-ptr-reference-count-contention/01-main",
+          "files": {
+            "bad_cpp": "examples/171-std-shared-ptr-reference-count-contention/01-main/bad.cpp",
+            "good_cpp": "examples/171-std-shared-ptr-reference-count-contention/01-main/good.cpp",
+            "explanation": "examples/171-std-shared-ptr-reference-count-contention/01-main/explanation.md",
+            "compilers": "examples/171-std-shared-ptr-reference-count-contention/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -7128,10 +7188,25 @@
       "https://en.cppreference.com/w/cpp/container/vector"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/172-node-based-vs-contiguous-containers",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "PERF",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/172-node-based-vs-contiguous-containers/01-main",
+          "files": {
+            "bad_cpp": "examples/172-node-based-vs-contiguous-containers/01-main/bad.cpp",
+            "good_cpp": "examples/172-node-based-vs-contiguous-containers/01-main/good.cpp",
+            "explanation": "examples/172-node-based-vs-contiguous-containers/01-main/explanation.md",
+            "compilers": "examples/172-node-based-vs-contiguous-containers/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -7149,10 +7224,25 @@
       "https://en.cppreference.com/w/cpp/container/unordered_map/reserve"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/173-std-unordered-map-performance-assumptions",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "PERF",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/173-std-unordered-map-performance-assumptions/01-main",
+          "files": {
+            "bad_cpp": "examples/173-std-unordered-map-performance-assumptions/01-main/bad.cpp",
+            "good_cpp": "examples/173-std-unordered-map-performance-assumptions/01-main/good.cpp",
+            "explanation": "examples/173-std-unordered-map-performance-assumptions/01-main/explanation.md",
+            "compilers": "examples/173-std-unordered-map-performance-assumptions/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -7170,10 +7260,25 @@
       "https://en.cppreference.com/w/cpp/memory/monotonic_buffer_resource"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/174-custom-allocator-and-std-pmr-lifetime-errors",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/174-custom-allocator-and-std-pmr-lifetime-errors/01-main",
+          "files": {
+            "bad_cpp": "examples/174-custom-allocator-and-std-pmr-lifetime-errors/01-main/bad.cpp",
+            "good_cpp": "examples/174-custom-allocator-and-std-pmr-lifetime-errors/01-main/good.cpp",
+            "explanation": "examples/174-custom-allocator-and-std-pmr-lifetime-errors/01-main/explanation.md",
+            "compilers": "examples/174-custom-allocator-and-std-pmr-lifetime-errors/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -7182,7 +7287,7 @@
     "category": "Low-latency and HFT-specific C++ footguns",
     "title": "`memcpy` vs. element-wise copying",
     "description": "For suitable types, copying raw bytes can be a powerful optimization, but it depends on valid object lifetime, representation, and aliasing assumptions.",
-    "classification": "PERF",
+    "classification": "UB",
     "difficulty": "medium",
     "cpp_standard": 11,
     "cppreference_urls": [
@@ -7191,10 +7296,25 @@
       "https://en.cppreference.com/w/cpp/named_req/TriviallyCopyable"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/175-memcpy-vs-element-wise-copying",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/175-memcpy-vs-element-wise-copying/01-main",
+          "files": {
+            "bad_cpp": "examples/175-memcpy-vs-element-wise-copying/01-main/bad.cpp",
+            "good_cpp": "examples/175-memcpy-vs-element-wise-copying/01-main/good.cpp",
+            "explanation": "examples/175-memcpy-vs-element-wise-copying/01-main/explanation.md",
+            "compilers": "examples/175-memcpy-vs-element-wise-copying/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -7211,10 +7331,39 @@
       "https://en.cppreference.com/w/cpp/language/auto"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/176-hidden-copies-in-range-based-loops",
+      "readme": "examples/176-hidden-copies-in-range-based-loops/README.md",
+      "cases": [
+        {
+          "name": "copy-per-element",
+          "classification": "PERF",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/176-hidden-copies-in-range-based-loops/01-copy-per-element",
+          "files": {
+            "bad_cpp": "examples/176-hidden-copies-in-range-based-loops/01-copy-per-element/bad.cpp",
+            "good_cpp": "examples/176-hidden-copies-in-range-based-loops/01-copy-per-element/good.cpp",
+            "explanation": "examples/176-hidden-copies-in-range-based-loops/01-copy-per-element/explanation.md",
+            "compilers": "examples/176-hidden-copies-in-range-based-loops/01-copy-per-element/compilers.md"
+          }
+        },
+        {
+          "name": "vector-bool-proxy",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/176-hidden-copies-in-range-based-loops/02-vector-bool-proxy",
+          "files": {
+            "bad_cpp": "examples/176-hidden-copies-in-range-based-loops/02-vector-bool-proxy/bad.cpp",
+            "good_cpp": "examples/176-hidden-copies-in-range-based-loops/02-vector-bool-proxy/good.cpp",
+            "explanation": "examples/176-hidden-copies-in-range-based-loops/02-vector-bool-proxy/explanation.md",
+            "compilers": "examples/176-hidden-copies-in-range-based-loops/02-vector-bool-proxy/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -7223,7 +7372,7 @@
     "category": "Low-latency and HFT-specific C++ footguns",
     "title": "Clock semantics in latency measurement",
     "description": "`system_clock`, `steady_clock`, and `high_resolution_clock` have different guarantees; the highest-resolution clock is not necessarily steady.",
-    "classification": "PERF",
+    "classification": "LOGIC",
     "difficulty": "medium",
     "cpp_standard": 11,
     "cppreference_urls": [
@@ -7232,10 +7381,25 @@
       "https://en.cppreference.com/w/cpp/chrono/high_resolution_clock"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/177-clock-semantics-in-latency-measurement",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/177-clock-semantics-in-latency-measurement/01-main",
+          "files": {
+            "bad_cpp": "examples/177-clock-semantics-in-latency-measurement/01-main/bad.cpp",
+            "good_cpp": "examples/177-clock-semantics-in-latency-measurement/01-main/good.cpp",
+            "explanation": "examples/177-clock-semantics-in-latency-measurement/01-main/explanation.md",
+            "compilers": "examples/177-clock-semantics-in-latency-measurement/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -7253,10 +7417,25 @@
       "https://en.cppreference.com/w/cpp/io/manip/endl"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/178-i-o-buffering-and-unexpected-flushing",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "PERF",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/178-i-o-buffering-and-unexpected-flushing/01-main",
+          "files": {
+            "bad_cpp": "examples/178-i-o-buffering-and-unexpected-flushing/01-main/bad.cpp",
+            "good_cpp": "examples/178-i-o-buffering-and-unexpected-flushing/01-main/good.cpp",
+            "explanation": "examples/178-i-o-buffering-and-unexpected-flushing/01-main/explanation.md",
+            "compilers": "examples/178-i-o-buffering-and-unexpected-flushing/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -7265,7 +7444,7 @@
     "category": "Low-latency and HFT-specific C++ footguns",
     "title": "Compile-time vs. runtime computation",
     "description": "`constexpr` does not guarantee that every call is evaluated at compile time, while `consteval` imposes stronger constraints.",
-    "classification": "PERF",
+    "classification": "LOGIC",
     "difficulty": "medium",
     "cpp_standard": 20,
     "cppreference_urls": [
@@ -7273,10 +7452,25 @@
       "https://en.cppreference.com/w/cpp/language/consteval"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/179-compile-time-vs-runtime-computation",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/179-compile-time-vs-runtime-computation/01-main",
+          "files": {
+            "bad_cpp": "examples/179-compile-time-vs-runtime-computation/01-main/bad.cpp",
+            "good_cpp": "examples/179-compile-time-vs-runtime-computation/01-main/good.cpp",
+            "explanation": "examples/179-compile-time-vs-runtime-computation/01-main/explanation.md",
+            "compilers": "examples/179-compile-time-vs-runtime-computation/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -7293,10 +7487,25 @@
       "https://en.cppreference.com/w/cpp/types/numeric_limits/epsilon"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/180-floating-point-prices-and-exact-comparisons",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/180-floating-point-prices-and-exact-comparisons/01-main",
+          "files": {
+            "bad_cpp": "examples/180-floating-point-prices-and-exact-comparisons/01-main/bad.cpp",
+            "good_cpp": "examples/180-floating-point-prices-and-exact-comparisons/01-main/good.cpp",
+            "explanation": "examples/180-floating-point-prices-and-exact-comparisons/01-main/explanation.md",
+            "compilers": "examples/180-floating-point-prices-and-exact-comparisons/01-main/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -7313,10 +7522,39 @@
       "https://en.cppreference.com/w/cpp/language/as_if"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
-      "readme": null,
-      "cases": []
+      "status": "done",
+      "dir": "examples/181-compiler-optimization-exploiting-undefined-behavior",
+      "readme": "examples/181-compiler-optimization-exploiting-undefined-behavior/README.md",
+      "cases": [
+        {
+          "name": "signed-overflow",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:undefined"
+          ],
+          "dir": "examples/181-compiler-optimization-exploiting-undefined-behavior/01-signed-overflow",
+          "files": {
+            "bad_cpp": "examples/181-compiler-optimization-exploiting-undefined-behavior/01-signed-overflow/bad.cpp",
+            "good_cpp": "examples/181-compiler-optimization-exploiting-undefined-behavior/01-signed-overflow/good.cpp",
+            "explanation": "examples/181-compiler-optimization-exploiting-undefined-behavior/01-signed-overflow/explanation.md",
+            "compilers": "examples/181-compiler-optimization-exploiting-undefined-behavior/01-signed-overflow/compilers.md"
+          }
+        },
+        {
+          "name": "null-check-after-deref",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:undefined"
+          ],
+          "dir": "examples/181-compiler-optimization-exploiting-undefined-behavior/02-null-check-after-deref",
+          "files": {
+            "bad_cpp": "examples/181-compiler-optimization-exploiting-undefined-behavior/02-null-check-after-deref/bad.cpp",
+            "good_cpp": "examples/181-compiler-optimization-exploiting-undefined-behavior/02-null-check-after-deref/good.cpp",
+            "explanation": "examples/181-compiler-optimization-exploiting-undefined-behavior/02-null-check-after-deref/explanation.md",
+            "compilers": "examples/181-compiler-optimization-exploiting-undefined-behavior/02-null-check-after-deref/compilers.md"
+          }
+        }
+      ]
     }
   },
   {
@@ -7333,10 +7571,26 @@
       "https://en.cppreference.com/w/cpp/language/cv"
     ],
     "examples": {
-      "status": "todo",
-      "dir": null,
+      "status": "done",
+      "dir": "examples/182-microbenchmark-distortions",
       "readme": null,
-      "cases": []
+      "cases": [
+        {
+          "name": "main",
+          "classification": "PERF",
+          "detection": [
+            "warning:g++:-Wunused-but-set-variable",
+            "warning:clang++:-Wunused-but-set-variable"
+          ],
+          "dir": "examples/182-microbenchmark-distortions/01-main",
+          "files": {
+            "bad_cpp": "examples/182-microbenchmark-distortions/01-main/bad.cpp",
+            "good_cpp": "examples/182-microbenchmark-distortions/01-main/good.cpp",
+            "explanation": "examples/182-microbenchmark-distortions/01-main/explanation.md",
+            "compilers": "examples/182-microbenchmark-distortions/01-main/compilers.md"
+          }
+        }
+      ]
     }
   }
 ]
