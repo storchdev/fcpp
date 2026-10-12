@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import { Check, ChevronDown, FileCode2, ShieldAlert, Terminal, X } from "lucide-react";
+import { Check, ChevronDown, Copy, FileCode2, ShieldAlert, Terminal, X } from "lucide-react";
 
 export type CaseData = {
   name: string;
@@ -10,10 +10,31 @@ export type CaseData = {
   chips: string[];
   explanation: { why: ReactNode; fix: ReactNode; rust: ReactNode };
   code: { bad?: ReactNode; good?: ReactNode; rust?: ReactNode };
+  raw: { bad?: string; good?: string; rust?: string };
   compilers: ReactNode;
 };
 
-function Panel({ file, tone, children, className = "" }: { file: string; tone: "bad" | "good" | "rust"; children: ReactNode; className?: string }) {
+function CopyButton({ text }: { text: string }) {
+  const [done, setDone] = useState(false);
+  return (
+    <button
+      aria-label="Copy code"
+      title="Copy code"
+      onClick={async () => {
+        try {
+          await navigator.clipboard.writeText(text);
+          setDone(true);
+          setTimeout(() => setDone(false), 1500);
+        } catch {}
+      }}
+      className="ml-auto flex h-6 w-6 items-center justify-center rounded text-muted transition-colors hover:bg-white/[0.07] hover:text-zinc-200 active:scale-90"
+    >
+      {done ? <Check className="h-3.5 w-3.5 text-emerald-300" /> : <Copy className="h-3.5 w-3.5" />}
+    </button>
+  );
+}
+
+function Panel({ file, tone, raw, children, className = "" }: { file: string; tone: "bad" | "good" | "rust"; raw?: string; children: ReactNode; className?: string }) {
   const Icon = tone === "bad" ? X : tone === "good" ? Check : FileCode2;
   const color = tone === "bad" ? "text-red-300" : tone === "good" ? "text-emerald-300" : "text-orange-300";
   return (
@@ -21,6 +42,7 @@ function Panel({ file, tone, children, className = "" }: { file: string; tone: "
       <div className="flex items-center gap-2 border-b border-line px-4 py-2 font-mono text-[12px] text-zinc-400">
         <Icon className={`h-3.5 w-3.5 ${color}`} />
         {file}
+        {raw && <CopyButton text={raw} />}
       </div>
       {children}
     </div>
@@ -60,18 +82,18 @@ export function CaseView({ cases, overview }: { cases: CaseData[]; overview?: Re
 
           <div className="space-y-4">
             <div className="grid items-start gap-4 xl:grid-cols-2 xl:gap-y-3">
-              {c.code.bad && <Panel file="bad.cpp" tone="bad" className="order-1 h-full xl:order-1">{c.code.bad}</Panel>}
+              {c.code.bad && <Panel file="bad.cpp" tone="bad" raw={c.raw.bad} className="order-1 h-full xl:order-1">{c.code.bad}</Panel>}
               {c.explanation.why && (
                 <Fold className="order-2 xl:order-3" icon={<ShieldAlert className="h-4 w-4 text-red-300" />} title="Why the bad code is wrong">{c.explanation.why}</Fold>
               )}
-              {c.code.good && <Panel file="good.cpp" tone="good" className="order-3 h-full xl:order-2">{c.code.good}</Panel>}
+              {c.code.good && <Panel file="good.cpp" tone="good" raw={c.raw.good} className="order-3 h-full xl:order-2">{c.code.good}</Panel>}
               {c.explanation.fix && (
                 <Fold className="order-4 xl:order-4" icon={<Check className="h-4 w-4 text-emerald-300" />} title="The fix">{c.explanation.fix}</Fold>
               )}
             </div>
             {c.code.rust && (
               <div className="space-y-3">
-                <Panel file="good.rs" tone="rust">{c.code.rust}</Panel>
+                <Panel file="good.rs" tone="rust" raw={c.raw.rust}>{c.code.rust}</Panel>
                 <Fold icon={<FileCode2 className="h-4 w-4 text-orange-300" />} title="Rust">{c.explanation.rust}</Fold>
               </div>
             )}

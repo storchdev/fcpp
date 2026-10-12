@@ -55,6 +55,7 @@ export default async function EntryPage({ params }: { params: Promise<{ id: stri
         good: c.goodCpp && <CodeBlock code={c.goodCpp} lang="cpp" />,
         rust: c.goodRust && <CodeBlock code={c.goodRust} lang="rust" />,
       },
+      raw: { bad: c.badCpp, good: c.goodCpp, rust: c.goodRust },
       compilers: <Markdown>{parseCompilers(c.compilers)}</Markdown>,
     };
   });
