@@ -7592,5 +7592,290 @@
         }
       ]
     }
+  },
+  {
+    "id": 183,
+    "category_number": 15,
+    "category": "Additional C++ language and library footguns",
+    "title": "Macro name collisions",
+    "description": "A generic macro from a header can rewrite an unrelated identifier, even when that identifier is namespace-qualified.",
+    "classification": "IF",
+    "difficulty": "easy",
+    "cpp_standard": 98,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/preprocessor/replace"
+    ],
+    "examples": {
+      "status": "done",
+      "dir": "examples/183-macro-name-collisions",
+      "readme": null,
+      "cases": [
+        {
+          "name": "main",
+          "classification": "IF",
+          "detection": [
+            "error"
+          ],
+          "dir": "examples/183-macro-name-collisions/01-main",
+          "files": {
+            "bad_cpp": "examples/183-macro-name-collisions/01-main/bad.cpp",
+            "good_cpp": "examples/183-macro-name-collisions/01-main/good.cpp",
+            "explanation": "examples/183-macro-name-collisions/01-main/explanation.md",
+            "compilers": "examples/183-macro-name-collisions/01-main/compilers.md",
+            "extra": [
+              "examples/183-macro-name-collisions/01-main/legacy_limits.h"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": 184,
+    "category_number": 15,
+    "category": "Additional C++ language and library footguns",
+    "title": "Nested namespace lookup can change a call",
+    "description": "Adding a same-named declaration to an inner namespace can silently change the target of an unqualified call.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 98,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/unqualified_lookup"
+    ],
+    "examples": {
+      "status": "done",
+      "dir": "examples/184-nested-namespace-lookup",
+      "readme": null,
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/184-nested-namespace-lookup/01-main",
+          "files": {
+            "bad_cpp": "examples/184-nested-namespace-lookup/01-main/bad.cpp",
+            "good_cpp": "examples/184-nested-namespace-lookup/01-main/good.cpp",
+            "explanation": "examples/184-nested-namespace-lookup/01-main/explanation.md",
+            "compilers": "examples/184-nested-namespace-lookup/01-main/compilers.md"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": 185,
+    "category_number": 15,
+    "category": "Additional C++ language and library footguns",
+    "title": "Casting away const from an originally const object",
+    "description": "A const_cast can remove cv-qualification from an access path, but modifying an object that was originally const is undefined behavior.",
+    "classification": "UB",
+    "difficulty": "medium",
+    "cpp_standard": 98,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/const_cast"
+    ],
+    "examples": {
+      "status": "done",
+      "dir": "examples/185-casting-away-original-const",
+      "readme": null,
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UB",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/185-casting-away-original-const/01-main",
+          "files": {
+            "bad_cpp": "examples/185-casting-away-original-const/01-main/bad.cpp",
+            "good_cpp": "examples/185-casting-away-original-const/01-main/good.cpp",
+            "explanation": "examples/185-casting-away-original-const/01-main/explanation.md",
+            "compilers": "examples/185-casting-away-original-const/01-main/compilers.md",
+            "good_rust": "examples/185-casting-away-original-const/01-main/good.rs"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": 186,
+    "category_number": 15,
+    "category": "Additional C++ language and library footguns",
+    "title": "Unchecked vector indexing",
+    "description": "std::vector::operator[] does not provide a required bounds check; an index at size() is outside the vector.",
+    "classification": "UB",
+    "difficulty": "easy",
+    "cpp_standard": 98,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/container/vector/operator_at",
+      "https://en.cppreference.com/w/cpp/container/vector/at"
+    ],
+    "examples": {
+      "status": "done",
+      "dir": "examples/186-unchecked-vector-indexing",
+      "readme": null,
+      "cases": [
+        {
+          "name": "main",
+          "classification": "UB",
+          "detection": [
+            "sanitizer:address"
+          ],
+          "dir": "examples/186-unchecked-vector-indexing/01-main",
+          "files": {
+            "bad_cpp": "examples/186-unchecked-vector-indexing/01-main/bad.cpp",
+            "good_cpp": "examples/186-unchecked-vector-indexing/01-main/good.cpp",
+            "explanation": "examples/186-unchecked-vector-indexing/01-main/explanation.md",
+            "compilers": "examples/186-unchecked-vector-indexing/01-main/compilers.md",
+            "good_rust": "examples/186-unchecked-vector-indexing/01-main/good.rs"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": 187,
+    "category_number": 15,
+    "category": "Additional C++ language and library footguns",
+    "title": "Ignored error return values",
+    "description": "Discarding a failure result lets a caller report success after an operation fails; [[nodiscard]] helps surface accidental discards.",
+    "classification": "LOGIC",
+    "difficulty": "easy",
+    "cpp_standard": 17,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/attributes/nodiscard"
+    ],
+    "examples": {
+      "status": "done",
+      "dir": "examples/187-ignored-error-return-values",
+      "readme": null,
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/187-ignored-error-return-values/01-main",
+          "files": {
+            "bad_cpp": "examples/187-ignored-error-return-values/01-main/bad.cpp",
+            "good_cpp": "examples/187-ignored-error-return-values/01-main/good.cpp",
+            "explanation": "examples/187-ignored-error-return-values/01-main/explanation.md",
+            "compilers": "examples/187-ignored-error-return-values/01-main/compilers.md",
+            "good_rust": "examples/187-ignored-error-return-values/01-main/good.rs"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": 188,
+    "category_number": 15,
+    "category": "Additional C++ language and library footguns",
+    "title": "Accidental switch fallthrough",
+    "description": "A missing break allows one switch case to execute the following case as well.",
+    "classification": "LOGIC",
+    "difficulty": "easy",
+    "cpp_standard": 98,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/switch",
+      "https://en.cppreference.com/w/cpp/language/attributes/fallthrough"
+    ],
+    "examples": {
+      "status": "done",
+      "dir": "examples/188-accidental-switch-fallthrough",
+      "readme": null,
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "warning:g++:-Wimplicit-fallthrough",
+            "warning:clang++:-Wimplicit-fallthrough"
+          ],
+          "dir": "examples/188-accidental-switch-fallthrough/01-main",
+          "files": {
+            "bad_cpp": "examples/188-accidental-switch-fallthrough/01-main/bad.cpp",
+            "good_cpp": "examples/188-accidental-switch-fallthrough/01-main/good.cpp",
+            "explanation": "examples/188-accidental-switch-fallthrough/01-main/explanation.md",
+            "compilers": "examples/188-accidental-switch-fallthrough/01-main/compilers.md",
+            "good_rust": "examples/188-accidental-switch-fallthrough/01-main/good.rs"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": 189,
+    "category_number": 15,
+    "category": "Additional C++ language and library footguns",
+    "title": "Virtual signature mismatch",
+    "description": "A derived member with a different parameter type hides a base virtual function instead of overriding it; override checks the intent.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/language/virtual",
+      "https://en.cppreference.com/w/cpp/language/override"
+    ],
+    "examples": {
+      "status": "done",
+      "dir": "examples/189-virtual-signature-mismatch",
+      "readme": null,
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "warning:g++:-Woverloaded-virtual",
+            "warning:clang++:-Woverloaded-virtual"
+          ],
+          "dir": "examples/189-virtual-signature-mismatch/01-main",
+          "files": {
+            "bad_cpp": "examples/189-virtual-signature-mismatch/01-main/bad.cpp",
+            "good_cpp": "examples/189-virtual-signature-mismatch/01-main/good.cpp",
+            "explanation": "examples/189-virtual-signature-mismatch/01-main/explanation.md",
+            "compilers": "examples/189-virtual-signature-mismatch/01-main/compilers.md"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": 190,
+    "category_number": 15,
+    "category": "Additional C++ language and library footguns",
+    "title": "Overloaded address-of operator",
+    "description": "An overloaded unary operator& may return something other than the object address; std::addressof bypasses it.",
+    "classification": "LOGIC",
+    "difficulty": "medium",
+    "cpp_standard": 11,
+    "cppreference_urls": [
+      "https://en.cppreference.com/w/cpp/memory/addressof",
+      "https://en.cppreference.com/w/cpp/language/operators"
+    ],
+    "examples": {
+      "status": "done",
+      "dir": "examples/190-overloaded-address-of-operator",
+      "readme": null,
+      "cases": [
+        {
+          "name": "main",
+          "classification": "LOGIC",
+          "detection": [
+            "none"
+          ],
+          "dir": "examples/190-overloaded-address-of-operator/01-main",
+          "files": {
+            "bad_cpp": "examples/190-overloaded-address-of-operator/01-main/bad.cpp",
+            "good_cpp": "examples/190-overloaded-address-of-operator/01-main/good.cpp",
+            "explanation": "examples/190-overloaded-address-of-operator/01-main/explanation.md",
+            "compilers": "examples/190-overloaded-address-of-operator/01-main/compilers.md"
+          }
+        }
+      ]
+    }
   }
 ]
